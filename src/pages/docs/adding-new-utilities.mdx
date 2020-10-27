@@ -1,19 +1,19 @@
 ---
 title: Adding New Utilities
-description: Extending Tailwind with your own custom utility classes.
+description: 独自のカスタムユーティリティクラスを使用してTailwindを拡張する。
 ---
 
 import { TipGood, TipBad } from '@/components/Tip'
 
-Although Tailwind provides a pretty comprehensive set of utility classes out of the box, you may run into situations where you need to add a few of your own.
+Tailwindはすぐに使用できる非常に包括的なユーティリティクラスのセットを提供しますが、独自のユーティリティクラスをいくつか追加する必要がある場合があります。
 
-Deciding on the best way to extend a framework can be paralyzing, so here are some best practices to help you add your own utilities in the most idiomatic way possible.
+フレームワークを拡張するための最良の方法を決定することは難しく、頓挫する可能性があります。可能な限り最も慣用的な方法で独自のユーティリティを追加するのに役立ついくつかのベストプラクティスを以下に示します。
 
 ---
 
-## Using CSS
+## CSSを使う
 
-The easiest way to add your own utilities to Tailwind is to simply add them to your CSS.
+独自のユーティリティをTailwindに追加する最も簡単な方法は、それらをCSSに追加することです。
 
 ```css
 @tailwind base;
@@ -33,14 +33,14 @@ The easiest way to add your own utilities to Tailwind is to simply add them to y
 }
 ```
 
-By using the `@layer` directive, Tailwind will automatically move those styles to the same place as `@tailwind utilities` to avoid unintended specificity issues.
+`@layer`ディレクティブを使用することにより、Tailwindはそれらのスタイルを`@tailwind utilities`と同じ場所に自動的に移動して、意図しない特異性の問題を回避します。
 
-Using the `@layer` directive will also instruct Tailwind to consider those styles for purging when purging the `utilities` layer. Read our [Controlling File Size](/docs/controlling-file-size) documentation for more details.
+`@layer`ディレクティブを使用すると、Tailwindは、`utilities`レイヤーをパージするときに、これらのスタイルをパージすることを検討するように指示されます。 詳細については、[Controlling File Size](/docs/controlling-file-size)のドキュメントをお読みください。 
 
-### Generating responsive variants
+### レスポンシブバリアントの生成
 
-If you'd like to create [responsive variants](/docs/responsive-design) of your own utilities based on the breakpoints defined in your `tailwind.config.js` file, wrap your utilities in the `@responsive` directive:
-
+`tailwind.config.js`ファイルで定義されたブレークポイントに基づいて独自ユーティリティの[responsive variants](/docs/responsive-design)を作成する場合は、ユーティリティを`@response`ディレクティブでラップします。
+ 
 ```css
 @tailwind base;
 @tailwind components;
@@ -61,18 +61,18 @@ If you'd like to create [responsive variants](/docs/responsive-design) of your o
 }
 ```
 
-Tailwind will automatically generate prefixed versions of each custom utility that you can use to conditionally apply those styles at different breakpoints:
+Tailwindは、各カスタムユーティリティのプレフィックス付きバージョンを自動的に生成します。これを使用して、さまざまなブレークポイントでこれらのスタイルを条件付きで適用できます。
 
 ```html
 <!-- Use `scroll-snap-type: none` by default, then use `scroll-snap-type: x` on medium screens and up -->
 <div class="scroll-snap-none md:scroll-snap-x"></div>
 ```
 
-Learn more about responsive utilities in the [responsive design documentation](/docs/responsive-design).
+レスポンシブユーティリティの詳細については、[responsive design documentation](/docs/responsive-design)をお読みください。
 
-### Generating pseudo-class variants
+### 疑似クラスバリアントの生成
 
-If you'd like to create [pseudo-class variants](/docs/pseudo-class-variants) of your own utilities, wrap your utilities in the `@variants` directive:
+独自のユーティリティの[pseudo-class variants](/docs/pseudo-class-variants)を作成する場合は、ユーティリティを `@variants`ディレクティブでラップします。
 
 ```css
 @tailwind base;
@@ -91,16 +91,16 @@ If you'd like to create [pseudo-class variants](/docs/pseudo-class-variants) of 
 }
 ```
 
-Tailwind will automatically generate prefixed versions of each custom utility that you can use to conditionally apply those styles at different states:
+Tailwindは、さまざまな状態でこれらのスタイルを条件付きで適用するために使用できる、各カスタムユーティリティのプレフィックス付きバージョンを自動的に生成します。
 
 ```html
 <div class="filter-grayscale hover:filter-none"></div>
 ```
 
-Pseudo-class variants are generated in the same order you list them in the `@variants` directive, so if you'd like one pseudo-class to take precedence over another, make sure you list that one last:
+疑似クラスのバリアントは、 `@variants`ディレクティブにリストするのと同じ順序で生成されるため、ある疑似クラスを別の疑似クラスよりも優先させたい場合は、必ず最後にリストしてください。
 
 ```css
-/* Focus will take precedence over hover */
+/* フォーカスはホバーよりも優先されます */
 @variants hover, focus {
   .filter-grayscale {
     filter: grayscale(100%);
@@ -108,7 +108,7 @@ Pseudo-class variants are generated in the same order you list them in the `@var
   /* ... */
 }
 
-/* Hover will take precedence over focus */
+/* ホバーはフォーカスよりも優先されます */
 @variants focus, hover {
   .filter-grayscale {
     filter: grayscale(100%);
@@ -116,8 +116,7 @@ Pseudo-class variants are generated in the same order you list them in the `@var
   /* ... */
 }
 ```
-
-If you'd like to generate both responsive _and_ pseudo-class variants of your custom utilities, wrap `@variants` with `@responsive`:
+カスタムユーティリティのレスポンシブと疑似クラスバリアントの両方を生成する場合は、 `@variants`を`@responsive`でラップします。
 
 ```css
 @tailwind base;
@@ -138,13 +137,13 @@ If you'd like to generate both responsive _and_ pseudo-class variants of your cu
 }
 ```
 
-Learn more about pseudo-class variants utilities in the [pseudo-class variant documentation](/docs/pseudo-class-variants).
+疑似クラスバリアントユーティリティの詳細については[pseudo-class variant documentation](/docs/pseudo-class-variants)をお読みください。
 
 ---
 
-## Using a plugin
+## プラグインを使う
 
-In addition to adding new utility classes directly in your CSS files, you can also add utilities to Tailwind by writing your own plugin:
+CSSファイルに直接新しいユーティリティクラスを追加することに加えて、独自のプラグインを作成してTailwindにユーティリティを追加することもできます。
 
 ```js
 // tailwind.config.js
@@ -169,6 +168,6 @@ module.exports = {
 
 ```
 
-This can be a good choice if you want to publish your custom utilities as a library or make it easier to share them across multiple projects.
+これは、カスタムユーティリティをライブラリとして公開したり、複数のプロジェクト間で簡単に共有したりする場合に適しています。
 
-Learn more in the [utility plugin documentation](/docs/plugins#adding-utilities).
+詳細については[utility plugin documentation](/docs/plugins#adding-utilities)をお読みください。
