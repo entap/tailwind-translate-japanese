@@ -1,19 +1,21 @@
 ---
 title: Adding Base Styles
-description: Best practices for adding your own global base styles on top of Tailwind.
+description: Tailwindに独自のグローバルベーススタイルを追加するためのベストプラクティス。
 ---
 
-Base (or global) styles are the styles at the beginning of a stylesheet that set useful defaults for basic HTML elements like `<a>` tags, headings, etc. or apply opinionated resets like the popular [box-sizing reset](https://www.paulirish.com/2012/box-sizing-border-box-ftw/).
+ベース（またはグローバル）スタイルは`<a>`タグ、見出しなどの基本的なHTML要素に役立つデフォルトを設定するスタイルシートの先頭にあるスタイルです。
+または、独善的なCSSリセットを適用すること。例えば[box-sizing reset](https://www.paulirish.com/2012/box-sizing-border-box-ftw/)は人気あるCSSリセットです。
 
-Tailwind includes a useful set of base styles out of the box that we call [Preflight](/docs/preflight), which is really just [normalize.css](https://github.com/necolas/normalize.css/) plus a thin layer of additional more opinionated styles.
+Tailwindには、すぐに使える便利な基本スタイルのセット（[Preflight](/docs/preflight)と呼びます）が含まれています。
+これは、単なる[normalize.css](https://github.com/necolas/normalize.css/)により独善的なスタイルの薄いレイヤーを加えたものです。
 
-Preflight is a great starting point for most projects, but if you'd ever like to add your own additional base styles, here are some recommendations for doing it idiomatically.
+Preflightはほとんどのプロジェクトの出発点として最適ですが、独自のベーススタイルを追加したい場合のために、慣例的に行うための推奨事項をいくつか示します。
 
 ---
 
-## Using classes in your HTML
+## HTMLでクラスを使う
 
-If you just want to apply some global styling to the `html` or `body` elements, consider just adding existing classes to those elements in your HTML instead of writing new CSS:
+`html`または` body`要素にグローバルスタイルを適用したいだけの場合は、新しいCSSを作成する代わりに、HTMLのこれらの要素に既存のクラスを追加することを検討してください。
 
 ```html
 <!doctype html>
@@ -27,9 +29,9 @@ If you just want to apply some global styling to the `html` or `body` elements, 
 
 ---
 
-## Using CSS
+## CSSを使う
 
-If you want to apply some base styles to specific elements, the easiest way is to simply add them in your CSS.
+特定の要素にいくつかのベーススタイルを適用する場合、最も簡単な方法は、CSSにそれらを追加することです。
 
 ```css
 @tailwind base;
@@ -45,16 +47,16 @@ If you want to apply some base styles to specific elements, the easiest way is t
   }
 }
 ```
+`@ layer`ディレクティブを使用することにより、Tailwindはそれらのスタイルを自動的に` @tailwind base`と同じ場所に移動し、意図しない特異性の問題を回避します。
 
-By using the `@layer` directive, Tailwind will automatically move those styles to the same place as `@tailwind base` to avoid unintended specificity issues.
+`@ layer`ディレクティブを使用すると、` base`レイヤーをパージするときにそれらのスタイルをパージすることを考慮するようにTailwindに指示します。 詳細については、[Controlling File Size](/docs/controlling-file-size)のドキュメントをお読みください。
 
-Using the `@layer` directive will also instruct Tailwind to consider those styles for purging when purging the `base` layer. Read our [Controlling File Size](/docs/controlling-file-size) documentation for more details.
+[@apply](/docs/functions-and-directives#apply) または[theme()](/docs/functions-and-directives#theme) を使用してこれらのスタイルを定義し、
+新しいマジックナンバーの導入、または誤ってデザインシステムから逸脱することを回避することは素晴らしいアイディアです。 
 
-It's a good idea to use [@apply](/docs/functions-and-directives#apply) or [theme()](/docs/functions-and-directives#theme) to define these styles to avoid introducing new magic values or accidentally deviating from your design system.
+### @font-faceルール
 
-### @font-face rules
-
-You can use the same approach to add your `@font-face` rules for any custom fonts you are using:
+同じアプローチを使用して、使用しているカスタムフォントに `@ font-face`ルールを追加できます。
 
 ```css
 @tailwind base;
@@ -77,10 +79,9 @@ You can use the same approach to add your `@font-face` rules for any custom font
 
 ---
 
-## Using a plugin
+## プラグインを使う
 
-You can also add base styles by [writing a plugin](/docs/plugins#adding-base-styles) and using the `addBase` function:
-
+[writing a plugin](/docs/plugins#adding-base-styles) と「addBase」関数を使用して、ベーススタイルを追加することもできます。
 ```js
 // tailwind.config.js
 const plugin = require('tailwindcss/plugin')
@@ -98,13 +99,13 @@ module.exports = {
 }
 ```
 
-Any styles you added using `addBase` will automatically be included in your `@tailwind base` styles.
+`addBase`を使用して追加したスタイルは、自動的に `@tailwind base`スタイルに含まれます。
 
-### When to use a plugin
+### プラグインをいつ使うか
 
-In general, it's simpler to add base styles to your project in CSS than it is to write a plugin.
+一般に、プラグインを作成するよりも、CSSでプロジェクトにベーススタイルを追加する方が簡単です。
 
-You should prefer a plugin if:
+次の場合はプラグインをお勧めします:
 
-- You want to publish your base styles publicly and make them easy for other users to install.
-- You want to re-use your base styles across multiple projects in your company and prefer sharing JS dependencies instead of CSS dependencies.
+- ベーススタイルを一般に公開し、他のユーザーが簡単にインストールできるようにしたい場合。
+- 社内の複数のプロジェクトでベーススタイルを再利用し、CSSの依存関係ではなくJSの依存関係を共有したい場合。
