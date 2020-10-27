@@ -1,6 +1,6 @@
 ---
 title: Utility-First
-description: Building complex components from a constrained set of primitive utilities. テスト
+description: 制約された単純なユーティリティのセットから複雑なコンポーネントを構築します。
 ---
 
 import { Heading } from '@/components/Heading'
@@ -9,9 +9,9 @@ import { CodeSample } from '@/components/CodeSample'
 
 ## <Heading hidden>Overview</Heading>
 
-Traditionally, whenever you need to style something on the web, you write CSS.
+従来のやり方だと、ウェブ上で何かをデザインする必要があるときはいつもCSSを書きますよね。
 
-<TipBad>Using a traditional approach where custom designs require custom CSS</TipBad>
+<TipBad>従来のやり方だと、デザインをカスタムするにはカスタムされたCSSが必要</TipBad>
 
 ```html
 <template preview class="bg-gray-200 px-8 py-12">
@@ -69,10 +69,9 @@ Traditionally, whenever you need to style something on the web, you write CSS.
   }
 </style>
 ```
+Tailwindなら、既存のクラスを直接HTMLに適用することで要素のスタイルを設定できます。
 
-With Tailwind, you style elements by applying pre-existing classes directly in your HTML.
-
-<TipGood>Using utility classes to build custom designs without writing CSS</TipGood>
+<TipGood>ユーティリティクラスを使用して、CSSを記述せずにカスタムデザインを構築する</TipGood>
 
 ```html
 <template preview class="bg-gray-200 px-8 py-12">
@@ -98,40 +97,46 @@ With Tailwind, you style elements by applying pre-existing classes directly in y
 </div>
 ```
 
-In the example above, we've used:
+上記の例で私達は：
 
-- Tailwind's [flexbox](/docs/display#flex) and [padding](/docs/padding) utilities (`flex`, `flex-shrink-0`, and `p-6`) to control the overall card layout
-- The [max-width](/docs/max-width) and [margin](/docs/margin) utilities (`max-w-sm` and `mx-auto`) to constrain the card width and center it horizontally
-- The [background color](/docs/background-color), [border radius](/docs/border-radius), and [box-shadow](/docs/box-shadow) utilities (`bg-white`, `rounded-lg`, and `shadow-xl`) to style the card's appearance
-- The [width](/docs/width) and [height](/docs/height) utilities (`w-12` and `h-12`) to size the logo image
-- The [margin](/docs/margin) and [padding](/docs/padding) utilities (`ml-6` and `pt-1`) to position the card text
-- The [font size](/docs/font-size), [text color](/docs/text-color), and [line-height](/docs/line-height) utilities (`text-xl`, `text-gray-900`, `leading-tight`, etc.) to style the card text
+- 全体的なカードレイアウトをコントロールするために[flexbox](/docs/display#flex)と[padding](/docs/padding) utilities (`flex`, `flex-shrink-0`, and `p-6`)を使用。
+- カードの横幅の制約と垂直方向にセンタリングするために[max-width](/docs/max-width)と[margin](/docs/margin) utilities (`max-w-sm` and `mx-auto`) を使用。
+- カードの見た目をデザインするために[background color](/docs/background-color)と[border radius](/docs/border-radius),と[box-shadow](/docs/box-shadow) utilities (`bg-white`, `rounded-lg`, and `shadow-xl`) を使用。
+- ロゴを適切な大きさに整えるために[width](/docs/width)と[height](/docs/height) utilities (`w-12` and `h-12`)を使用。
+- カードのテキスト位置を整えるために[margin](/docs/margin)と[padding](/docs/padding) utilities (`ml-6` and `pt-1`)を使用。
+- カードのテキストをデザインをするために[font size](/docs/font-size)と[text color](/docs/text-color)と[line-height](/docs/line-height) utilities (`text-xl`, `text-gray-900`, `leading-tight`, etc.) を使用。
 
-...allowing us to implement a completely custom component design, without writing a single line of custom CSS.
+これらを使用することによって、独自のCSSを1行も記述せずに、完全にカスタムされたコンポーネント設計を実装できます。
 
-Now I know what you're thinking, _"this is an atrocity, what a horrible mess!"_ and you're right, it's kind of ugly. In fact it's just about impossible to think this is a good idea the first time you see it — **you have to actually try it**.
+今あなたはこのように考えているでしょう。「これは残虐行為だ！なんてひどい有様だ！」  
 
-But once you've actually built something this way, you'll quickly notice some really important benefits:
+こう考えるのは正しいですし、これは確かに少し醜いです。
+実際、これを初めて見たときに良いアイデアだと考えるのはほぼ不可能です。**実際に試してみる必要があります。**
 
-- **You aren't wasting energy inventing class names**. No more adding silly class names like `sidebar-inner-wrapper` just to be able to style something, and no more agonizing over the perfect abstract name for something that's really just a flex container.
-- **Your CSS stops growing**. Using a traditional approach, your CSS files get bigger every time you add a new feature. With utilities, everything is reusable so you rarely need to write new CSS.
-- **Making changes feels safer**. CSS is global and you never know what you're breaking when you make a change. Classes in your HTML are local, so you can change them without worrying about something else breaking.
+しかし、一度あなたが実際にこのやりかたで何かを構築したとき、あなたは重要ないくつかの利点に気づくはずです：
 
-When you realize how productive you can be working exclusively in HTML with predefined utility classes, working any other way will feel like torture.
+- **クラス名を考えるのに余計な労力を使う必要がない** 何かをデザインするために `sidebar-inner-wrapper`というような愚かなクラス名を追加する必要はありません。
+ そして、単なるフレックスコンテナに対して、完璧で抽象的な名前を考えるのに悩まされることはもうありません。
+- **CSSが肥大化しない** 従来のやり方だと、新たな機能を追加するたびにCSSファイルは大きくなってしまいます。ユーティリティを使うことで、全ては再利用可能で新たなCSSを書く必要は滅多にありません。
+- **変更を加えるのが怖くない** CSSはグローバルであり、変更を加えたときに何を壊しているのかがわかりません。HTMLのクラスはローカルであるため、他の何かが壊れることを心配せずにクラスを変更できます。
+
+事前定義されたユーティリティクラスを使用してHTMLで排他的に作業できることを実感すると、他の方法で作業することは苦痛のように感じられます。
 
 ---
 
-## Why not just use inline styles?
+## なぜインラインスタイルだけを使用しないのか？
 
-A common reaction to this approach is wondering, "isn't this just inline styles?" and in some ways it is — you're applying styles directly to elements instead of assigning them a class name and then styling that class.
+このアプローチに対する一般的な反応は、「これは単なるインラインスタイルではないか」という疑問です。 ある意味では、それは正しいです。
+あなたは要素にクラス名を割り当ててそのクラスのスタイルを設定するのではなく、要素に直接スタイルを適用しているのです。
 
-But using utility classes has a few important advantages over inline styles:
+しかし、ユーティリティクラスを使用することは、インラインスタイルに比べていくつかの重要な利点があります:
 
-- **Designing with constraints**. Using inline styles, every value is a magic number. With utilities, you're choosing styles from a predefined [design system](/docs/theme), which makes it much easier to build visually consistent UIs.
-- **Responsive design**. You can't use media queries in inline styles, but you can use Tailwind's [responsive utilities](/docs/responsive-design) to build fully responsive interfaces easily.
-- **Pseudo-classes**. Inline styles can't target states like hover or focus, but Tailwind's [pseudo-class variants](/docs/pseudo-class-variants) make it easy to style those states with utility classes.
+- **制約付きのデザイン** インラインスタイルを使用すると、すべての値がマジックナンバーになります。
+ユーティリティを使用すると、事前定義された[design system](/docs/theme)からスタイルを選択するため、視覚的に一貫性のあるUIを簡単に構築できます。 
+- **レスポンシブデザイン** インラインスタイルではメディアクエリを使うことはできませんが、Tailwindの[responsive utilities](/docs/responsive-design)を使えば簡単にレスポンシブなインターフェイスを構築することができます。
+- **疑似クラス** インラインスタイルは、ホバーやフォーカスなどの状態をターゲットにすることはできません。しかしTailwindの[pseudo-class variants](/docs/pseudo-class-variants)ユーティリティクラスを使用して、これらの状態のスタイルを簡単に設定できます。 
 
-This component is fully responsive and includes a button with hover styles, and is built entirely with utility classes:
+このコンポーネントは完全にレスポンシブで、ホバースタイルのボタンが含まれており、ユーティリティクラスで完全に構築されています。
 
 ```html
 <template preview class="p-8 bg-gray-200">
@@ -152,12 +157,10 @@ This component is fully responsive and includes a button with hover styles, and 
 
 ---
 
-## Maintainability concerns
+## 保守性への懸念
+ユーティリティファーストアプローチを使用する場合の最大の保守性への懸念は、一般的に繰り返されるユーティリティの組み合わせを管理することです。
 
-The biggest maintainability concern when using a utility-first approach is managing commonly repeated utility combinations.
-
-This is easily solved by [extracting components](/docs/extracting-components), either as template partials/JavaScript components, or using Tailwind's `@apply` feature to create abstractions around common utility patterns.
-
+これは簡単に[extracting components](/docs/extracting-components)によって解決されます。[extracting components](/docs/extracting-components)をtemplate partials/JavaScriptコンポーネントとして、またはTailwindの@apply機能を使用して一般的なユーティリティパターンの周りに抽象化を作成することによっても解決されます。
 ```html
 <template preview class="p-4 text-center">
   <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
@@ -188,12 +191,13 @@ This is easily solved by [extracting components](/docs/extracting-components), e
 </style>
 ```
 
-Aside from that, maintaining a utility-first CSS project turns out to be a lot easier than maintaining a large CSS codebase, simply because HTML is so much easier to maintain than CSS. Large companies like GitHub, Heroku, Kickstarter, Twitch, Segment, and more are using this approach with great success.
-
-If you'd like to hear about others' experiences with this approach, check out the following resources:
+それとは別に、ユーティリティファーストのCSSプロジェクトを維持することは、大規模なCSSコードベースを維持するよりもはるかに簡単であることがわかります。
+単純にHTMLはCSSよりも保守がはるかに簡単だからです。
+GitHub、Heroku、Kickstarter、Twitch、Segmentなどの大企業は、このアプローチを使用して大きな成功を収めています。
+このアプローチに関する他の人の経験について聞きたい場合は、次のリソースを確認してください。
 
 - [By The Numbers: A Year and a Half with Atomic CSS](https://medium.com/@johnpolacek/by-the-numbers-a-year-and-half-with-atomic-css-39d75b1263b4) by John Polacek
 - [Building a Scalable CSS Architecture](https://blog.algolia.com/redesigning-our-docs-part-4-building-a-scalable-css-architecture/) by Sarah Dayan of Algolia
 - [Diana Mounter on using utility classes at GitHub](http://www.fullstackradio.com/75), a podcast interview
 
-For even more, check out [The Case for Atomic/Utility-First CSS](https://johnpolacek.github.io/the-case-for-atomic-css/), curated by [John Polacek](https://twitter.com/johnpolacek).
+より詳しくは[John Polacek](https://twitter.com/johnpolacek)によってキュレートされたこちらをご覧ください。 [The Case for Atomic/Utility-First CSS](https://johnpolacek.github.io/the-case-for-atomic-css/)
