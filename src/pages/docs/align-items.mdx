@@ -1,6 +1,6 @@
 ---
-title: "Align Items"
-description: "Utilities for controlling how flex and grid items are positioned along a container's cross axis."
+title: "アイテムを揃える"
+description: "フレックスアイテムとグリッドアイテムをコンテナの交差軸に沿って配置する方法を制御するためのユーティリティ"
 ---
 
 import plugin from 'tailwindcss/lib/plugins/alignItems'
@@ -12,7 +12,7 @@ export const classes = { plugin }
 
 ## Stretch
 
-Use `items-stretch` to stretch items to fill the container's cross axis:
+コンテナの交差軸を満たすようにアイテムを引き伸ばすには、`items-stretch`を使用します。
 
 ```html
 <template preview>
@@ -26,7 +26,7 @@ Use `items-stretch` to stretch items to fill the container's cross axis:
 
 ## Start
 
-Use `items-start` to align items to the start of the container's cross axis:
+`items-start`を使用して、アイテムをコンテナの交差軸の始点に揃えます。
 
 ```html
 <template preview>
@@ -40,7 +40,7 @@ Use `items-start` to align items to the start of the container's cross axis:
 
 ## Center
 
-Use `items-center` to align items along the center of the container's cross axis:
+`items-center`を使用して、コンテナの交差軸の中心に沿ってアイテムを配置します。
 
 ```html
 <template preview>
@@ -54,7 +54,7 @@ Use `items-center` to align items along the center of the container's cross axis
 
 ## End
 
-Use `items-end` to align items to the end of the container's cross axis:
+`items-end`を使用して、アイテムをコンテナの交差軸の端に揃えます。
 
 ```html
 <template preview>
@@ -68,7 +68,7 @@ Use `items-end` to align items to the end of the container's cross axis:
 
 ## Baseline
 
-Use `items-baseline` to align items along the container's cross axis such that all of their baselines align:
+`items-baseline`を使用して、すべてのベースラインが整列するように、コンテナの交差軸に沿ってアイテムを整列します。
 
 ```html
 <template preview>
@@ -82,9 +82,11 @@ Use `items-baseline` to align items along the container's cross axis such that a
 
 ## Responsive
 
-To control the alignment of flex items at a specific breakpoint, add a `{screen}:` prefix to any existing utility class. For example, use `md:items-center` to apply the `items-center` utility at only medium screen sizes and above.
+特定のブレークポイントでのフレックスアイテムの配置を制御するには、既存のユーティリティクラスに `{screen}:`プレフィックスを追加します。
+たとえば、`md:items-center`を使用して、中程度の画面サイズ以上でのみ`items-center`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
+
 
 <ResponsiveCodeSample
   classNames={['items-stretch', 'items-start', 'items-center', 'items-end', 'items-baseline']}
@@ -102,12 +104,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="alignItems" name="align-items" />
 
-### Disabling
+### 機能を使用しない場合
 
 <Disabling plugin="alignItems" name="align-items" />
