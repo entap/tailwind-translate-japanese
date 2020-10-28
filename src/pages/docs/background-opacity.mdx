@@ -1,6 +1,6 @@
 ---
-title: "Background Opacity"
-description: "Utilities for controlling the opacity of an element's background color."
+title: "バックグラウンド不透明度"
+description: "要素の背景色の不透明度を制御するためのユーティリティ"
 featureVersion: "v1.4.0+"
 ---
 
@@ -10,9 +10,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Control the opacity of an element's background color using the `.bg-opacity-{amount}` utilities.
+`.bg-opacity-{amount}`ユーティリティを使用して、要素の背景色の不透明度を制御します。
 
 ```html
 <template preview class="bg-checkered p-4">
@@ -32,9 +32,10 @@ Control the opacity of an element's background color using the `.bg-opacity-{amo
 <div class="bg-blue-500 bg-opacity-0"></div>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control an element's background color opacity at a specific breakpoint, add a `{screen}:` prefix to any existing background color opacity utility. For example, use `md:bg-opacity-50` to apply the `bg-opacity-50` utility at only medium screen sizes and above.
+特定のブレークポイントで要素の背景色の不透明度を制御するには、既存の背景色の不透明度ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:bg-opacity-50`を使用して、中程度の画面サイズ以上でのみ`bg-opacity-50`ユーティリティを適用します。
 
 ```html
 <div class="bg-blue-500 bg-opacity-75 md:bg-opacity-50">
@@ -42,11 +43,11 @@ To control an element's background color opacity at a specific breakpoint, add a
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
-## Customizing
+## カスタマイズ
 
-To customize the opacity values for all opacity-related utilities at once, use the `opacity` section of your `tailwind.config.js` theme configuration:
+すべての不透明度関連ユーティリティの不透明度値を一度にカスタマイズするには、`tailwind.config.js`テーマ設定の`opacity`セクションを使用します。
 
 ```diff
   // tailwind.config.js
@@ -63,7 +64,7 @@ To customize the opacity values for all opacity-related utilities at once, use t
   }
 ```
 
-If you want to customize only the background opacity utilities, use the `backgroundOpacity` section:
+背景の不透明度ユーティリティのみをカスタマイズする場合は、`backgroundOpacity`セクションを使用します。
 
 ```diff
   // tailwind.config.js
@@ -80,12 +81,12 @@ If you want to customize only the background opacity utilities, use the `backgro
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+デフォルトのテーマのカスタマイズについて詳しくは、 [theme customization documentation](/docs/theme#customizing-the-default-theme)をご覧ください。
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="backgroundOpacity" />
 
-### Disabling
+### 機能を使用しない場合
 
 <Disabling plugin="backgroundOpacity" />
