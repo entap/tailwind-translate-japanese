@@ -1,6 +1,6 @@
 ---
-title: "Align Self"
-description: "Utilities for controlling how an individual flex or grid item is positioned along its container's cross axis."
+title: "自身を揃える"
+description: "個々のフレックスまたはグリッドアイテムをコンテナの交差軸に沿って配置する方法を制御するためのユーティリティ"
 ---
 
 import plugin from 'tailwindcss/lib/plugins/alignSelf'
@@ -12,7 +12,7 @@ export const classes = { plugin }
 
 ## Auto
 
-Use `self-auto` to align an item based on the value of the container's `align-items` property:
+`self-auto`を使用して、コンテナの`align-items`プロパティの値に基づいてアイテムを整列します。
 
 ```html
 <template preview>
@@ -26,7 +26,7 @@ Use `self-auto` to align an item based on the value of the container's `align-it
 
 ## Start
 
-Use `self-start` to align an item to the start of the container's cross axis, despite the container's `align-items` value:
+コンテナの`align-items`値に関係なく、`self-start`を使用してアイテムをコンテナの交差軸の始点に位置合わせします。
 
 ```html
 <template preview>
@@ -40,7 +40,7 @@ Use `self-start` to align an item to the start of the container's cross axis, de
 
 ## Center
 
-Use `self-center` to align an item along the center of the container's cross axis, despite the container's `align-items` value:
+コンテナの`align-items`値に関係なく、`self-center`を使用して、コンテナの交差軸の中心に沿ってアイテムを位置合わせします。
 
 ```html
 <template preview>
@@ -54,7 +54,7 @@ Use `self-center` to align an item along the center of the container's cross axi
 
 ## End
 
-Use `self-end` to align an item to the end of the container's cross axis, despite the container's `align-items` value:
+コンテナの`align-items`値に関係なく、`self-end`を使用してアイテムをコンテナの交差軸の端に揃えます。
 
 ```html
 <template preview>
@@ -68,7 +68,7 @@ Use `self-end` to align an item to the end of the container's cross axis, despit
 
 ## Stretch
 
-Use `self-stretch` to stretch an item to fill the container's cross axis, despite the container's `align-items` value:
+コンテナの`align-items`値に関係なく、`self-stretch`を使用してアイテムを引き伸ばし、コンテナの交差軸を埋めます。
 
 ```html
 <template preview>
@@ -80,11 +80,12 @@ Use `self-stretch` to stretch an item to fill the container's cross axis, despit
 </template>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the alignment of a flex item at a specific breakpoint, add a `{screen}:` prefix to any existing utility class. For example, use `md:self-end` to apply the `self-end` utility at only medium screen sizes and above.
+特定のブレークポイントでのフレックスアイテムの配置を制御するには、既存のユーティリティクラスに `{screen}:`プレフィックスを追加します。
+たとえば、`md:self-end`を使用して、中程度の画面サイズ以上でのみ`self-end`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['self-auto', 'self-start', 'self-end', 'self-center', 'self-stretch']}
@@ -104,12 +105,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似クラスバリアント
 
-<Variants plugin="alignSelf" name="align-self" />
+<Variants plugin="alignContent" name="align-content" />
 
-### Disabling
+### 機能を使用しない場合
 
 <Disabling plugin="alignSelf" name="align-self" />
