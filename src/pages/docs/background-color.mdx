@@ -1,6 +1,6 @@
 ---
-title: "Background Color"
-description: "Utilities for controlling an element's background color."
+title: "バックグラウンドカラー"
+description: "要素の背景色を制御するためのユーティリティ"
 features:
   responsive: true
   customizable: true
@@ -29,9 +29,9 @@ export const classes = {
   ),
 }
 
-## Usage
+## 使用方法
 
-Control the background color of an element using the `.bg-{color}` utilities.
+`.bg-{color}`ユーティリティを使用して要素の背景色を制御します。
 
 ```html
 <template preview class="text-center p-4">
@@ -43,9 +43,9 @@ Control the background color of an element using the `.bg-{color}` utilities.
 <button class="bg-blue-500 ...">Button</button>
 ```
 
-### <Heading badge="v1.4.0+">Changing opacity</Heading>
+### <Heading badge="v1.4.0+">不透明度の変更</Heading>
 
-Control the opacity of an element's background color using the `.bg-opacity-{amount}` utilities.
+`.bg-opacity-{amount}`ユーティリティを使用して、要素の背景色の不透明度を制御します。
 
 ```html
 <template preview class="bg-checkered p-4">
@@ -65,13 +65,13 @@ Control the opacity of an element's background color using the `.bg-opacity-{amo
 <div class="bg-blue-500 bg-opacity-0"></div>
 ```
 
-Learn more in the [background opacity documentation](/docs/background-opacity).
+詳細については[background opacity documentation](/docs/background-opacity)をご覧ください。
 
-## Responsive
+## レスポンシブ
 
-To control the background color of an element at a specific breakpoint, add a `{screen}:` prefix to any existing background color utility. For example, use `md:bg-green-500` to apply the `bg-green-500` utility at only medium screen sizes and above.
+特定のブレークポイントで要素の背景色を制御するには、既存の背景色ユーティリティに `{screen}:`プレフィックスを追加します。 たとえば、`md:bg-green-500`を使用して、中程度の画面サイズ以上でのみ`bg-green-500`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['bg-blue-500', 'bg-green-500', 'bg-indigo-500', 'bg-red-500', 'bg-black']}
@@ -89,7 +89,7 @@ For more information about Tailwind's responsive design features, check out the 
 
 ## Hover
 
-To control the background color of an element on hover, add the `hover:` prefix to any existing background color utility. For example, use `hover:bg-blue-500` to apply the `bg-blue-500` utility on hover.
+ホバー時に要素の背景色を制御するには、既存の背景色ユーティリティに`hover:`プレフィックスを追加します。たとえば、`hover:bg-blue-500`を使用して、ホバーに`bg-blue-500`ユーティリティを適用します。
 
 ```html
 <template preview class="text-center p-4">
@@ -103,7 +103,7 @@ To control the background color of an element on hover, add the `hover:` prefix 
 </button>
 ```
 
-Hover utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `focus:` prefix.
+ホバーユーティリティは、レスポンシブ `{screen}:`プレフィックスを `focus:`プレフィックスの*前*に追加することで、レスポンシブユーティリティと組み合わせることもできます。
 
 ```html
 <button class="... md:bg-blue-500 md:hover:bg-blue-700 ...">Button</button>
@@ -111,7 +111,7 @@ Hover utilities can also be combined with responsive utilities by adding the res
 
 ## Focus
 
-To control the background color of an element on focus, add the `focus:` prefix to any existing background color utility. For example, use `focus:bg-blue-500` to apply the `bg-blue-500` utility on focus.
+フォーカスされている要素の背景色を制御するには、既存の背景色ユーティリティに`focus:`プレフィックスを追加します。 たとえば、`focus:bg-blue-500`を使用して、`bg-blue-500`ユーティリティをフォーカスに適用します。
 
 ```html
 <template preview>
@@ -123,19 +123,20 @@ To control the background color of an element on focus, add the `focus:` prefix 
 <input class="bg-gray-200 focus:bg-white ...">
 ```
 
-Focus utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `focus:` prefix.
+フォーカスユーティリティは、レスポンシブ `{screen}:`プレフィックスを `focus:`プレフィックスの*前*に追加することで、レスポンシブユーティリティと組み合わせることもできます。
 
 ```html
 <input class="... md:bg-gray-200 md:focus:bg-white ...">
 ```
 
-## Customizing
+## カスタマイズ
 
-### Background Colors
+### バックグラウンドカラー
 
-By default Tailwind makes the entire [default color palette](/docs/customizing-colors#default-color-palette) available as background colors.
+デフォルトで、Tailwindは[default color palette](/docs/customizing-colors#default-color-palette)を背景色として使用できるようにします。
 
-You can [customize your color palette](/docs/colors#customizing) by editing the `theme.colors` variable in your `tailwind.config.js` file, or customize just your background colors using the `theme.backgroundColor` section of your Tailwind config.
+`tailwind.config.js`fileの`theme.colors`variableを変更して[customize your color palette](/docs/colors#customizing)することができます。
+もしくは、Tailwindのコンフィグの`theme.backgroundColor`セクションを使用して背景色だけをカスタマイズすることができます。
 
 ```diff
   // tailwind.config.js
@@ -151,10 +152,10 @@ You can [customize your color palette](/docs/colors#customizing) by editing the 
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="backgroundColor" />
 
-### Disabling
+### 機能を使用しない場合
 
 <Disabling plugin="backgroundColor" />
