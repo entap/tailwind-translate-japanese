@@ -12,17 +12,16 @@ export function Variants({ plugin, name }) {
   return (
     <>
       <p>
-        By default, {variants.length ? `only ${joinWithAnd(variants)}` : 'no'} variants are
-        generated for {name} utilities.
+        デフォルトで{variants.length ? `only ${joinWithAnd(variants)}` : 'no'} バリアントは
+        {name} utilitiesのために作られます。
       </p>
       <p>
-        You can control which variants are generated for the {name} utilities by modifying the{' '}
-        <code>{plugin}</code> property in the <code>variants</code> section of your{' '}
-        <code>tailwind.config.js</code> file.
+        あなたはどのバリアントが{name} utilitiesのために作られるかを{' '}
+        <code>tailwind.config.js</code>file内の<code>variants</code> sectionの<code>{plugin}</code>プロパティを修正することによってコントロールできます。
       </p>
       <p>
-        For example, this config will {variants.length > 0 ? 'also ' : ''}generate{' '}
-        {joinWithAnd(extraVariants)} variants:
+        例として、この設定は {variants.length > 0 ? 'also ' : ''}{' '}
+        {joinWithAnd(extraVariants)} バリアントを作ります。
       </p>
       <ConfigSample
         path="variants"

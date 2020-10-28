@@ -9,15 +9,14 @@ export function Disabling({ plugin, name }) {
   return (
     <>
       <p>
-        If you don't plan to use the {name} utilities in your project, you can disable them entirely
-        by setting the{' '}
+        もし{name} utilitiesを使う予定がないなら、config fileの
+        <code>corePlugins</code> sectionの
         <span
           dangerouslySetInnerHTML={{
             __html: joinWithAnd(plugins.map((p) => `<code>${p}</code>`)),
           }}
         />{' '}
-        {plugins.length > 1 ? 'properties' : 'property'} to <code>false</code> in the{' '}
-        <code>corePlugins</code> section of your config file:
+        {plugins.length > 1 ? 'properties' : 'property'}を<code>false</code>に設定することで完全に機能を停止することができます。
       </p>
 
       <ConfigSample

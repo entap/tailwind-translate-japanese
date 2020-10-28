@@ -1,6 +1,6 @@
 ---
-title: "Align Content"
-description: "Utilities for controlling how rows are positioned in multi-row flex and grid containers."
+title: "コンテンツを揃える"
+description: "複数行のフレックスおよびグリッドコンテナでの行の配置方法を制御するためのユーティリティ。"
 ---
 
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
@@ -12,7 +12,7 @@ export const classes = { plugin }
 
 ## Start
 
-Use `content-start` to pack rows in a container against the start of the cross axis:
+`content-start`を使用して、交差軸の始点に対してコンテナに行を詰め込みます。
 
 ```html
 <template preview>
@@ -38,7 +38,7 @@ Use `content-start` to pack rows in a container against the start of the cross a
 
 ## Center
 
-Use `content-center` to pack rows in a container in the center of the cross axis:
+`content-center`を使用して、交差軸の中心にあるコンテナに行を詰め込みます。
 
 ```html
 <template preview>
@@ -64,7 +64,7 @@ Use `content-center` to pack rows in a container in the center of the cross axis
 
 ## End
 
-Use `content-end` to pack rows in a container against the end of the cross axis:
+`content-end`を使用して、交差軸の端に対してコンテナに行を詰め込みます。
 
 ```html
 <template preview>
@@ -90,7 +90,7 @@ Use `content-end` to pack rows in a container against the end of the cross axis:
 
 ## Space between
 
-Use `content-between` to distribute rows in a container such that there is an equal amount of space between each line:
+`content-between`を使用して、各行の間に同じ量のスペースができるように、コンテナー内の行を割当ます。
 
 ```html
 <template preview>
@@ -116,7 +116,7 @@ Use `content-between` to distribute rows in a container such that there is an eq
 
 ## Space around
 
-Use `content-around` to distribute rows in a container such that there is an equal amount of space around each line:
+`content-around`を使用して、各行の周囲に同じ量のスペースができるように、コンテナ内の行を割当ます。
 
 ```html
 <template preview>
@@ -140,11 +140,12 @@ Use `content-around` to distribute rows in a container such that there is an equ
 </template>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the alignment of flex content at a specific breakpoint, add a `{screen}:` prefix to any existing utility class. For example, use `md:content-around` to apply the `content-around` utility at only medium screen sizes and above.
+特定のブレークポイントでのフレックスコンテンツの配置を制御するには、既存のユーティリティクラスに `{screen}:`プレフィックスを追加します。
+たとえば、`md:content-around`を使用して、中程度の画面サイズ以上でのみ`content-around`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['content-start', 'content-end', 'content-center', 'content-between', 'content-around']}
@@ -174,12 +175,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似クラスバリアント
 
 <Variants plugin="alignContent" name="align-content" />
 
-### Disabling
+### 機能を使用しない場合
 
 <Disabling plugin="alignContent" name="align-content" />
