@@ -1,6 +1,6 @@
 ---
-title: "Background Attachment"
-description: "Utilities for controlling how a background image behaves when scrolling."
+title: "バックグラウンドアタッチメント"
+description: "スクロール時の背景画像の動作を制御するためのユーティリティ"
 features:
   responsive: true
   customizable: false
@@ -17,7 +17,7 @@ export const classes = { plugin }
 
 ## Fixed
 
-Use `.bg-fixed` to fix the background image relative to the viewport.
+`.bg-fixed`を使用して、ビューポートを基準にして背景画像を修正します。
 
 ```html
 <template preview>
@@ -31,7 +31,7 @@ Use `.bg-fixed` to fix the background image relative to the viewport.
 
 ## Local
 
-Use `.bg-local` to scroll the background image with the container and the viewport.
+`.bg-local`を使用して、コンテナとビューポートで背景画像をスクロールします。
 
 ```html
 <template preview>
@@ -45,7 +45,7 @@ Use `.bg-local` to scroll the background image with the container and the viewpo
 
 ## Scroll
 
-Use `.bg-scroll` to scroll the background image with the viewport, but not with the container.
+`.bg-scroll`を使用して、ビューポートで背景画像をスクロールしますが、コンテナではスクロールしません。
 
 ```html
 <template preview>
@@ -57,11 +57,12 @@ Use `.bg-scroll` to scroll the background image with the viewport, but not with 
 <div class="bg-scroll ..." style="background-image: url(...)"></div>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the background attachment of an element at a specific breakpoint, add a `{screen}:` prefix to any existing background attachment utility. For example, use `md:bg-fixed` to apply the `bg-fixed` utility at only medium screen sizes and above.
+特定のブレークポイントで要素のバックグラウンドアタッチメントを制御するには、既存のバックグラウンドアタッチメントユーティリティに `{screen}:`プレフィックスを追加します。
+たとえば、`md:bg-fixed`を使用して、中程度の画面サイズ以上でのみ`bg-fixed`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['bg-fixed', 'bg-local', 'bg-scroll', 'bg-local', 'bg-fixed']}
@@ -82,12 +83,12 @@ For more information about Tailwind's responsive design features, check out the 
   ))}
 />
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="backgroundAttachment" />
 
-### Disabling
+### 機能を使用しない場合
 
 <Disabling plugin="backgroundAttachment" />
