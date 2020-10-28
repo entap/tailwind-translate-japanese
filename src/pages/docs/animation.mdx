@@ -1,6 +1,6 @@
 ---
-title: "Animation"
-description: "Utilities for animating elements with CSS animations."
+title: "アニメーション"
+description: "CSSアニメーションで要素をアニメーション化するためのユーティリティ"
 featureVersion: "v1.6.0+"
 ---
 
@@ -113,7 +113,7 @@ export const classes = (
 
 ## Spin
 
-Add the `animate-spin` utility to add a linear spin animation to elements like loading indicators.
+`animate-spin`ユーティリティを追加して、インジケーターの読み込みなどの要素に線形スピンアニメーションを追加します。
 
 ```html
 <template preview class="bg-white text-center p-4 py-12">
@@ -138,7 +138,7 @@ Add the `animate-spin` utility to add a linear spin animation to elements like l
 
 ## Ping
 
-Add the `animate-ping` utility to make an element scale and fade like a radar ping or ripple of water — useful for things like notification badges.
+`animate-ping`ユーティリティを追加して、要素を拡大縮小し、レーダーpingや水の波紋のようにフェードさせます。これは通知バッジなどに役立ちます。
 
 ```html
 <template preview class="bg-white text-center p-4 py-12">
@@ -161,7 +161,7 @@ Add the `animate-ping` utility to make an element scale and fade like a radar pi
 
 ## Pulse
 
-Add the `animate-pulse` utility to make an element gently fade in and out — useful for things like skeleton loaders.
+`animate-pulse`ユーティリティを追加して、要素を穏やかにフェードインおよびフェードアウトさせます。これは、スケルトンローダーなどに役立ちます。
 
 ```html
 <template preview class="bg-white text-center p-4 py-12">
@@ -195,7 +195,7 @@ Add the `animate-pulse` utility to make an element gently fade in and out — us
 
 ## Bounce
 
-Add the `animate-bounce` utility to make an element bounce up and down — useful for things like "scroll down" indicators.
+`animate-bounce`ユーティリティを追加して、要素を上下にバウンスさせます。これは、スクロールダウンインジケーターなどに役立ちます。
 
 ```html
 <template preview class="bg-white text-center p-4 py-8">
@@ -211,9 +211,9 @@ Add the `animate-bounce` utility to make an element bounce up and down — usefu
 </svg>
 ```
 
-## Prefers-reduced-motion
+## モーションを減らしたい場合
 
-You can conditionally apply animations and transitions using the `motion-safe` and `motion-reduce` variants:
+`motion-safe`および`motion-reduce`バリアントを使用して、条件付きでアニメーションとトランジションを適用できます。
 
 ```html
 <button type="button" class="bg-indigo-600 ..." disabled>
@@ -224,7 +224,7 @@ You can conditionally apply animations and transitions using the `motion-safe` a
 </button>
 ```
 
-**These variants are not enabled by default**, but you can enable them in the `variants` section of your `tailwind.config.js` file:
+**これらバリアントはデフォルトでは利用可能ではありません**。 しかし`tailwind.config.js`fileの`variants`セクションの設定を変更することにより利用可能になります。
 
 ```js
 // tailwind.config.js
@@ -236,11 +236,12 @@ module.exports = {
 }
 ```
 
-Learn more in the [variants documentation](/docs/pseudo-class-variants#motion-safe-v1-6-0).
+より詳しくは[variants documentation](/docs/pseudo-class-variants#motion-safe-v1-6-0)をご覧ください。
 
-## Responsive
+## レスポンシブ
 
-To change or disable an animation at a specific breakpoint, add a `{screen}:` prefix to any existing animation utility. For example, use `md:animate-none` to apply the `animate-none` utility at only medium screen sizes and above.
+特定のブレークポイントでアニメーションを変更または無効にするには、既存のアニメーションユーティリティに `{screen}:`プレフィックスを追加します。
+たとえば、`md:animate-none`を使用して、中程度の画面サイズ以上でのみ`animate-none`ユーティリティを適用します。
 
 ```html
 <div class="animate-spin md:animate-none ...">
@@ -248,13 +249,15 @@ To change or disable an animation at a specific breakpoint, add a `{screen}:` pr
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
-## Customizing
+## カスタマイズ
 
-Animations by their very nature tend to be highly project-specific. **The animations we include by default are best thought of as helpful examples**, and you're encouraged to customize your animations to better suit your needs.
+アニメーションはその性質上、プロジェクト固有のものになる傾向があります。**デフォルトで含まれているアニメーションは、私達が熟慮して最も役立つものを選択しました**。
+あなたのニーズに合わせてアニメーションをカスタマイズすることをお勧めします。
 
-By default Tailwind provides utilities for four different example animations, as well as the `animate-none` utility. You change, add, or remove these by customizing the `animation` section of your theme configuration.
+デフォルトでは、Tailwindは、4つの異なるアニメーション例のユーティリティと、`animate-none`ユーティリティを提供します。
+テーマ構成の`アニメーション`セクションをカスタマイズして、これらを変更、追加、または削除できます。
 
 ```diff
   // tailwind.config.js
@@ -269,7 +272,7 @@ By default Tailwind provides utilities for four different example animations, as
   }
 ```
 
-To add new animation `@keyframes`, use the `keyframes` section of your theme configuration:
+新しいアニメーション `@keyframes`を追加するには、テーマ構成の`keyframes`セクションを使用します。
 
 ```diff
   // tailwind.config.js
@@ -287,7 +290,7 @@ To add new animation `@keyframes`, use the `keyframes` section of your theme con
   }
 ```
 
-You can then reference these keyframes by name in the `animation` section of your theme configuration:
+次に、テーマ構成の`animation`セクションで、これらの`keyframes`を名前で参照できます。
 
 ```diff
   // tailwind.config.js
@@ -302,12 +305,12 @@ You can then reference these keyframes by name in the `animation` section of you
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+デフォルトテーマのカスタマイズ詳細については[theme customization documentation](/docs/theme#customizing-the-default-theme)をご覧ください。
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似クラスバリアント
 
 <Variants plugin="animation" />
 
-### Disabling
+### 機能を使用しない場合
 
 <Disabling plugin="animation" />
