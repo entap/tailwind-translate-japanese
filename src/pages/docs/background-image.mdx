@@ -1,6 +1,6 @@
 ---
-title: "Background Image"
-description: "Utilities for controlling an element's background image."
+title: "バックグラウンドイメージ"
+description: "要素の背景画像を制御するためのユーティリティ"
 featureVersion: "v1.7.0+"
 ---
 
@@ -12,9 +12,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Linear gradients
+## 線形グラデーション
 
-To give an element a linear gradient background, use one of the `bg-gradient-{direction}` utilities, in combination with the [gradient color stop](/docs/gradient-color-stops) utilities.
+要素に線形グラデーションの背景を与えるには、`bg-gradient-{direction}`ユーティリティの1つを、[gradient color stop](/docs/gradient-color-stops)ユーティリティと組み合わせて使用します。
 
 ```html
 <template preview class="p-8">
@@ -22,23 +22,24 @@ To give an element a linear gradient background, use one of the `bg-gradient-{di
 </template>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the background image of an element at a specific breakpoint, add a `{screen}:` prefix to any existing background image utility. For example, use `md:bg-gradient-to-r` to apply the `bg-gradient-to-r` utility at only medium screen sizes and above.
+特定のブレークポイントで要素の背景画像を制御するには、既存の背景画像ユーティリティに `{screen}:`プレフィックスを追加します。
+たとえば、`md:bg-gradient-to-r`を使用して、中程度の画面サイズ以上でのみ`bg-gradient-to-r`ユーティリティを適用します。
 
 ```html
 <div class="bg-gradient-to-r md:bg-gradient-to-t ..."></div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
-## Customizing
+## カスタマイズ
 
-### Background Images
+### バックグラウンドイメージ
 
-By default Tailwind includes background image utilities for creating linear gradient backgrounds in eight directions.
+デフォルトでは、Tailwindには、8方向に線形グラデーションの背景を作成するための背景画像ユーティリティが含まれています。
 
-You can add your own background images by editing the `theme.backgroundImage` section of your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`theme.backgroundImage`セクションを編集することで、独自の背景画像を追加できます。
 
 ```diff
   // tailwind.config.js
@@ -54,14 +55,14 @@ You can add your own background images by editing the `theme.backgroundImage` se
   }
 ```
 
-These don't just have to be gradients — they can be any background images you need.
+これらは単にグラデーションである必要はありません。必要な任意の背景画像にすることができます。
 
-These classes will take the form `bg-{key}`, so `hero-pattern` will become `bg-hero-pattern` for example.
+これらのクラスは`bg-{key}`の形式を取るため、たとえば、`hero-pattern`は`bg-hero-pattern`になります。
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="backgroundImage" />
 
-### Disabling
+### 機能を使用しない場合
 
 <Disabling plugin="backgroundImage" />

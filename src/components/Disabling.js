@@ -9,8 +9,8 @@ export function Disabling({ plugin, name }) {
   return (
     <>
       <p>
-        もし{name} utilitiesを使う予定がないなら、config fileの
-        <code>corePlugins</code> sectionの
+        もし{name} utilitiesを使う予定がないなら、configファイルの
+        <code>corePlugins</code>セクションの
         <span
           dangerouslySetInnerHTML={{
             __html: joinWithAnd(plugins.map((p) => `<code>${p}</code>`)),

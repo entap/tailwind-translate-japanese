@@ -17,7 +17,7 @@ export function Variants({ plugin, name }) {
       </p>
       <p>
         あなたはどのバリアントが{name} utilitiesのために作られるかを{' '}
-        <code>tailwind.config.js</code>file内の<code>variants</code> sectionの<code>{plugin}</code>プロパティを修正することによってコントロールできます。
+        <code>tailwind.config.js</code>ファイル内の<code>variants</code>セクションの<code>{plugin}</code>プロパティを修正することによってコントロールできます。
       </p>
       <p>
         例として、この設定は {variants.length > 0 ? 'also ' : ''}{' '}
