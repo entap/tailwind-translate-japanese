@@ -1,6 +1,6 @@
 ---
-title: "Border Collapse"
-description: "Utilities for controlling whether table borders should collapse or be separated."
+title: "ボーダーコラプス"
+description: "テーブルの境界線を折りたたむか分離するかを制御するためのユーティリティ"
 ---
 
 import plugin from 'tailwindcss/lib/plugins/borderCollapse'
@@ -11,7 +11,7 @@ export const classes = { plugin }
 
 ## Collapse
 
-Use `.border-collapse` to combine adjacent cell borders into a single border when possible. Note that this includes collapsing borders on the top-level `<table>` tag.
+可能な場合は、`.border-collapse`を使用して、隣接するセルの境界線を1つの境界線に結合します。これには、最上位の`<table>`タグの境界線の折りたたみが含まれることに注意してください。
 
 ```html
 <template preview>
@@ -42,7 +42,7 @@ Use `.border-collapse` to combine adjacent cell borders into a single border whe
 
 ## Separate
 
-Use `.border-separate` to force each cell to display its own separate borders.
+`.border-separate`を使用して、各セルに独自の個別の境界線を表示させます。
 
 ```html
 <template preview>
@@ -71,12 +71,12 @@ Use `.border-separate` to force each cell to display its own separate borders.
 </template>
 ```
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="borderCollapse" />
 
-### Disabling
+### 機能を使用しない場合
 
 <Disabling plugin="borderCollapse" />

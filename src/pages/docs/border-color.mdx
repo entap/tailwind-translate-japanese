@@ -1,6 +1,6 @@
 ---
-title: "Border Color"
-description: "Utilities for controlling the color of an element's borders."
+title: "ボーダーカラー"
+description: "要素の境界線の色を制御するためのユーティリティ"
 features:
   responsive: true
   customizable: true
@@ -31,9 +31,9 @@ export const classes = {
   ),
 }
 
-## Usage
+## 使用方法
 
-Control the border color of an element using the `.border-{color}` utilities.
+`.border-{color}`ユーティリティを使用して、要素の境界線の色を制御します。
 
 ```html
 <template preview class="text-center p-4">
@@ -47,7 +47,7 @@ Control the border color of an element using the `.border-{color}` utilities.
 
 ### <Heading badge="v1.4.0+">Changing opacity</Heading>
 
-Control the opacity of an element's border color using the `.border-opacity-{amount}` utilities.
+`.border-opacity-{amount}`ユーティリティを使用して、要素の境界線の色の不透明度を制御します。
 
 ```html
 <template preview class="bg-checkered p-4">
@@ -67,13 +67,14 @@ Control the opacity of an element's border color using the `.border-opacity-{amo
 <div class="border-blue-500 border-opacity-0"></div>
 ```
 
-Learn more in the [border opacity documentation](/docs/border-opacity).
+詳細は[border opacity documentation](/docs/border-opacity)をご覧ください。
 
-## Responsive
+## レスポンシブ
 
-To control the border color of an element at a specific breakpoint, add a `{screen}:` prefix to any existing border color utility. For example, use `md:border-green-500` to apply the `border-green-500` utility at only medium screen sizes and above.
+特定のブレークポイントで要素の境界線の色を制御するには、既存の境界線の色ユーティリティに `{screen}:`プレフィックスを追加します。
+たとえば、`md:border-green-500`を使用して、中程度の画面サイズ以上でのみ`border-green-500`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['border-blue-500', 'border-green-500', 'border-indigo-500', 'border-red-500', 'border-black']}
@@ -93,7 +94,8 @@ For more information about Tailwind's responsive design features, check out the 
 
 ## Hover
 
-To control the border color of an element on hover, add the `hover:` prefix to any existing border color utility. For example, use `hover:border-blue-500` to apply the `border-blue-500` utility on hover.
+ホバー時の要素の境界線の色を制御するには、既存の境界線の色ユーティリティに `hover:`プレフィックスを追加します。
+たとえば、`hover:border-blue-500`を使用して、ホバーに`border-blue-500`ユーティリティを適用します。
 
 ```html
 <template preview class="text-center p-4">
@@ -107,7 +109,7 @@ To control the border color of an element on hover, add the `hover:` prefix to a
 </button>
 ```
 
-Hover utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `focus:` prefix.
+ホバーユーティリティは、レスポンシブ `{screen}:`プレフィックスを `focus:`プレフィックスの*前*に追加することで、レスポンシブユーティリティと組み合わせることもできます。
 
 ```html
 <button class="... md:border-blue-500 md:hover:border-blue-700 ...">Button</button>
@@ -115,7 +117,7 @@ Hover utilities can also be combined with responsive utilities by adding the res
 
 ## Focus
 
-To control the border color of an element on focus, add the `focus:` prefix to any existing border color utility. For example, use `focus:border-blue-500` to apply the `border-blue-500` utility on focus.
+フォーカスされている要素の境界線の色を制御するには、既存の境界線の色ユーティリティに`focus:`プレフィックスを追加します。たとえば、`focus:border-blue-500`を使用して、`border-blue-500`ユーティリティをフォーカスに適用します。
 
 ```html
 <template preview>
@@ -127,7 +129,7 @@ To control the border color of an element on focus, add the `focus:` prefix to a
 <input class="border-gray-400 focus:border-blue-500 ...">
 ```
 
-Focus utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `focus:` prefix.
+フォーカスユーティリティは、レスポンシブ`{screen}:`プレフィックスを`focus:`プレフィックスの *前* に追加することで、レスポンシブユーティリティと組み合わせることもできます。
 
 ```html
 <input class="... md:border-gray-200 md:focus:border-white ...">
@@ -135,13 +137,13 @@ Focus utilities can also be combined with responsive utilities by adding the res
 
 ---
 
-## Customizing
+## カスタマイズ
 
-### Border Colors
+### ボーダーカラー
 
-By default Tailwind makes the entire [default color palette](/docs/customizing-colors#default-color-palette) available as border colors.
+デフォルトでは、Tailwindは[default color palette](/docs/customizing-colors#default-color-palette)を境界線の色として使用できるようにします。
 
-You can [customize your color palette](/docs/colors#customizing) by editing the `theme.colors` section of your `tailwind.config.js` file, or customize just your border colors using the `theme.borderColor` section.
+`tailwind.config.js`ファイルの`theme.colors`セクションを編集して[カラーパレットをカスタマイズ](/docs/colors#customizing)するか、`theme.borderColor`セクションを使用して境界線の色だけをカスタマイズできます。
 
 ```diff
   // tailwind.config.js
@@ -158,10 +160,10 @@ You can [customize your color palette](/docs/colors#customizing) by editing the 
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="borderColor" />
 
-### Disabling
+### 機能を使用しない場合
 
 <Disabling plugin="borderColor" />
