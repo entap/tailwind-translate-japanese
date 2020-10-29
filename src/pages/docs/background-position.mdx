@@ -1,6 +1,6 @@
 ---
-title: "Background Position"
-description: "Utilities for controlling the position of an element's background image."
+title: "バックグラウンドポジション"
+description: "要素の背景画像の位置を制御するためのユーティリティ"
 features:
   responsive: true
   customizable: false
@@ -16,9 +16,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Use the `.bg-{side}` utilities to control the position of an element's background image.
+`.bg-{side}`ユーティリティを使用して、要素の背景画像の位置を制御します。
 
 ```html
 <template preview>
@@ -77,11 +77,11 @@ Use the `.bg-{side}` utilities to control the position of an element's backgroun
 <div class="bg-no-repeat bg-right-bottom bg-gray-400 w-24 h-24" style="background-image: url(...);"></div>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the position of an element's background image at a specific breakpoint, add a `{screen}:` prefix to any existing background position utility. For example, adding the class `md:bg-top` to an element would apply the `bg-top` utility at medium screen sizes and above.
+特定のブレークポイントでの要素の背景画像の位置を制御するには、既存の背景位置ユーティリティに `{screen}:`プレフィックスを追加します。 たとえば、クラス `md:bg-top`を要素に追加すると、中程度の画面サイズ以上で`bg-top`ユーティリティが適用されます。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['bg-center', 'bg-top', 'bg-right', 'bg-bottom', 'bg-left']}
@@ -98,11 +98,11 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-### Background Positions
+### バックグラウンドポジション
 
-By default Tailwind provides nine `background-position` utilities. You change, add, or remove these by editing the `theme.backgroundPosition` section of your Tailwind config.
+デフォルトでは、Tailwindは9つの`background-position`ユーティリティを提供します。Tailwind構成の`theme.backgroundPosition`セクションを編集して、これらを変更、追加、または削除します。
 
 ```diff
   // tailwind.config.js
@@ -125,10 +125,10 @@ By default Tailwind provides nine `background-position` utilities. You change, a
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="backgroundPosition" />
 
-### Disabling
+### 機能を使用しない場合
 
 <Disabling plugin="backgroundPosition" />
