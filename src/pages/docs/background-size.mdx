@@ -1,6 +1,6 @@
 ---
-title: "Background Size"
-description: "Utilities for controlling the background size of an element's background image."
+title: "バックグラウンドサイズ"
+description: "要素の背景画像の背景サイズを制御するためのユーティリティ"
 features:
   responsive: true
   customizable: false
@@ -17,7 +17,7 @@ export const classes = { plugin }
 
 ## Auto
 
-Use `.bg-auto` to display the background image at its default size.
+`.bg-auto`を使用して、背景画像をデフォルトのサイズで表示します。
 
 ```html
 <template preview>
@@ -30,7 +30,7 @@ Use `.bg-auto` to display the background image at its default size.
 
 ## Cover
 
-Use `.bg-cover` to scale the background image until it fills the background layer.
+`.bg-cover`を使用して、背景レイヤーがいっぱいになるまで背景画像を拡大縮小します。
 
 ```html
 <template preview>
@@ -43,7 +43,7 @@ Use `.bg-cover` to scale the background image until it fills the background laye
 
 ## Contain
 
-Use `.bg-contain` to scale the background image to the outer edges without cropping or stretching.
+`.bg-contain`を使用して、トリミングやストレッチを行わずに背景画像を外側のエッジに拡大縮小します。
 
 ```html
 <template preview>
@@ -54,11 +54,11 @@ Use `.bg-contain` to scale the background image to the outer edges without cropp
 <div class="bg-contain bg-center ..." style="background-image: url(...)"></div>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the size of an element's background image at a specific breakpoint, add a `{screen}:` prefix to any existing background size utility. For example, adding the class `md:bg-contain` to an element would apply the `bg-contain` utility at medium screen sizes and above.
+特定のブレークポイントで要素の背景画像のサイズを制御するには、既存の背景サイズユーティリティに `{screen}：`プレフィックスを追加します。 たとえば、クラス `md:bg-contain`を要素に追加すると、中程度の画面サイズ以上で`bg-contain`ユーティリティが適用されます。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['bg-auto', 'bg-cover', 'bg-contain', 'bg-auto', 'bg-cover']}
@@ -75,9 +75,9 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-By default Tailwind provides utilities for `auto`, `cover`, and `contain` background sizes. You can change, add, or remove these by editing the `theme.backgroundSize` section of your config.
+デフォルトでは、Tailwindは`auto`, `cover`および`contain`の背景サイズのユーティリティを提供します。 設定の`theme.backgroundSize`セクションを編集することで、これらを変更、追加、または削除できます。
 
 ```diff
   // tailwind.config.js
@@ -94,10 +94,10 @@ By default Tailwind provides utilities for `auto`, `cover`, and `contain` backgr
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="backgroundSize" />
 
-### Disabling
+### 機能を使用しない場合
 
 <Disabling plugin="backgroundSize" />
