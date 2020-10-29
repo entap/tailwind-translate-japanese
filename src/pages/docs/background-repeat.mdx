@@ -1,6 +1,6 @@
 ---
-title: "Background Repeat"
-description: "Utilities for controlling the repetition of an element's background image."
+title: "バックグラウンドリピート"
+description: "要素の背景画像の繰り返しを制御するためのユーティリティ"
 features:
   responsive: true
   customizable: false
@@ -17,7 +17,7 @@ export const classes = { plugin }
 
 ## Repeat
 
-Use `.bg-repeat` to repeat the background image both vertically and horizontally.
+`.bg-repeat`を使用して、背景画像を垂直方向と水平方向の両方に繰り返します。
 
 ```html
 <template preview>
@@ -30,7 +30,7 @@ Use `.bg-repeat` to repeat the background image both vertically and horizontally
 
 ## No Repeat
 
-Use `.bg-no-repeat` when you don't want to repeat the background image.
+背景画像を繰り返したくない場合は、`.bg-no-repeat`を使用します。
 
 ```html
 <template preview>
@@ -43,7 +43,7 @@ Use `.bg-no-repeat` when you don't want to repeat the background image.
 
 ## Repeat Horizontally
 
-Use `.bg-repeat-x` to repeat the background image only horizontally.
+`.bg-repeat-x`を使用して、背景画像を水平方向にのみ繰り返します。
 
 ```html
 <template preview>
@@ -56,7 +56,7 @@ Use `.bg-repeat-x` to repeat the background image only horizontally.
 
 ## Repeat Vertically
 
-Use `.bg-repeat-y` to repeat the background image only vertically.
+`.bg-repeat-y`を使用して、背景画像を垂直方向にのみ繰り返します。
 
 ```html
 <template preview>
@@ -67,11 +67,11 @@ Use `.bg-repeat-y` to repeat the background image only vertically.
 <div class="bg-repeat-y bg-center ..." style="background-image: url(...)"></div>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the repetition of an element's background image at a specific breakpoint, add a `{screen}:` prefix to any existing background repeat utility. For example, adding the class `md:bg-repeat-x` to an element would apply the `bg-repeat-x` utility at medium screen sizes and above.
+特定のブレークポイントでの要素の背景画像の繰り返しを制御するには、既存の背景繰り返しユーティリティに`{screen}:`プレフィックスを追加します。たとえば、クラス`md:bg-repeat-x`を要素に追加すると、中程度の画面サイズ以上で`bg-repeat-x`ユーティリティが適用されます。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['bg-repeat', 'bg-no-repeat', 'bg-repeat-x', 'bg-repeat-y', 'bg-no-repeat']}
@@ -88,12 +88,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="backgroundRepeat" />
 
-### Disabling
+### 機能を使用しない場合
 
 <Disabling plugin="backgroundRepeat" />
