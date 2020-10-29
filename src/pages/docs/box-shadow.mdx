@@ -1,6 +1,6 @@
 ---
-title: "Box Shadow"
-description: "Utilities for controlling the box shadow of an element."
+title: "ボックスシャドウ"
+description: "要素のボックスシャドウを制御するためのユーティリティ"
 features:
   responsive: true
   customizable: true
@@ -17,7 +17,8 @@ export const classes = { plugin }
 
 ## Outer shadow
 
-Use the `.shadow-xs`, `.shadow-sm`, `.shadow`, `.shadow-md`, `.shadow-lg`, `.shadow-xl`, or `.shadow-2xl` utilities to apply different sized outer box shadows to an element.
+`.shadow-xs`,`.shadow-sm`,`.shadow`,`.shadow-md`,`.shadow-lg`,`.shadow-xl`または`.shadow-2xl`ユーティリティを使用します。
+異なるサイズのボックス外の影を要素に適用します。
 
 ```html
 <template preview class="bg-gray-100 lg:flex justify-around items-center text-sm p-4 py-8">
@@ -62,7 +63,7 @@ Use the `.shadow-xs`, `.shadow-sm`, `.shadow`, `.shadow-md`, `.shadow-lg`, `.sha
 
 ## Inner shadow
 
-Use the `.shadow-inner` utility to apply a subtle inset box shadow to an element. This can be useful for things like form controls or wells.
+`.shadow-inner`ユーティリティを使用して、要素に微かなはめ込みボックスの影を適用します。 これは、フォームコントロールやwellsなどに役立ちます。
 
 ```html
 <template preview class="flex justify-around text-sm p-4 py-8">
@@ -74,7 +75,8 @@ Use the `.shadow-inner` utility to apply a subtle inset box shadow to an element
 
 ## Focus outline shadow
 
-Use the `.shadow-outline` utility to apply a focus-ring-style shadow to an element. This can be useful when combined with `.focus:outline-none` to create a better looking focus style that follows an element's border radius.
+`.shadow-outline`ユーティリティを使用して、フォーカスリングスタイルのシャドウを要素に適用します。
+これは、`.focus：outline-none`と組み合わせて、要素の境界半径に沿った見栄えの良いフォーカススタイルを作成するときに役立ちます。
 
 ```html
 <template preview class="flex justify-center text-sm p-4 py-8">
@@ -93,7 +95,8 @@ Use the `.shadow-outline` utility to apply a focus-ring-style shadow to an eleme
 
 ## No shadow
 
-Use `.shadow-none` to remove an existing box shadow from an element. This is most commonly used to remove a shadow that was applied at a smaller breakpoint.
+`.shadow-none`を使用して、要素から既存のボックスシャドウを削除します。
+これは、より小さなブレークポイントで適用されたシャドウを削除するために最も一般的に使用されます。
 
 ```html
 <template preview class="flex justify-around text-sm p-4 py-8">
@@ -103,11 +106,12 @@ Use `.shadow-none` to remove an existing box shadow from an element. This is mos
 <div class="shadow-none"></div>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the shadow of an element at a specific breakpoint, add a `{screen}:` prefix to any existing shadow utility. For example, use `md:shadow-lg` to apply the `shadow-lg` utility at only medium screen sizes and above.
+特定のブレークポイントで要素のシャドウを制御するには、既存のシャドウユーティリティに `{screen}:`プレフィックスを追加します。
+たとえば、`md:shadow-lg`を使用して、中程度の画面サイズ以上でのみ`shadow-lg`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['shadow', 'shadow-md', 'shadow-lg', 'shadow-xl', 'shadow-2xl']}
@@ -122,13 +126,12 @@ For more information about Tailwind's responsive design features, check out the 
   previewClassName="bg-gray-200 flex justify-around items-center text-sm py-8"
 />
 
-## Customizing
+## カスタマイズ
 
 ### Box Shadows
 
-By default Tailwind provides three drop shadow utilities, one inner shadow utility, and a utility for removing existing shadows. You can change, add, or remove these by editing the `theme.boxShadow` section of your Tailwind config.
-
-If a `default` shadow is provided, it will be used for the non-suffixed `.shadow` utility. Any other keys will be used as suffixes, for example the key `'2'` will create a corresponding `.shadow-2` utility.
+デフォルトでは、Tailwindは、3つのドロップシャドウユーティリティ、1つの内部シャドウユーティリティ、および既存のシャドウを削除するためのユーティリティを提供します。
+Tailwindコンフィグの`theme.boxShadow`セクションを編集することで、これらを変更、追加、または削除できます。
 
 ```diff
   // tailwind.config.js
@@ -152,10 +155,10 @@ If a `default` shadow is provided, it will be used for the non-suffixed `.shadow
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="boxShadow" />
 
-### Disabling
+### 機能を使用しない場合
 
 <Disabling plugin="boxShadow" />
