@@ -1,6 +1,6 @@
 ---
-title: "Border Width"
-description: "Utilities for controlling the width of an element's borders."
+title: "ボーダーウィズ"
+description: "要素の境界線の幅を制御するためのユーティリティ"
 features:
   responsive: true
   customizable: true
@@ -18,7 +18,7 @@ export const classes = { plugin }
 
 ## All sides
 
-Use the `.border`, `.border-0`, `.border-2`, `.border-4`, or `.border-8` utilities to set the border width for all sides of an element.
+`.border`,`.border-0`,`.border-2`,`.border-4`または`.border-8`ユーティリティを使用して、要素のすべての辺の境界線の幅を設定します。
 
 ```html
 <template preview>
@@ -55,7 +55,7 @@ Use the `.border`, `.border-0`, `.border-2`, `.border-4`, or `.border-8` utiliti
 
 ## Individual sides
 
-Use the `.border-{side}`, `.border-{side}-0`, `.border-{side}-2`, `.border-{side}-4`, or `.border-{side}-8` utilities to set the border width for one side of an element.
+`.border-{side}`,`.border-{side}-0`,`.border-{side}-2`,`.border-{side}-4`または`.border-{side}-8`ユーティリティを使用して、要素の片側の境界線の幅を設定します。
 
 ```html
 <template preview>
@@ -87,9 +87,9 @@ Use the `.border-{side}`, `.border-{side}-0`, `.border-{side}-2`, `.border-{side
 
 ## <Heading badge="v1.3.0+">Between elements</Heading>
 
-You can also add borders between child elements using the `divide-{x/y}-{width}` and `divide-{color}` utilities.
+`divide-{x/y}-{width}`および`divide-{color}`ユーティリティを使用して、子要素間に境界線を追加することもできます。
 
-Learn more in the [Divide Width](/docs/divide-width) and [Divide Color](/docs/divide-color) documentation.
+詳細は[Divide Width](/docs/divide-width)と[Divide Color](/docs/divide-color)をご覧ください。
 
 ```html
 <template preview>
@@ -101,11 +101,11 @@ Learn more in the [Divide Width](/docs/divide-width) and [Divide Color](/docs/di
 </template>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the border width of an element at a specific breakpoint, add a `{screen}:` prefix to any existing border width utility. For example, use `md:border-t-4` to apply the `border-t-4` utility at only medium screen sizes and above.
+特定のブレークポイントで要素の境界線幅を制御するには、既存の境界線幅ユーティリティに`{screen}:`プレフィックスを追加します。たとえば、`md:border-t-4`を使用して、中程度の画面サイズ以上でのみ`border-t-4`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['border-2', 'border-t-8', 'border-r-8', 'border-b-8', 'border-8']}
@@ -118,11 +118,13 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
 ### Border Widths
 
-By default Tailwind provides five `border-width` utilities, and the same number of utilities per side (top, right, bottom, and left). You change, add, or remove these by editing the `theme.borderWidth` section of your Tailwind config. The values in this section will also control which utilities will be generated side.
+デフォルトでは、Tailwindは5つの`border-width`ユーティリティと、サイド（上、右、下、左）ごとに同じ数のユーティリティを提供します。
+Tailwindコンフィグの`theme.borderWidth`セクションを編集して、これらを変更、追加、または削除します。
+このセクションの値は、生成されるユーティリティも制御します。
 
 ```diff
   // tailwind.config.js
@@ -141,10 +143,10 @@ By default Tailwind provides five `border-width` utilities, and the same number 
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="borderWidth" />
 
-### Disabling
+### 機能を使用しない場合
 
 <Disabling plugin="borderWidth" />
