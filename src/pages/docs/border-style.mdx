@@ -1,6 +1,6 @@
 ---
-title: "Border Style"
-description: "Utilities for controlling the style of an element's borders."
+title: "ボーダースタイル"
+description: "要素の境界線のスタイルを制御するためのユーティリティ"
 features:
   responsive: true
   customizable: false
@@ -15,9 +15,9 @@ import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Use `.border-{style}` to control an element's border style.
+`.border-{style}`を使用して、要素の境界線スタイルを制御します。
 
 ```html
 <template preview>
@@ -57,11 +57,12 @@ Use `.border-{style}` to control an element's border style.
 <div class="border-none border-4 border-gray-600 ..."></div>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the border style of an element at a specific breakpoint, add a `{screen}:` prefix to any existing border style utility. For example, use `md:border-dotted` to apply the `border-dotted` utility at only medium screen sizes and above.
+特定のブレークポイントで要素の境界線スタイルを制御するには、既存の境界線スタイルユーティリティに `{screen}:`プレフィックスを追加します。
+たとえば、`md:border-dotted`を使用して、中程度の画面サイズ以上でのみ`border-dotted`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['border-solid', 'border-dashed', 'border-dotted', 'border-double', 'border-none']}
@@ -74,12 +75,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="borderStyle" />
 
-### Disabling
+### 機能を使用しない場合
 
 <Disabling plugin="borderStyle" />
