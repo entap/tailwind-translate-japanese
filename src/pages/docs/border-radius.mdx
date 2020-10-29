@@ -1,6 +1,6 @@
 ---
-title: "Border Radius"
-description: "Utilities for controlling the border radius of an element."
+title: "ボーダー半径"
+description: "要素の境界半径を制御するためのユーティリティ"
 features:
   responsive: true
   customizable: true
@@ -17,7 +17,7 @@ export const classes = { plugin }
 
 ## Rounded corners
 
-Use utilities like `.rounded-sm`, `.rounded`, or `.rounded-lg` to apply different border radius sizes to an element.
+`.rounded-sm`,`.rounded`,`.rounded-lg`などのユーティリティを使用して、要素に異なる境界半径サイズを適用します。
 
 ```html
 <template preview class="flex justify-around text-sm p-4">
@@ -35,7 +35,7 @@ Use utilities like `.rounded-sm`, `.rounded`, or `.rounded-lg` to apply differen
 
 ## Pills and circles
 
-Use the `.rounded-full` utility to create pills and circles.
+`.rounded-full`ユーティリティを使用して、ピル（錠剤の形）とサークルを作成します。
 
 ```html
 <template preview class="flex items-center justify-around text-sm p-4">
@@ -49,9 +49,9 @@ Use the `.rounded-full` utility to create pills and circles.
 
 ## No rounding
 
-Use `.rounded-none` to remove an existing border radius from an element.
+要素から既存の境界半径を削除するには、`.rounded-none`を使用します。
 
-This is most commonly used to remove a border radius that was applied at a smaller breakpoint.
+これは、より小さなブレークポイントで適用された境界半径を削除するために最も一般的に使用されます。
 
 ```html
 <template preview class="flex justify-around text-sm p-4 py-8">
@@ -63,7 +63,7 @@ This is most commonly used to remove a border radius that was applied at a small
 
 ## Rounding sides separately
 
-Use `.rounded-{t|r|b|l}{-size?}` to only round one side an element.
+`.rounded-{t|r|b|l}{-size?}`を使用して、要素の片側のみを丸めます。
 
 ```html
 <template preview class="flex justify-around text-sm p-4">
@@ -81,7 +81,7 @@ Use `.rounded-{t|r|b|l}{-size?}` to only round one side an element.
 
 ## Rounding corners separately
 
-Use `.rounded-{tl|tr|br|bl}{-size?}` to only round one corner an element.
+`.rounded-{tl|tr|br|bl}{-size?}`を使用して、要素の1つの角だけを丸めます。
 
 ```html
 <template preview class="flex justify-around text-sm p-4">
@@ -97,11 +97,11 @@ Use `.rounded-{tl|tr|br|bl}{-size?}` to only round one corner an element.
 <div class="rounded-bl-lg"></div>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the border radius of an element at a specific breakpoint, add a `{screen}:` prefix to any existing border radius utility. For example, use `md:rounded-lg` to apply the `rounded-lg` utility at only medium screen sizes and above.
+特定のブレークポイントで要素の境界半径を制御するには、既存の境界半径ユーティリティに`{screen}:`プレフィックスを追加します。たとえば、`md:rounded-lg`を使用して、中程度の画面サイズ以上でのみ`rounded-lg`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['rounded', 'rounded-t', 'rounded-b-lg', 'rounded-none', 'rounded-r']}
@@ -117,11 +117,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
 ### Border Radiuses
 
-By default Tailwind provides five border radius size utilities. You can change, add, or remove these by editing the `theme.borderRadius` section of your Tailwind config.
+デフォルトでは、Tailwindは5つの境界半径サイズユーティリティを提供します。
+Tailwindコンフィグの`theme.borderRadius`セクションを編集することで、これらを変更、追加、または削除できます。
 
 ```diff
   // tailwind.config.js
@@ -141,10 +142,10 @@ By default Tailwind provides five border radius size utilities. You can change, 
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="borderRadius" />
 
-### Disabling
+### 機能を使用しない場合
 
 <Disabling plugin="borderRadius" />
