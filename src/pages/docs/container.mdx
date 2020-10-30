@@ -1,6 +1,6 @@
 ---
-title: "Container"
-description: "A component for fixing an element's width to the current breakpoint."
+title: "コンテナ"
+description: "要素の幅を現在のブレークポイントに固定するためのコンポーネント"
 ---
 
 import { defaultConfig } from '@/utils/defaultConfig'
@@ -46,13 +46,14 @@ export const classes = (
   </table>
 )
 
-## Usage
+## 使用方法
 
-The `.container` class sets the `max-width` of an element to match the `min-width` of the current breakpoint. This is useful if you'd prefer to design for a fixed set of screen sizes instead of trying to accommodate a fully fluid viewport.
+`.container`クラスは、要素の`max-width`を現在のブレークポイントの`min-width`と一致するように設定します。 
+これは、完全に流動的なビューポートに対応するのではなく、固定された画面サイズのセットを設計する場合に役立ちます。
 
-Note that unlike containers you might have used in other frameworks, **Tailwind's container does not center itself automatically and does not have any built-in horizontal padding.**
+あなたがこれまで他フレームワークで使用した可能性のあるコンテナーとは異なり、**Tailwindのコンテナーは自動的に中央に配置されず、デフォルトで水平方向のパディングが組み込まれていません。**
 
-To center a container, use the `.mx-auto` utility:
+コンテナを中央に配置するには、`.mx-auto`ユーティリティを使用します。
 
 ```html
 <div class="container mx-auto">
@@ -60,7 +61,7 @@ To center a container, use the `.mx-auto` utility:
 </div>
 ```
 
-To add horizontal padding, use the `.px-{size}` utilities:
+水平方向のパディングを追加するには、`.px-{size}`ユーティリティを使用します。
 
 ```html
 <div class="container mx-auto px-4">
@@ -68,11 +69,12 @@ To add horizontal padding, use the `.px-{size}` utilities:
 </div>
 ```
 
-If you'd like to center your containers by default or include default horizontal padding, see the [customization options](#customizing) below.
+デフォルトでコンテナを中央に配置する場合、またはデフォルトの水平パディングを含める場合は、下部にある[customization options](#customizing)をご覧ください。
 
 ## Responsive variants
 
-The `container` class also includes responsive variants like `md:container` by default that allow you to make something behave like a container at only a certain breakpoint and up:
+`container`クラスには、デフォルトで`md:container`のようなレスポンシブバリアントも含まれています。
+これにより、特定のブレークポイント以上でのみコンテナのように動作させることができます。
 
 ```html
 <!-- Full-width fluid until the `lg` breakpoint, then lock to container -->
@@ -85,7 +87,7 @@ The `container` class also includes responsive variants like `md:container` by d
 
 ### Centering by default
 
-To center containers by default, set the `center` option to `true` in the `theme.container` section of your config file:
+デフォルトでコンテナを中央に配置するには、設定ファイルの`theme.container`セクションで`center`オプションを`true`に設定します。
 
 ```js
 // tailwind.config.js
@@ -100,7 +102,7 @@ module.exports = {
 
 ### Horizontal padding
 
-To add horizontal padding by default, specify the amount of padding you'd like using the `padding` option in the `theme.container` section of your config file:
+デフォルトで水平パディングを追加するには、構成ファイルの`theme.container`セクションで`padding`オプションを使用して、パディングの量を指定します。
 
 ```js
 // tailwind.config.js
@@ -113,7 +115,7 @@ module.exports = {
 }
 ```
 
-If you want to specify a different padding amount for each breakpoint, use an object to provide a `default` value and any breakpoint-specific overrides:
+ブレークポイントごとに異なるパディング量を指定する場合は、オブジェクトを使用して`default`値とブレークポイント固有のオーバーライドを提供します。
 
 ```js
 // tailwind.config.js
@@ -133,7 +135,7 @@ module.exports = {
 
 ### Disabling responsive variants
 
-If you'd like to disable the responsive variants, you can do so using by setting `container` to an empty array in the `variants` section of your `tailwind.config.js` file:
+レスポンシブバリアントを無効にする場合は、`tailwind.config.js`ファイルの`variants`セクションで`container`を空の配列に設定することで無効にできます。
 
 ```diff
   // tailwind.config.js
@@ -147,7 +149,8 @@ If you'd like to disable the responsive variants, you can do so using by setting
 
 ### Disabling entirely
 
-If you don't plan to use the `.container` class in your project, you can disable it entirely by setting the `container` property to `false` in the `corePlugins` section of your config file:
+プロジェクトで`.container`クラスを使用する予定がない場合は、
+構成ファイルの`corePlugins`セクションで`container`プロパティを`false`に設定することで完全に無効にできます。
 
 ```diff
   // tailwind.config.js
