@@ -1,13 +1,13 @@
 ---
-title: Configuration
-description: A guide to configuring and customizing your Tailwind installation.
+title: コンフィギュレーション
+description: Tailwindインストールをコンフィギュアおよびカスタマイズするためのガイド
 ---
 
 import { CorePluginReference } from '@/components/CorePluginReference'
 
-Because Tailwind is a framework for building bespoke user interfaces, it has been designed from the ground up with customization in mind.
+Tailwindは、特注のユーザーインターフェイスを構築するためのフレームワークであるため、カスタマイズを念頭に置いてゼロから設計されています。
 
-By default, Tailwind will look for an optional `tailwind.config.js` file at the root of your project where you can define any customizations.
+デフォルトでは、Tailwindはプロジェクトのルートでオプショナルの `tailwind.config.js`ファイルを探します。このファイルで、カスタマイズを定義できます。
 
 ```js
 // Example `tailwind.config.js` file
@@ -35,17 +35,19 @@ module.exports = {
 }
 ```
 
-Every section of the config file is optional, so you only have to specify what you'd like to change. Any missing sections will fall back to Tailwind's [default configuration](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js).
+設定ファイルのすべてのセクションはオプションであるため、変更する内容を指定するだけで済みます。
+
+未設定のセクションはTailwindの[default configuration](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js)に従います。
 
 ## Creating your configuration file
 
-Generate a Tailwind config file for your project using the Tailwind CLI utility included when you install the `tailwindcss` npm package:
+`tailwindcss`npmパッケージのインストール時に含まれているTailwind CLIユーティリティを使用して、プロジェクトのTailwind構成ファイルを生成します。
 
 ```bash
 npx tailwindcss init
 ```
 
-This will create a minimal `tailwind.config.js` file at the root of your project:
+これにより、プロジェクトのルートに最小限の`tailwind.config.js`ファイルが作成されます。
 
 ```js
 // tailwind.config.js
@@ -62,13 +64,13 @@ module.exports = {
 
 ### Using a different file name
 
-To use a name other than `tailwind.config.js`, pass it as an argument on the command-line:
+`tailwind.config.js`以外の名前を使用するには、コマンドラインで引数として渡します。
 
 ```bash
 npx tailwindcss init tailwindcss-config.js
 ```
 
-If you use a custom file name, you will need to specify it when including Tailwind as a plugin in your PostCSS configuration as well:
+カスタムファイル名を使用する場合は、PostCSS構成にプラグインとしてTailwindを含めるときにも、それを指定する必要があります。
 
 ```js
 // postcss.config.js
@@ -81,19 +83,19 @@ module.exports = {
 
 ### Scaffolding the entire default configuration
 
-For most users we encourage you to keep your config file as minimal as possible, and only specify the things you want to customize.
+ほとんどのユーザーの場合、構成ファイルをできるだけ最小限に抑え、カスタマイズしたいものだけを指定することをお勧めします。
 
-If you'd rather scaffold a complete configuration file that includes all of Tailwind's default configuration, use the `--full` option:
+Tailwindのデフォルト構成のすべてを含む、完全なコンフィギュレーションファイルをスキャフォールディングしたい場合は、`--full`オプションを使用します。
 
 ```bash
 npx tailwindcss init --full
 ```
 
-You'll get a file that matches the [default configuration file](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js) Tailwind uses internally.
+Tailwindが内部で使用するのと一致する[default configuration file](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js)を取得できます。
 
 ## Theme
 
-The `theme` section is where you define your color palette, font stacks, type scale, border sizes, breakpoints — anything related to the visual design of your site.
+「テーマ」セクションでは、カラーパレット、フォントスタック、タイプスケール、境界線のサイズ、ブレークポイントなど、サイトのビジュアルデザインに関連するすべてのものを定義します。
 
 ```js
 // tailwind.config.js
@@ -128,11 +130,11 @@ module.exports = {
 }
 ```
 
-Learn more about the default theme and how to customize it in the [theme configuration guide](/docs/theme).
+デフォルトテーマやカスタマイズ方法については[theme configuration guide](/docs/theme)をご覧ください。
 
 ## Variants
 
-The `variants` section lets you control which [variants](/docs/pseudo-class-variants) are generated for each core utility plugin.
+`variants`セクションでは、コアユーティリティプラグインごとに生成される[variants](/docs/pseudo-class-variants)を制御できます。
 
 ```js
 // tailwind.config.js
@@ -145,11 +147,11 @@ module.exports = {
 }
 ```
 
-Learn more in the [variants configuration guide](/docs/configuring-variants).
+詳細は[variants configuration guide](/docs/configuring-variants)をご覧ください。
 
 ## Plugins
 
-The `plugins` section allows you to register third-party plugins with Tailwind that can be used to generate extra utilities, components, base styles, or custom variants.
+`plugins`セクションでは、サードパーティのプラグインをTailwindに登録して、追加のユーティリティ、コンポーネント、基本スタイル、またはカスタムバリアントを生成することができます。
 
 ```js
 // tailwind.config.js
@@ -162,13 +164,14 @@ module.exports = {
 }
 ```
 
-Learn more about writing your own plugins in the [plugin authoring guide](/docs/plugins).
+独自のプラグインの作成についての詳細は[plugin authoring guide](/docs/plugins)をご覧ください。
 
 ## Prefix
 
-The `prefix` option allows you to add a custom prefix to all of Tailwind's generated utility classes. This can be really useful when layering Tailwind on top of existing CSS where there might be naming conflicts.
+`prefix`オプションを使用すると、Tailwindで生成されたすべてのユーティリティクラスにカスタムプレフィックスを追加できます。
+これは、名前の競合が発生する可能性がある既存のCSS上にTailwindを重ねるときに非常に役立ちます。
 
-For example, you could add a `tw-` prefix by setting the `prefix` option like so:
+たとえば、次のように`prefix`オプションを設定することで、`tw-`プレフィックスを追加できます。
 
 ```js
 // tailwind.config.js
@@ -177,7 +180,7 @@ module.exports = {
 }
 ```
 
-Now every utility will be generated with the configured prefix:
+これで、すべてのユーティリティが設定されたプレフィックスで生成されます。
 
 ```css
 .tw-text-left {
@@ -192,9 +195,9 @@ Now every utility will be generated with the configured prefix:
 /* etc. */
 ```
 
-It's important to understand that this prefix is added to the beginning of each *utility* name, not to the entire class name.
+このプレフィックスは、クラス名全体ではなく、各*ユーティリティ*名の先頭に追加されることを理解することが重要です。
 
-That means that classes with responsive or state prefixes like `sm:` or `hover:` will still have the responsive or state prefix *first*, with your custom prefix appearing after the colon:
+つまり、`sm:`や`hover:`のようなレスポンシブプレフィックスまたは状態プレフィックスを持つクラスには、引き続きレスポンシブプレフィックスまたは状態プレフィックスが*最初*にあり、カスタムプレフィックスはコロンの後に表示されます。
 
 ```html
 <div class="tw-text-lg md:tw-text-xl tw-bg-red-500 hover:tw-bg-blue-500">
@@ -202,9 +205,9 @@ That means that classes with responsive or state prefixes like `sm:` or `hover:`
 </div>
 ```
 
-Prefixes are only added to classes generated by Tailwind; **no prefix will be added to your own custom classes.**
+プレフィックスは、Tailwindによって生成されたクラスにのみ追加されます。 **独自のカスタムクラスにプレフィックスは追加されません。**
 
-That means if you add your own responsive utility like this:
+つまり、次のような独自のレスポンシブユーティリティを追加するとこのようになります。
 
 ```css
 @responsive {
@@ -212,7 +215,7 @@ That means if you add your own responsive utility like this:
 }
 ```
 
-...the generated responsive classes will not have your configured prefix:
+生成されたレスポンシブクラスには、設定されたプレフィックスがありません。
 
 ```css
 .bg-brand-gradient { /* ... */ }
@@ -230,7 +233,7 @@ That means if you add your own responsive utility like this:
 }
 ```
 
-If you'd like to prefix your own utilities as well, just add the prefix to the class definition:
+独自のユーティリティにもプレフィックスを付ける場合は、クラス定義にプレフィックスを追加するだけです。
 
 ```css
 @responsive {
@@ -240,9 +243,10 @@ If you'd like to prefix your own utilities as well, just add the prefix to the c
 
 ## Important
 
-The `important` option lets you control whether or not Tailwind's utilities should be marked with `!important`. This can be really useful when using Tailwind with existing CSS that has high specificity selectors.
+`important`オプションを使用すると、Tailwindのユーティリティを`!important`でマークするかどうかを制御できます。
+これは、特異性の高いセレクターを持つ既存のCSSでTailwindを使用する場合に非常に役立ちます。
 
-To generate utilities as `!important`, set the `important` key in your configuration options to `true`:
+ユーティリティを`!important`として生成するには、設定オプションの`important`キーを`true`に設定します。
 
 ```js
 // tailwind.config.js
@@ -251,7 +255,7 @@ module.exports = {
 }
 ```
 
-Now all of Tailwind's utility classes will be generated as `!important`:
+これで、Tailwindのすべてのユーティリティクラスが `!important`として生成されます。
 
 ```css
 .leading-none {
@@ -266,9 +270,9 @@ Now all of Tailwind's utility classes will be generated as `!important`:
 /* etc. */
 ```
 
-Note that any of your own custom utilities **will not** automatically be marked as `!important` by enabling this option.
+このオプションを有効にしても、独自のカスタムユーティリティは自動的に`!important`としてマークされないことに注意してください。
 
-If you'd like to make your own utilities `!important`, just add `!important` to the end of each declaration yourself:
+独自のユーティリティ`!important`を作成する場合は、各宣言の最後に`!important`を自分で追加するだけです。
 
 ```css
 @responsive {
