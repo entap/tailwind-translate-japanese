@@ -1,15 +1,17 @@
 ---
-title: Breakpoints
-description: Customizing the default breakpoints for your project.
+title: ブレイクポイント
+description: プロジェクトのデフォルトのブレークポイントをカスタマイズする
 ---
 
 import { Heading } from '@/components/Heading'
 
 ## <Heading hidden>Basic customization</Heading>
 
-You define your project's breakpoints in the `theme.screens` section of your `tailwind.config.js` file. The keys are your screen names (used as the prefix for the responsive utility variants Tailwind generates, like `md:text-center`), and the values are the `min-width` where that breakpoint should start.
-
-The default breakpoints are inspired by common device resolutions:
+プロジェクトのブレークポイントは、`tailwind.config.js`ファイルの`theme.screens`セクションで定義します。
+キーはスクリーン名（`md：text-center`などのTailwindが生成するレスポンシブユーティリティバリアントのプレフィックスとして使用）であり、
+値はそのブレークポイントが開始する`min-width`です。
+ 
+デフォルトのブレークポイントは、一般的なデバイスの解像度に基づいています。
 
 ```js
 // tailwind.config.js
@@ -32,9 +34,8 @@ module.exports = {
 }
 ```
 
-Feel free to have as few or as many screens as you want, naming them in whatever way you'd prefer for your project.
-
-For example, you could use device names instead of sizes:
+画面の数は好きなだけ作成でき、またプロジェクトには好きな名前を付けてください。
+たとえば、サイズの代わりにデバイス名を使用できます。
 
 ```js
 // tailwind.config.js
@@ -54,7 +55,7 @@ module.exports = {
 }
 ```
 
-These screen names will be reflected in your utilities, so your `text-center` utilities would now look like this:
+これらの画面名はユーティリティに反映されるため、`text-center`ユーティリティは次のようになります。
 
 ```css
 .text-center { text-align: center }
@@ -74,7 +75,7 @@ These screen names will be reflected in your utilities, so your `text-center` ut
 
 ## Max-width breakpoints
 
-If you want to work with max-width breakpoints instead of min-width, you can specify your screens as objects with a `max` key:
+min-widthではなくmax-widthブレークポイントを使用する場合は、`max`キーを使用して画面をオブジェクトとして指定できます。
 
 ```js
 // tailwind.config.js
@@ -97,7 +98,7 @@ module.exports = {
 }
 ```
 
-You can even create breakpoints with both `min-width` and `max-width` definitions if necessary, for example:
+必要に応じて、`min-width`と`max-width`の両方の定義でブレークポイントを作成することもできます。
 
 ```js
 // tailwind.config.js
@@ -115,9 +116,10 @@ module.exports = {
 
 ## Multi-range breakpoints
 
-Sometimes it can be useful to have a single breakpoint definition apply in multiple ranges.
+単一のブレークポイント定義を複数の範囲に適用すると便利な場合があります。
 
-For example, say you have a sidebar and want your breakpoints to be based on the content-area width rather than the entire viewport. You can simulate this having one of your breakpoints fall back to a smaller breakpoint when the sidebar becomes visible and shrinks the content area:
+たとえば、サイドバーがあり、ブレークポイントをビューポート全体ではなくコンテンツ領域の幅に基づいて設定するとします。 
+サイドバーが表示されてコンテンツ領域が縮小されたときに、ブレークポイントの1つが小さいブレークポイントにフォールバックすることで、これをシミュレートできます。
 
 ```js
 // tailwind.config.js
@@ -141,7 +143,7 @@ module.exports = {
 
 ## Custom media queries
 
-If you need to provide a completely custom media query for a breakpoint, you can do so using an object with a `raw` key:
+ブレークポイントに対して完全にカスタムされたメディアクエリを提供する必要がある場合は、`raw`キーを持つオブジェクトを使用して提供できます。
 
 ```js
 // tailwind.config.js
@@ -159,9 +161,8 @@ module.exports = {
 
 ### Styling for print
 
-The `raw` option can be particularly useful if you need to apply different styles specifically for print.
-
-All you need to do is add a `print` screen under `theme.extend.screens`:
+`raw`オプションは、印刷専用にさまざまなスタイルを適用する必要がある場合に特に便利です。
+必要なことは`theme.extend.screens`の下に`print`スクリーンを追加することです。
 
 ```js
 // tailwind.config.js
@@ -177,7 +178,7 @@ module.exports = {
 }
 ```
 
-Then you can use classes like `print:text-black` to specify styles that should only be applied when someone tries to print the page you're working on:
+次に、`print:text-black`などのクラスを使用して、作業中のページを誰かが印刷しようとしたときにのみ適用するスタイルを指定できます。
 
 ```html
 <div class="text-gray-700 print:text-black">
@@ -187,7 +188,7 @@ Then you can use classes like `print:text-black` to specify styles that should o
 
 ### Dark mode
 
-The `raw` option can even be used to implement a "dark mode" screen:
+`raw`オプションは、ダークモード画面を実装するためにも使用できます。
 
 ```js
 // tailwind.config.js
@@ -203,12 +204,12 @@ module.exports = {
 }
 ```
 
-Then you can style elements differently in dark mode using the `dark:` prefix:
+次に、`dark:`プレフィックスを使用してダークモードで要素のスタイルを変えることができます。
 
 ```html
 <div class="text-gray-700 dark:text-gray-200">
   <!-- ... -->
 </div>
 ```
-
-Note that because of how these screen variants are implemented in Tailwind **you can't combine breakpoints with dark mode using this approach**, for example `md:dark:text-gray-300` won't work. This is something we're hoping to address with official dark mode support in a future release.
+これらの画面バリアントがTailwindでどのように実装されているかにより、**このアプローチを使用してブレークポイントをダークモードと組み合わせることができない**ことに注意してください。
+たとえば、`md:dark:text-gray-300`は機能しません。これは、将来のリリースで公式のダークモードサポートで対処したいと考えています。
