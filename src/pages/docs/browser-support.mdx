@@ -1,21 +1,26 @@
 ---
-title: Browser Support
-description: Understanding how to think about browser support with a utility-first framework.
+title: ブラウザサポート
+description: ユーティリティファーストのフレームワークでブラウザサポートについて考える方法を理解する
 ---
 
-Tailwind includes support for a lot of CSS features that are only available in modern evergreen browsers, such as [grid layout](/docs/grid-template-columns), [object-fit](/docs/object-fit)/[position](/docs/object-position), and [sticky positioning](/docs/position/#sticky), and uses other modern CSS features like custom properties to implement utilities like [translate](/docs/translate), [rotate](/docs/rotate), and [scale](/docs/scale).
+Tailwindには [grid layout](/docs/grid-template-columns), [object-fit](/docs/object-fit)/[position](/docs/object-position), [sticky positioning](/docs/position/#sticky)など、最新の人気あるブラウザでのみ利用可能な
+多くのCSS機能のサポートが含まれています。
+またカスタムプロパティなどの他の最新のCSS機能を使用して[translate](/docs/translate), [rotate](/docs/rotate), [scale](/docs/scale)などのユーティリティを実装しています。
 
-That said, because Tailwind is such a low-level framework you can still easily use it to build sites that need to support older browsers like IE10/11.
+とはいえ、Tailwindは非常にローレベルのフレームワークであるため、IE10/11などの古いブラウザーをサポートする必要のあるサイトを構築するためにTailwindを簡単に使用できます。
 
 ## Using Tailwind with older browsers
 
-In popular component-based frameworks like Bootstrap or Bulma, it's important to know what browsers are supported because the implementation details for each component are abstracted away from you.
+BootstrapやBulmaなどの一般的なコンポーネントベースのフレームワークでは、
+各コンポーネントの実装の詳細が抽象化されているため、サポートされているブラウザーを知ることが重要です。
 
-For example, when you are building a grid with classes like `.row` or `.col-4`, you need to know which browsers the framework author is targeting because you have no idea if those classes are implemented using floats, Flexbox, or CSS Grid.
+たとえば`.row`や`.col-4`のようなクラスでグリッドを構築する場合、フレームワークの作成者がターゲットにしているブラウザを知る必要があります。 
+これらのクラスがfloat、Flexbox、またはCSS Gridを使用して実装されているかどうかわからないためです。
 
-Tailwind on the other hand is a low-level utility framework, where most of the classes map directly to individual CSS properties. This means that **which browsers you support is really up to you, not the framework**.
+一方、Tailwindはローレベルのユーティリティフレームワークであり、ほとんどのクラスが個々のCSSプロパティに直接マップされます。
+これは、**どのブラウザをサポートするかは、フレームワークではなく、実際にはあなた次第であることを意味します**。
 
-For example, here is a three column grid built with Tailwind's Flexbox utilities, so it will only work in IE10+ since Flexbox isn't supported in IE9:
+たとえば、これはTailwindのFlexboxユーティリティで構築された3列のグリッドです。FlexboxはIE9でサポートされていないため、IE10以上でのみ機能します。
 
 ```html
 <div class="flex">
@@ -25,7 +30,7 @@ For example, here is a three column grid built with Tailwind's Flexbox utilities
 </div>
 ```
 
-If you needed to support IE9, you could build your grids with floats instead, since they are supported in virtually all browsers:
+IE9をサポートする必要がある場合は、代わりにfloatを使用してグリッドを構築できます。なぜならfloatは実質的にすべてのブラウザーでサポートされているためです。
 
 ```html
 <div class="clearfix">
@@ -35,15 +40,16 @@ If you needed to support IE9, you could build your grids with floats instead, si
 </div>
 ```
 
-Because Tailwind doesn't impose any opinions about *how* you build the components in your UI, you can implement them however you like according to your own browser support policy.
+Tailwindは、UIでコンポーネントを構築する*方法*について意見を課さないため、独自のブラウザーサポートポリシーに従って、コンポーネントを好きなように実装できます。
 
-For the latest information about which CSS features are supported by which browsers, search the excellent [Can I Use](https://caniuse.com/) database.
+どのCSS機能がどのブラウザでサポートされているかに関する最新情報については、[Can I Use](https://caniuse.com/)データベースを検索してください。
 
 ## Vendor Prefixes
 
-Tailwind doesn't automatically add vendor prefixes to any of its styles. Instead, we recommend that you use [Autoprefixer](https://github.com/postcss/autoprefixer).
+Tailwindは、どのスタイルにもベンダープレフィックスを自動的に追加しません。
+代わりに[Autoprefixer](https://github.com/postcss/autoprefixer)を使うことをオススメします。
 
-To use it, install it via npm:
+使用するには、npm経由でインストールしてください。
 
 ```bash
 # Using npm
@@ -53,7 +59,7 @@ npm install autoprefixer
 yarn add autoprefixer
 ```
 
-Then add it to the very end of your plugin list in your PostCSS configuration:
+次に、PostCSS設定のプラグインリストの最後に追加します。
 
 ```js
 module.exports = {
