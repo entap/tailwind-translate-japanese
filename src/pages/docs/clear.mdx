@@ -1,6 +1,6 @@
 ---
-title: "Clear"
-description: "Utilities for controlling the wrapping of content around an element."
+title: "クリア"
+description: "要素の周りのコンテンツの折り返しを制御するためのユーティリティ"
 featureVersion: "v1.2.0+"
 ---
 
@@ -12,7 +12,7 @@ export const classes = { plugin }
 
 ## Clear left
 
-Use `clear-left` to position an element below any preceding left-floated elements.
+`clear-left`を使用して、前の左に浮かぶ要素の下に要素を配置します。
 
 ```html
 <template preview>
@@ -26,7 +26,7 @@ Use `clear-left` to position an element below any preceding left-floated element
 
 ## Clear right
 
-Use `clear-right` to position an element below any preceding right-floated elements.
+`clear-right`を使用して、前の右に浮かぶ要素の下に要素を配置します。
 
 ```html
 <template preview>
@@ -40,7 +40,7 @@ Use `clear-right` to position an element below any preceding right-floated eleme
 
 ## Clear both
 
-Use `clear-both` to position an element below all preceding floated elements.
+`clear-both`を使用して、先行するすべてのフロート要素の下に要素を配置します。
 
 ```html
 <template preview>
@@ -54,7 +54,7 @@ Use `clear-both` to position an element below all preceding floated elements.
 
 ## Don't clear
 
-Use `clear-none` to reset any clears that are applied to an element. This is the default value for the clear property.
+要素に適用されているクリアをリセットするには、`clear-none`を使用します。これは、clearプロパティのデフォルト値です。
 
 ```html
 <template preview>
@@ -68,7 +68,8 @@ Use `clear-none` to reset any clears that are applied to an element. This is the
 
 ## Responsive
 
-To control the clear property of an element at a specific breakpoint, add a `{screen}:` prefix to any existing clear utility. For example, use `md:clear-left` to apply the `clear-left` utility at only medium screen sizes and above.
+特定のブレークポイントで要素のclearプロパティを制御するには、既存のclearユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:clear-left`を使用して、中程度の画面サイズ以上でのみ`clear-left`ユーティリティを適用します。
 
 ```html
 <p class="clear-right md:clear-left ...">
@@ -76,14 +77,14 @@ To control the clear property of an element at a specific breakpoint, add a `{sc
 </p>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 ## Customizing
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="clear" />
 
-### Disabling
+### 機能を使用しない場合
 
 <Disabling plugin="clear" />
