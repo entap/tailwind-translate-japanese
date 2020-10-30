@@ -1,6 +1,6 @@
 ---
-title: Controlling File Size
-description: Strategies for keeping your generated CSS small and performant.
+title: ファイルサイズのコントロール
+description: 生成されたCSSを小さく、かつパフォーマンスを維持するための戦略
 ---
 
 import { Heading } from '@/components/Heading'
@@ -9,7 +9,8 @@ import stats from '@/utils/stats'
 
 ## <Heading hidden>Overview</Heading>
 
-<p>Using the default configuration, the development build of Tailwind CSS is {stats.default.original} uncompressed, {stats.default.gzipped} minified and compressed with <a href="https://www.gnu.org/software/gzip/">Gzip</a>, and {stats.default.brotlified} when compressed with <a href="https://github.com/google/brotli">Brotli</a>.</p>
+<p>デフォルト構成を使用するとTailwindCSSの開発ビルドは非圧縮で{stats.default.original}、縮小化し<a href="https://www.gnu.org/software/gzip/">Gzip</a>で圧縮すると{stats.default.gzipped}、
+ <a href="https://github.com/google/brotli">Brotli</a>で圧縮すると{stats.default.brotlified}になります。</p>
 
 <table>
   <thead>
@@ -30,25 +31,31 @@ import stats from '@/utils/stats'
   </tbody>
 </table>
 
-This might sound enormous but **the development build is large by design**.
+これは巨大に聞こえるかもしれませんが、**開発ビルドは設計により大きいです**。
 
-To make the development experience as productive as possible, Tailwind generates thousands of utility classes for you, most of which you probably won't actually use.
+開発エクスペリエンスを可能な限り生産的にするために、 
+Tailwindは、何千ものユーティリティクラスを生成しますが、そのほとんどはおそらく実際には使用しません。
 
-For example, Tailwind generates margin utilities for every size in your spacing scale, for every side of an element you might want to apply margin to, at every breakpoint you are using in your project. This leads to hundreds of different combinations that are all important to have available, but not all likely to be needed.
+たとえばTailwindは、プロジェクトで使用しているすべてのブレークポイントで、スペーシングスケールのすべてのサイズ、マージンを適用する可能性のある要素のすべての（左右、上下などの）側に対してマージンユーティリティを生成します。
+ 
+これにより、何百もの異なる組み合わせが利用可能になることが重要ですが、すべてが必要になるとは限りません。
 
-**When building for production, you should always use Tailwind's `purge` option to tree-shake unused styles and optimize your final build size.** When removing unused styles with Tailwind, it's very hard to end up with more than 10kb of compressed CSS.
+**本番用にビルドする場合は、常にTailwindの`purge`オプションを使用して未使用のスタイルを削除し、最終的なビルドサイズを最適化する必要があります。**
+Tailwindで未使用のスタイルを削除する場合、10kbを超える圧縮CSSを作成することは非常に困難です。
 
 ## Writing purgeable HTML
 
-Before getting started with the `purge` feature, it's important to understand how it works and build the correct mental model to make sure you never accidentally remove important styles when building for production.
+`purge`機能を開始する前に、それがどのように機能するかを理解し、正しいメンタルモデルを構築して、本番用に構築するときに重要なスタイルを誤って削除しないようにすることが重要です。
 
-[PurgeCSS](https://purgecss.com/) _(the library we use under the hood)_ is intentionally very naive in the way it looks for classes in your HTML. It doesn't try to parse your HTML and look for class attributes or dynamically execute your JavaScript — it simply looks for any strings in the entire file that match this regular expression:
+[PurgeCSS](https://purgecss.com/)  _（私達が内部で使用するライブラリ）_は、HTML内のクラスを検索する方法が意図的に非常に単純になっています。
+これはHTMLを解析してクラス属性を探したり、JavaScriptを動的に実行したりすることはありません — この正規表現に一致するファイル全体の文字列を検索するだけです。
 
 ```js
 /[^<>"'`\s]*[^<>"'`\s:]/g
 ```
 
-That means that **it is important to avoid dynamically creating class strings in your templates with string concatenation**, otherwise PurgeCSS won't know to preserve those classes.
+つまり、**文字列を連結してテンプレートにクラス文字列を動的に作成しないようにすることが重要です**。
+そうしないと、PurgeCSSはそれらのクラスを保持することを知ることはありません。
 
 <TipBad>Don't use string concatenation to create class names</TipBad>
 
