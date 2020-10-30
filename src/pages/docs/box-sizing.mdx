@@ -1,6 +1,6 @@
 ---
-title: "Box Sizing"
-description: "Utilities for controlling how the browser should calculate an element's total size."
+title: "ボックスサイジング"
+description: "ブラウザが要素の合計サイズを計算する方法を制御するためのユーティリティ"
 featureVersion: "v1.2.0+"
 ---
 
@@ -12,11 +12,11 @@ export const classes = { plugin }
 
 ## Include borders and padding
 
-Use `box-border` to set an element's `box-sizing` to `border-box`, telling the browser to include the element's borders and padding when you give it a height or width.
+`box-border`を使用して、要素の` box-sizing`を `border-box`に設定し、高さまたは幅を指定するときに要素の境界線とパディングを含めるようにブラウザに指示します。
 
-This means a 100px &times; 100px element with a 2px border and 4px of padding on all sides will be rendered as 100px &times; 100px, with an internal content area of 88px &times; 88px.
+これは、2pxの境界線とすべての側面に4pxのパディングがある100px &times; 100pxの要素が、88px &times; 88pxの内部コンテンツ領域で100px &times; 100pxとしてレンダリングされることを意味します。
 
-Tailwind makes this the default for all elements in our [preflight base styles](/docs/preflight).
+Tailwindは、これを[preflight base styles](/docs/preflight)のすべての要素のデフォルトにします。
 
 ```html
 <template preview class="bg-white p-8 flex items-center justify-around">
@@ -32,9 +32,9 @@ Tailwind makes this the default for all elements in our [preflight base styles](
 
 ## Exclude borders and padding
 
-Use `box-content` to set an element's `box-sizing` to `content-box`, telling the browser to add borders and padding on top of the element's specified width or height.
+`box-content`を使用して、要素の` box-sizing`を `content-box`に設定し、要素の指定された幅または高さに境界線とパディングを追加するようにブラウザに指示します。
 
-This means a 100px &times; 100px element with a 2px border and 4px of padding on all sides will actually be rendered as 112px &times; 112px, with an internal content area of 100px &times; 100px.
+つまり、2pxの境界線と4pxのパディングをすべての側面に持つ100px &times; 100pxの要素は、実際には112px &times; 112pxとしてレンダリングされ、内部コンテンツ領域は100px &times; 100pxになります。
 
 ```html
 <template preview class="bg-white p-8 flex items-center justify-around">
@@ -50,7 +50,7 @@ This means a 100px &times; 100px element with a 2px border and 4px of padding on
 
 ## Responsive
 
-To control the box-sizing at a specific breakpoint, add a `{screen}:` prefix to any existing box-sizing utility. For example, use `md:box-content` to apply the `box-content` utility at only medium screen sizes and above.
+特定のブレークポイントでボックスサイズを制御するには、既存のボックスサイズユーティリティに `{screen}:`プレフィックスを追加します。 たとえば、`md:box-content`を使用して、中程度の画面サイズ以上でのみ`box-content`ユーティリティを適用します。
 
 ```html
 <div class="box-border md:box-content ...">
@@ -58,14 +58,14 @@ To control the box-sizing at a specific breakpoint, add a `{screen}:` prefix to 
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 ## Customizing
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="boxSizing" name="box-sizing" />
 
-### Disabling
+### 機能を使用しない場合
 
 <Disabling plugin="boxSizing" name="box-sizing" />
