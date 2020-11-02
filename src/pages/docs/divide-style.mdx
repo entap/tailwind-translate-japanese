@@ -1,6 +1,6 @@
 ---
-title: "Divide Style"
-description: "Utilities for controlling the border style between elements."
+title: "スタイルを分ける"
+description: "要素間の境界線スタイルを制御するためのユーティリティ。"
 featureVersion: "v1.7.0+"
 ---
 
@@ -20,9 +20,9 @@ export const classes = {
   ),
 }
 
-## Usage
+## 使用方法
 
-Control the border style between elements using the `divide-{style}` utilities.
+`divide-{style}`ユーティリティを使用して、要素間の境界線のスタイルを制御します。
 
 ```html
 <template preview>
@@ -42,7 +42,8 @@ Control the border style between elements using the `divide-{style}` utilities.
 
 ## Responsive
 
-To control the border style between elements at a specific breakpoint, add a `{screen}:` prefix to any existing divide style utility. For example, use `md:divide-dashed` to apply the `divide-dashed` utility at only medium screen sizes and above.
+特定のブレークポイントで要素間の境界線スタイルを制御するには、既存の分割スタイルユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:divide-dashed`を使用して、中程度の画面サイズ以上でのみ`divide-dashed`ユーティリティを適用します。
 
 ```html
 <div class="divide-y-2 divide-dashed md:divide-solid">
@@ -50,14 +51,14 @@ To control the border style between elements at a specific breakpoint, add a `{s
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="divideStyle" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="divideStyle" />
