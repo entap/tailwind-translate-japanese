@@ -1,12 +1,12 @@
 ---
-title: Customizing Spacing
+title: カスタマイジングスペース
 shortTitle: Spacing
-description: Customizing the default spacing scale for your project.
+description: プロジェクトのデフォルトのスペーシングスケールをカスタマイズします
 ---
 
 import { SpacingScale } from '@/components/SpacingScale'
 
-The `theme.spacing` section of your `tailwind.config.js` file allows you to override Tailwind's [default spacing/sizing scale](#default-spacing-scale).
+`tailwind.config.js`ファイルの`theme.spacing`セクションでは、Tailwindの[default spacing/sizing scale](#default-spacing-scale)をオーバーライドできます。
 
 ```js
 // tailwind.config.js
@@ -24,13 +24,14 @@ module.exports = {
 }
 ```
 
-By default the spacing scale is shared by the [padding](/docs/padding), [margin](/docs/margin), [width](/docs/width), and [height](/docs/height) utilities so the above configuration would generate classes like `.p-2`, `.mt-3`, `.w-5`, `.h-6`, etc.
+デフォルトでは、間隔スケールは[padding](/docs/padding), [margin](/docs/margin), [width](/docs/width),[height](/docs/height) ユーティリティによって共有されます。
+したがって、上記の構成では、`.p-2`, `.mt-3`, `.w-5`, `.h-6`などのクラスが生成されます。
 
 ---
 
 ## Overriding the default spacing scale
 
-As described in the [theme documentation](/docs/theme#overriding-the-default-theme), if you'd like to override the default spacing scale, you can do so using the `theme.spacing` section of your `tailwind.config.js` file:
+[theme documentation](/docs/theme#overriding-the-default-theme)で説明されているように、デフォルトのスペーシングスケールをオーバーライドする場合は、`tailwind.config.js`ファイルの`theme.spacing`セクションを使用してオーバーライドできます。
 
 ```js
 // tailwind.config.js
@@ -46,14 +47,14 @@ module.exports = {
 }
 ```
 
-This will disable Tailwind's default spacing scale and generate classes like `p-sm`, `m-md`, `w-lg`, and `h-xl` instead.
+これにより、Tailwindのデフォルトのスペーシングスケールが無効になり、代わりに`p-sm`,`m-md`,`w-lg`,`h-xl`などのクラスが生成されます。
 
 ---
 
 ## Extending the default spacing scale
 
-
-As described in the [theme documentation](/docs/theme#extending-the-default-theme), if you'd like to extend the default spacing scale, you can do so using the `theme.extend.spacing` section of your `tailwind.config.js` file:
+[theme documentation](/docs/theme#overriding-the-default-theme)で説明されているように、
+デフォルトのスペーシングスケールを拡張する場合は、`tailwind.config.js`ファイルの`theme.extend.spacing`セクションを使用して拡張できます。
 
 ```js
 // tailwind.config.js
@@ -70,12 +71,15 @@ module.exports = {
 }
 ```
 
-This will generate classes like `p-72`, `m-84`, and `h-96` in addition to all of Tailwind's default spacing/sizing utilities.
+これにより、Tailwindのデフォルトのスペース/サイズ設定ユーティリティのすべてに加えて`p-72`,`m-84`および`h-96`などのクラスが生成されます。
 
 ---
 
 ## Default spacing scale
 
-By default, Tailwind includes a generous and comprehensive numeric spacing scale. The values are proportional, so `16` is twice as much spacing as `8` for example. One spacing unit is equal to `0.25rem`, which translates to `4px` by default in common browsers.
+デフォルトでは、Tailwindには寛大で包括的な数値スペーシングスケールが含まれています。
+
+値は比例しているため、たとえば`16`は`8`の2倍の間隔になります。
+1つの間隔の単位は`0.25rem`に等しく、一般的なブラウザではデフォルトで`4px`に変換されます。
 
 <SpacingScale />
