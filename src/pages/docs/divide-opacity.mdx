@@ -1,6 +1,6 @@
 ---
-title: "Divide Opacity"
-description: "Utilities for controlling the opacity borders between elements."
+title: "不透明度を分ける"
+description: "要素間の不透明度の境界を制御するためのユーティリティ。"
 featureVersion: "v1.4.0+"
 ---
 
@@ -15,9 +15,9 @@ export const classes = {
   }
 }
 
-## Usage
+## 使用方法
 
-Control the opacity of borders between elements using the `.divide-opacity-{amount}` utilities.
+`.divide-opacity-{amount}`ユーティリティを使用して、要素間の境界線の不透明度を制御します。
 
 ```html
 <template preview class="bg-checkered p-4">
@@ -37,7 +37,8 @@ Control the opacity of borders between elements using the `.divide-opacity-{amou
 
 ## Responsive
 
-To control the opacity of borders between elements at a specific breakpoint, add a `{screen}:` prefix to any existing divide opacity utility. For example, use `md:divide-opacity-50` to apply the `divide-opacity-50` utility at only medium screen sizes and above.
+特定のブレークポイントで要素間の境界線の不透明度を制御するには、既存の分割不透明度ユーティリティに `{screen}:`プレフィックスを追加します。
+たとえば、`md:divide-opacity-50`を使用して、中程度の画面サイズ以上でのみ`divide-opacity-50`ユーティリティを適用します。
 
 ```html
 <div class="divide-y-2 divide-blue-500 divide-opacity-75 md:divide-opacity-50">
@@ -45,11 +46,11 @@ To control the opacity of borders between elements at a specific breakpoint, add
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 ## Customizing
 
-To customize the opacity values for all opacity-related utilities at once, use the `opacity` section of your `tailwind.config.js` theme configuration:
+すべての不透明度関連ユーティリティの不透明度値を一度にカスタマイズするには、`tailwind.config.js`テーマ設定の`opacity`セクションを使用します。
 
 ```diff
   // tailwind.config.js
@@ -66,7 +67,7 @@ To customize the opacity values for all opacity-related utilities at once, use t
   }
 ```
 
-If you want to customize only the divide opacity utilities, use the `divideOpacity` section:
+不透明度の分割ユーティリティのみをカスタマイズする場合は、`divideOpacity`セクションを使用します。
 
 ```diff
   // tailwind.config.js
@@ -83,12 +84,12 @@ If you want to customize only the divide opacity utilities, use the `divideOpaci
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+デフォルトテーマのカスタマイズについては[theme customization documentation](/docs/theme#customizing-the-default-theme)をご覧ください。
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="divideOpacity" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="divideOpacity" />
