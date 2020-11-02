@@ -1,6 +1,6 @@
 ---
-title: "Display"
-description: "Utilities for controlling the display box type of an element."
+title: "ディスプレイ"
+description: "要素の表示ボックスタイプを制御するためのユーティリティ。"
 ---
 
 import plugin from 'tailwindcss/lib/plugins/display'
@@ -12,7 +12,7 @@ export const classes = { plugin }
 
 ## Block
 
-Use `.block` to create a block-level element.
+`.block`を使用して、ブロックレベルの要素を作成します。
 
 ```html
 <template preview>
@@ -26,7 +26,7 @@ Use `.block` to create a block-level element.
 
 ## Flow-Root
 
-Use `.flow-root` to create a block-level element with its own [block formatting context](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context).
+`.flow-root`を使用して、独自の[block formatting context](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context)を持つブロックレベルの要素を作成します。
 
 ```html
 <template preview>
@@ -41,7 +41,7 @@ Use `.flow-root` to create a block-level element with its own [block formatting 
 
 ## Inline Block
 
-Use `.inline-block` to create an inline block-level element.
+`.inline-block`を使用して、インラインブロックレベル要素を作成します。
 
 ```html
 <template preview>
@@ -55,7 +55,7 @@ Use `.inline-block` to create an inline block-level element.
 
 ## Inline
 
-Use `.inline` to create an inline element.
+`.inline`を使用してインライン要素を作成します。
 
 ```html
 <template preview>
@@ -69,7 +69,7 @@ Use `.inline` to create an inline element.
 
 ## Flex
 
-Use `.flex` to create a block-level flex container.
+`.flex`を使用して、ブロックレベルのフレックスコンテナを作成します。
 
 ```html
 <template preview>
@@ -83,7 +83,7 @@ Use `.flex` to create a block-level flex container.
 
 ## Inline flex
 
-Use `.inline-flex` to create an inline flex container.
+`.inline-flex`を使用して、インラインフレックスコンテナを作成します。
 
 ```html
 <template preview>
@@ -97,7 +97,7 @@ Use `.inline-flex` to create an inline flex container.
 
 ## Grid
 
-Use `.grid` to create a grid container.
+`.grid`を使用してグリッドコンテナを作成します。
 
 ```html
 <template preview class="bg-white p-8">
@@ -121,7 +121,7 @@ Use `.grid` to create a grid container.
 
 ## Inline Grid
 
-Use `.inline-grid` to create an inline grid container.
+`.inline-grid`を使用して、インライングリッドコンテナを作成します。
 
 ```html
 <template preview class="bg-white p-8">
@@ -151,7 +151,7 @@ Use `.inline-grid` to create an inline grid container.
 
 ## Contents
 
-Use `.contents` to create a "phantom" container whose children act like direct children of the parent..
+`.contents`を使用して、子が親の直接の子のように動作する「ファントム」コンテナを作成します。
 
 ```html
 <template preview>
@@ -168,7 +168,8 @@ Use `.contents` to create a "phantom" container whose children act like direct c
 
 ## Table
 
-Use the `.table`, `.table-row`, `.table-cell`, `.table-caption`, `.table-column`, `.table-column-group`, `.table-header-group`, `table-row-group`, and `.table-footer-group` utilities to create elements that behave like their respective table elements.
+`.table`,`.table-row`,`.table-cell`,`.table-caption`,`.table-column`,`.table-column-group`,`.table-header-group`,`table-row-group`および`.table-footer-group`ユーティリティを使用して、
+それぞれのテーブル要素のように動作する要素を作成します。
 
 ```html
 <template preview>
@@ -191,7 +192,7 @@ Use the `.table`, `.table-row`, `.table-cell`, `.table-caption`, `.table-column`
 
 ## Hidden
 
-Use `.hidden` to set an element to `display: none` and remove it from the page layout (compare with `.invisible` from the [visibility](/docs/visibility#invisible) documentation).
+`.hidden`を使用して要素を`display:none`に設定し、ページレイアウトから削除します（[visibility](/docs/visibility＃invisible)ドキュメントの`.invisible`と比較してください）。
 
 ```html
 <template preview>
@@ -205,9 +206,10 @@ Use `.hidden` to set an element to `display: none` and remove it from the page l
 
 ## Responsive
 
-To control the display property of an element at a specific breakpoint, add a `{screen}:` prefix to any existing display utility class. For example, use `md:inline-flex` to apply the `inline-flex` utility at only medium screen sizes and above.
+特定のブレークポイントで要素の表示プロパティを制御するには、既存の表示ユーティリティクラスに`{screen}:`プレフィックスを追加します。
+たとえば、`md:inline-flex`を使用して、中程度の画面サイズ以上でのみ`inline-flex`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['flex', 'inline-flex', 'block', 'hidden', 'flex']}
@@ -227,10 +229,10 @@ For more information about Tailwind's responsive design features, check out the 
 
 ## Customizing
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="display" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="display" />

@@ -16,7 +16,7 @@ export function Disabling({ plugin, name }) {
             __html: joinWithAnd(plugins.map((p) => `<code>${p}</code>`)),
           }}
         />{' '}
-        {plugins.length > 1 ? 'properties' : 'property'}を<code>false</code>に設定することで完全に機能を停止することができます。
+        {plugins.length > 1 ? 'properties' : 'property'}を<code>false</code>に設定することで完全に無効にすることができます。
       </p>
 
       <ConfigSample
