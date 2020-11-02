@@ -1,6 +1,6 @@
 ---
-title: "Divide Color"
-description: "Utilities for controlling the border color between elements."
+title: "色を分ける"
+description: "要素間の境界線の色を制御するためのユーティリティ。"
 featureVersion: "v1.3.0+"
 ---
 
@@ -35,9 +35,9 @@ export const classes = {
   ),
 }
 
-## Usage
+## 使用方法
 
-Control the border color between elements using the `divide-{color}` utilities.
+`divide-{color}`ユーティリティを使用して、要素間の境界線の色を制御します。
 
 ```html
 <template preview>
@@ -55,9 +55,9 @@ Control the border color between elements using the `divide-{color}` utilities.
 </div>
 ```
 
-### <Heading badge="v1.4.0+">Changing opacity</Heading>
+### <Heading badge="v1.4.0+">不透明度の変更</Heading>
 
-Control the opacity of borders between elements using the `.divide-opacity-{amount}` utilities.
+`.divide-opacity-{amount}`ユーティリティを使用して、要素間の境界線の不透明度を制御します。
 
 ```html
 <template preview class="bg-checkered p-4">
@@ -75,15 +75,16 @@ Control the opacity of borders between elements using the `.divide-opacity-{amou
 </div>
 ```
 
-Learn more in the [divide opacity documentation](/docs/divide-opacity).
+詳細は[divide opacity documentation](/docs/divide-opacity)をご覧ください。
 
 ---
 
 ## Responsive
 
-To control the borders between elements at a specific breakpoint, add a `{screen}:` prefix to any existing divide utility. For example, adding the class `md:divide-x-8` to an element would apply the `divide-x-8` utility at medium screen sizes and above.
+特定のブレークポイントで要素間の境界を制御するには、既存の除算ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、クラス`md:divide-x-8`を要素に追加すると、中程度の画面サイズ以上で`divide-x-8`ユーティリティが適用されます。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['divide-teal-400', 'divide-pink-400', 'divide-orange-400', 'divide-green-400', 'divide-red-400']}
@@ -109,9 +110,9 @@ For more information about Tailwind's responsive design features, check out the 
 
 ### Border Colors
 
-By default Tailwind makes the entire [default color palette](/docs/customizing-colors#default-color-palette) available as divide colors.
+デフォルトでは、Tailwindは[default color palette](/docs/customizing-colors#default-color-palette)全体を分割色として使用できるようにします。
 
-You can [customize your color palette](/docs/colors#customizing) by editing the `theme.colors` section of your `tailwind.config.js` file, customize just your border and divide colors together using the `theme.borderColor` section, or customize only the divide colors using the `theme.divideColor` section.
+`tailwind.config.js`ファイルの`theme.colors`セクションを編集し、境界線だけをカスタマイズし、`theme.borderColor`を使用して色を分割することで、[customize your color palette](/docs/colors#customizing)できます。または` theme.divideColor`セクションを使用して分割色のみをカスタマイズします。
 
 ```diff
   // tailwind.config.js
@@ -127,11 +128,11 @@ You can [customize your color palette](/docs/colors#customizing) by editing the 
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="divideColor" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="divideColor" />
 
