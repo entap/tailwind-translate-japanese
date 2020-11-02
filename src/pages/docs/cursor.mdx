@@ -1,6 +1,6 @@
 ---
-title: "Cursor"
-description: "Utilities for controlling the cursor style when hovering over an element."
+title: "カーソル"
+description: "要素にカーソルを合わせたときにカーソルスタイルを制御するためのユーティリティ"
 features:
   responsive: true
   customizable: true
@@ -16,7 +16,7 @@ export const classes = { plugin }
 
 ## Auto
 
-Use `.cursor-auto` to allow the browser to change the cursor based on the current content (e.g. automatically change to `text` cursor when hovering over text).
+`.cursor-auto`を使用して、ブラウザが現在のコンテンツに基づいてカーソルを変更できるようにします（たとえば、テキストにカーソルを合わせると自動的に`text`カーソルに変更されます）。
 
 ```html
 <template preview class="text-center p-4">
@@ -32,7 +32,7 @@ Use `.cursor-auto` to allow the browser to change the cursor based on the curren
 
 ## Default
 
-Use `.cursor-default` to change the mouse cursor to always use the platform-dependent default cursor (usually an arrow).
+`.cursor-default`を使用して、常にプラットフォームに依存するデフォルトカーソル（通常は矢印）を使用するようにマウスカーソルを変更します。
 
 ```html
 <template preview class="text-center p-4">
@@ -48,7 +48,7 @@ Use `.cursor-default` to change the mouse cursor to always use the platform-depe
 
 ## Pointer
 
-Use `.cursor-pointer` to change the mouse cursor to indicate an interactive element (usually a pointing hand).
+`.cursor-pointer`を使用して、マウスカーソルを変更し、インタラクティブな要素（通常はポインティングハンド）を示します。
 
 ```html
 <template preview class="text-center p-4">
@@ -64,7 +64,7 @@ Use `.cursor-pointer` to change the mouse cursor to indicate an interactive elem
 
 ## Wait
 
-Use `.cursor-wait` to change the mouse cursor to indicate something is happening in the background (usually an hourglass or watch).
+`.cursor-wait`を使用してマウスカーソルを変更し、バックグラウンド（通常は砂時計または時計）で何かが起こっていることを示します。
 
 ```html
 <template preview class="text-center p-4">
@@ -80,7 +80,7 @@ Use `.cursor-wait` to change the mouse cursor to indicate something is happening
 
 ## Text
 
-Use `.cursor-text` to change the mouse cursor to indicate the text can be selected (usually an I-beam shape).
+`.cursor-text`を使用してマウスカーソルを変更し、テキストを選択できることを示します（通常はIビーム形状）。
 
 ```html
 <template preview class="text-center p-4">
@@ -96,7 +96,7 @@ Use `.cursor-text` to change the mouse cursor to indicate the text can be select
 
 ## Move
 
-Use `.cursor-move` to change the mouse cursor to indicate something that can be moved.
+`.cursor-move`を使用して、マウスカーソルを変更し、移動可能なものを示します。
 
 ```html
 <template preview class="text-center p-4">
@@ -112,7 +112,7 @@ Use `.cursor-move` to change the mouse cursor to indicate something that can be 
 
 ## Not Allowed
 
-Use `.cursor-not-allowed` to change the mouse cursor to indicate something can not be interacted with or clicked.
+`.cursor-not-allowed`を使用してマウスカーソルを変更し、何かを操作したりクリックしたりできないことを示します。
 
 ```html
 <template preview class="text-center p-4">
@@ -126,11 +126,11 @@ Use `.cursor-not-allowed` to change the mouse cursor to indicate something can n
 </div>
 ```
 
-## Customizing
+## カスタマイズ
 
 ### Cursors
 
-By default Tailwind provides six `cursor` utilities. You change, add, or remove these by editing the `theme.cursor` section of your Tailwind config.
+デフォルトでは、Tailwindは6つの`cursor`ユーティリティを提供します。Tailwindコンフィグの`theme.cursor`セクションを編集して、これらを変更、追加、または削除します。
 
 ```diff
   // tailwind.config.js
@@ -151,10 +151,10 @@ By default Tailwind provides six `cursor` utilities. You change, add, or remove 
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="cursor" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="cursor" />
