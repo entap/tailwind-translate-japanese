@@ -1,11 +1,11 @@
 ---
-title: Extracting Components
-description: Dealing with duplication and keeping utility-first projects maintainable.
+title: コンポーネントの抽出
+description: 重複に対処し、ユーティリティファーストプロジェクトを維持可能に保つ。
 ---
 
 import { TipGood, TipBad } from '@/components/Tip'
 
-Tailwind encourages a [utility-first](/docs/utility-first) workflow, where designs are initially implemented using only utility classes to avoid premature abstraction.
+Tailwindは、[utility-first](/docs/utility-first)ワークフローを推奨します。このワークフローでは、早期の抽象化を回避するために、ユーティリティクラスのみを使用して設計が最初に実装されます。
 
 ```html
 <template preview class="p-8">
@@ -23,7 +23,8 @@ Tailwind encourages a [utility-first](/docs/utility-first) workflow, where desig
 </template>
 ```
 
-But as a project grows, you'll inevitably find yourself repeating common utility combinations to recreate the same component in many different places. This is most apparent with small components, like buttons, form elements, badges, etc.
+しかし、プロジェクトが成長するにつれて、必然的に、多くの異なる場所で同じコンポーネントを再作成するために、一般的なユーティリティの組み合わせを繰り返すことに気付くでしょう。
+これは、ボタン、フォーム要素、バッジなどの小さなコンポーネントで最も顕著です。
 
 ```html
 <template preview class="text-center p-4">
@@ -38,15 +39,17 @@ But as a project grows, you'll inevitably find yourself repeating common utility
 </button>
 ```
 
-Keeping a long list of utility classes in sync across many component instances can quickly become a real maintenance burden, so when you start running into painful duplication like this, it's a good idea to extract a component.
+ユーティリティクラスの長いリストを多くのコンポーネントインスタンス間で同期させると、すぐに実際のメンテナンスの負担になる可能性があるため、
+このような面倒な重複が発生した場合は、コンポーネントを抽出することをお勧めします。
 
 ---
 
 ## Extracting HTML components
 
-It's very rare that all of the information needed to define a UI component can live entirely in CSS — there's almost always some important corresponding HTML structure you need to use as well.
+UIコンポーネントを定義するために必要なすべての情報が完全にCSSに存在できることは非常にまれです。
+ほとんどの場合、使用する必要があり重要な対応をするHTML構造もいくつかあります。
 
-<TipBad>Don't rely on CSS classes to extract complex components</TipBad>
+<TipBad>複雑なコンポーネントを抽出するためにCSSクラスに依存しないでください</TipBad>
 
 ```html
 <template preview class="p-8">
@@ -87,11 +90,11 @@ It's very rare that all of the information needed to define a UI component can l
 </div>
 ```
 
-For this reason, it's often better to extract reusable pieces of your UI into _template partials_ or _JavaScript components_ instead of writing custom CSS classes.
+このため、カスタムCSSクラスを作成するよりも、UIの再利用可能な部分を_template partials_または_JavaScript components_に抽出する方がよい場合がよくあります。
 
-By creating a single source of truth for a template, you can keep using utility classes without any of the maintenance burden created by duplicating the same classes in multiple places.
+テンプレートの信頼できる唯一の情報源を作成することにより、同じクラスを複数の場所に複製することによって生じるメンテナンスの負担なしに、ユーティリティクラスを使い続けることができます。
 
-<TipGood>Create a template partial or JavaScript component</TipGood>
+<TipGood>テンプレートの部分コンポーネントまたはJavaScriptコンポーネントを作成する</TipGood>
 
 ```html
 <!-- In use -->
@@ -127,17 +130,22 @@ By creating a single source of truth for a template, you can keep using utility 
 </script>
 ```
 
-The above example uses [Vue](https://vuejs.org/v2/guide/components.html), but the same approach can be used with [React components](https://reactjs.org/docs/components-and-props.html), [ERB partials](https://guides.rubyonrails.org/v5.2/layouts_and_rendering.html#using-partials), [Blade components](https://laravel.com/docs/5.8/blade#components-and-slots), [Twig includes](https://twig.symfony.com/doc/2.x/templates.html#including-other-templates), etc.
+上記例では[Vue](https://vuejs.org/v2/guide/components.html)を使用しています。
+しかし同じ方法は[React components](https://reactjs.org/docs/components-and-props.html), 
+[ERB partials](https://guides.rubyonrails.org/v5.2/layouts_and_rendering.html#using-partials), 
+[Blade components](https://laravel.com/docs/5.8/blade#components-and-slots), 
+[Twig includes](https://twig.symfony.com/doc/2.x/templates.html#including-other-templates)などでも使われます。
+
 
 ---
 
 ## Extracting CSS components with @apply
 
-For small components like buttons and form elements, creating a template partial or JavaScript component can often feel too heavy compared to a simple CSS class.
+ボタンやフォーム要素などの小さなコンポーネントの場合、テンプレートの一部分またはJavaScriptコンポーネントを作成すると、単純なCSSクラスに比べて重く感じることがよくあります。
 
-In these situations, you can use Tailwind's `@apply` directive to easily extract common utility patterns to CSS component classes.
+このような状況では、Tailwindの`@apply`ディレクティブを使用して、一般的なユーティリティパターンをCSSコンポーネントクラスに簡単に抽出できます。
 
-Here's what a `.btn-blue` class might look like using `@apply` to compose it from existing utilities:
+`.btn-blue`クラスが`@apply`を使用して既存のユーティリティから構成すると、次のようになります。
 
 ```html
 <template preview class="text-center p-4">
@@ -160,9 +168,10 @@ Here's what a `.btn-blue` class might look like using `@apply` to compose it fro
 </style>
 ```
 
-Note that variants like `hover:`, `focus:`, and `{screen}:` can't be applied directly, so instead apply the plain version of the utility to the appropriate pseudo-selector or media query.
+`hover:`,`focus:`,`{screen}:`などのバリアントは直接適用できないため、
+代わりにプレーンバージョンのユーティリティを適切な疑似セレクターまたはメディアクエリに適用することに注意してください。
 
-To avoid unintended specificity issues, we recommend wrapping your custom component styles with the `@layer components { ... }` directive to tell Tailwind what layer those styles belong to:
+意図しない特異性の問題を回避するために、カスタムコンポーネントスタイルを`@layer components {...}`ディレクティブでラップして、それらのスタイルがどのレイヤーに属するかをTailwindに通知することをお勧めします。
 
 ```css
 @tailwind base;
@@ -179,13 +188,15 @@ To avoid unintended specificity issues, we recommend wrapping your custom compon
 }
 ```
 
-Tailwind will automatically move those styles to the same place as `@tailwind components`, so you don't have to worry about getting the order right in your source files.
+Tailwindは、これらのスタイルを自動的に`@tailwind components`と同じ場所に移動します。
+したがって、ソースファイルで順序を取得することを心配する必要はありません。
 
-Using the `@layer` directive will also instruct Tailwind to consider those styles for purging when purging the `components` layer. Read our [Controlling File Size](/docs/controlling-file-size) documentation for more details.
+`@layer`ディレクティブを使用すると、`components`レイヤーを除去するときに、除去するためにそれらのスタイルを考慮するようにTailwindに指示します。
+詳細については[Controlling File Size](/docs/controlling-file-size)をご覧ください。
 
 ### Keeping things composable
 
-Say you have these two buttons:
+例えば2つのボタンがあるとします。
 
 ```html
 <template preview class="text-center p-4">
@@ -207,7 +218,7 @@ Say you have these two buttons:
 </button>
 ```
 
-It might be tempting to implement component classes for these buttons like this:
+次のように、これらボタンのコンポーネントクラスを実装したくなるかもしれません。
 
 ```css
 @layer components {
@@ -227,11 +238,11 @@ It might be tempting to implement component classes for these buttons like this:
 }
 ```
 
-The issue with this approach is that **you still have potentially painful duplication.**
+このアプローチの問題は、**まだ潜在的に痛みを伴う重複がある**ということです。
 
-If you wanted to change the padding, font weight, or border radius of all the buttons on your site, you'd need to update every button class.
+サイト上のすべてのボタンのパディング、フォントの太さ、または境界線の半径を変更する場合は、すべてのボタンクラスを更新する必要があります。
 
-A better approach is to extract the parts that are the same into a separate class:
+より良いアプローチは、同じ部分を別のクラスに抽出することです。
 
 ```css
 @layer components {
@@ -255,7 +266,7 @@ A better approach is to extract the parts that are the same into a separate clas
 }
 ```
 
-Now you'd apply two classes any time you needed to style a button:
+これで、ボタンのスタイルを設定する必要があるときはいつでも、2つのクラスを適用できます。
 
 ```html
 <template preview class="text-center p-4">
@@ -277,9 +288,9 @@ Now you'd apply two classes any time you needed to style a button:
 </button>
 ```
 
-This makes it easy to change the shared styles in one place by just editing the `.btn` class.
+これにより、`.btn`クラスを編集するだけで、共有スタイルを1か所で簡単に変更できます。
 
-It also allows you to add new one-off button styles without being forced to create a new component class or duplicate the shared styles:
+また、新しいコンポーネントクラスを作成したり、共有スタイルを複製したりすることなく、新しい1回限りのボタンスタイルを追加することもできます。
 
 ```html
 <template preview class="text-center p-4">
@@ -295,7 +306,7 @@ It also allows you to add new one-off button styles without being forced to crea
 
 ### Writing a component plugin
 
-In addition to writing component classes directly in your CSS files, you can also add component classes to Tailwind by writing your own plugin:
+CSSファイルにコンポーネントクラスを直接書き込むだけでなく、独自のプラグインを作成してコンポーネントクラスをTailwindに追加することもできます。
 
 ```js
 // tailwind.config.js
@@ -332,6 +343,6 @@ module.exports = {
 }
 ```
 
-This can be a good choice if you want to publish your Tailwind components as a library or make it easier to share components across multiple projects.
+これは、Tailwindコンポーネントをライブラリとして公開する場合、または複数のプロジェクト間でコンポーネントを簡単に共有できるようにする場合に適しています。
 
-Learn more in the [component plugin documentation](/docs/plugins#adding-components).
+詳細については[component plugin documentation](/docs/plugins#adding-components)をご覧ください。
