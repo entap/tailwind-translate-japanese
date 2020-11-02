@@ -1,6 +1,6 @@
 ---
-title: "Fill"
-description: "Utilities for styling the fill of SVG elements."
+title: "塗りつぶし"
+description: "SVG要素の塗りつぶしをスタイリングするためのユーティリティ。"
 ---
 
 import plugin from 'tailwindcss/lib/plugins/fill'
@@ -9,11 +9,12 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Use `.fill-current` to set the fill color of an SVG to the current text color. This makes it easy to set an element's fill color by combining this class with an existing [text color utility](/docs/text-color).
+`.fill-current`を使用して、SVGの塗りつぶしの色を現在のテキストの色に設定します。 
+これにより、このクラスを既存の[text color utility](/docs/text-color)と組み合わせて、要素の塗りつぶしカラーを簡単に設定できます。
 
-Useful for styling icon sets like [Zondicons](http://www.zondicons.com/) that are drawn entirely with fills.
+完全に塗りつぶしで描画される[Zondicons](http://www.zondicons.com/)のようなアイコンセットのスタイリングに役立ちます。
 
 ```html
 <template preview class="text-center p-4">
@@ -23,9 +24,9 @@ Useful for styling icon sets like [Zondicons](http://www.zondicons.com/) that ar
 </template>
 ```
 
-## Customizing
+## カスタマイズ
 
-Control which fill utilities Tailwind generates by customizing the `theme.fill` section of your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`theme.fill`セクションをカスタマイズすることにより、Tailwindが生成するフィルユーティリティを制御します。
 
 ```diff
   // tailwind.config.js
@@ -43,10 +44,10 @@ Control which fill utilities Tailwind generates by customizing the `theme.fill` 
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="fill" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="fill" />
