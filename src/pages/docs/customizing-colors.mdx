@@ -1,7 +1,7 @@
 ---
-title: Customizing Colors
+title: カスタマイジンズカラー
 shortTitle: Colors
-description: Customizing the default color palette for your project.
+description: プロジェクトのデフォルトのカラーパレットをカスタマイズします
 ---
 
 import { Heading } from '@/components/Heading'
@@ -10,7 +10,7 @@ import { TipGood, TipBad } from '@/components/Tip'
 
 ## <Heading hidden>Overview</Heading>
 
-The `theme.colors` section of your `tailwind.config.js` file allows you to override Tailwind's [default color palette](#default-color-palette).
+`tailwind.config.js`ファイルの`theme.colors`セクションでは、Tailwindの[default color palette](#default-color-palette)をオーバーライドできます。
 
 ```js
 // tailwind.config.js
@@ -25,11 +25,12 @@ module.exports = {
 }
 ```
 
-By default these colors are automatically shared by the `textColor`, `borderColor`, and `backgroundColor` utilities, so the above configuration would generate classes like `.text-indigo`, `.border-blue`, and `.bg-red`.
+デフォルトでは、これらの色は`textColor`,`borderColor`および`backgroundColor`ユーティリティによって自動的に共有されます。
+したがって、上記の構成では、`.text-indigo`,`.border-blue`および`.bg-red`のようなクラスが生成されます。
 
 ### Nested object syntax
 
-You can define your colors as a simple list of key-value pairs as we've done above, or using a nested object notation where the nested keys are added to the base color name as modifiers:
+上記で行ったように、キーと値のペアの単純なリストとして色を定義するか、ネストされたキーが修飾子としてベースカラー名に追加されるネストされたオブジェクト表記を使用できます。
 
 ```js
 // tailwind.config.js
@@ -46,11 +47,14 @@ module.exports = {
 }
 ```
 
-Like many other places in Tailwind, the `default` key is special and means "no modifier", so this configuration would generate classes like `.text-indigo-lighter`, `.text-indigo`, and `.text-indigo-dark`.
+Tailwindの他の多くの場所と同様に、`default`キーは特別で「修飾子なし」を意味します。
+したがって、この構成では`.text-indigo-lighter`,` .text-indigo`および `.text-indigo-dark`のようなクラスが生成されます。
 
-Note that you need to use dot notation to access nested colors when using the `theme()` function — the colors are only converted to dash-case for the actual CSS class names. The `default` key also needs to be specified when accessed via the `theme()` function: `theme('colors.indigo.default')`.
+`theme()`関数を使用する場合は、ネストされた色にアクセスするためにドット表記を使用する必要があることに注意してください。
+色は実際のCSSクラス名のダッシュケースにのみ変換されます。 
+`theme()`関数：`theme('colors.indigo.default')`を介してアクセスする場合は、`default`キーも指定する必要があります。
 
-<TipBad>Don't use the dash syntax to access nested color values with theme()</TipBad>
+<TipBad>theme()でネストされた色の値にアクセスするためにダッシュ構文を使用しないでください</TipBad>
 
 ```css
 .btn-blue {
@@ -58,7 +62,7 @@ Note that you need to use dot notation to access nested colors when using the `t
 }
 ```
 
-<TipGood>Use dot notation to access nested color values with theme()</TipGood>
+<TipGood>ドット表記を使用して、theme()でネストされた色の値にアクセスします</TipGood>
 
 ```css
 .btn-blue {
@@ -70,7 +74,7 @@ Note that you need to use dot notation to access nested colors when using the `t
 
 ## Overriding the default color palette
 
-As described in the [theme documentation](/docs/theme#overriding-the-default-theme), if you'd like to override the default color palette, you can do so using the `theme.colors` section of your `tailwind.config.js` file:
+[theme documentation](/docs/theme#overriding-the-default-theme)で説明されているように、デフォルトのカラーパレットを上書きしたい場合は、`tailwind.config.js`ファイルの`theme.colors`セクションを使用して上書きできます。
 
 ```js
 // tailwind.config.js
@@ -85,13 +89,13 @@ module.exports = {
 }
 ```
 
-This will disable Tailwind's default color palette and generate classes like `bg-indigo`, `text-blue`, and `border-red` instead.
+これにより、Tailwindのデフォルトのカラーパレットが無効になり、代わりに`bg-indigo`,`text-blue`,`border-red`などのクラスが生成されます。
 
 ---
 
 ## Extending the default palette
 
-As described in the [theme documentation](/docs/theme#extending-the-default-theme), if you'd like to extend the default color palette, you can do so using the `theme.extend.colors` section of your `tailwind.config.js` file:
+[theme documentation](/docs/theme#overriding-the-default-theme)で説明されているように、デフォルトのカラーパレットを拡張したい場合は、`tailwind.config.js`ファイルの`theme.extend.colors`セクションを使用して拡張できます。
 
 ```js
 // tailwind.config.js
@@ -106,15 +110,15 @@ module.exports = {
 }
 ```
 
-This will generate classes like `bg-regal-blue` in addition to all of Tailwind's default colors.
+これにより、Tailwindのすべてのデフォルトの色に加えて、`bg-regal-blue`のようなクラスが生成されます。
 
 ---
 
 ## Overriding a default color
 
-If you'd like to override one of Tailwind's default colors but preserve the rest, simply provide the new values in the `theme.extend.colors` section of your `tailwind.config.js` file.
+Tailwindのデフォルト色の1つを上書きして残りを保持したい場合は、`tailwind.config.js`ファイルの`theme.extend.colors`セクションに新しい値を指定するだけです。
 
-For example, here we've replaced the default cool grays with a neutral gray palette:
+たとえば、ここでは、デフォルトのクールグレーをニュートラルグレーパレットに置き換えました。
 
 ```js
 // tailwind.config.js
@@ -141,9 +145,9 @@ module.exports = {
 
 ### Overriding or adding a single shade
 
-Since values in the `theme.extend` section of your config file are only merged shallowly, overriding or adding a single shade is slightly more complicated.
+設定ファイルの`theme.extend`セクションの値は浅くマージされるだけなので、単一のシェードをオーバーライドまたは追加することは少し複雑です。
 
-The easiest option is to import the default theme and [spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) in the color you want to customize along with the new shade value:
+最も簡単なオプションは、デフォルトのテーマをインポートし、新しいシェード値とともにカスタマイズする色で[広げる](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)ことです。
 
 ```js
 // tailwind.config.js
@@ -167,9 +171,9 @@ module.exports = {
 
 ## Disabling a default color
 
-If you'd like to disable a default color because you aren't using it in your project, the easiest approach is to just build a new color palette that references the default theme.
+プロジェクトで使用していないためにデフォルトの色を無効にしたい場合、最も簡単な方法は、デフォルトのテーマを参照する新しいカラーパレットを作成することです。
 
-For example, this `tailwind.config.js` file excludes teal, orange, and pink, but includes the rest of the default colors:
+たとえば、この`tailwind.config.js`ファイルはティール、オレンジ、ピンクを除外しますが、残りのデフォルトの色を含みます。
 
 ```js
 // tailwind.config.js
@@ -192,7 +196,7 @@ module.exports = {
 }
 ```
 
-You could also use [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to simplify the above example if you're comfortable with it:
+[destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)に慣れている場合はこれを使用して、上記の例を単純化することもできます。
 
 ```js
 // tailwind.config.js
@@ -209,9 +213,11 @@ module.exports = {
 
 ## Naming your colors
 
-Tailwind uses literal color names _(like red, green, etc.)_ and a numeric scale _(where 100 is light and 900 is dark)_ by default. This ends up being fairly practical for most projects, but there are good reasons to use other naming conventions as well.
+Tailwindは、デフォルトで、文字通りの色名_（red, greenなど）_と数値スケール_（100は明るい、900は暗い）_を使用します。
+ 
+これはほとんどのプロジェクトでかなり実用的ですが、他の命名規則を使用するのには十分な理由があります。
 
-For example, if you're working on a project that needs to support multiple themes, it might make sense to use more abstract names like `primary` and `secondary`:
+たとえば、複数のテーマをサポートする必要があるプロジェクトで作業している場合は、`primary`や`secondary`などのより抽象的な名前を使用するのが理にかなっている場合があります。
 
 ```js
 // tailwind.config.js
@@ -226,7 +232,7 @@ module.exports = {
 }
 ```
 
-You can configure those colors explicitly like we have above, or you could even pull in Tailwind's default colors and alias the ones you need:
+上記のようにこれらの色を明示的に構成することも、Tailwindのデフォルトの色を取得して、必要な色にエイリアスを設定することもできます。
 
 ```js
 // tailwind.config.js
@@ -243,7 +249,7 @@ module.exports = {
 }
 ```
 
-You could even define these colors using CSS custom properties (variables) to make it easy to switch themes on the client:
+CSSカスタムプロパティ（変数）を使用してこれらの色を定義し、クライアントでテーマを簡単に切り替えることもできます。
 
 ```js
 // tailwind.config.js
@@ -275,15 +281,16 @@ module.exports = {
 
 ## Generating custom color palettes
 
-A common question we get is "how do I generate the 100–900 shades of my own custom colors?".
+よくある質問は、「自分のカスタムカラーの100〜900の色合いを生成するにはどうすればよいですか？」です。
 
-Bad news: color is complicated and we've yet to find a tool that does a good job generating these sorts of color palettes. We picked all of Tailwind's default colors by hand, balancing them by eye. Sorry!
+残念ながら、色は複雑で、この種のカラーパレットを生成するのに適したツールはまだ見つかっていません。
+ですので、Tailwindのデフォルトの色をすべて手作業で選び、目でバランスを取りました。
 
 ---
 
 ## Default color palette
 
-Tailwind includes a generous palette of great-looking, well-balanced colors that are perfect for prototyping or for kicking off a brand new project.
+Tailwindには、プロトタイピングや新しいプロジェクトの開始に最適な、見栄えがよくバランスの取れた色の豊富なパレットが含まれています。
 
 <ColorPalette
   colors={[
