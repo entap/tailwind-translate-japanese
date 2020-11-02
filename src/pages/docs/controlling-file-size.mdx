@@ -31,12 +31,12 @@ import stats from '@/utils/stats'
   </tbody>
 </table>
 
-これは巨大に聞こえるかもしれませんが、**開発ビルドは設計により大きいです**。
+これはとても大きく思えるかもしれませんが、**開発ビルドのサイズは設計により大きくなります**。
 
 開発エクスペリエンスを可能な限り生産的にするために、 
 Tailwindは、何千ものユーティリティクラスを生成しますが、そのほとんどはおそらく実際には使用しません。
 
-たとえばTailwindは、プロジェクトで使用しているすべてのブレークポイントで、スペーシングスケールのすべてのサイズ、マージンを適用する可能性のある要素のすべての（左右、上下などの）側に対してマージンユーティリティを生成します。
+たとえばTailwindは、プロジェクトで使用しているすべてのブレークポイントで、スペーシングスケールのすべてのサイズ、マージンを適用する可能性のある要素のすべての（上下左右などの）側に対してマージンユーティリティを生成します。
  
 これにより、何百もの異なる組み合わせが利用可能になることが重要ですが、すべてが必要になるとは限りません。
 
@@ -48,7 +48,7 @@ Tailwindで未使用のスタイルを削除する場合、10kbを超える圧�
 `purge`機能を開始する前に、それがどのように機能するかを理解し、正しいメンタルモデルを構築して、本番用に構築するときに重要なスタイルを誤って削除しないようにすることが重要です。
 
 [PurgeCSS](https://purgecss.com/)  _（私達が内部で使用するライブラリ）_は、HTML内のクラスを検索する方法が意図的に非常に単純になっています。
-これはHTMLを解析してクラス属性を探したり、JavaScriptを動的に実行したりすることはありません — この正規表現に一致するファイル全体の文字列を検索するだけです。
+これはHTMLを解析してクラス属性を探したり、JavaScriptを動的に実行したりすることはありません — この正規表現に一致する文字列をファイル全体から検索するだけです。
 
 ```js
 /[^<>"'`\s]*[^<>"'`\s:]/g
@@ -57,25 +57,25 @@ Tailwindで未使用のスタイルを削除する場合、10kbを超える圧�
 つまり、**文字列を連結してテンプレートにクラス文字列を動的に作成しないようにすることが重要です**。
 そうしないと、PurgeCSSはそれらのクラスを保持することを知ることはありません。
 
-<TipBad>Don't use string concatenation to create class names</TipBad>
+<TipBad>クラス名の作成に文字列連結を使用しないでください</TipBad>
 
 ```html mt-4
 <div :class="text-{{ error ? 'red' : 'green' }}-600"></div>
 ```
 
-<TipGood>Do dynamically select a complete class name</TipGood>
+<TipGood>完全なクラス名を動的に選択する</TipGood>
 
 ```html mt-4
 <div :class="{{ error ? 'text-red-600' : 'text-green-600' }}"></div>
 ```
 
-As long as a class name appears in your template _in its entirety_, PurgeCSS will not remove it.
+クラス名がテンプレートに_全体_で表示されている限り、PurgeCSSはそれを削除しません。
 
 ## Removing unused CSS
 
-### Basic usage
+### 基本的な使い方
 
-To get started, provide an array of paths to all of your template files using the `purge` option:
+使用を開始するには、`purge`オプションを使用して、すべてのテンプレートファイルへのパスの配列を指定します。
 
 ```js
 // tailwind.config.js
@@ -91,13 +91,15 @@ module.exports = {
 }
 ```
 
-**This list should include *any* files in your project that reference any of your styles by name.** For example, if you have a JS file in your project that dynamically toggles some classes in your HTML, you should make sure to include that file in this list.
+**このリストには、プロジェクト内の任意のスタイルを名前で参照する*任意の*ファイルを含める必要があります。**
+たとえば、プロジェクトにHTMLの一部のクラスを動的に切り替えるJSファイルがある場合は、そのファイルをこのリストに含める必要があります。
 
-Now whenever you compile your CSS with `NODE_ENV` set to `production`, Tailwind will automatically purge unused styles from your CSS.
+これで、`NODE_ENV`を`production`に設定してCSSをコンパイルするたびに、TailwindはCSSから未使用のスタイルを自動的に削除します。
 
 ### Enabling manually
 
-If you want to manually control whether unused styles should be removed (instead of depending implicitly on the environment variable), you can use an object syntax and provide the `enabled` option, specifying your templates using the `content` option:
+（環境変数に暗黙的に依存するのではなく）未使用のスタイルを削除するかどうかを手動で制御する場合は、
+オブジェクト構文を使用して`enabled`オプションを指定し、`content`オプションを使用してテンプレートを指定できます。
 
 ```js
 // tailwind.config.js
@@ -110,14 +112,18 @@ module.exports = {
 }
 ```
 
-We recommend only removing unused styles in production, as removing them in development means you need to recompile any time you change your templates and compiling with PurgeCSS enabled is much slower.
+開発時に未使用のスタイルを削除すると、テンプレートを変更するたびに再コンパイルする必要があり、
+PurgeCSSを有効にしてコンパイルすると非常に時間がかかるため、本番環境では未使用のスタイルのみを削除することをお勧めします。
 
 ### Preserving HTML elements
 
-By default, Tailwind will preserve all basic HTML element styles in your CSS, like styles for the `html`, `body`, `p`, `h1`, etc. tags. This is to minimize accidentally over-purging in cases where you are using markdown source files for example (where there is no actual `h1` tag present), or using a framework that hides the document shell (containing the `html` and `body` tags) somewhere in a vendor directory (like Next.js does).
+デフォルトでは、TailwindはCSSのすべての基本的なHTML要素スタイルを保持します。
+例えば`html`, `body`, `p`, `h1`タグなどです。 
+これは、誤った過剰除去を最小限に抑えるためです。
+たとえば、マークダウンソースファイルを使用している場合（実際の`h1`タグが存在しない場合）、
+または、ベンダーディレクトリのどこかにドキュメントシェル（`html`タグと`body`タグを含む）を隠すフレームワークを使用している場合です（Next.jsがやるように）。
 
-If you want to disable this behavior, you can set `preserveHtmlElements` to false:
-
+この動作を無効にする場合は、`preserveHtmlElements`をfalseに設定できます。
 
 ```js
 // tailwind.config.js
@@ -130,11 +136,12 @@ module.exports = {
 }
 ```
 
-We generally do not recommend this and believe that the risks outweigh the benefits, but we're not the cops, do whatever you want.
+私たちは一般的にこれを推奨せず、リスクが利益を上回ると信じていますが、私たちは警官ではありませんので、あなたが望むようにしてください。
 
 ### Purging specific layers
 
-By default, Tailwind will purge styles in all of the `base`, `components`, and `utilities` layers. If you'd like to change this, use the `layers` option:
+デフォルトでは、Tailwindは、すべての`base`,`components`および`utilities`レイヤーのスタイルを削除します。
+もしこれを変更したいなら`layers`オプションを使用してください。 
 
 ```js
 // tailwind.config.js
@@ -147,15 +154,18 @@ module.exports = {
 }
 ```
 
-Note that the `mode` must be set to `layers` for this option to be respected.
+このオプションを尊重するには、`mode`を`layers`に設定する必要があることに注意してください。
 
 ### Removing all unused styles
 
-By default, Tailwind will only remove unused classes that it generates itself. It will _not_ remove unused styles from third-party CSS you pull in to your project, like a datepicker library you pull in for example.
+デフォルトでは、Tailwindはそれ自体が生成する未使用のクラスのみを削除します。
+たとえば、プルした日付ピッカーライブラリなど、プロジェクトにプルしたサードパーティのCSSから未使用のスタイルを削除することはありません。
 
-This is to avoid accidentally removing styles that you might need but are not directly referenced in your templates, like classes that are only referenced deep in your `node_modules` folder that are part of some other dependency.
+これは、必要になる可能性があるが、テンプレートで直接参照されていないスタイルを誤って削除しないようにするためです。
+たとえば、他の依存関係の一部である`node_modules`フォルダーの奥深くでのみ参照されるクラスのようなものです。
 
-If you really want to remove _all_ unused styles, use the `mode: 'all'` option and **be very careful** to provide the paths to _all_ files that might reference any classes or HTML elements:
+本当に_すべての_未使用のスタイルを削除したい場合は、
+`mode:'all'`オプションを使用し、**非常に注意して**、クラスまたはHTML要素を参照する可能性のある_全ての_ファイルへのパスを指定します。
 
 ```js
 // tailwind.config.js
@@ -171,11 +181,11 @@ module.exports = {
 }
 ```
 
-**We do not recommend this**, and generally find you get 99% of the file size benefits by sticking with the more conservative default approach.
+**これはお勧めしません**。通常、より保守的なデフォルトのアプローチを使用すると、ファイルサイズの99％のメリットが得られます。
 
 ### PurgeCSS options
 
-If you need to pass any options directly to PurgeCSS, you can do so using `options`:
+オプションをPurgeCSSに直接渡す必要がある場合は、`options`を使用して渡すことができます。
 
 ```js
 // tailwind.config.js
@@ -192,13 +202,13 @@ module.exports = {
 }
 ```
 
-A list of available options can be found in the [PurgeCSS documentation](https://purgecss.com/configuration.html#options).
+利用可能なオプションについては[PurgeCSS documentation](https://purgecss.com/configuration.html#options)をご覧ください。
 
 ## Setting up PurgeCSS manually
 
-Under the hood, Tailwind's `purge` feature is powered by a fantastic library called [PurgeCSS](https://purgecss.com/).
+内部的には、Tailwindの`purge`機能は[PurgeCSS](https://purgecss.com/)と呼ばれる素晴らしいライブラリを利用しています。
 
-If you're using a version of Tailwind older than v1.4.0 and need to setup PurgeCSS manually, start by installing `@fullhuman/postcss-purgecss`:
+v1.4.0より前のバージョンのTailwindを使用していて、PurgeCSSを手動でセットアップする必要がある場合は、まず`@fullhuman/postcss-purgecss`をインストールします。
 
 ```bash
 # Using npm
@@ -208,7 +218,7 @@ npm install @fullhuman/postcss-purgecss --save-dev
 yarn add @fullhuman/postcss-purgecss -D
 ```
 
-Next, add it as the last plugin in your `postcss.config.js` file:
+次に、それを`postcss.config.js`ファイルの最後のプラグインとして追加します。
 
 ```js
 // postcss.config.js
@@ -245,9 +255,14 @@ module.exports = {
 }
 ```
 
-Note that in this example, **we're only enabling PurgeCSS in production**. We recommend configuring PurgeCSS this way because it can be slow to run, and during development it's nice to have every class available so you don't need to wait for a rebuild every time you change some HTML.
+この例では、**本番環境でのみPurgeCSSを有効にしていることに注意してください**。
+この方法でPurgeCSSを構成することをお勧めします。
+実行が遅くなる可能性があるため、開発中は、すべてのクラスを利用できるようにしておくと便利です。
+したがって、HTMLを変更するたびに再構築を待つ必要はありません。
 
-Finally, we recommend only applying PurgeCSS to Tailwind's utility classes, and not to [base styles](/docs/adding-base-styles) or [component classes](/docs/extracting-components#extracting-css-components-with-apply). The easiest way to do this is to use PurgeCSS's [whitelisting](https://purgecss.com/whitelisting.html) feature to disable PurgeCSS for non-utility classes:
+最後に、PurgeCSSをTailwindのユーティリティクラスにのみ適用することをお勧めし、[base styles](/docs/adding-base-styles)や 
+[component classes](/docs/extracting-components#extracting-css-components-with-apply)には適用しないことをお勧めします。
+これを行う最も簡単な方法は、PurgeCSSの[whitelisting](https://purgecss.com/whitelisting.html) 機能を使用して、非ユーティリティクラスのPurgeCSSを無効にすることです。
 
 ```css
 /* purgecss start ignore */
@@ -258,21 +273,23 @@ Finally, we recommend only applying PurgeCSS to Tailwind's utility classes, and 
 @tailwind utilities;
 ```
 
-This will ensure you don't accidentally purge important base styles when working with frameworks like Next.js, Nuxt, vue-cli, create-react-app, and others that hide their base HTML template somewhere in your `node_modules` directory.
+これにより、Next.js, Nuxt, vue-cli, create-react-appなど、
+ベースHTMLテンプレートを `node_modules`ディレクトリのどこかに非表示にするフレームワークを操作するときに重要なベーススタイルを誤って削除することがなくなります。
 
 ### Understanding the regex
 
-The `/[\w-/:]+(?<!:)/g` regular expression we recommend as a starting point matches all of the non-standard characters Tailwind uses by default, like `:` and `/`.
+開始点として推奨される正規表現`/[\w-/:]+(?<!:)/g`は、`:`や`/`など、Tailwindがデフォルトで使用するすべての非標準文字に一致します。
 
-It also uses a negative lookbehind to make sure that if a string ends in `:`, the `:` is not considered part of the string. This is to ensure compatibility with the class object syntax supported by Vue and the [Classnames](https://github.com/JedWatson/classnames) library for React:
+また、否定先読みを使用して、文字列が `:`で終わる場合、`:`が文字列の一部と見なされないようにします。
+これは、VueおよびReactの[Classnames](https://github.com/JedWatson/classnames)ライブラリでサポートされているクラスオブジェクト構文との互換性を確保するためです。
 
 ```html
 <!-- Match `hidden`, not `hidden:` -->
 <div :class="{ hidden: !isOpen, ... }"><!-- ... --></div>
 ```
 
-It's important to note that because of the negative lookbehind in this regex, it's only compatible with Node.js 9.11.2 and above. If you need to use an older version of Node.js to build your assets, you can use this regular expression instead:
-
+この正規表現では否定先読みがあるため、Node.js9.11.2以降とのみ互換性があることに注意することが重要です。
+アセットを構築するために古いバージョンのNode.jsを使用する必要がある場合は、代わりに次の正規表現を使用できます。
 
 ```diff
 - /[\w-/:]+(?<!:)/g
@@ -281,9 +298,9 @@ It's important to note that because of the negative lookbehind in this regex, it
 
 ### Customizing the regex
 
-If you're using any other special characters in your class names, make sure to update the regular expression to include those as well.
+クラス名に他の特殊文字を使用している場合は、それらも含めるように正規表現を更新してください。
 
-For example, if you have customized Tailwind to create classes like `w-50%`, you'll want to add `%` to the regular expression:
+たとえば、Tailwindをカスタマイズして`w-50％`のようなクラスを作成した場合、正規表現に`％`を追加する必要があります。
 
 ```diff
 - /[\w-/:]+(?<!:)/g
@@ -294,25 +311,26 @@ For example, if you have customized Tailwind to create classes like `w-50%`, you
 
 ## Alternate approaches
 
-If you can't use PurgeCSS for one reason or another, you can also reduce Tailwind's footprint by removing unused values from [your configuration file](/docs/configuration).
+何らかの理由でPurgeCSSを使用できない場合は、[your configuration file](/docs/configuration)から未使用の値を削除することで、Tailwindの専有領域を減らすこともできます。
 
-The default theme provides a very generous set of colors, breakpoints, sizes, margins, etc. to make sure that when you pull Tailwind down to prototype something, create a CodePen demo, or just try out the workflow, the experience is as enjoyable and fluid as possible.
+デフォルトのテーマは、非常に豊富な色、ブレークポイント、サイズ、マージンなどのセットを提供します。
+Tailwindをプルダウンして何かのプロトタイプを作成したり、CodePenデモを作成したり、ワークフローを試したりするときに、エクスペリエンスが同じように楽しく、 可能な限り流動的にします。
 
-We don't want you to have to go and write new CSS because we didn't provide enough padding helpers out of the box, or because you wanted to use an orange color scheme for your demo and we only gave you blue.
+私達がデフォルトで十分なパディングヘルパーを提供していなかった、またはデモにオレンジ色の配色を使用したいのに青しか提供しなかったために、あなたに新しいCSSを作成してほしくはありません。
 
-This comes with a trade-off though: the default build is significantly heavier than it would be on a project with a purpose-built configuration file.
+ただし、これにはトレードオフが伴います: デフォルトのビルドは、専用の構成ファイルを使用するプロジェクトよりも大幅に大きくなります。
 
-Here are a few strategies you can use to keep your generated CSS small and performant.
+生成されたCSSを小さく、パフォーマンスを維持するために使用できるいくつかの戦略を次に示します。
 
 ### Limiting your color palette
 
-The default theme includes a whopping [93 colors](/docs/customizing-colors) used for backgrounds, borders, text, and placeholders, all of which also have `hover:` and `focus` variants, as well as responsive variants at the five default screen sizes.
+デフォルトのテーマには、背景、境界線、テキスト、プレースホルダーに使用されるなんと[93 colors](/docs/customizing-colors)が含まれています。これらはすべて`hover:`と`focus`のバリアントに加えて、 5つのデフォルトの画面サイズのレスポンシブバリアントも含まれています。
 
-By default, there are _thousands_ of classes generated to accommodate these colors, and it makes up close to half of the final build size.
+デフォルトでは、これらの色に対応するために_数千_のクラスが生成され、最終的なビルドサイズの半分近くを占めます。
 
-Very few projects actually need this many colors, and removing colors you don't need can have a huge impact on the overall file size.
+実際にこれほど多くの色を必要とするプロジェクトはほとんどなく、不要な色を削除すると、ファイル全体のサイズに大きな影響を与える可能性があります。
 
-Here's how using a smaller color palette affects the final size:
+小さいカラーパレットを使用すると、最終的なサイズにどのように影響するかを次に示します。
 
 <table>
   <thead>
@@ -351,9 +369,10 @@ Here's how using a smaller color palette affects the final size:
 
 ### Removing unused breakpoints
 
-Since almost every Tailwind utility is copied for every screen size, using fewer screen sizes can have a huge impact on the overall file size as well.
+ほとんどすべてのTailwindユーティリティはすべての画面サイズにコピーされるため、使用する画面サイズが少ないと、ファイル全体のサイズにも大きな影響を与える可能性があります。
 
-Here's how defining fewer screens affects the output:
+より少ない画面を定義すると、出力にどのように影響するかを次に示します。
+
 
 <table>
   <thead>
@@ -397,11 +416,11 @@ Here's how defining fewer screens affects the output:
   </tbody>
 </table>
 
-<p>If you only need 3 screen sizes and 35 colors, you're down to {stats['35-colors-3-screens'].gzipped} after gzip <em>({stats['35-colors-3-screens'].brotlified} after Brotli!)</em> without changing anything else.</p>
+<p>3つの画面サイズと35色だけが必要な場合, 何も変更しなくてもファイルサイズがgzip後に{stats['35-colors-3-screens'].gzipped}になります。<em>(Brotli後だと{stats['35-colors-3-screens'].brotlified}!)</em></p>
 
 ### Disabling unused utilities and variants
 
-If you don't expect to need a certain utility plugin in your project at all, you can disable it completely by setting it to `false` in the `corePlugins` section of your config file:
+プロジェクトに特定のユーティリティプラグインがまったく必要ない場合は、設定ファイルの`corePlugins`セクションで`false`に設定することで、完全に無効にすることができます。
 
 ```js
 // tailwind.config.js
@@ -413,7 +432,7 @@ module.exports = {
 }
 ```
 
-If you need a utility but don't need the responsive versions, set its variants to an empty array to generate 80% fewer classes:
+ユーティリティは必要だがレスポンシブバージョンは必要ない場合は、そのバリアントを空の配列に設定して、生成するクラスを80％少なくします。
 
 ```js
 module.exports = {
@@ -424,4 +443,4 @@ module.exports = {
 }
 ```
 
-These are mostly small wins compared to limiting your color palette or using fewer breakpoints, but they can still add up.
+これらは、カラーパレットを制限したり、使用するブレークポイントを少なくしたりする場合と比較して、ほとんどの場合小さなメリットですが、それでも考慮すべきことです。
