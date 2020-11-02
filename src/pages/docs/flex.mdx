@@ -1,6 +1,6 @@
 ---
-title: "Flex"
-description: "Utilities for controlling how flex items both grow and shrink."
+title: "フレックス"
+description: "フレックスアイテムの拡大と縮小の両方を制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: true
@@ -17,7 +17,7 @@ export const classes = { plugin }
 
 ## Initial
 
-Use `.flex-initial` to allow a flex item to shrink but not grow, taking into account its initial size:
+`.flex-initial`を使用して、フレックスアイテムを縮小しますが、初期サイズを考慮して拡大しないようにします。
 
 ```html
 <template preview>
@@ -69,7 +69,7 @@ Use `.flex-initial` to allow a flex item to shrink but not grow, taking into acc
 
 ## Flex 1
 
-Use `.flex-1` to allow a flex item to grow and shrink as needed, ignoring its initial size:
+`.flex-1`を使用して、フレックスアイテムを必要に応じて拡大および縮小し、初期サイズを無視します。
 
 ```html
 <template preview>
@@ -114,7 +114,7 @@ Use `.flex-1` to allow a flex item to grow and shrink as needed, ignoring its in
 
 ## Auto
 
-Use `.flex-auto` to allow a flex item to grow and shrink, taking into account its initial size:
+`.flex-auto`を使用して、初期サイズを考慮してフレックスアイテムを拡大および縮小できるようにします。
 
 ```html
 <template preview>
@@ -159,7 +159,7 @@ Use `.flex-auto` to allow a flex item to grow and shrink, taking into account it
 
 ## None
 
-Use `.flex-none` to prevent a flex item from growing or shrinking:
+`.flex-none`を使用して、フレックスアイテムが拡大または縮小するのを防ぎます。
 
 ```html
 <template preview>
@@ -179,9 +179,10 @@ Use `.flex-none` to prevent a flex item from growing or shrinking:
 
 ## Responsive
 
-To control how a flex item both grows and shrinks at a specific breakpoint, add a `{screen}:` prefix to any existing utility class. For example, use `md:flex-1` to apply the `flex-1` utility at only medium screen sizes and above.
+フレックスアイテムが特定のブレークポイントでどのように拡大および縮小するかを制御するには、既存のユーティリティクラスに `{screen}:`プレフィックスを追加します。
+たとえば、`md:flex-1`を使用して、中程度の画面サイズ以上でのみ`flex-1`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['flex-none', 'flex-1', 'flex-auto', 'flex-initial', 'flex-1']}
@@ -209,11 +210,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
 ### Flex Values
 
-By default Tailwind provides four `flex` utilities. You change, add, or remove these by editing the `theme.flex` section of your Tailwind config.
+デフォルトでは、Tailwindは4つの`flex`ユーティリティを提供します。
+Tailwind構成の`theme.flex`セクションを編集して、これらを変更、追加、または削除します。
 
 ```diff
   // tailwind.config.js
@@ -231,10 +233,10 @@ By default Tailwind provides four `flex` utilities. You change, add, or remove t
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="flex" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="flex" />
