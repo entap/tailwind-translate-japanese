@@ -1,6 +1,6 @@
 ---
-title: "Grid Auto Columns"
-description: "Utilities for controlling the size of implicitly-created grid columns."
+title: "グリッドオートカラム"
+description: "暗黙的に作成されたグリッド列のサイズを制御するためのユーティリティ。"
 featureVersion: "v1.9.0+"
 ---
 
@@ -11,9 +11,9 @@ import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Use the `auto-cols-{size}` utilities to control the size implicitly-created grid columns.
+`auto-cols-{size}`ユーティリティを使用して、暗黙的に作成されたグリッド列のサイズを制御します。
 
 ```html
 <div class="grid grid-flow-col auto-cols-max">
@@ -25,7 +25,8 @@ Use the `auto-cols-{size}` utilities to control the size implicitly-created grid
 
 ## Responsive
 
-To control the grid-auto-columns property at a specific breakpoint, add a `{screen}:` prefix to any existing grid-auto-columns utility. For example, use `md:auto-cols-min` to apply the `auto-cols-min` utility at only medium screen sizes and above.
+特定のブレークポイントでgrid-auto-columnsプロパティを制御するには、既存のgrid-auto-columnsユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:auto-cols-min`を使用して、中程度の画面サイズ以上でのみ`auto-cols-min`ユーティリティを適用します。
 
 ```html
 <div class="grid grid-flow-col auto-cols-max md:auto-cols-min">
@@ -35,11 +36,12 @@ To control the grid-auto-columns property at a specific breakpoint, add a `{scre
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については[Responsive Design](/docs/responsive-design)をご覧ください。
 
 ## Customizing
 
-By default Tailwind includes four general purpose grid-auto-columns utilities. You can customize these in the `theme.gridAutoColumns` section of your `tailwind.config.js` file.
+デフォルトでは、Tailwindには4つの汎用grid-auto-columnsユーティリティが含まれています。
+これらは`tailwind.config.js`ファイルの`theme.gridAutoColumns`セクションでカスタマイズできます。
 
 ```js
   // tailwind.config.js
@@ -54,12 +56,12 @@ By default Tailwind includes four general purpose grid-auto-columns utilities. Y
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+デフォルトテーマのカスタマイズについては[theme customization documentation](/docs/theme#customizing-the-default-theme)をご覧ください。
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="gridAutoColumns" name="grid-auto-columns" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="gridAutoColumns" name="grid-auto-columns" />
