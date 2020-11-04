@@ -1,6 +1,6 @@
 ---
-title: "Font Style"
-description: "Utilities for controlling the style of text."
+title: "フォントスタイル"
+description: "テキストのスタイルを制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: false
@@ -17,7 +17,8 @@ export const classes = { plugin }
 
 ## No Italics
 
-Use the `.not-italic` utility to display text normally. This is typically used to reset italic text at different breakpoints.
+`.not-italic`ユーティリティを使用して、テキストを通常どおり表示します。
+これは通常、さまざまなブレークポイントで斜体のテキストをリセットするために使用されます。
 
 ```html
 <template preview>
@@ -29,7 +30,7 @@ Use the `.not-italic` utility to display text normally. This is typically used t
 
 ## Italics
 
-Use the `.italic` utility to make text italic.
+`.italic`ユーティリティを使用して、テキストを斜体にします。
 
 ```html
 <template preview>
@@ -39,11 +40,12 @@ Use the `.italic` utility to make text italic.
 <p class="italic ...">The quick brown fox ...</p>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the font style of an element at a specific breakpoint, add a `{screen}:` prefix to any existing font style utility. For example, use `md:italic` to apply the `italic` utility at only medium screen sizes and above.
+特定のブレークポイントで要素のフォントスタイルを制御するには、既存のフォントスタイルユーティリティに `{screen}:`プレフィックスを追加します。
+たとえば、`md:italic`を使用して、中程度の画面サイズ以上でのみ`italic`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['italic', 'not-italic', 'italic', 'not-italic', 'italic']}
@@ -57,12 +59,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="fontStyle" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="fontStyle" />
