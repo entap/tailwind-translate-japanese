@@ -1,6 +1,6 @@
 ---
-title: "Font Family"
-description: "Utilities for controlling the font family of an element."
+title: "フォントファミリー"
+description: "要素のフォントファミリーを制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: true
@@ -17,7 +17,7 @@ export const classes = { plugin }
 
 ## Sans-serif
 
-Use `.font-sans` to apply a web safe sans-serif font family:
+`.font-sans`を使用して、Webセーフなsans-serifフォントファミリを適用します。
 
 ```html
 <template preview>
@@ -33,7 +33,7 @@ Use `.font-sans` to apply a web safe sans-serif font family:
 
 ## Serif
 
-Use `.font-serif` to apply a web safe serif font family:
+`.font-serif`を使用して、Webセーフなserifフォントファミリを適用します。
 
 ```html
 <template preview>
@@ -45,7 +45,7 @@ Use `.font-serif` to apply a web safe serif font family:
 
 ## Monospaced
 
-Use `.font-mono` to apply a web safe monospaced font family:
+`.font-mono`を使用して、Webセーフなmonospacedフォントファミリを適用します。
 
 ```html
 <template preview>
@@ -55,11 +55,11 @@ Use `.font-mono` to apply a web safe monospaced font family:
 </template>
 ```
 
-## Responsive
+## レスポンシブ
+特定のブレークポイントで要素のフォントファミリーを制御するには、既存のフォントファミリーユーティリティクラスに`{screen}:`プレフィックスを追加します。
+たとえば、`md:font-serif`を使用して、中程度の画面サイズ以上でのみ`font-serif`ユーティリティを適用します。
 
-To control the font family of an element at a specific breakpoint, add a `{screen}:` prefix to any existing font family utility class. For example, use `md:font-serif` to apply the `font-serif` utility at only medium screen sizes and above.
-
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['font-sans', 'font-serif', 'font-mono', 'font-sans', 'font-serif']}
@@ -75,11 +75,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-### Font Families
+### フォントファミリー
 
-By default Tailwind provides three font family utilities: a cross-browser sans-serif stack, a cross-browser serif stack, and a cross-browser monospaced stack. You can change, add, or remove these by editing the `theme.fontFamily` section of your Tailwind config.
+デフォルトでTailwindは、クロスブラウザーsans-serifスタック、クロスブラウザーserifスタック、およびクロスブラウザー等幅スタックの3つのフォントファミリーユーティリティを提供します。
+Tailwindコンフィグの`theme.fontFamily`セクションを編集することで、これらを変更、追加、または削除できます。
 
 ```diff
   // tailwind.config.js
@@ -96,7 +97,7 @@ By default Tailwind provides three font family utilities: a cross-browser sans-s
   }
 ```
 
-Font families can be specified as an array or as a simple comma-delimited string:
+フォントファミリーは、配列または単純なコンマ区切りの文字列として指定できます。
 
 ```js
 {
@@ -108,7 +109,8 @@ Font families can be specified as an array or as a simple comma-delimited string
 }
 ```
 
-Note that **Tailwind does not automatically escape font names** for you. If you're using a font that contains an invalid identifier, wrap it in quotes or escape the invalid characters.
+**Tailwindはフォント名を自動的にエスケープしない**ことに注意してください。
+無効な識別子を含むフォントを使用している場合は、フォントを引用符で囲むか、無効な文字をエスケープしてください。
 
 ```js
 {
@@ -124,10 +126,10 @@ Note that **Tailwind does not automatically escape font names** for you. If you'
 
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="fontFamily" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="fontFamily" />
