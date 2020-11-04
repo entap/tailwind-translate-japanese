@@ -1,6 +1,6 @@
 ---
-title: "Flex Direction"
-description: "Utilities for controlling the direction of flex items."
+title: "フレックスディレクション"
+description: "フレックスアイテムの方向を制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: false
@@ -17,7 +17,7 @@ export const classes = { plugin }
 
 ## Row
 
-Use `.flex-row` to position flex items horizontally in the same direction as text:
+`.flex-row`を使用して、フレックスアイテムをテキストと同じ方向に水平に配置します。
 
 ```html
 <template preview>
@@ -31,7 +31,7 @@ Use `.flex-row` to position flex items horizontally in the same direction as tex
 
 ## Row reversed
 
-Use `.flex-row-reverse` to position flex items horizontally in the opposite direction:
+`.flex-row-reverse`を使用して、フレックスアイテムを反対方向に水平に配置します。
 
 ```html
 <template preview>
@@ -45,7 +45,7 @@ Use `.flex-row-reverse` to position flex items horizontally in the opposite dire
 
 ## Column
 
-Use `.flex-col` to position flex items vertically:
+`.flex-col`を使用して、フレックスアイテムを垂直に配置します。
 
 ```html
 <template preview>
@@ -59,7 +59,7 @@ Use `.flex-col` to position flex items vertically:
 
 ## Column reversed
 
-Use `.flex-col-reverse` to position flex items vertically in the opposite direction:
+`.flex-col-reverse`を使用して、フレックスアイテムを反対方向に垂直に配置します。
 
 ```html
 <template preview>
@@ -73,9 +73,10 @@ Use `.flex-col-reverse` to position flex items vertically in the opposite direct
 
 ## Responsive
 
-To apply a flex direction utility only at a specific breakpoint, add a `{screen}:` prefix to the existing class name. For example, adding the class `md:flex-row` to an element would apply the `flex-row` utility at medium screen sizes and above.
+特定のブレークポイントでのみフレックス方向ユーティリティを適用するには、既存のクラス名に `{screen}:`プレフィックスを追加します。
+たとえば、クラス`md:flex-row`を要素に追加すると、中程度の画面サイズ以上で`flex-row`ユーティリティが適用されます。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['flex-row', 'flex-col', 'flex-row-reverse', 'flex-col-reverse', 'flex-row']}
@@ -93,12 +94,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="flexDirection" name="flex-direction" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="flexDirection" name="flex-direction" />
