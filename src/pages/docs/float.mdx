@@ -1,6 +1,6 @@
 ---
-title: "Floats"
-description: "Utilities for controlling the wrapping of content around an element."
+title: "フロート"
+description: "要素の周りのコンテンツの折り返しを制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: false
@@ -33,7 +33,7 @@ export const classes = {
 
 ## Float right
 
-Use `.float-right` to float an element to the right of its container.
+`.float-right`を使用して、要素をそのコンテナの右側にフロートさせます。
 
 ```html
 <template preview>
@@ -46,7 +46,7 @@ Use `.float-right` to float an element to the right of its container.
 
 ## Float left
 
-Use `.float-left` to float an element to the left of its container.
+`.float-right`を使用して、要素をそのコンテナの左側にフロートさせます。
 
 ```html
 <template preview>
@@ -59,7 +59,7 @@ Use `.float-left` to float an element to the left of its container.
 
 ## Don't float
 
-Use `.float-none` to reset any floats that are applied to an element. This is the default value for the float property.
+`.float-none`を使用して、要素に適用されているフロートをリセットします。これは、floatプロパティのデフォルト値です。
 
 ```html
 <template preview>
@@ -70,11 +70,12 @@ Use `.float-none` to reset any floats that are applied to an element. This is th
 </template>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the float of an element at a specific breakpoint, add a `{screen}:` prefix to any existing float utility class. For example, use `md:float-left` to apply the `float-left` utility at only medium screen sizes and above.
+特定のブレークポイントで要素のフロートを制御するには、既存のフロートユーティリティクラスに`{screen}:`プレフィックスを追加します。
+たとえば、`md:float-left`を使用して、中程度の画面サイズ以上でのみ`float-left`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['float-right', 'float-left', 'float-none', 'float-right', 'float-left']}
@@ -92,12 +93,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="float" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="float" />
