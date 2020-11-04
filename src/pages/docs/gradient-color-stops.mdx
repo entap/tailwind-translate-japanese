@@ -1,6 +1,6 @@
 ---
-title: "Gradient Color Stops"
-description: "Utilities for controlling the color stops in background gradients."
+title: "グラデーションカラーストップ"
+description: "背景のグラデーションでカラーストップを制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: true
@@ -36,7 +36,7 @@ export const classes = {
 
 ## Starting color
 
-Set the starting color of a gradient using the `from-{color}` utilities.
+`from-{color}`ユーティリティを使用してグラデーションの開始色を設定します。
 
 ```html
 <template preview class="p-8">
@@ -44,11 +44,11 @@ Set the starting color of a gradient using the `from-{color}` utilities.
 </template>
 ```
 
-Gradients fade out to transparent by default.
+デフォルトでは、グラデーションは透明にフェードアウトします。
 
 ## Ending color
 
-Set the ending color of a gradient using the `to-{color}` utilities.
+`to-{color}`ユーティリティを使用してグラデーションの終了色を設定します。
 
 ```html
 <template preview class="p-8">
@@ -56,11 +56,12 @@ Set the ending color of a gradient using the `to-{color}` utilities.
 </template>
 ```
 
-Gradients to **do not** fade in from transparent by default. To fade in from transparent, reverse the gradient direction and use a `from-{color}` utility.
+デフォルトでは、グラデーションは透明からフェードイン**しません**。
+透明からフェードインするには、グラデーションの方向を逆にして`from-{color}`ユーティリティを使用します。
 
 ## Middle color
 
-Add a middle color to a gradient using the `via-{color}` utilities.
+`via-{color}`ユーティリティを使用して、グラデーションに中間色を追加します。
 
 ```html
 <template preview class="p-8">
@@ -68,23 +69,23 @@ Add a middle color to a gradient using the `via-{color}` utilities.
 </template>
 ```
 
-Gradients with a `from-{color}` and `via-{color}` will fade out to transparent by default if no `to-{color}` is present.
+`to-{color}`が存在しない場合`from-{color}`と`via-{color}`のグラデーションはデフォルトで透明にフェードアウトします。
 
+## レスポンシブ
 
-## Responsive
-
-To control the gradient color stops of an element at a specific breakpoint, add a `{screen}:` prefix to any existing gradient color stop utility. For example, use `md:from-green-500` to apply the `from-green-500` utility at only medium screen sizes and above.
+特定のブレークポイントで要素のグラデーションカラーストップを制御するには、既存のグラデーションカラーストップユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:from-green-500`を使用して、中程度の画面サイズ以上でのみ`from-green-500`ユーティリティを適用します。
 
 ```html
 <div class="bg-gradient-to-r from-purple-400 md:from-orange-500"></div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
-
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 ## Hover
 
-To control the gradient color stops of an element on hover, add the `hover:` prefix to any existing gradient color stop utility. For example, use `hover:bg-blue-500` to apply the `bg-blue-500` utility on hover.
+ホバー時の要素のグラデーションカラーストップを制御するには、既存のグラデーションカラーストップユーティリティに`hover:`プレフィックスを追加します。
+たとえば、`hover:bg-blue-500`を使用して、ホバーに`bg-blue-500`ユーティリティを適用します。
 
 ```html
 <template preview class="text-center p-4">
@@ -94,7 +95,7 @@ To control the gradient color stops of an element on hover, add the `hover:` pre
 </template>
 ```
 
-Hover utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `focus:` prefix.
+ホバーユーティリティは、レスポンシブ`{screen}:`プレフィックスを`focus:`プレフィックスの*前*に追加することで、レスポンシブユーティリティと組み合わせることもできます。
 
 ```html
 <button class="... md:from-blue-500 md:hover:from-blue-700 ...">Button</button>
@@ -102,7 +103,8 @@ Hover utilities can also be combined with responsive utilities by adding the res
 
 ## Focus
 
-To control the gradient color stops of an element on focus, add the `focus:` prefix to any existing gradient color stop utility. For example, use `focus:bg-blue-500` to apply the `bg-blue-500` utility on focus.
+フォーカスされている要素のグラデーションカラーストップを制御するには、既存のグラデーションカラーストップユーティリティに`focus:`プレフィックスを追加します。
+たとえば、`focus：bg-blue-500`を使用して、`bg-blue-500`ユーティリティをフォーカスに適用します。
 
 ```html
 <template preview class="text-center p-4">
@@ -112,20 +114,21 @@ To control the gradient color stops of an element on focus, add the `focus:` pre
 </template>
 ```
 
-Focus utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `focus:` prefix.
+フォーカスユーティリティは、レスポンシブ`{screen}:`プレフィックスを`focus:`プレフィックスの*前*に追加することで、レスポンシブユーティリティと組み合わせることもできます。
 
 ```html
 <button class="... md:from-blue-500 md:focus:from-blue-700 ...">Button</button>
 ```
 
 
-## Customizing
+## カスタマイズ
 
 ### Background Colors
 
-By default Tailwind makes the entire [default color palette](/docs/customizing-colors#default-color-palette) available as gradient color stops.
+デフォルトでは、Tailwindは、グラデーションカラーが停止するときに[default color palette](/docs/customizing-colors#default-color-palette)全体を使用可能にします。
 
-You can [customize your color palette](/docs/colors#customizing) by editing the `theme.colors` variable in your `tailwind.config.js` file, or customize just your gradient color stop colors using the `theme.gradientColorStops` section of your Tailwind config.
+`tailwind.config.js`ファイルの`theme.colors`変数を編集して(/docs/colors#customizing)するか
+Tailwindコンフィグの`theme.gradientColorStops`セクションを使用してグラデーションカラーストップカラーのみをカスタマイズできます。
 
 ```diff
   // tailwind.config.js
@@ -141,10 +144,10 @@ You can [customize your color palette](/docs/colors#customizing) by editing the 
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="gradientColorStops" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="gradientColorStops" />
