@@ -1,6 +1,6 @@
 ---
-title: "Font Smoothing"
-description: "Utilities for controlling the font smoothing of an element."
+title: "フォントスムージング"
+description: "要素のフォントスムージングを制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: false
@@ -17,7 +17,7 @@ export const classes = { plugin }
 
 ## Subpixel Antialiasing
 
-Use the `.subpixel-antialiased` utility to render text using subpixel antialiasing.
+`.subpixel-antialiased`ユーティリティを使用して、サブピクセルアンチエイリアスを使用してテキストをレンダリングします。
 
 ```html
 <template preview>
@@ -29,7 +29,7 @@ Use the `.subpixel-antialiased` utility to render text using subpixel antialiasi
 
 ## Grayscale Antialiasing
 
-Use the `.antialiased` utility to render text using grayscale antialiasing.
+グレースケールアンチエイリアスを使用してテキストをレンダリングするには、`.antialiased`ユーティリティを使用します。
 
 ```html
 <template preview>
@@ -39,11 +39,12 @@ Use the `.antialiased` utility to render text using grayscale antialiasing.
 <p class="antialiased ...">The quick brown fox ...</p>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the font smoothing of an element at a specific breakpoint, add a `{screen}:` prefix to any existing font smoothing utility. For example, use `md:antialiased` to apply the `antialiased` utility at only medium screen sizes and above.
+特定のブレークポイントで要素のフォントスムージングを制御するには、既存のフォントスムージングユーティリティに `{screen}:`プレフィックスを追加します。
+たとえば、`md:antialiased`を使用して、中程度の画面サイズ以上でのみ`antialiased`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['antialiased', 'subpixel-antialiased', 'antialiased', 'subpixel-antialiased', 'antialiased']}
@@ -57,12 +58,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="fontSmoothing" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="fontSmoothing" />
