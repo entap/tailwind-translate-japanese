@@ -1,6 +1,6 @@
 ---
-title: "Flex Grow"
-description: "Utilities for controlling how flex items grow."
+title: "フレックスグロウ"
+description: "フレックスアイテムの伸長を制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: true
@@ -17,7 +17,7 @@ export const classes = { plugin }
 
 ## Grow
 
-Use `.flex-grow` to allow a flex item to grow to fill any available space:
+`.flex-grow`を使用して、フレックスアイテムを伸長させ、使用可能なスペースを埋めます。
 
 ```html
 <template preview>
@@ -37,7 +37,7 @@ Use `.flex-grow` to allow a flex item to grow to fill any available space:
 
 ## Don't grow
 
-Use `.flex-grow-0` to prevent a flex item from growing:
+`.flex-grow-0`を使用して、フレックスアイテムが伸長しないようにします。
 
 ```html
 <template preview>
@@ -55,11 +55,12 @@ Use `.flex-grow-0` to prevent a flex item from growing:
 </template>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control how a flex item grows at a specific breakpoint, add a `{screen}:` prefix to any existing utility class. For example, use `md:flex-grow-0` to apply the `flex-grow-0` utility at only medium screen sizes and above.
+フレックスアイテムが特定のブレークポイントでどのように伸長するかを制御するには、既存のユーティリティクラスに`{screen}:`プレフィックスを追加します。
+たとえば、`md:flex-grow-0`を使用して、中程度の画面サイズ以上でのみ`flex-grow-0`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['flex-grow-0', 'flex-grow', 'flex-grow-0', 'flex-grow', 'flex-grow-0']}
@@ -87,11 +88,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
 ### Grow Values
 
-By default Tailwind provides two `flex-grow` utilities. You change, add, or remove these by editing the `theme.flexGrow` section of your Tailwind config.
+デフォルトでは、Tailwindは2つの `flex-grow`ユーティリティを提供します。
+Tailwindコンフィグの`theme.flexGrow`セクションを編集して、これらを変更、追加、または削除します。
 
 ```diff
   // tailwind.config.js
@@ -107,10 +109,10 @@ By default Tailwind provides two `flex-grow` utilities. You change, add, or remo
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="flexGrow" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="flexGrow" />
