@@ -1,6 +1,6 @@
 ---
-title: "Font Variant Numeric"
-description: "Utilities for controlling the variant of numbers."
+title: "フォントバリアント数値"
+description: "数値のバリアントを制御するためのユーティリティ。"
 featureVersion: "v1.8.0+"
 ---
 
@@ -26,21 +26,20 @@ export const classes = {
   }
 }
 
-## Usage
+## 使用方法
 
-Use the `font-variant-numeric` utilities to enable additional glyphs for numbers, fractions, and ordinal markers *(in fonts that support them)*.
-
-These utilities are composable so you can enable multiple `font-variant-numeric` features by combining multiple classes in your HTML:
+`font-variant-numeric`ユーティリティを使用して、数字、分数、および序数マーカーの追加のグリフを有効にします*（それらをサポートするフォントであれば）*。
 
 ```html
 <p class="ordinal slashed-zero tabular-nums ...">1234567890</p>
 ```
 
-Note that many fonts don't support these features *(stacked fractions support for example is especially rare)*, so some of these utilities may have no effect depending on the font family you are using.
+多くのフォントはこれらの機能をサポートしていないことに注意してください*（たとえば、積み上げ分数のサポートは特にまれです）*
+そのため、使用しているフォントファミリによっては、これらのユーティリティの一部が効果を発揮しない場合があります。
 
 ### Ordinal
 
-Use the `.ordinal` utility to enable special glyphs for the ordinal markers.
+`.ordinal`ユーティリティを使用して、序数マーカーの特別なグリフを有効にします。
 
 ```html
 <template preview>
@@ -53,7 +52,7 @@ Use the `.ordinal` utility to enable special glyphs for the ordinal markers.
 
 ### Slashed Zero
 
-Use the `.slashed-zero` utility to force a 0 with a slash; this is useful when a clear distinction between O and 0 is needed.
+`.slashed-zero`ユーティリティを使用して、スラッシュ付きの0にします。これは、Oと0を明確に区別する必要がある場合に役立ちます。
 
 ```html
 <template preview>
@@ -65,7 +64,8 @@ Use the `.slashed-zero` utility to force a 0 with a slash; this is useful when a
 
 ### Lining figures
 
-Use the `.lining-nums` utility to use the numeric glyphs that are all aligned by their baseline. This corresponds to the `lnum` OpenType feature. This is the default for most fonts.
+`.lining-nums`ユーティリティを使用して、すべてベースラインで整列された数値グリフを使用します。
+これは、`lnum`OpenType機能に対応します。これはほとんどのフォントのデフォルトです。
 
 ```html
 <template preview>
@@ -77,7 +77,8 @@ Use the `.lining-nums` utility to use the numeric glyphs that are all aligned by
 
 ### Oldstyle figures
 
-Use the `.oldstyle-nums` utility to use numeric glyphs where some numbers have descenders. This corresponds to the `onum` OpenType feature.
+`.oldstyle-nums`ユーティリティを使用して、一部の数値に子孫がある数値グリフを使用します。
+これは、`onum`OpenType機能に対応します。
 
 ```html
 <template preview>
@@ -89,7 +90,8 @@ Use the `.oldstyle-nums` utility to use numeric glyphs where some numbers have d
 
 ### Proportional figures
 
-Use the `.proportional-nums` utility to use numeric glyphs that have proportional widths (rather than uniform/tabular). This corresponds to the `pnum` OpenType feature.
+`.proportional-nums`ユーティリティを使用して、（均一/表形式ではなく）比例した幅を持つ数値グリフを使用します。
+これは、`pnum`OpenType機能に対応します。
 
 ```html
 <template preview>
@@ -105,7 +107,8 @@ Use the `.proportional-nums` utility to use numeric glyphs that have proportiona
 
 ### Tabular figures
 
-Use the `.tabular-nums` utility to use numeric glyphs that have uniform/tabular widths (rather than proportional). This corresponds to the `tnum` OpenType feature.
+`.tabular-nums`ユーティリティを使用して、（比例ではなく）均一/表の幅を持つ数値グリフを使用します。
+これは、`tnum`OpenType機能に対応します。
 
 ```html
 <template preview>
@@ -121,7 +124,8 @@ Use the `.tabular-nums` utility to use numeric glyphs that have uniform/tabular 
 
 ### Diagonal fractions
 
-Use the `.diagonal-fractions` utility to replace numbers separated by a slash with common diagonal fractions. This corresponds to the `frac` OpenType feature.
+`.diagonal-fractions`ユーティリティを使用して、スラッシュで区切られた数値を一般的な対角分数に置き換えます。
+これは、`frac`OpenType機能に対応します。
 
 ```html
 <template preview>
@@ -133,7 +137,8 @@ Use the `.diagonal-fractions` utility to replace numbers separated by a slash wi
 
 ### Stacked fractions
 
-Use the `.stacked-fractions` utility to replace numbers separated by a slash with common stacked fractions. This corresponds to the `frac` OpenType feature. Very few fonts seem to support this feature — we've used Ubuntu Mono here.
+`.stacked-fractions`ユーティリティを使用して、スラッシュで区切られた数値を一般的な積み上げ分数に置き換えます。
+これは `frac`OpenType機能に対応します。この機能をサポートしているフォントはほとんどないようです。ここではUbuntuMonoを使用しました。
 
 ```html
 <template preview>
@@ -146,15 +151,17 @@ Use the `.stacked-fractions` utility to replace numbers separated by a slash wit
 
 ### Resetting numeric font variants
 
-Use the `.normal-nums` propery to reset numeric font variants. This is usually useful for resetting a font feature at a particular breakpoint:
+`.normal-nums`プロパティを使用して、数値フォントのバリアントをリセットします。
+これは通常、特定のブレークポイントでフォント機能をリセットする場合に役立ちます。
 
 ```html
 <p class="slashed-zero tabular-nums md:normal-nums ...">12345</p>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control `font-variant-numeric` property of an element at a specific breakpoint, add a `{screen}:` prefix to any existing `font-variant-numeric` utility. For example, use `md:tabular-nums` to apply the `tabular-nums` utility at only medium screen sizes and above.
+特定のブレークポイントで要素の `font-variant-numeric`プロパティを制御するには、既存の` font-variant-numeric`ユーティリティに `{screen}:`プレフィックスを追加します。
+たとえば、`md:tabular-nums`を使用して、中程度の画面サイズ以上でのみ` tabular-nums`ユーティリティを適用します。
 
 ```html
 <div class="proportional-nums md:tabular-nums">
@@ -162,15 +169,15 @@ To control `font-variant-numeric` property of an element at a specific breakpoin
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="fontVariantNumeric" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="fontVariantNumeric" />
