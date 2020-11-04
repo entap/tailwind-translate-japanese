@@ -1,13 +1,13 @@
 ---
-title: Functions & Directives
-description: A reference for the custom functions and directives Tailwind exposes to your CSS.
+title: 機能とディレクティブ
+description: TailwindがCSSに公開するカスタム関数とディレクティブのリファレンス。
 ---
 
 import { TipGood, TipBad } from '@/components/Tip'
 
 ## @tailwind
 
-Use the `@tailwind` directive to insert Tailwind's `base`, `components`, `utilities` and `screens` styles into your CSS.
+`@tailwind`ディレクティブを使用して、Tailwindの`base`,`components`,`utilities`、および`screens`スタイルをCSSに挿入します。
 
 ```css
 /**
@@ -42,9 +42,9 @@ Use the `@tailwind` directive to insert Tailwind's `base`, `components`, `utilit
 
 ## @apply
 
-Use `@apply` to inline any existing utility classes into your own custom CSS.
+`@apply`を使用して、既存のユーティリティクラスを独自のカスタムCSSにインライン化します。
 
-This is useful when you find a common utility pattern in your HTML that you'd like to extract to a new component.
+これは、新しいコンポーネントに抽出したいHTML内の一般的なユーティリティパターンを見つけたときに役立ちます。
 
 ```css
 .btn {
@@ -58,7 +58,7 @@ This is useful when you find a common utility pattern in your HTML that you'd li
 }
 ```
 
-Rules can be listed on a single line or with multiple calls to `@apply`:
+ルールは1行にリストすることも、`@apply`を複数回呼び出すことでリストすることもできます。
 
 ```css
 .btn {
@@ -69,7 +69,7 @@ Rules can be listed on a single line or with multiple calls to `@apply`:
 }
 ```
 
-You can mix `@apply` declarations with normal CSS declarations too of course:
+もちろん、`@apply`宣言を通常のCSS宣言と混在させることもできます。
 
 ```css
 .btn:hover {
@@ -78,7 +78,7 @@ You can mix `@apply` declarations with normal CSS declarations too of course:
 }
 ```
 
-Any rules inlined with `@apply` will have `!important` **removed** by default to avoid specificity issues:
+`@apply`でインライン化されたルールは、特異性の問題を回避するために、デフォルトで`!important`が**削除**されます。
 
 ```css
 /* Input */
@@ -100,7 +100,7 @@ Any rules inlined with `@apply` will have `!important` **removed** by default to
 }
 ```
 
-If you'd like to `@apply` an existing class and make it `!important`, simply add `!important` to the end of the declaration:
+既存のクラスを`@apply`して`!important`にしたい場合は、宣言の最後に`!important`を追加するだけです。
 
 
 ```css
@@ -120,7 +120,7 @@ If you'd like to `@apply` an existing class and make it `!important`, simply add
 }
 ```
 
-Note that if you're using Sass/SCSS, you'll need to use Sass' interpolation feature to get this to work:
+Sass/SCSSを使用している場合、これを機能させるにはSassの補間機能を使用する必要があることに注意してください。
 
 ```css
 .btn {
@@ -128,7 +128,8 @@ Note that if you're using Sass/SCSS, you'll need to use Sass' interpolation feat
 }
 ```
 
-It's important to understand that `@apply` **will not work** for inlining pseudo-class or responsive variants of another utility. Instead, apply the plain version of that utility into the appropriate pseudo-selector or a new media query:
+別のユーティリティの疑似クラスまたはレスポンシブバリアントをインライン化する場合、`@apply`は**機能しない**ことを理解することが重要です。
+代わりに、そのユーティリティのプレーンバージョンを適切な疑似セレクタまたは新しいメディアクエリに適用します。
 
 ```css
 /* Won't work: */
@@ -152,7 +153,8 @@ It's important to understand that `@apply` **will not work** for inlining pseudo
 }
 ```
 
-If you've [configured a prefix](/docs/configuration#prefix) for your utilities, you can optionally omit the prefix when using `@apply` if you prefer a terser syntax:
+ユーティリティの[プレフィックスを設定](/docs/configuration#prefix)している場合、
+簡潔な構文が必要な場合は、`@apply`を使用するときに、オプションでプレフィックスを省略できます。
 
 ```css
 /* Both of these will work */
@@ -168,7 +170,8 @@ If you've [configured a prefix](/docs/configuration#prefix) for your utilities, 
 
 ## @layer
 
-Use the `@layer` directive to tell Tailwind which "bucket" a set of custom styles belong in. Valid layers are a `base`, `components`, and `utilities`.
+`@layer`ディレクティブを使用して、カスタムスタイルのセットが属する「バケット」をTailwindに通知します。
+有効なレイヤーは`base`,`components`,`utilities`です。
 
 ```css
 @tailwind base;
@@ -205,16 +208,19 @@ Use the `@layer` directive to tell Tailwind which "bucket" a set of custom style
 }
 ```
 
-Tailwind will automatically move any CSS within a `@layer` directive to the same place as the corresponding `@tailwind` rule, so you don't have to worry as much about authoring your CSS in a specific order to avoid specificity issues.
+Tailwindは、`@layer`ディレクティブ内のCSSを対応する`@tailwind`ルールと同じ場所に自動的に移動します。
+したがって、特異性の問題を回避するために、CSSを特定の順序で作成することについてそれほど心配する必要はありません。
 
-Wrapping any custom CSS in a `@layer` directive also tells Tailwind to consider those styles for purging when purging that layer. Read our [Controlling File Size](/docs/controlling-file-size) documentation for more details.
+カスタムCSSを`@layer`ディレクティブでラップすると、Tailwindは、そのレイヤーを除去するときに、それらのスタイルを除去することを検討するようになります。 
+
+詳細については[ファイルサイズのコントロール](/docs/controlling-file-size)をご覧ください。
 
 ---
 
 
 ## @variants
 
-You can generate `responsive`, `hover`, `focus`, `active`, and other [variants](/docs/pseudo-class-variants) of your own utilities by wrapping their definitions in the `@variants` directive.
+独自のユーティリティの`responsive`, `hover`, `focus`, `active`およびその他の[variants](/docs/pseudo-class-variants)は、それらの定義を`@variants`ディレクティブでラップすることで生成できます。
 
 ```css
 @variants focus, hover {
@@ -252,9 +258,9 @@ This will generate the following CSS:
 }
 ```
 
-It's important to note that **variants are generated in the order you specify them**.
+**バリアントは指定した順序で生成される**ことに注意することが重要です。
 
-So if you want focus utilities to take priority over hover utilities for example, make sure focus comes *after* hover in the list:
+したがって、たとえばフォーカスユーティリティをホバーユーティリティよりも優先させたい場合は、リストでホバーの*後に*フォーカスが来るようにしてください。
 
 ```css
 /* Input */
@@ -276,13 +282,14 @@ So if you want focus utilities to take priority over hover utilities for example
 }
 ```
 
-The `@variants` at-rule supports all of the values that are supported in the `variants` section of your config file, as well as any [custom variants](/docs/plugins#adding-variants) added through plugins.
+`@variants`at-ruleは、設定ファイルの`variants`セクションでサポートされているすべての値をサポートします。
+プラグインを介して追加された[custom variants](/docs/plugins#adding-variants)も同様です。
 
 ---
 
 ## @responsive
 
-You can generate responsive variants of your own classes by wrapping their definitions in the `@responsive` directive:
+独自のクラスのレスポンシブバリアントを生成するには、それらの定義を`@response`ディレクティブでラップします。
 
 ```css
 @responsive {
@@ -292,7 +299,7 @@ You can generate responsive variants of your own classes by wrapping their defin
 }
 ```
 
-Using the default breakpoints, this would generate these classes:
+デフォルトのブレークポイントを使用すると、これらのクラスが生成されます。
 
 ```css
 .bg-gradient-brand {
@@ -330,17 +337,19 @@ Using the default breakpoints, this would generate these classes:
 }
 ```
 
-The responsive variants will be added to Tailwind's existing media queries at the end of your stylesheet. This makes sure that classes with a responsive prefix always defeat non-responsive classes that are targeting the same CSS property.
+レスポンシブバリアントは、スタイルシートの最後にあるTailwindの既存のメディアクエリに追加されます。
+
+これにより、レスポンシブプレフィックスを持つクラスは、同じCSSプロパティをターゲットにしている非レスポンシブクラスを常に無効にします。
 
 ---
 
 ## @screen
 
-The `@screen` directive allows you to create media queries that reference your breakpoints by name instead of duplicating their values in your own CSS.
+`@screen`ディレクティブを使用すると、独自のCSSで値を複製する代わりに、名前でブレークポイントを参照するメディアクエリを作成できます。
 
-For example, say you have a `sm` breakpoint at `640px` and you need to write some custom CSS that references this breakpoint.
+たとえば、`640px`に`sm`ブレークポイントがあり、このブレークポイントを参照するカスタムCSSを作成する必要があるとします。
 
-Instead of writing a raw media query that duplicates that value like this:
+このようにその値を複製する生のメディアクエリを書く代わりに：
 
 ```css
 @media (min-width: 640px) {
@@ -348,7 +357,7 @@ Instead of writing a raw media query that duplicates that value like this:
 }
 ```
 
-...you can use the `@screen` directive and reference the breakpoint by name:
+... `@screen`ディレクティブを使用して、名前でブレークポイントを参照できます。
 
 ```css
 @screen sm {
@@ -360,9 +369,9 @@ Instead of writing a raw media query that duplicates that value like this:
 
 ## theme()
 
-Use the `theme()` function to access your Tailwind config values using dot notation.
+`theme()`関数を使用して、ドット表記を使用してTailwindコンフィグ値にアクセスします。
 
-This can be a useful alternative to `@apply` when you want to reference a value from your theme configuration for only part of a declaration:
+これは、宣言の一部についてのみテーマ構成から値を参照する場合に、`@apply`の代わりに役立ちます。
 
 ```css
 .content-area {
@@ -370,9 +379,9 @@ This can be a useful alternative to `@apply` when you want to reference a value 
 }
 ```
 
-Since Tailwind uses the [nested object syntax](/docs/colors#nested-object-syntax) to define its default color palette, make sure to use dot notation to access the nested colors.
+Tailwindは[nested object syntax](/docs/colors#nested-object-syntax)を使用してデフォルトのカラーパレットを定義するため、ネストされた色にアクセスするには必ずドット表記を使用してください。
 
-<TipBad>Don't use the dash syntax when accessing nested color values</TipBad>
+<TipBad>ネストされた色の値にアクセスするときにダッシュ構文を使用しないでください</TipBad>
 
 ```css
 .btn-blue {
@@ -380,7 +389,7 @@ Since Tailwind uses the [nested object syntax](/docs/colors#nested-object-syntax
 }
 ```
 
-<TipGood>Use dot notation to access nested color values</TipGood>
+<TipGood>ドット表記を使用して、ネストされた色の値にアクセスします</TipGood>
 
 ```css
 .btn-blue {
