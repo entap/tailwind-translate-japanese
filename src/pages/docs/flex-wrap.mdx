@@ -1,6 +1,6 @@
 ---
-title: "Flex Wrap"
-description: "Utilities for controlling how flex items wrap."
+title: "フレックスラップ"
+description: "フレックスアイテムのラップ方法を制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: false
@@ -17,7 +17,7 @@ export const classes = { plugin }
 
 ## Don't wrap
 
-Use `.flex-no-wrap` to prevent flex items from wrapping, causing inflexible items to overflow the container if necessary:
+`.flex-no-wrap`を使用して、フレックスアイテムがラップされないようにし、必要に応じて柔軟性のないアイテムがコンテナからオーバーフローするのを防ぎます。
 
 ```html
 <template preview>
@@ -37,7 +37,7 @@ Use `.flex-no-wrap` to prevent flex items from wrapping, causing inflexible item
 
 ## Wrap normally
 
-Use `.flex-wrap` to allow flex items to wrap:
+`.flex-wrap`を使用して、フレックスアイテムをラップできるようにします。
 
 ```html
 <template preview>
@@ -57,7 +57,7 @@ Use `.flex-wrap` to allow flex items to wrap:
 
 ## Wrap reversed
 
-Use `.flex-wrap-reverse` to wrap flex items in the reverse direction:
+`.flex-wrap-reverse`を使用して、フレックスアイテムを逆方向にラップします。
 
 ```html
 <template preview>
@@ -77,9 +77,10 @@ Use `.flex-wrap-reverse` to wrap flex items in the reverse direction:
 
 ## Responsive
 
-To control how flex items wrap at a specific breakpoint, add a `{screen}:` prefix to any existing utility class. For example, use `md:flex-wrap-reverse` to apply the `flex-wrap-reverse` utility at only medium screen sizes and above.
+フレックスアイテムが特定のブレークポイントでどのようにラップするかを制御するには、既存のユーティリティクラスに`{screen}:`プレフィックスを追加します。
+たとえば、`md:flex-wrap-reverse`を使用して、中程度の画面サイズ以上でのみ`flex-wrap-reverse`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['flex-no-wrap', 'flex-wrap', 'flex-wrap-reverse', 'flex-no-wrap', 'flex-wrap']}
@@ -103,12 +104,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="flexWrap" name="flex-wrap" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="flexWrap" name="flex-wrap" />
