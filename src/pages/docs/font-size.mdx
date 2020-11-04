@@ -1,6 +1,6 @@
 ---
-title: "Font Size"
-description: "Utilities for controlling the font size of an element."
+title: "フォントサイズ"
+description: "要素のフォントサイズを制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: true
@@ -16,9 +16,9 @@ import { Heading } from '@/components/Heading'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Control the font size of an element using the `.text-{size}` utilities.
+`.text-{size}`ユーティリティを使用して、要素のフォントサイズを制御します。
 
 ```html
 <template preview>
@@ -76,11 +76,12 @@ Control the font size of an element using the `.text-{size}` utilities.
 <p class="text-6xl ...">The quick brown fox ...</p>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the font size of an element at a specific breakpoint, add a `{screen}:` prefix to any existing font size utility. For example, use `md:text-lg` to apply the `text-lg` utility at only medium screen sizes and above.
+特定のブレークポイントで要素のフォントサイズを制御するには、既存のフォントサイズユーティリティに `{screen}:`プレフィックスを追加します。
+たとえば、`md:text-lg`を使用して、中程度の画面サイズ以上でのみ`text-lg`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['text-base', 'text-lg', 'text-xl', 'text-2xl', 'text-3xl']}
@@ -92,11 +93,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-### Font Sizes
+### フォントサイズ
 
-By default Tailwind provides 10 `font-size` utilities. You change, add, or remove these by editing the `theme.fontSize` section of your Tailwind config.
+デフォルトでは、Tailwindは10個の`font-size`ユーティリティを提供します。
+Tailwindコンフィグの`theme.fontSize`セクションを編集して、これらを変更、追加、または削除します。
 
 ```diff
   // tailwind.config.js
@@ -120,9 +122,9 @@ By default Tailwind provides 10 `font-size` utilities. You change, add, or remov
   }
 ```
 
-### <Heading badge="v1.3.0+">Providing a default line-height</Heading>
+### <Heading badge="v1.3.0+">デフォルトの行の高さを提供する</Heading>
 
-You can provide a default line-height for each of your font-sizes using a tuple of the form `[fontSize, lineHeight]` in your `tailwind.config.js` file.
+`tailwind.config.js`ファイルの`[fontSize、lineHeight]`形式のタプルを使用して、各フォントサイズのデフォルトの行の高さを指定できます。
 
 ```js
 // tailwind.config.js
@@ -138,11 +140,11 @@ module.exports = {
 }
 ```
 
-We don't do this out-of-the-box for backwards compatibility reasons, but it can be a very convenient customization to make in your own projects.
+下位互換性の理由から、設定せずに実行することはありませんが、独自のプロジェクトで作成するのは非常に便利なカスタマイズになる可能性があります。
 
-### <Heading badge="v1.7.0+">Providing a default letter-spacing</Heading>
+### <Heading badge="v1.7.0+">デフォルトの文字間隔を提供する</Heading>
 
-If you also want to provide a default letter-spacing value for a font size, you can do so using a tuple of the form `[fontSize, { letterSpacing, lineHeight }]` in your `tailwind.config.js` file.
+フォントサイズのデフォルトの文字間隔値も指定する場合は、`tailwind.config.js`ファイルで`[fontSize、{letterSpacing、lineHeight}]`の形式のタプルを使用して指定できます。
 
 ```js
 // tailwind.config.js
@@ -162,10 +164,10 @@ module.exports = {
 }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="fontSize" name="text sizing" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="fontSize" name="text sizing" />
