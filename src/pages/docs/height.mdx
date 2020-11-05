@@ -1,6 +1,6 @@
 ---
-title: "Height"
-description: "Utilities for setting the height of an element"
+title: "高さ"
+description: "要素の高さを設定するためのユーティリティ。"
 ---
 
 import plugin from 'tailwindcss/lib/plugins/height'
@@ -12,7 +12,7 @@ export const classes = { plugin }
 
 ## Auto
 
-Use `h-auto` to let the browser determine the height for the element.
+`h-auto`を使用して、ブラウザに要素の高さを決定させます。
 
 ```html
 <template preview>
@@ -24,7 +24,7 @@ Use `h-auto` to let the browser determine the height for the element.
 
 ## Screen height
 
-Use `h-screen` to make an element span the entire height of the viewport.
+`h-screen`を使用して、要素がビューポートの高さ全体に広がるようにします。
 
 ```html
 <template preview class="overflow-x-scroll p-4">
@@ -34,7 +34,7 @@ Use `h-screen` to make an element span the entire height of the viewport.
 
 ## Fixed height
 
-Use `h-{number}` or `h-px` to set an element to a fixed height.
+要素を固定の高さに設定するには、`h-{number}`または`h-px`を使用します。
 
 ```html
 <template preview class="flex justify-around items-end text-sm p-4">
@@ -59,7 +59,7 @@ Use `h-{number}` or `h-px` to set an element to a fixed height.
 
 ## Full height
 
-Use `h-full` to set an element's height to 100% of its parent, as long as the parent has a defined height.
+親が定義された高さを持っている限り`h-full`を使用して、要素の高さをその親の100％に設定します。
 
 ```html
 <template preview class="flex justify-around items-end text-sm p-4">
@@ -77,9 +77,10 @@ Use `h-full` to set an element's height to 100% of its parent, as long as the pa
 
 ## Responsive
 
-To control the height of an element at a specific breakpoint, add a `{screen}:` prefix to any existing width utility. For example, adding the class `md:h-full` to an element would apply the `h-full` utility at medium screen sizes and above.
+特定のブレークポイントで要素の高さを制御するには、既存の幅ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、クラス`md:h-full`を要素に追加すると、中程度の画面サイズ以上で`h-full`ユーティリティが適用されます。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['h-8', 'h-12', 'h-16', 'h-20', 'h-24']}
@@ -93,13 +94,13 @@ For more information about Tailwind's responsive design features, check out the 
 
 ---
 
-## Customizing
+## カスタマイズ
 
 ### Height Scale
 
-By default, Tailwind's height scale is a combination of the [default spacing scale](/docs/customizing-spacing#default-spacing-scale) as well as some additional values specific to heights.
+デフォルトでは、Tailwindの高さスケールは[default spacing scale](/docs/customizing-spacing#default-spacing-scale)と、高さに固有のいくつかの追加値の組み合わせです。
 
-You can customize the spacing scale for padding, margin, width, and height all at once in the `theme.spacing` section of your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`theme.spacing`セクションで、パディング、マージン、幅、高さの間隔スケールを一度にカスタマイズできます。
 
 ```diff
   // tailwind.config.js
@@ -115,7 +116,7 @@ You can customize the spacing scale for padding, margin, width, and height all a
   }
 ```
 
-To customize height separately, use the `theme.height` section of your `tailwind.config.js` file.
+高さを個別にカスタマイズするには`tailwind.config.js`ファイルの`theme.height`セクションを使用します。
 
 ```diff
   // tailwind.config.js
@@ -131,10 +132,10 @@ To customize height separately, use the `theme.height` section of your `tailwind
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="height" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="height" />
