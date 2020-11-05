@@ -1,6 +1,6 @@
 ---
-title: "Grid Template Columns"
-description: "Utilities for specifying the columns in a grid layout."
+title: "グリッドテンプレートカラム"
+description: "グリッドレイアウトで列を指定するためのユーティリティ。"
 featureVersion: "v1.2.0+"
 ---
 
@@ -11,9 +11,9 @@ import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Use the `grid-cols-{n}` utilities to create grids with _n_ equally sized columns.
+`grid-cols-{n}`ユーティリティを使用して、_n_個の同じサイズの列を持つグリッドを作成します。
 
 ```html
 <template preview class="bg-white p-8">
@@ -37,11 +37,12 @@ Use the `grid-cols-{n}` utilities to create grids with _n_ equally sized columns
 </div>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the columns of a grid at a specific breakpoint, add a `{screen}:` prefix to any existing grid-template-columns utility. For example, use `md:grid-cols-6` to apply the `grid-cols-6` utility at only medium screen sizes and above.
+特定のブレークポイントでグリッドの列を制御するには、既存のgrid-template-columnsユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:grid-cols-6`を使用して、中程度の画面サイズ以上でのみ`grid-cols-6`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['grid-cols-1', 'grid-cols-2', 'grid-cols-3', 'grid-cols-4', 'grid-cols-6']}
@@ -69,11 +70,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-By default Tailwind includes grid-template-column utilities for creating basic grids with up to 12 equal width columns. You change, add, or remove these by customizing the `gridTemplateColumns` section of your Tailwind theme config.
+デフォルトでは、Tailwindには、最大12の等しい幅の列を持つ基本的なグリッドを作成するためのgrid-template-columnユーティリティが含まれています。
+Tailwindテーマ設定の`gridTemplateColumns`セクションをカスタマイズして、これらを変更、追加、または削除します。
 
-You have direct access to the `grid-template-columns` CSS property here so you can make your custom column values as generic or as complicated and site-specific as you like.
+ここから`grid-template-columns`CSSプロパティに直接アクセスできるため、カスタム列の値を一般的なものにすることも、複雑でサイト固有のものにすることもできます。
 
 ```diff
   // tailwind.config.js
@@ -92,12 +94,12 @@ You have direct access to the `grid-template-columns` CSS property here so you c
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+デフォルトテーマのカスタマイズについては[theme customization documentation](/docs/theme#customizing-the-default-theme)をご覧ください。
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="gridTemplateColumns" name="grid-template-columns" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="gridTemplateColumns" name="grid-template-columns" />

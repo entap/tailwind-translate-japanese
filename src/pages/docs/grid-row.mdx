@@ -1,6 +1,6 @@
 ---
-title: "Grid Row Start / End"
-description: "Utilities for controlling how elements are sized and placed across grid rows."
+title: "グリッドロー スタート/エンド"
+description: "要素のサイズとグリッド行全体への配置方法を制御するためのユーティリティ。"
 featureVersion: "v1.2.0+"
 ---
 
@@ -15,7 +15,7 @@ export const classes = {
 
 ## Spanning rows
 
-Use the `row-span-{n}` utilities to make an element span _n_ rows.
+`row-span-{n}`ユーティリティを使用して、要素を_n_行に広げます。
 
 ```html
 <template preview class="bg-white p-8">
@@ -35,9 +35,10 @@ Use the `row-span-{n}` utilities to make an element span _n_ rows.
 
 ## Starting and ending lines
 
-Use the `row-start-{n}` and `row-end-{n}` utilities to make an element start or end at the _nth_ grid line. These can also be combined with the `row-span-{n}` utilities to span a specific number of rows.
+`row-start-{n}`および`row-end-{n}`ユーティリティを使用して、要素を_n番目_グリッド線で開始または終了します。
+これらを`row-span-{n}`ユーティリティと組み合わせて、特定の数の行にまたがることもできます。
 
-Note that CSS grid lines start at 1, not 0, so a full-height element in a 3-row grid would start at line 1 and end at line 4.
+CSSグリッドラインは0ではなく1で始まるため、3行グリッドのfull-height要素はライン1で始まり、ライン4で終わることに注意してください。
 
 ```html
 <template preview class="bg-white p-8">
@@ -55,9 +56,10 @@ Note that CSS grid lines start at 1, not 0, so a full-height element in a 3-row 
 </div>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the row placement of an element at a specific breakpoint, add a `{screen}:` prefix to any existing grid-row utility. For example, use `md:row-span-3` to apply the `row-span-3` utility at only medium screen sizes and above.
+特定のブレークポイントでの要素の行配置を制御するには、既存のグリッド行ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:row-span-3`を使用して、中程度の画面サイズ以上でのみ`row-span-3`ユーティリティを適用します。
 
 ```html
 <div class="grid grid-rows-3 ...">
@@ -65,13 +67,14 @@ To control the row placement of an element at a specific breakpoint, add a `{scr
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
-## Customizing
+## カスタマイズ
 
-By default Tailwind includes grid-row utilities for working with grids with up to 6 explicit rows. You change, add, or remove these by customizing the `gridRow`, `gridRowStart`, and `gridRowEnd` sections of your Tailwind theme config.
+デフォルトでは、Tailwindには最大6つの明示的な行を持つグリッドを操作するためのgrid-rowユーティリティが含まれています。
+Tailwindテーマ構成の`gridRow`,` gridRowStart`および`gridRowEnd`セクションをカスタマイズして、これらを変更、追加、または削除します。
 
-For creating more `row-{value}` utilities that control the `grid-row` shorthand property directly, customize the `gridRow` section of your Tailwind theme config:
+`grid-row`省略形プロパティを直接制御する`row-{value}`ユーティリティをさらに作成するには、Tailwindテーマ設定の`gridRow`セクションをカスタマイズします。
 
 ```diff
   // tailwind.config.js
@@ -86,9 +89,11 @@ For creating more `row-{value}` utilities that control the `grid-row` shorthand 
   }
 ```
 
-We use this internally for our `row-span-{n}` utilities. Note that since this configures the `grid-row` shorthand property directly, we include the word `span` directly in the value name, it's _not_ baked into the class name automatically. That means you are free to add entries that do whatever you want here — they don't just have to be `span` utilities.
+私達はこれを`row-span-{n}`ユーティリティの内部で使用します。
+これは`grid-row`省略形プロパティを直接構成するため、値名に直接`span`という単語を含め、クラス名に自動的に焼き付けられないことに注意してください。
+つまり、ここでやりたいことを何でも実行するエントリを自由に追加できます。エントリは`span`ユーティリティである必要はありません。
 
-To add new `row-start-{n}` utilities, use the `gridRowStart` section of your Tailwind theme config:
+新しい`row-start-{n}`ユーティリティを追加するには、Tailwindテーマ設定の`gridRowStart`セクションを使用します。
 
 ```diff
   // tailwind.config.js
@@ -108,7 +113,7 @@ To add new `row-start-{n}` utilities, use the `gridRowStart` section of your Tai
   }
 ```
 
-To add new `row-end-{n}` utilities, use the `gridRowEnd` section of your Tailwind theme config:
+新しい`row-end-{n}`ユーティリティを追加するには、Tailwindテーマ設定の`gridRowEnd`セクションを使用します。
 
 ```diff
   // tailwind.config.js
@@ -128,13 +133,13 @@ To add new `row-end-{n}` utilities, use the `gridRowEnd` section of your Tailwin
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+デフォルトテーマのカスタマイズについては[theme customization documentation](/docs/theme#customizing-the-default-theme)をご覧ください。
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
-By default, only responsive variants are generated for grid-row utilities.
+デフォルトでは、グリッド行ユーティリティに対してレスポンシブバリアントのみが生成されます。
 
-You can control which variants are generated for the grid-row utilities by modifying the `gridRow`, `gridRowStart`, and `gridRowEnd` properties in the `variants` section of your `tailwind.config.js` file.
+`tailwind.config.js`ファイルの`variants`セクションで`gridRow`,`gridRowStart`および`gridRowEnd`プロパティを変更することにより、grid-rowユーティリティ用に生成されるバリアントを制御できます。
 
 ```diff
   // tailwind.config.js
@@ -148,8 +153,8 @@ You can control which variants are generated for the grid-row utilities by modif
   }
 ```
 
-Learn more about configuring variants in the [configuring variants documentation](/docs/configuring-variants/).
+バリアントのコンフィグ詳細については[configuring variants documentation](/docs/configuring-variants/)をご覧ください。
 
-### Disabling
+### 無効にする
 
 <Disabling plugin={['gridRow', 'gridRowStart', 'gridRowEnd']} name="grid-row" />
