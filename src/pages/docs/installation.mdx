@@ -1,6 +1,6 @@
 ---
-title: Installation
-description: Quick start guide for installing and configuring Tailwind CSS.
+title: インストール
+description: TailwindCSSをインストールおよび構成するためのクイックスタートガイド。
 ---
 
 import { Heading } from '@/components/Heading'
@@ -8,9 +8,9 @@ import { List, ListItemBad } from '@/components/List'
 import Link from 'next/link'
 import stats from '@/utils/stats'
 
-## <Heading number="1">Install Tailwind via npm</Heading>
+## <Heading number="1">npm経由でTailwindをインストールする</Heading>
 
-For most projects (and to take advantage of Tailwind's customization features), you'll want to install Tailwind via npm.
+ほとんどのプロジェクトでは（そしてTailwindのカスタマイズ機能を利用するには）npmを介してTailwindをインストールすることをお勧めします。
 
 ```bash
 # Using npm
@@ -20,9 +20,9 @@ npm install tailwindcss
 yarn add tailwindcss
 ```
 
-## <Heading number="2">Add Tailwind to your CSS</Heading>
+## <Heading number="2">TailwindをCSSに追加する</Heading>
 
-Use the `@tailwind` directive to inject Tailwind's `base`, `components`, and `utilities` styles into your CSS:
+`@tailwind`ディレクティブを使用して、Tailwindの`base`,`components`および`utilities`スタイルをCSSに挿入します。
 
 ```css
 @tailwind base;
@@ -32,9 +32,10 @@ Use the `@tailwind` directive to inject Tailwind's `base`, `components`, and `ut
 @tailwind utilities;
 ```
 
-Tailwind will swap these directives out at build time with all of its generated CSS.
+Tailwindは、ビルド時にこれらのディレクティブを生成されたすべてのCSSと交換します。
 
-If you're using `postcss-import` (or a tool that uses it under the hood, such as [Webpacker](https://github.com/rails/webpacker) for Rails), use our imports instead of the `@tailwind` directive to avoid issues when importing any of your own additional files:
+`postcss-import`（Railsの[Webpacker](https://github.com/rails/webpacker)のような内部でそれを使用するツール）を使用している場合は、
+独自の追加ファイルをインポートする際の問題を回避するために`@tailwind`ディレクティブの代わりにインポートを使用してください。 
 
 ```css
 @import "tailwindcss/base";
@@ -44,15 +45,16 @@ If you're using `postcss-import` (or a tool that uses it under the hood, such as
 @import "tailwindcss/utilities";
 ```
 
-## <Heading number="3">Create your Tailwind config file <span className="text-gray-600" children="(optional)" /></Heading>
+## <Heading number="3">独自のTailwindコンフィグファイルを作る <span className="text-gray-600" children="(optional)" /></Heading>
 
-If you'd like to customize your Tailwind installation, you can generate a config file for your project using the Tailwind CLI utility included when you install the `tailwindcss` npm package:
+Tailwindのインストールをカスタマイズしたい場合、`tailwindcss`npmパッケージのインストール時に含まれているTailwind CLIユーティリティを使用して、
+プロジェクトのコンフィグファイルを生成できます。
 
 ```bash
 npx tailwindcss init
 ```
 
-This will create a minimal `tailwind.config.js` file at the root of your project:
+これにより、プロジェクトのルートに最小限の`tailwind.config.js`ファイルが作成されます。
 
 ```js
 // tailwind.config.js
@@ -67,21 +69,21 @@ module.exports = {
 }
 ```
 
-You can optionally include the `-p` flag to generate a basic `postcss.config.js` file at the same time:
+オプションで、`-p`フラグを含めて、基本的な`postcss.config.js`ファイルを同時に生成できます。
 
 ```bash
 npx tailwindcss init -p
 ```
 
-Learn more about configuring Tailwind in the [configuration documentation](/docs/configuration).
+Tailwindのコンフィグについては[configuration documentation](/docs/configuration)をご覧ください。
 
-## <Heading number="4">Process your CSS with Tailwind</Heading>
+## <Heading number="4">TailwindでCSSを処理する</Heading>
 
-### Using Tailwind with PostCSS
+### PostCSSでのTailwindの使用
 
-For most projects, you'll want to add Tailwind as a PostCSS plugin in your build chain.
+ほとんどのプロジェクトでは、ビルドチェーンにPostCSSプラグインとしてTailwindを追加することをお勧めします。
 
-Generally this means adding Tailwind as a plugin in your `postcss.config.js` file:
+通常、これはTailwindをプラグインとして`postcss.config.js`ファイルに追加することを意味します。
 
 ```js
 module.exports = {
@@ -94,25 +96,27 @@ module.exports = {
 }
 ```
 
-We've included more specific instructions for a few popular tools below, but for instructions on getting started with PostCSS in general, see the [PostCSS documentation](https://github.com/postcss/postcss#usage).
+以下に、いくつかの一般的なツールのより具体的な手順を示します。
+ただし、一般的なPostCSSの使用を開始する手順については[PostCSS documentation](https://github.com/postcss/postcss#usage)をご覧ください。
 
-### Using Tailwind CLI
+### TailwindCLIの使用
 
-For simple projects or just giving Tailwind a spin, you can use the Tailwind CLI tool to process your CSS:
+単純なプロジェクトの場合、またはTailwindを単に試したいだけの場合は、Tailwind CLIツールを使用してCSSを処理できます。
 
 ```bash
 npx tailwindcss build styles.css -o output.css
 ```
 
-Use the `npx tailwindcss help build` command to learn more about the various CLI options.
+さまざまなCLIオプションの詳細については`npx tailwindcss help build`コマンドを使用してください。
 
 ### Build Tool Examples
 
-We've included some basic examples of setting up Tailwind with common build tools below, but also look at our [setup-examples](https://github.com/tailwindcss/setup-examples/) repository for even more examples that you can even clone and play with locally.
+以下に、一般的なビルドツールを使用してTailwindを設定する基本的な例をいくつか示します。
+また、クローンをしてローカルで実行することもできる、さらに多くの例も[setup-examples](https://github.com/tailwindcss/setup-examples/)リポジトリにありますので参照してください。
 
 #### Webpack
 
-Add `tailwindcss` as a plugin in your  `postcss.config.js` file:
+`postcss.config.js`ファイルにプラグインとして`tailwindcss`を追加します。
 
 ```js
 module.exports = {
@@ -125,7 +129,7 @@ module.exports = {
 }
 ```
 
-...or include it directly in your [postcss-loader](https://github.com/postcss/postcss-loader) configuration in your `webpack.config.js` file:
+もしくは`webpack.config.js`ファイルの[postcss-loader](https://github.com/postcss/postcss-loader)構成に直接含めます。
 
 ```js
 // webpack.config.js
@@ -158,7 +162,7 @@ module.exports = {
 
 #### Gulp
 
-Add `tailwindcss` to the list of plugins you pass to [gulp-postcss](https://github.com/postcss/gulp-postcss):
+[gulp-postcss](https://github.com/postcss/gulp-postcss)に渡すプラグインのリストに `tailwindcss`を追加します。
 
 ```js
 gulp.task('css', function () {
@@ -179,7 +183,7 @@ gulp.task('css', function () {
 
 #### Laravel Mix
 
-If you're writing your project in plain CSS, use Mix's `postCss` method to process your CSS and include `tailwindcss` as a plugin:
+プレーンCSSでプロジェクトを作成している場合は、Mixの`postCss`メソッドを使用してCSSを処理し、プラグインとして`tailwindcss`を含めます。
 
 ```js
 mix.postCss('resources/css/main.css', 'public/css', [
@@ -187,7 +191,7 @@ mix.postCss('resources/css/main.css', 'public/css', [
 ])
 ```
 
-If you're using a preprocessor, use the `options` method to add `tailwindcss` as a PostCSS plugin:
+プリプロセッサを使用している場合は、`options`メソッドを使用して`tailwindcss`をPostCSSプラグインとして追加します。
 
 ```js
 const tailwindcss = require('tailwindcss')
@@ -200,7 +204,9 @@ mix.less('resources/less/app.less', 'public/css')
   })
 ```
 
-**Note for Sass users:** Due to [an unresolved issue](https://github.com/bholloway/resolve-url-loader/issues/28) with one of Mix's dependencies, to use Sass with Tailwind you'll need to disable `processCssUrls`:
+**Sassユーザーへの注意:** 
+
+Mixの依存関係の1つに関する[未解決の問題のため](https://github.com/bholloway/resolve-url-loader/issues/28)、TailwindでSassを使用するには、`processCssUrls`を無効にする必要があります。
 
 ```js
 const tailwindcss = require('tailwindcss')
@@ -212,11 +218,11 @@ mix.sass('resources/sass/app.scss', 'public/css')
   })
 ```
 
-For more information on what this feature does and the implications of disabling it, [see the Laravel Mix documentation](https://laravel-mix.com/docs/5.0/css-preprocessors#css-url-rewriting).
+この機能が何をしているかと、この機能を無効にすることの意味の詳細については、[Laravel Mix documentation](https://laravel-mix.com/docs/5.0/css-preprocessors#css-url-rewriting)をご覧ください。
 
 #### Webpack Encore
 
-Create a `postcss.config.js` file, add `tailwindcss` as a plugin and pass the path to your config file:
+`postcss.config.js`ファイルを作成し、プラグインとして`tailwindcss`を追加して、構成ファイルへのパスを渡します。
 
 ```js
 module.exports = {
@@ -226,7 +232,7 @@ module.exports = {
 }
 ```
 
-Within `webpack.config.js`, create a style entry and enable the PostCSS loader.
+`webpack.config.js`内でスタイルエントリを作成し、PostCSSローダーを有効にします。
 
 ```js
 const Encore = require('@symfony/webpack-encore')
@@ -240,7 +246,7 @@ Encore
 module.exports = Encore.getWebpackConfig()
 ```
 
-You can also pass options into the PostCSS loader by passing a callback, as per the [Encore PostCSS docs](https://symfony.com/doc/current/frontend/encore/postcss.html):
+[Encore PostCSS docs](https://symfony.com/doc/current/frontend/encore/postcss.html)のように、コールバックを渡すことでオプションをPostCSSローダーに渡すこともできます。
 
 ```js
 Encore.enablePostCssLoader(function(options) {
@@ -250,7 +256,8 @@ Encore.enablePostCssLoader(function(options) {
 })
 ```
 
-**Note for Sass users:** Due to [an unresolved issue](https://github.com/bholloway/resolve-url-loader/issues/28) with one of Encore's dependencies, to use Sass with Tailwind you'll need to disable `resolveUrlLoader`:
+**Sassユーザーへの注意:** 
+Encoreの依存関係の1つに関する[未解決の問題のため](https://github.com/bholloway/resolve-url-loader/issues/28)、TailwindでSassを使用するには、`resolveUrlLoader`を無効にする必要があります。
 
 ```js
 Encore.enableSassLoader(function (options) {}, {
@@ -261,7 +268,7 @@ Encore.enableSassLoader(function (options) {}, {
 
 #### Brunch
 
-Add `tailwindcss` to the list of processors you pass to [postcss-brunch](https://github.com/brunch/postcss-brunch):
+[postcss-brunch](https://github.com/brunch/postcss-brunch)に渡すプロセッサのリストに`tailwindcss`を追加します。
 
 ```js
 exports.config = {
@@ -280,7 +287,7 @@ exports.config = {
 
 #### Ember.js
 
-Add `tailwindcss` to the list of plugins you pass to [ember-cli-postcss](https://github.com/jeffjewiss/ember-cli-postcss):
+[ember-cli-postcss](https://github.com/jeffjewiss/ember-cli-postcss)に渡すプラグインのリストに`tailwindcss`を追加します。
 
 ```js
 // ember-cli-build.js
@@ -306,7 +313,7 @@ module.exports = function(defaults) {
 
 ## Using Tailwind via CDN
 
-Before using the CDN build, please note that many of the features that make Tailwind CSS great are not available without incorporating Tailwind into your build process.
+CDNビルドを使用する前に、Tailwind CSSを優れたものにする機能の多くは、ビルドプロセスにTailwindを組み込まないと利用できないことに注意してください。
 
 <List>
   <ListItemBad>You can't customize Tailwind's default theme</ListItemBad>
@@ -316,16 +323,16 @@ Before using the CDN build, please note that many of the features that make Tail
   <ListItemBad>You can't tree-shake unused styles</ListItemBad>
 </List>
 
-To get the most out of Tailwind, you really should [install it via npm](#install-tailwind-via-npm).
+Tailwindを最大限に活用するには、[npm経由でインストール](＃install-tailwind-via-npm)する必要があります。
 
-To pull in Tailwind for quick demos or just giving the framework a spin, grab the latest default configuration build via CDN:
+Tailwindを利用して簡単なデモを行ったり、フレームワークを試したりするには、CDNを介して最新のデフォルト構成ビルドを入手します。
 
 ```html
 <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 ```
 
 <p>
-  Note that while the CDN build is large <em>({stats.default.brotlified} compressed, {stats.default.minified} raw)</em>, <strong>it's not representative of the sizes you see when including Tailwind as part of your build process</strong>.
+  CDNビルドは大きいですが<em>({stats.default.brotlified} compressed, {stats.default.minified} raw)</em>、 
+  <strong>ビルドプロセスの一部としてTailwindを含めるときに表示されるサイズを表すものではありません</strong>.
 </p>
-
-Sites that follow our [best practices](/docs/controlling-file-size) are almost always under 10kb compressed.
+[best practices](/docs/controlling-file-size) に従うサイトは、ほとんどの場合10kb未満に圧縮されています。
