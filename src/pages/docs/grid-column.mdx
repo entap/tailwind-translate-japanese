@@ -1,6 +1,6 @@
 ---
-title: "Grid Column Start / End"
-description: "Utilities for controlling how elements are sized and placed across grid columns."
+title: "グリッドカラム スタート/エンド"
+description: "要素のサイズとグリッド列全体への配置方法を制御するためのユーティリティ。"
 featureVersion: "v1.2.0+"
 ---
 
@@ -16,7 +16,7 @@ export const classes = {
 
 ## Spanning columns
 
-Use the `col-span-{n}` utilities to make an element span _n_ columns.
+`col-span-{n}`ユーティリティを使用して、要素を_n_列に広げます。
 
 ```html
 <template preview class="bg-white p-8">
@@ -40,9 +40,11 @@ Use the `col-span-{n}` utilities to make an element span _n_ columns.
 
 ## Starting and ending lines
 
-Use the `col-start-{n}` and `col-end-{n}` utilities to make an element start or end at the _nth_ grid line. These can also be combined with the `col-span-{n}` utilities to span a specific number of columns.
+`col-start-{n}`および`col-end-{n}`ユーティリティを使用して、要素を_n行目_グリッド線で開始または終了します。
 
-Note that CSS grid lines start at 1, not 0, so a full-width element in a 6-column grid would start at line 1 and end at line 7.
+これらを`col-span-{n}`ユーティリティと組み合わせて、特定の数の列にまたがることもできます。
+
+CSSグリッドラインは0ではなく1で始まるため、6列グリッドの全幅要素は1行目で始まり、7行目で終わることに注意してください。
 
 ```html
 <template preview class="bg-white p-8">
@@ -62,11 +64,12 @@ Note that CSS grid lines start at 1, not 0, so a full-width element in a 6-colum
 </div>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the column placement of an element at a specific breakpoint, add a `{screen}:` prefix to any existing grid-column utility. For example, use `md:col-span-6` to apply the `col-span-6` utility at only medium screen sizes and above.
+特定のブレークポイントでの要素の列配置を制御するには、既存のグリッド列ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:col-span-6`を使用して、中程度の画面サイズ以上でのみ`col-span-6`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={[
@@ -93,11 +96,15 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-By default Tailwind includes grid-column utilities for working with grids with up to 12 columns. You change, add, or remove these by customizing the `gridColumn`, `gridColumnStart`, and `gridColumnEnd` sections of your Tailwind theme config.
+デフォルトでは、Tailwindには、最大12列のグリッドを操作するためのグリッド列ユーティリティが含まれています。
 
-For creating more `col-{value}` utilities that control the `grid-column` shorthand property directly, customize the `gridColumn` section of your Tailwind theme config:
+Tailwindテーマコンフィグの`gridColumn`,`gridColumnStart`および`gridColumnEnd`セクションをカスタマイズして、これらを変更、追加、または削除します。
+
+`grid-column`短縮プロパティを直接制御する`col-{value}`ユーティリティをさらに作成するには、Tailwindテーマ設定の`gridColumn`セクションをカスタマイズします。
+
+`grid-column`短縮プロパティを直接制御する`col-{value}`ユーティリティをさらに作成するには、Tailwindテーマコンフィグの`gridColumn`セクションをカスタマイズします。
 
 ```diff
   // tailwind.config.js
@@ -112,9 +119,13 @@ For creating more `col-{value}` utilities that control the `grid-column` shortha
   }
 ```
 
-We use this internally for our `col-span-{n}` utilities. Note that since this configures the `grid-column` shorthand property directly, we include the word `span` directly in the value name, it's _not_ baked into the class name automatically. That means you are free to add entries that do whatever you want here — they don't just have to be `span` utilities.
+これは、内部で`col-span-{n}`ユーティリティに使用します。
 
-To add new `col-start-{n}` utilities, use the `gridColumnStart` section of your Tailwind theme config:
+これは`grid-column`省略形プロパティを直接構成するため、
+値名に直接`span`という単語を含めますが、クラス名に自動的に組み込まれることはありません。
+つまり、ここでやりたいことを何でも実行するエントリを自由に追加できます。エントリは`span`ユーティリティである必要はありません。
+
+新しい`col-start-{n}`ユーティリティを追加するには、Tailwindテーマコンフィグの`gridColumnStart`セクションを使用します。
 
 ```diff
   // tailwind.config.js
@@ -133,7 +144,7 @@ To add new `col-start-{n}` utilities, use the `gridColumnStart` section of your 
   }
 ```
 
-To add new `col-end-{n}` utilities, use the `gridColumnEnd` section of your Tailwind theme config:
+新しい`col-end-{n}`ユーティリティを追加するには、Tailwindテーマコンフィグの`gridColumnEnd`セクションを使用します。
 
 ```diff
   // tailwind.config.js
@@ -152,13 +163,13 @@ To add new `col-end-{n}` utilities, use the `gridColumnEnd` section of your Tail
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+デフォルトテーマのカスタマイズについては[theme customization documentation](/docs/theme#customizing-the-default-theme)をご覧ください。
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
-By default, only responsive variants are generated for grid-column utilities.
+デフォルトでは、グリッド列ユーティリティに対してレスポンシブバリアントのみが生成されます。
 
-You can control which variants are generated for the grid-column utilities by modifying the `gridColumn`, `gridColumnStart`, and `gridColumnEnd` properties in the `variants` section of your `tailwind.config.js` file.
+`tailwind.config.js`ファイルの`variants`セクションの`gridColumn`,`gridColumnStart`および`gridColumnEnd`プロパティを変更することにより、グリッド列ユーティリティ用に生成されるバリアントを制御できます。
 
 ```diff
   // tailwind.config.js
@@ -172,8 +183,8 @@ You can control which variants are generated for the grid-column utilities by mo
   }
 ```
 
-Learn more about configuring variants in the [configuring variants documentation](/docs/configuring-variants/).
+バリアントのコンフィグ詳細については[configuring variants documentation](/docs/configuring-variants/)をご覧ください。
 
-### Disabling
+### 無効にする
 
 <Disabling plugin={['gridColumn', 'gridColumnStart', 'gridColumnEnd']} name="grid-column" />
