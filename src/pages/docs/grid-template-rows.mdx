@@ -1,6 +1,6 @@
 ---
-title: "Grid Template Rows"
-description: "Utilities for specifying the rows in a grid layout."
+title: "グリッドテンプレートロー"
+description: "グリッドレイアウトで行を指定するためのユーティリティ。"
 featureVersion: "v1.2.0+"
 ---
 
@@ -11,9 +11,9 @@ import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Use the `grid-rows-{n}` utilities to create grids with _n_ equally sized rows.
+`grid-rows-{n}`ユーティリティを使用して、_n_個の同じサイズの行を持つグリッドを作成します。
 
 ```html
 <template preview class="bg-white p-8">
@@ -37,11 +37,12 @@ Use the `grid-rows-{n}` utilities to create grids with _n_ equally sized rows.
 </div>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the rows of a grid at a specific breakpoint, add a `{screen}:` prefix to any existing grid-template-rows utility. For example, use `md:grid-rows-6` to apply the `grid-rows-6` utility at only medium screen sizes and above.
+特定のブレークポイントでグリッドの行を制御するには、既存のgrid-template-rowsユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:grid-rows-6`を使用して、中程度の画面サイズ以上でのみ`grid-rows-6`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['grid-rows-2', 'grid-rows-3', 'grid-rows-4', 'grid-rows-5', 'grid-rows-6']}
@@ -66,11 +67,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-By default Tailwind includes grid-template-row utilities for creating basic grids with up to 6 equal width rows. You change, add, or remove these by customizing the `gridTemplateRows` section of your Tailwind theme config.
+デフォルトでは、Tailwindには、最大6つの等しい幅の行を持つ基本的なグリッドを作成するためのgrid-template-rowユーティリティが含まれています。
+Tailwindテーマ設定の`gridTemplateRows`セクションをカスタマイズして、これらを変更、追加、または削除します。
 
-You have direct access to the `grid-template-rows` CSS property here so you can make your custom rows values as generic or as complicated and site-specific as you like.
+ここから`grid-template-rows`CSSプロパティに直接アクセスできるため、カスタム行の値を一般的なものにすることも、複雑でサイト固有のものにすることもできます。
 
 ```diff
   // tailwind.config.js
@@ -89,12 +91,12 @@ You have direct access to the `grid-template-rows` CSS property here so you can 
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+デフォルトテーマのカスタマイズについては[theme customization documentation](/docs/theme#customizing-the-default-theme)をご覧ください。
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="gridTemplateRows" name="grid-template-rows" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="gridTemplateRows" name="grid-template-rows" />
