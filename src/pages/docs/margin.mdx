@@ -1,6 +1,6 @@
 ---
-title: "Margin"
-description: "Utilities for controlling an element's margin."
+title: "マージン"
+description: "要素のマージンを制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: true
@@ -17,9 +17,9 @@ export const classes = { plugin }
 
 ## Add margin to a single side
 
-Control the margin on one side of an element using the `m{t|r|b|l}-{size}` utilities.
+`m{t|r|b|l}-{size}`ユーティリティを使用して、要素の片側のマージンを制御します。
 
-For example, `mt-6` would add `1.5rem` of margin to the top of an element, `mr-4` would add `1rem` of margin to the right of an element, `mb-8` would add `2rem` of margin to the bottom of an element, and `ml-2` would add `0.5rem` of margin to the left of an element.
+たとえば、`mt-6`は要素の上部に`1.5rem`のマージンを追加し、`mr-4`は要素の右側に`1rem`のマージンを追加し、`mb-8`は要素の下部に`2rem`のマージンがあり、`ml-2`は要素の左側に`0.5rem`のマージンを追加します。
 
 ```html
 <template preview>
@@ -59,7 +59,7 @@ For example, `mt-6` would add `1.5rem` of margin to the top of an element, `mr-4
 
 ## Add horizontal margin
 
-Control the horizontal margin of an element using the `mx-{size}` utilities.
+`mx-{size}`ユーティリティを使用して要素の水平マージンを制御します。
 
 ```html
 <template preview>
@@ -78,7 +78,7 @@ Control the horizontal margin of an element using the `mx-{size}` utilities.
 
 ## Add vertical margin
 
-Control the vertical margin of an element using the `my-{size}` utilities.
+`my-{size}`ユーティリティを使用して要素の垂直マージンを制御します。
 
 ```html
 <template preview>
@@ -97,7 +97,7 @@ Control the vertical margin of an element using the `my-{size}` utilities.
 
 ## Add margin to all sides
 
-Control the margin on all sides of an element using the `m-{size}` utilities.
+`m-{size}`ユーティリティを使用して、要素のすべての辺のマージンを制御します。
 
 ```html
 <template preview>
@@ -116,7 +116,7 @@ Control the margin on all sides of an element using the `m-{size}` utilities.
 
 ## Negative margins
 
-Control the negative margin of an element using the `-m{side?}-{size}` utilities.
+`-m{side?}-{size}`ユーティリティを使用して、要素の負のマージンを制御します。
 
 ```html
 <template preview>
@@ -138,11 +138,12 @@ Control the negative margin of an element using the `-m{side?}-{size}` utilities
 
 ---
 
-## Responsive
+## レスポンシブ
 
-To control the margin of an element at a specific breakpoint, add a `{screen}:` prefix to any existing margin utility. For example, adding the class `md:my-8` to an element would apply the `my-8` utility at medium screen sizes and above.
+特定のブレークポイントで要素のマージンを制御するには、既存のマージンユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、クラス`md:my-8`を要素に追加すると、中程度の画面サイズ以上で`my-8`ユーティリティが適用されます。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['mt-8', '(mt-8) mr-6', '(mt-8 mr-6) mb-4', '(mt-8 mr-6 mb-4) ml-2', 'm-0']}
@@ -161,13 +162,13 @@ For more information about Tailwind's responsive design features, check out the 
 
 ---
 
-## Customizing
+## カスタマイズ
 
 ### Margin scale
 
-By default Tailwind provides 20 margin utilities for each side and axis.
+デフォルトでは、Tailwindは各辺と軸に20のマージンユーティリティを提供します。
 
-If you'd like to customize these values for padding, margin, width, and height all at once, use the `theme.spacing` section of your `tailwind.config.js` file.
+パディング、マージン、幅、高さの値を一度にカスタマイズする場合は、`tailwind.config.js`ファイルの`theme.spacing`セクションを使用します。
 
 ```diff
   // tailwind.config.js
@@ -183,7 +184,7 @@ If you'd like to customize these values for padding, margin, width, and height a
   }
 ```
 
-To customize only the margin values, use the `theme.margin` section of your `tailwind.config.js` file.
+マージン値のみをカスタマイズするには、`tailwind.config.js`ファイルの`theme.margin`セクションを使用します。
 
 ```diff
   // tailwind.config.js
@@ -199,11 +200,11 @@ To customize only the margin values, use the `theme.margin` section of your `tai
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+デフォルトテーマのカスタマイズについては[theme customization documentation](/docs/theme#customizing-the-default-theme)をご覧ください。
 
 ### Negative values
 
-If you'd like to add additional negative margin classes (taking the form `-m{side?}-{size}`), prefix the keys in your config file with a dash:
+負のマージンクラスを追加する場合(`-m{side?}-{size}`の形式をとる)、コンフィグファイルのキーの前にダッシュ（'-'）を付けます。
 
 ```diff
   // tailwind.config.js
@@ -218,12 +219,12 @@ If you'd like to add additional negative margin classes (taking the form `-m{sid
   }
 ```
 
-Tailwind is smart enough to generate classes like `-mx-72` when it sees the leading dash, not `mx--72` like you might expect.
+Tailwindはスマートなので、先頭のダッシュが表示されたときにあなたが予測したような`mx--72`ではなく、`-mx-72`のようなクラスを生成します。
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="margin" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="margin" />
