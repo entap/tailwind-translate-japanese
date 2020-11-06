@@ -1,6 +1,6 @@
 ---
-title: "Max-Width"
-description: "Utilities for setting the maximum width of an element"
+title: "最大の幅"
+description: "要素の最大幅を設定するためのユーティリティ"
 ---
 
 import plugin from 'tailwindcss/lib/plugins/maxWidth'
@@ -10,9 +10,9 @@ import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Set the maximum width of an element using the `max-w-{size}` utilities.
+`max-w-{size}`ユーティリティを使用して、要素の最大幅を設定します。
 
 ```html
 <template preview>
@@ -28,11 +28,11 @@ Set the maximum width of an element using the `max-w-{size}` utilities.
 
 ---
 
-## Responsive
+## レスポンシブ
 
-To control the max-width of an element at a specific breakpoint, add a `{screen}:` prefix to any existing max-width utility.
+特定のブレークポイントで要素の最大幅を制御するには、既存の最大幅ユーティリティに`{screen}:`プレフィックスを追加します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['max-w-sm', 'max-w-md', 'max-w-lg', 'max-w-xl', 'max-w-2xl']}
@@ -50,11 +50,11 @@ For more information about Tailwind's responsive design features, check out the 
 
 ---
 
-## Customizing
+## カスタマイズ
 
 ### Max-Width Scale
 
-Customize Tailwind's default max-width scale in the `theme.maxWidth` section of your `tailwind.config.js` file.
+`tailwind.config.js`ファイルの` theme.maxWidth`セクションでTailwindのデフォルトの最大幅スケールをカスタマイズします。
 
 ```diff
   // tailwind.config.js
@@ -69,12 +69,12 @@ Customize Tailwind's default max-width scale in the `theme.maxWidth` section of 
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+デフォルトテーマのカスタマイズについては[theme customization documentation](/docs/theme#customizing-the-default-theme)をご覧ください。
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="maxWidth" name="max-width" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="maxWidth" name="max-width" />
