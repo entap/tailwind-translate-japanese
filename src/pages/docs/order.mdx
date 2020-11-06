@@ -1,6 +1,6 @@
 ---
-title: "Order"
-description: "Utilities for controlling the order of flex items."
+title: "順序"
+description: "フレックスアイテムの順序を制御するためのユーティリティ。"
 ---
 
 import plugin from 'tailwindcss/lib/plugins/order'
@@ -10,9 +10,9 @@ import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Use `.order-{order}` to render flex items in a different order than they appear in the DOM.
+`.order-{order}`を使用して、DOMに表示される順序とは異なる順序でフレックスアイテムをレンダリングします。
 
 ```html
 <template preview>
@@ -31,11 +31,11 @@ Use `.order-{order}` to render flex items in a different order than they appear 
 ```
 
 
-## Responsive
+## レスポンシブ
 
-To apply a flex direction utility only at a specific breakpoint, add a `{screen}:` prefix to the existing class name. For example, adding the class `md:flex-row` to an element would apply the `flex-row` utility at medium screen sizes and above.
+特定のブレークポイントでのみフレックス方向ユーティリティを適用するには、既存のクラス名に`{screen}:`プレフィックスを追加します。たとえば、クラス`md:flex-row`を要素に追加すると、中程度の画面サイズ以上で`flex-row`ユーティリティが適用されます。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['order-first', 'order-last', 'order-none', 'order-first', 'order-last']}
@@ -59,9 +59,10 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-By default Tailwind provides utilities for `order-first`, `order-last`, `order-none`, and an `order-{number}` utility for the numbers 1 through 12. You change, add, or remove these by editing the `theme.order` section of your `tailwind.config.js` file.
+デフォルトでは、Tailwindは`order-first`,`order-last`,`order-none`のユーティリティ、および1から12までの番号の`order-{number}`ユーティリティを提供します。
+これらを変更、追加、または削除するには、`tailwind.config.js`ファイルの`theme.order`セクションを編集します。
 
 ```diff
   // tailwind.config.js
@@ -89,10 +90,10 @@ By default Tailwind provides utilities for `order-first`, `order-last`, `order-n
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="order" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="order" />
