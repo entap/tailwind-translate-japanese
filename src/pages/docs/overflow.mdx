@@ -1,6 +1,6 @@
 ---
-title: "Overflow"
-description: "Utilities for controlling how an element handles content that is too large for the container."
+title: "オーバーフロー"
+description: "要素がコンテナに対して大きすぎるコンテンツを処理する方法を制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: false
@@ -17,7 +17,7 @@ export const classes = { plugin }
 
 ## Visible
 
-Use `.overflow-visible` to prevent content within an element from being clipped. Note that any content that overflows the bounds of the element will then be visible.
+`.overflow-visible`を使用して、要素内のコンテンツが切り取られないようにします。要素の境界を超えたコンテンツが表示されることに注意してください。
 
 ```html
 <template preview>
@@ -33,7 +33,8 @@ Use `.overflow-visible` to prevent content within an element from being clipped.
 
 ## Auto
 
-Use `.overflow-auto` to add scrollbars to an element in the event that its content overflows the bounds of that element. Unlike `.overflow-scroll`, which always shows scrollbars, this utility will only show them if scrolling is necessary.
+そのコンテンツが要素の境界を超えた場合に`.overflow-auto`を使用して、要素にスクロールバーを追加します。
+常にスクロールバーを表示する`.overflow-scroll`とは異なり、このユーティリティはスクロールが必要な場合にのみスクロールバーを表示します。
 
 ```html
 <template preview>
@@ -47,7 +48,7 @@ Use `.overflow-auto` to add scrollbars to an element in the event that its conte
 
 ## Hidden
 
-Use `.overflow-hidden` to clip any content within an element that overflows the bounds of that element.
+`.overflow-hidden`を使用して、要素の境界をオーバーフローする要素内のコンテンツを切り取ります。
 
 ```html
 <template preview>
@@ -61,7 +62,7 @@ Use `.overflow-hidden` to clip any content within an element that overflows the 
 
 ## Scroll horizontally if needed
 
-Use `.overflow-x-auto` to allow horizontal scrolling if needed.
+必要に応じて`.overflow-x-auto`を使用して水平スクロールを許可します。
 
 ```html
 <template preview>
@@ -75,7 +76,7 @@ Use `.overflow-x-auto` to allow horizontal scrolling if needed.
 
 ## Scroll vertically if needed
 
-Use `.overflow-y-auto` to allow vertical scrolling if needed.
+必要に応じて`.overflow-y-auto`を使用して垂直スクロールを許可します。
 
 ```html
 <template preview>
@@ -89,7 +90,7 @@ Use `.overflow-y-auto` to allow vertical scrolling if needed.
 
 ## Scroll horizontally always
 
-Use `.overflow-x-scroll` to allow horizontal scrolling and always show scrollbars unless always-visible scrollbars are disabled by the operating system.
+`.overflow-x-scroll`を使用して、水平スクロールを許可し、オペレーティングシステムによって常に表示されるスクロールバーが無効にされていない限り、常にスクロールバーを表示します。
 
 ```html
 <template preview>
@@ -103,7 +104,7 @@ Use `.overflow-x-scroll` to allow horizontal scrolling and always show scrollbar
 
 ## Scroll vertically always
 
-Use `.overflow-y-scroll` to allow vertical scrolling and always show scrollbars unless always-visible scrollbars are disabled by the operating system.
+`.overflow-y-scroll`を使用して、垂直スクロールを許可し、オペレーティングシステムによって常に表示されるスクロールバーが無効にされていない限り、常にスクロールバーを表示します。
 
 ```html
 <template preview>
@@ -117,7 +118,9 @@ Use `.overflow-y-scroll` to allow vertical scrolling and always show scrollbars 
 
 ## Scroll in all directions
 
-Use `.overflow-scroll` to add scrollbars to an element. Unlike `.overflow-auto`, which only shows scrollbars if they are necessary, this utility always shows them. Note that some operating systems (like macOS) hide unnecessary scrollbars regardless of this setting.
+`.overflow-scroll`を使用して、要素にスクロールバーを追加します。
+スクロールバーが必要な場合にのみ表示される`.overflow-auto`とは異なり、このユーティリティは常にスクロールバーを表示します。
+一部のオペレーティングシステム（macOSなど）は、この設定に関係なく、不要なスクロールバーを非表示にすることに注意してください。
 
 ```html
 <template preview>
@@ -144,7 +147,7 @@ Use `.overflow-scroll` to add scrollbars to an element. Unlike `.overflow-auto`,
 
 ## Momentum-based scrolling on touch devices
 
-Use `.scrolling-touch` to use momentum-based scrolling (where supported) on touch devices.
+タッチデバイスで加速度ベースのスクロール（サポートされている場合）を使用するには、`.scrolling-touch`を使用します。
 
 ```html
 <template preview>
@@ -156,9 +159,9 @@ Use `.scrolling-touch` to use momentum-based scrolling (where supported) on touc
 <div class="scrolling-touch overflow-auto h-32 ...">Lorem ipsum dolor sit amet...</div>
 ```
 
-Use `.scrolling-auto` to use normal non-momentum-based scrolling on touch devices.
+タッチデバイスで通常の非加速度ベースのスクロールを使用するには、`.scrolling-auto`を使用します。
 
-This is mostly useful for undoing `.scrolling-touch` at larger screen sizes.
+これは主に、大きな画面サイズで`.scrolling-touch`を元に戻す場合に役立ちます。
 
 ```html
 <template preview>
@@ -170,11 +173,12 @@ This is mostly useful for undoing `.scrolling-touch` at larger screen sizes.
 <div class="scrolling-auto overflow-auto h-32 ...">Lorem ipsum dolor sit amet...</div>
 ```
 
-## Responsive
+## レスポンシブ
 
-To apply an overflow utility only at a specific breakpoint, add a `{screen}:` prefix to the existing class name. For example, adding the class `md:overflow-scroll` to an element would apply the `overflow-scroll` utility at medium screen sizes and above.
+特定のブレークポイントでのみオーバーフローユーティリティを適用するには、既存のクラス名に`{screen}:`プレフィックスを追加します。
+たとえば、クラス`md:overflow-scroll`を要素に追加すると、中程度の画面サイズ以上で`overflow-scroll`ユーティリティが適用されます。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['overflow-auto', 'overflow-visible', 'overflow-hidden', 'overflow-x-scroll', 'overflow-y-scroll']}
@@ -191,12 +195,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="overflow" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="overflow" />
