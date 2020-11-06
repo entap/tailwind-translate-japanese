@@ -1,6 +1,6 @@
 ---
-title: "Justify Self"
-description: "Utilities for controlling how an individual grid item is aligned along its inline axis."
+title: "自身を正当化する"
+description: "個々のグリッドアイテムをインライン軸に沿って配置する方法を制御するためのユーティリティ。"
 featureVersion: "v1.8.0+"
 ---
 
@@ -13,7 +13,7 @@ export const classes = { plugin }
 
 ## Auto
 
-Use `justify-self-auto` to align an item based on the value of the grid's `justify-items` property:
+`justify-self-auto`を使用して、グリッドの`justify-items`プロパティの値に基づいてアイテムを整列します。
 
 ```html
 <template preview>
@@ -30,7 +30,7 @@ Use `justify-self-auto` to align an item based on the value of the grid's `justi
 
 ## Start
 
-Use `justify-self-start` to align a grid item to the start its inline axis:
+`justify-self-start`を使用して、グリッドアイテムをそのインライン軸の開始に揃えます。
 
 ```html
 <template preview>
@@ -47,7 +47,7 @@ Use `justify-self-start` to align a grid item to the start its inline axis:
 
 ## Center
 
-Use `justify-self-center` to align a grid item along the center its inline axis:
+`justify-self-center`を使用して、グリッドアイテムをそのインライン軸の中心に沿って位置合わせします。
 
 ```html
 <template preview>
@@ -64,7 +64,7 @@ Use `justify-self-center` to align a grid item along the center its inline axis:
 
 ## End
 
-Use `justify-self-end` to align a grid item to the end its inline axis:
+`justify-self-end`を使用して、グリッドアイテムをそのインライン軸の端に揃えます。
 
 ```html
 <template preview>
@@ -81,7 +81,7 @@ Use `justify-self-end` to align a grid item to the end its inline axis:
 
 ## Stretch
 
-Use `justify-self-stretch` to stretch a grid item to fill the grid area on its inline axis:
+`justify-self-stretch`を使用して、グリッドアイテムを伸長し、インライン軸のグリッド領域を塗りつぶします。
 
 ```html
 <template preview>
@@ -96,18 +96,19 @@ Use `justify-self-stretch` to stretch a grid item to fill the grid area on its i
 </template>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the alignment of a grid item inside its grid area at a specific breakpoint, add a `{screen}:` prefix to any existing utility class. For example, use `md:justify-self-end` to apply the `justify-self-end` utility at only medium screen sizes and above.
+特定のブレークポイントでグリッド領域内のグリッドアイテムの配置を制御するには、既存のユーティリティクラスに`{screen}:`プレフィックスを追加します。
+たとえば、`md:justify-self-end`を使用して、中程度の画面サイズ以上でのみ`justify-self-end`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="justifySelf" name="justify-self" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="justifySelf" name="justify-self" />
