@@ -1,6 +1,6 @@
 ---
-title: "Object Position"
-description: "Utilities for controlling how a replaced element's content should be positioned within its container."
+title: "オブジェクトポジション"
+description: "置き換えられた要素のコンテンツをそのコンテナ内に配置する方法を制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: true
@@ -15,9 +15,9 @@ import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Use the `.object-{side}` utilities to specify how a replaced element's content should be positioned within its container.
+`.object-{side}`ユーティリティを使用して、置き換えられた要素のコンテンツをそのコンテナ内に配置する方法を指定します。
 
 ```html
 <template preview>
@@ -76,11 +76,12 @@ Use the `.object-{side}` utilities to specify how a replaced element's content s
 <img class="object-none object-right-bottom bg-gray-400 w-24 h-24" src="...">
 ```
 
-## Responsive
+## レスポンシブ
 
-To position an object only at a specific breakpoint, add a `{screen}:` prefix to any existing object position utility. For example, adding the class `md:object-top` to an element would apply the `object-top` utility at medium screen sizes and above.
+特定のブレークポイントにのみオブジェクトを配置するには、既存のオブジェクト位置ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:object-top`クラスを要素に追加すると、中程度の画面サイズ以上で`object-top`ユーティリティが適用されます。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['object-center', 'object-top', 'object-right', 'object-bottom', 'object-left']}
@@ -92,11 +93,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
 ### Object Positioning
 
-By default Tailwind provides nine object position utilities. You can change, add, or remove these by editing the `theme.objectPosition` section of your Tailwind config.
+デフォルトでは、Tailwindは9つのオブジェクト位置ユーティリティを提供します。
+Tailwindコンフィグの`theme.objectPosition`セクションを編集することで、これらを変更、追加、または削除できます。
 
 ```diff
   // tailwind.config.js
@@ -119,10 +121,10 @@ By default Tailwind provides nine object position utilities. You can change, add
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="objectPosition" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="objectPosition" />
