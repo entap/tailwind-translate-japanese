@@ -1,6 +1,6 @@
 ---
-title: "Min-Width"
-description: "Utilities for setting the minimum width of an element"
+title: "最小の幅"
+description: "要素の最小幅を設定するためのユーティリティ。"
 features:
   responsive: true
   customizable: true
@@ -15,9 +15,9 @@ import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Set the minimum width of an element using the `min-w-0` or `min-w-full` utilities.
+`min-w-0`または`min-w-full`ユーティリティを使用して要素の最小幅を設定します。
 
 ```html
 <template preview>
@@ -33,11 +33,11 @@ Set the minimum width of an element using the `min-w-0` or `min-w-full` utilitie
 
 ---
 
-## Responsive
+## レスポンシブ
 
-To control the min-width of an element at a specific breakpoint, add a `{screen}:` prefix to any existing min-width utility.
+特定のブレークポイントで要素の最小幅を制御するには、既存の最小幅ユーティリティに`{screen}:`プレフィックスを追加します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['min-w-0', 'min-w-full', 'min-w-0', 'min-w-full', 'min-w-0']}
@@ -55,11 +55,11 @@ For more information about Tailwind's responsive design features, check out the 
 
 ---
 
-## Customizing
+## カスタマイズ
 
 ### Min-width scale
 
-Customize Tailwind's default min-width scale in the `theme.minWidth` section of your `tailwind.config.js` file.
+`tailwind.config.js`ファイルの`theme.minWidth`セクションでTailwindのデフォルトの最小幅スケールをカスタマイズします。
 
 ```diff
   // tailwind.config.js
@@ -76,12 +76,12 @@ Customize Tailwind's default min-width scale in the `theme.minWidth` section of 
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+デフォルトテーマのカスタマイズについては[theme customization documentation](/docs/theme#customizing-the-default-theme)をご覧ください。
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="minWidth" name="min-width" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="minWidth" name="min-width" />
