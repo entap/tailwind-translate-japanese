@@ -1,6 +1,6 @@
 ---
-title: "Min-Height"
-description: "Utilities for setting the minimum height of an element"
+title: "最小の高さ"
+description: "要素の最小高さを設定するためのユーティリティ。"
 features:
   responsive: true
   customizable: true
@@ -15,9 +15,9 @@ import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Set the minimum height of an element using the `min-h-0`, `min-h-full`, or `min-h-screen` utilities.
+`min-h-0`,`min-h-full`または`min-h-screen`ユーティリティを使用して、要素の最小の高さを設定します。
 
 ```html
 <template preview>
@@ -37,11 +37,11 @@ Set the minimum height of an element using the `min-h-0`, `min-h-full`, or `min-
 
 ---
 
-## Responsive
+## レスポンシブ
 
-To control the min-height of an element at a specific breakpoint, add a `{screen}:` prefix to any existing min-height utility.
+特定のブレークポイントで要素の最小の高さを制御するには、既存の最小の高さユーティリティに`{screen}:`プレフィックスを追加します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['min-h-full', 'min-h-0', 'min-h-full', 'min-h-0', 'min-h-full']}
@@ -63,11 +63,11 @@ For more information about Tailwind's responsive design features, check out the 
 
 ---
 
-## Customizing
+## カスタマイズ
 
 ### Min-height scale
 
-Customize Tailwind's default min-height scale in the `theme.minHeight` section of your `tailwind.config.js` file.
+`tailwind.config.js`ファイルの`theme.minHeight`セクションでTailwindのデフォルトの最小高さスケールをカスタマイズします。
 
 ```diff
   // tailwind.config.js
@@ -84,12 +84,12 @@ Customize Tailwind's default min-height scale in the `theme.minHeight` section o
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+デフォルトテーマのカスタマイズについては[theme customization documentation](/docs/theme#customizing-the-default-theme)をご覧ください。
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="minHeight" name="min-height" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="minHeight" name="min-height" />
