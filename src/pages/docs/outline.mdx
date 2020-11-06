@@ -1,6 +1,6 @@
 ---
-title: "Outline"
-description: "Utilities for controlling an element's outline."
+title: "アウトライン"
+description: "要素のアウトラインを制御するためのユーティリティ。"
 ---
 
 import plugin from 'tailwindcss/lib/plugins/outline'
@@ -12,9 +12,9 @@ export const classes = { plugin }
 
 ## Remove outlines
 
-Use `outline-none` to hide the default browser outline on focused elements.
+フォーカスされた要素のデフォルトのブラウザアウトラインを非表示にするには`outline-none`を使用します。
 
-It is highly recommended to apply your own focus styling for accessibility when using this utility.
+このユーティリティを使用するときは、アクセシビリティのために独自のフォーカススタイルを適用することを強くお勧めします。
 
 ```html
 <template preview class="flex space-x-6 justify-center bg-white p-4">
@@ -31,11 +31,14 @@ It is highly recommended to apply your own focus styling for accessibility when 
   class="focus:outline-none focus:shadow-outline focus:border-blue-300 ..." />
 ```
 
-The `outline-none` utility is implemented using a transparent outline under the hood to ensure elements are still visibly focused to [Windows high contrast mode](https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/) users.
+`outline-none`ユーティリティは、内部で透明なアウトラインを使用して実装され、要素が
+[Windows high contrast mode](https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/)
+ユーザーに視覚的に焦点を合わせていることを確実にします。
 
 ## <Heading badge="v1.9.0+">Dotted outlines</Heading>
 
-Use the `outline-white` and `outline-black` utilities to add a 2px dotted border around an element with a 2px offset. These are useful as an accessible general purpose custom focus style if you don't want to design your own.
+`outline-white`および`outline-black`ユーティリティを使用して、2pxのオフセットを持つ要素の周りに2pxの点線のボーダーラインを追加します。
+これらは、独自にデザインしたくない場合に、アクセス可能な汎用カスタムフォーカススタイルとして役立ちます。
 
 ```html
 <template preview class="flex">
@@ -51,11 +54,12 @@ Use the `outline-white` and `outline-black` utilities to add a 2px dotted border
 <button class="focus:outline-white ...">Button B</button>
 ```
 
-## Customizing
+## カスタマイズ
 
 ### <Heading badge="v1.9.0+">Outlines</Heading>
 
-By default Tailwind provides three outline utilities. You can customize these by editing the `theme.outline` section of your `tailwind.config.js` file.
+デフォルトでは、Tailwindは3つのアウトラインユーティリティを提供します。
+これらは、`tailwind.config.js`ファイルの`theme.outline`セクションを編集することでカスタマイズできます。
 
 ```js
   // tailwind.config.js
@@ -70,7 +74,7 @@ By default Tailwind provides three outline utilities. You can customize these by
   }
 ```
 
-You can also provide an `outline-offset` value for any custom outline utilities using a tuple of the form `[outline, outlineOffset]`:
+`[outline、outlineOffset]`の形式のタプルを使用して、カスタムアウトラインユーティリティに`outline-offset`値を指定することもできます。
 
 ```js
   // tailwind.config.js
@@ -85,10 +89,10 @@ You can also provide an `outline-offset` value for any custom outline utilities 
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="outline" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="outline" />
