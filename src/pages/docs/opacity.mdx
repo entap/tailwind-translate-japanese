@@ -1,6 +1,6 @@
 ---
-title: "Opacity"
-description: "Utilities for controlling the opacity of an element."
+title: "不透明度"
+description: "要素の不透明度を制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: true
@@ -15,9 +15,9 @@ import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Control the opacity of an element using the `.opacity-{amount}` utilities.
+`.opacity-{amount}`ユーティリティを使用して要素の不透明度を制御します。
 
 ```html
 <template preview>
@@ -37,11 +37,12 @@ Control the opacity of an element using the `.opacity-{amount}` utilities.
 <div class="opacity-0">.opacity-0</div>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the opacity of an element at a specific breakpoint, add a `{screen}:` prefix to any existing opacity utility. For example, use `md:opacity-50` to apply the `opacity-50` utility at only medium screen sizes and above.
+特定のブレークポイントで要素の不透明度を制御するには、既存の不透明度ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:opacity-50`を使用して、中程度の画面サイズ以上でのみ`opacity-50`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['opacity-100', 'opacity-75', 'opacity-50', 'opacity-25', 'opacity-0']}
@@ -57,11 +58,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
 ### Opacity Scale
 
-By default Tailwind provides five opacity utilities based on a simple numeric scale. You change, add, or remove these by editing the `theme.opacity` section of your Tailwind config.
+デフォルトでは、Tailwindは単純な数値スケールに基づいて5つの不透明度ユーティリティを提供します。
+Tailwind構成の`theme.opacity`セクションを編集して、これらを変更、追加、または削除します。
 
 ```diff
   // tailwind.config.js
@@ -87,10 +89,10 @@ By default Tailwind provides five opacity utilities based on a simple numeric sc
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="opacity" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="opacity" />
