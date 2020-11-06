@@ -12,7 +12,7 @@ export const classes = { plugin }
 
 ## Start
 
-Use `justify-start` to justify items against the start of the container's main axis:
+`justify-start`を使用して、コンテナの主軸の開始に対してアイテムを位置合わせします。
 
 ```html
 <template preview>
@@ -26,7 +26,7 @@ Use `justify-start` to justify items against the start of the container's main a
 
 ## Center
 
-Use `justify-center` to justify items along the center of the container's main axis:
+`justify-center`を使用して、コンテナの主軸の中心に沿ってアイテムを位置揃えします。
 
 ```html
 <template preview>
@@ -40,7 +40,7 @@ Use `justify-center` to justify items along the center of the container's main a
 
 ## End
 
-Use `justify-end` to justify items against the end of the container's main axis:
+`justify-end`を使用して、コンテナの主軸の端に対してアイテムを位置合わせします。
 
 ```html
 <template preview>
@@ -54,7 +54,7 @@ Use `justify-end` to justify items against the end of the container's main axis:
 
 ## Space between
 
-Use `justify-between` to justify items along the container's main axis such that there is an equal amount of space between each item:
+`justify-between`を使用して、コンテナの主軸に沿ってアイテムを位置合わせし、各アイテム間に等量のスペースができるようにします。
 
 ```html
 <template preview>
@@ -68,7 +68,7 @@ Use `justify-between` to justify items along the container's main axis such that
 
 ## Space around
 
-Use `justify-around` to justify items along the container's main axis such that there is an equal amount of space on each side of each item:
+`justify-around`を使用して、コンテナの主軸に沿ってアイテムを位置合わせし、各アイテムの両側に同じ量のスペースがあるようにします。
 
 ```html
 <template preview>
@@ -82,7 +82,7 @@ Use `justify-around` to justify items along the container's main axis such that 
 
 ## Space evenly
 
-Use `justify-evenly` to justify items along the container's main axis such that there is an equal amount of space around each item, but also accounting for the doubling of space you would normally see between each item when using `justify-around`:
+`justify-evenly`を使用して、コンテナの主軸に沿ってアイテムを正当化し、各アイテムの周囲に同じ量のスペースがあるようにしますが、`justify-around`を使用したときに各アイテム間に通常見られるスペースの2倍も考慮します。
 
 ```html
 <template preview>
@@ -94,11 +94,12 @@ Use `justify-evenly` to justify items along the container's main axis such that 
 </template>
 ```
 
-## Responsive
+## レスポンシブ
 
-To justify flex items at a specific breakpoint, add a `{screen}:` prefix to any existing utility class. For example, use `md:justify-between` to apply the `justify-between` utility at only medium screen sizes and above.
+特定のブレークポイントでフレックスアイテムを正当化するには、既存のユーティリティクラスに`{screen}:`プレフィックスを追加します。
+たとえば、`md:justify-between`を使用して、中程度の画面サイズ以上でのみ`justify-between`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['justify-start', 'justify-center', 'justify-end', 'justify-between', 'justify-around']}
@@ -116,12 +117,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="justifyContent" name="justify-content" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="justifyContent" name="justify-content" />
