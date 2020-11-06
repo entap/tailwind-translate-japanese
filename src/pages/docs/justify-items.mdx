@@ -1,6 +1,6 @@
 ---
-title: "Justify Items"
-description: "Utilities for controlling how grid items are aligned along their inline axis."
+title: "アイテムを正当化する"
+description: "グリッドアイテムをインライン軸に沿って配置する方法を制御するためのユーティリティ。"
 featureVersion: "v1.8.0+"
 ---
 
@@ -13,7 +13,7 @@ export const classes = { plugin }
 
 ## Auto
 
-Use `justify-items-auto` to justify grid items automatically on their inline axis:
+`justify-items-auto`を使用して、グリッドアイテムをインライン軸上で自動的に位置合わせします。
 
 ```html
 <template preview>
@@ -30,7 +30,7 @@ Use `justify-items-auto` to justify grid items automatically on their inline axi
 
 ## Start
 
-Use `justify-items-start` to justify grid items against the start of their inline axis:
+`justify-items-start`を使用して、グリッドアイテムをインライン軸の開始に対して位置合わせします。
 
 ```html
 <template preview>
@@ -47,7 +47,7 @@ Use `justify-items-start` to justify grid items against the start of their inlin
 
 ## End
 
-Use `justify-items-end` to justify grid items against the end of their inline axis:
+`justify-items-end`を使用して、グリッドアイテムをインライン軸の端に対して位置合わせします。
 
 ```html
 <template preview>
@@ -64,7 +64,7 @@ Use `justify-items-end` to justify grid items against the end of their inline ax
 
 ## Center
 
-Use `justify-items-center` to justify grid items along their inline axis:
+`justify-items-center`を使用して、グリッドアイテムをインライン軸に沿って位置合わせします。
 
 ```html
 <template preview>
@@ -81,7 +81,7 @@ Use `justify-items-center` to justify grid items along their inline axis:
 
 ## Stretch
 
-Use `justify-items-stretch` to stretch items along their inline axis:
+`justify-items-stretch`を使用して、インライン軸に沿ってアイテムを伸長します。
 
 ```html
 <template preview>
@@ -96,9 +96,10 @@ Use `justify-items-stretch` to stretch items along their inline axis:
 </template>
 ```
 
-## Responsive
+## レスポンシブ
 
-To justify flex items at a specific breakpoint, add a `{screen}:` prefix to any existing utility class. For example, use `md:justify-items-center` to apply the `justify-items-center` utility at only medium screen sizes and above.
+特定のブレークポイントでフレックスアイテムを正当化するには、既存のユーティリティクラスに`{screen}:`プレフィックスを追加します。
+たとえば、`md:justify-items-center`を使用して、中程度の画面サイズ以上でのみ`justify-items-center`ユーティリティを適用します。
 
 ```html
 <div class="justify-items-start md:justify-items-center">
@@ -106,14 +107,14 @@ To justify flex items at a specific breakpoint, add a `{screen}:` prefix to any 
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="justifyItems" name="justify-items" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="justifyItems" name="justify-items" />
