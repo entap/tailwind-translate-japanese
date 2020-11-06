@@ -1,6 +1,6 @@
 ---
-title: "Letter Spacing"
-description: "Utilities for controlling the tracking (letter spacing) of an element."
+title: "文字間隔"
+description: "要素の追跡（文字間隔）を制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: true
@@ -15,9 +15,9 @@ import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Control the letter spacing of an element using the `.tracking-{size}` utilities.
+`.tracking-{size}`ユーティリティを使用して、要素の文字間隔を制御します。
 
 ```html
 <template preview>
@@ -55,11 +55,12 @@ Control the letter spacing of an element using the `.tracking-{size}` utilities.
 <p class="tracking-widest ...">The quick brown fox ...</p>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the letter spacing of an element at a specific breakpoint, add a `{screen}:` prefix to any existing letter spacing utility. For example, use `md:tracking-wide` to apply the `tracking-wide` utility at only medium screen sizes and above.
+特定のブレークポイントで要素の文字間隔を制御するには、既存の文字間隔ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:tracking-wide`を使用して、中程度の画面サイズ以上でのみ`tracking-wide`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['tracking-tight', 'tracking-normal', 'tracking-wide', 'tracking-normal', 'tracking-tight']}
@@ -71,11 +72,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-### Letter Spacings
+### 文字間隔
 
-By default Tailwind provides six tracking utilities. You can change, add, or remove these by editing the `theme.letterSpacing` section of your Tailwind config.
+デフォルトでは、Tailwindは6つの追跡ユーティリティを提供します。
+Tailwind設定の`theme.letterSpacing`セクションを編集することで、これらを変更、追加、または削除できます。
 
 ```diff
   // tailwind.config.js
@@ -95,10 +97,10 @@ By default Tailwind provides six tracking utilities. You can change, add, or rem
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="letterSpacing" name="tracking" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="letterSpacing" name="tracking" />

@@ -1,6 +1,6 @@
 ---
-title: "Line Height"
-description: "Utilities for controlling the leading (line height) of an element."
+title: "行の高さ"
+description: "要素の先頭（行の高さ）を制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: true
@@ -18,7 +18,8 @@ export const classes = { plugin }
 
 ## Relative line-heights
 
-Use the `leading-none`, `leading-tight`, `leading-snug`, `leading-normal`, `leading-relaxed`, and `leading-loose` utilities to give an element a relative line-height based on its current font-size.
+`leading-none`,`leading-tight`,`leading-snug`,`leading-normal`,`leading-relaxed`,`leading-loose`ユーティリティを使用して、
+要素に現在のフォントサイズに基づく相対的な行の高さを指定します。 
 
 ```html
 <template preview>
@@ -58,7 +59,8 @@ Use the `leading-none`, `leading-tight`, `leading-snug`, `leading-normal`, `lead
 
 ## <Heading badge="v1.2.0+">Fixed line-heights</Heading>
 
-Use the `leading-{size}` utilities to give an element a fixed line-height, irrespective of the current font-size. These are useful when you need very precise control over an element's final size.
+`leading-{size}`ユーティリティを使用して、現在のフォントサイズに関係なく、要素に固定の行の高さを指定します。
+これらは、要素の最終的なサイズを非常に正確に制御する必要がある場合に役立ちます。
 
 ```html
 <template preview>
@@ -106,11 +108,12 @@ Use the `leading-{size}` utilities to give an element a fixed line-height, irres
 <p class="leading-10 ...">Lorem ipsum dolor sit amet ...</p>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the line height of an element at a specific breakpoint, add a `{screen}:` prefix to any existing line height utility. For example, use `md:leading-loose` to apply the `leading-loose` utility at only medium screen sizes and above.
+特定のブレークポイントで要素の行の高さを制御するには、既存の行の高さユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:leading-loose`を使用して、中程度の画面サイズ以上でのみ`leading-loose`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['leading-none', 'leading-tight', 'leading-normal', 'leading-relaxed', 'leading-loose']}
@@ -122,9 +125,10 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-By default Tailwind provides six relative and eight fixed `line-height` utilities. You change, add, or remove these by customizing the `lineHeight` section of your Tailwind theme config.
+デフォルトでは、Tailwindは6つの相対ユーティリティと8つの固定`line-height`ユーティリティを提供します。
+Tailwindテーマ設定の`lineHeight`セクションをカスタマイズして、これらを変更、追加、または削除します。
 
 ```diff
   // tailwind.config.js
@@ -140,10 +144,10 @@ By default Tailwind provides six relative and eight fixed `line-height` utilitie
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="lineHeight" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="lineHeight" />

@@ -1,6 +1,6 @@
 ---
-title: "List Style Position"
-description: "Utilities for controlling the position of bullets/numbers in lists."
+title: "リストスタイルポジション"
+description: "リスト内の箇条書き/番号の位置を制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: false
@@ -15,9 +15,9 @@ import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Control the position of the markers in a list using the `list-inside` and `list-outside` utilities.
+`list-inside`および`list-outside`ユーティリティを使用して、リスト内のマーカーの位置を制御します。
 
 ```html
 <template preview class="p-4 px-8">
@@ -51,11 +51,12 @@ Control the position of the markers in a list using the `list-inside` and `list-
 </ul>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the list style position of a list element at a specific breakpoint, add a `{screen}:` prefix to any existing list utility. For example, use `.md:list-inside` to apply the `.list-inside` utility at only medium screen sizes and above.
+特定のブレークポイントでのリスト要素のリストスタイルの位置を制御するには、既存のリストユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`.md:list-inside`を使用して、中程度の画面サイズ以上でのみ`.list-inside`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['list-inside', 'list-outside', 'list-inside', 'list-outside', 'list-inside']}
@@ -75,12 +76,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="listStylePosition" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="listStylePosition" />
