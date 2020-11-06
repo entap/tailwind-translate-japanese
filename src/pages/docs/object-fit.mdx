@@ -1,6 +1,6 @@
 ---
-title: "Object Fit"
-description: "Utilities for controlling how a replaced element's content should be resized."
+title: "オブジェクトフィット"
+description: "置き換えられた要素のコンテンツのサイズ変更方法を制御するためのユーティリティ。"
 ---
 
 import plugin from 'tailwindcss/lib/plugins/objectFit'
@@ -12,7 +12,7 @@ export const classes = { plugin }
 
 ## Contain
 
-Resize an element's content to stay contained within its container using `.object-contain`.
+`.object-contain`を使用して、要素のコンテンツのサイズを変更し、コンテナ内に含まれたままにします。
 
 ```html
 <template preview>
@@ -31,7 +31,7 @@ Resize an element's content to stay contained within its container using `.objec
 
 ## Cover
 
-Resize an element's content to cover its container using `.object-cover`.
+`.object-cover`を使用して、要素のコンテンツのサイズを変更し、コンテナをカバーします。
 
 ```html
 <template preview>
@@ -50,7 +50,7 @@ Resize an element's content to cover its container using `.object-cover`.
 
 ## Fill
 
-Stretch an element's content to fit its container using `.object-fill`.
+`.object-fill`を使用して、要素のコンテンツをそのコンテナに合うように伸長します。
 
 ```html
 <template preview>
@@ -69,7 +69,7 @@ Stretch an element's content to fit its container using `.object-fill`.
 
 ## None
 
-Display an element's content at its original size ignoring the container size using `.object-none`.
+`.object-none`を使用して、コンテナサイズを無視して、要素のコンテンツを元のサイズで表示します。
 
 ```html
 <template preview>
@@ -88,7 +88,7 @@ Display an element's content at its original size ignoring the container size us
 
 ## Scale Down
 
-Display an element's content at its original size but scale it down to fit its container if necessary using `.object-scale-down`.
+要素のコンテンツを元のサイズで表示しますが、必要に応じて`.object-scale-down`を使用して、コンテナに合わせて縮小します。
 
 ```html
 <template preview>
@@ -105,11 +105,12 @@ Display an element's content at its original size but scale it down to fit its c
 </div>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control how a replaced element's content should be resized only at a specific breakpoint, add a `{screen}:` prefix to any existing object fit utility. For example, adding the class `md:object-scale-down` to an element would apply the `object-scale-down` utility at medium screen sizes and above.
+置き換えられた要素のコンテンツを特定のブレークポイントでのみサイズ変更する方法を制御するには、既存のオブジェクトフィットユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:object-scale-down`クラスを要素に追加すると、中程度の画面サイズ以上で`object-scale-down`ユーティリティが適用されます。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['object-contain', 'object-cover', 'object-fill', 'object-none', 'object-scale-down']}
@@ -125,12 +126,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="objectFit" name="object-fit" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="objectFit" name="object-fit" />
