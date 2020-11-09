@@ -1,6 +1,6 @@
 ---
-title: "Place Self"
-description: "Utilities for controlling how an individual item is justified and aligned at the same time."
+title: "自己配置"
+description: "個々のアイテム揃えと整列を同時に行う方法を制御するためのユーティリティ。"
 featureVersion: "v1.8.0+"
 ---
 
@@ -13,7 +13,7 @@ export const classes = { plugin }
 
 ## Auto
 
-Use `place-self-auto` to align an item based on the value of the container's `place-items` property:
+`place-self-auto`を使用して、コンテナの`place-items`プロパティの値に基づいてアイテムを整列します。
 
 ```html
 <template preview>
@@ -30,7 +30,7 @@ Use `place-self-auto` to align an item based on the value of the container's `pl
 
 ## Start
 
-Use `place-self-start` to align an item to the start on both axes:
+`place-self-start`を使用して、アイテムを両方の軸の開始位置に揃えます。
 
 ```html
 <template preview>
@@ -47,7 +47,7 @@ Use `place-self-start` to align an item to the start on both axes:
 
 ## Center
 
-Use `place-self-center` to align an item at the center on both axes:
+`place-self-center`を使用して、アイテムを両方の軸の中心に揃えます。
 
 ```html
 <template preview>
@@ -64,7 +64,7 @@ Use `place-self-center` to align an item at the center on both axes:
 
 ## End
 
-Use `place-self-end` to align an item to the end on both axes:
+`place-self-end`を使用して、アイテムを両方の軸の端に揃えます。
 
 ```html
 <template preview>
@@ -81,7 +81,7 @@ Use `place-self-end` to align an item to the end on both axes:
 
 ## Stretch
 
-Use `place-self-stretch` to stretch an item on both axes:
+`place-self-stretch`を使用して、両方の軸でアイテムをストレッチします。
 
 ```html
 <template preview>
@@ -98,7 +98,8 @@ Use `place-self-stretch` to stretch an item on both axes:
 
 ## Responsive
 
-To place an item at a specific breakpoint, add a `{screen}:` prefix to any existing `place-self` utility. For example, use `md:place-self-end` to apply the `place-self-end` utility at only medium screen sizes and above.
+アイテムを特定のブレークポイントに配置するには、既存の`place-self`ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:place-self-end`を使用して、中程度の画面サイズ以上でのみ`place-self-end`ユーティリティを適用します。
 
 ```html
 <div class="place-self-start md:place-self-end">
@@ -106,14 +107,14 @@ To place an item at a specific breakpoint, add a `{screen}:` prefix to any exist
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="placeSelf" name="place-self" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="placeSelf" name="place-self" />

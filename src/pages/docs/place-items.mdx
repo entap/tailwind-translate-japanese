@@ -1,6 +1,6 @@
 ---
-title: "Place Items"
-description: "Utilities for controlling how items are justified and aligned at the same time."
+title: "アイテムを配置する"
+description: "アイテム揃えと整列を同時に行う方法を制御するためのユーティリティ。"
 featureVersion: "v1.8.0+"
 ---
 
@@ -13,7 +13,7 @@ export const classes = { plugin }
 
 ## Auto
 
-Use `place-items-auto` to place grid items automatically in their grid areas:
+`place-items-auto`を使用して、グリッドアイテムをグリッド領域に自動的に配置します。
 
 ```html
 <template preview>
@@ -30,7 +30,7 @@ Use `place-items-auto` to place grid items automatically in their grid areas:
 
 ## Start
 
-Use `place-items-start` to place grid items on the start of their grid areas on both axis:
+`place-items-start`を使用して、両方の軸のグリッド領域の始点にグリッドアイテムを配置します。
 
 ```html
 <template preview>
@@ -47,7 +47,7 @@ Use `place-items-start` to place grid items on the start of their grid areas on 
 
 ## End
 
-Use `place-items-end` to place grid items on the end of their grid areas on both axis:
+`place-items-end`を使用して、両方の軸のグリッド領域の端にグリッドアイテムを配置します。
 
 ```html
 <template preview>
@@ -64,7 +64,7 @@ Use `place-items-end` to place grid items on the end of their grid areas on both
 
 ## Center
 
-Use `place-items-center` to place grid items on the center of their grid areas on both axis:
+`place-items-center`を使用して、両方の軸のグリッド領域の中央にグリッドアイテムを配置します。
 
 ```html
 <template preview>
@@ -81,7 +81,7 @@ Use `place-items-center` to place grid items on the center of their grid areas o
 
 ## Stretch
 
-Use `place-items-stretch` to stretch items along their grid areas on both axis:
+`place-items-stretch`を使用して、両方の軸のグリッド領域に沿ってアイテムをストレッチします。
 
 ```html
 <template preview>
@@ -96,9 +96,10 @@ Use `place-items-stretch` to stretch items along their grid areas on both axis:
 </template>
 ```
 
-## Responsive
+## レスポンシブ
 
-To place items at a specific breakpoint, add a `{screen}:` prefix to any existing `place-items` utility. For example, use `md:place-items-center` to apply the `place-items-center` utility at only medium screen sizes and above.
+アイテムを特定のブレークポイントに配置するには、既存の`place-items`ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:place-items-center`を使用して、中程度の画面サイズ以上でのみ`place-items-center`ユーティリティを適用します。
 
 ```html
 <div class="place-items-start md:place-items-center">
@@ -106,14 +107,14 @@ To place items at a specific breakpoint, add a `{screen}:` prefix to any existin
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="placeItems" name="place-items" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="placeItems" name="place-items" />
