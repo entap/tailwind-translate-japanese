@@ -1,6 +1,6 @@
 ---
-title: "Placeholder Color"
-description: "Utilities for controlling the color of placeholder text."
+title: "プレースホルダーカラー"
+description: "プレースホルダーテキストの色を制御するためのユーティリティ。"
 featureVersion: "v1.1.0+"
 ---
 
@@ -31,9 +31,9 @@ export const classes = {
   ),
 }
 
-## Usage
+## 使用方法
 
-Control the placeholder color of an element using the `.placeholder-{color}` utilities.
+`.placeholder-{color}`ユーティリティを使用して、要素のプレースホルダーの色を制御します。
 
 ```html
 <template preview class="text-center p-6">
@@ -49,7 +49,7 @@ Control the placeholder color of an element using the `.placeholder-{color}` uti
 
 ### <Heading badge="v1.4.0+">Changing opacity</Heading>
 
-Control the opacity of an element's placeholder color using the `.placeholder-opacity-{amount}` utilities.
+`.placeholder-opacity-{amount}`ユーティリティを使用して、要素のプレースホルダーの色の不透明度を制御します。
 
 ```html
 <template preview>
@@ -79,13 +79,14 @@ Control the opacity of an element's placeholder color using the `.placeholder-op
 <input class="placeholder-gray-500 placeholder-opacity-0 ..." placeholder="jane@example.com">
 ```
 
-Learn more in the [placeholder opacity documentation](/docs/placeholder-opacity).
+詳細は[プレースホルダー不透明度](/docs/placeholder-opacity)をご覧ください。
 
-## Responsive
+## レスポンシブ
 
-To control the text color of an element at a specific breakpoint, add a `{screen}:` prefix to any existing text color utility. For example, use `md:text-green-600` to apply the `text-green-600` utility at only medium screen sizes and above.
+特定のブレークポイントで要素のテキストの色を制御するには、既存のテキストの色ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:text-green-600`を使用して、中程度の画面サイズ以上でのみ`text-green-600`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[レスポンシブデザイン](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['placeholder-gray-500', 'placeholder-red-400', 'placeholder-blue-400', 'placeholder-green-400', 'placeholder-orange-400']}
@@ -102,7 +103,8 @@ For more information about Tailwind's responsive design features, check out the 
 
 ## Focus
 
-To control the placeholder color of an element on focus, add the `focus:` prefix to any existing placeholder color utility. For example, use `focus:placeholder-blue-600` to apply the `placeholder-blue-600` utility on focus.
+フォーカスされている要素のプレースホルダーの色を制御するには、既存のプレースホルダーの色ユーティリティに`focus:`プレフィックスを追加します。
+たとえば、`focus:placeholder-blue-600`を使用して、`placeholder-blue-600`ユーティリティをフォーカスに適用します。
 
 ```html
 <template preview class="text-center p-6">
@@ -114,19 +116,19 @@ To control the placeholder color of an element on focus, add the `focus:` prefix
 <input class="placeholder-gray-600 focus:placeholder-gray-500 ..." placeholder="jane@example.com">
 ```
 
-Focus utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `focus:` prefix.
+フォーカスユーティリティは、レスポンシブ`{screen}:`プレフィックスを`focus:`プレフィックスの*前*に追加することで、レスポンシブユーティリティと組み合わせることもできます。
 
 ```html
 <input class="... md:placeholder-gray-900 md:focus:placeholder-red-600 ...">
 ```
 
-## Customizing
+## カスタマイズ
 
 ### Placeholder Colors
 
-By default Tailwind makes the entire [default color palette](/docs/customizing-colors#default-color-palette) available as placeholder colors.
+デフォルトでは、Tailwindは[デフォルトカラーパレット](/docs/customizing-colors#default-color-palette)全体をプレースホルダーカラーとして使用できるようにします。
 
-You can [customize your color palette](/docs/colors#customizing) by editing `theme.colors` in your `tailwind.config.js` file, or customize just your placeholder colors in the `theme.textColor` section.
+`tailwind.config.js`ファイルの`theme.colors`を編集して[カラーパレットをカスタマイズ](/docs/colors#customizing)するか、`theme.textColor`セクションでプレースホルダーの色だけをカスタマイズできます。
 
 ```diff
   // tailwind.config.js
@@ -142,10 +144,10 @@ You can [customize your color palette](/docs/colors#customizing) by editing `the
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="placeholderColor" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="placeholderColor" />
