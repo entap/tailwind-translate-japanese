@@ -1,6 +1,6 @@
 ---
-title: "Padding"
-description: "Utilities for controlling an element's padding."
+title: "パディング"
+description: "要素のパディングを制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: true
@@ -17,9 +17,10 @@ export const classes = { plugin }
 
 ## Add padding to a single side
 
-Control the padding on one side of an element using the `p{t|r|b|l}-{size}` utilities.
+`p{t|r|b|l}-{size}`ユーティリティを使用して、要素の片側のパディングを制御します。
 
-For example, `pt-6` would add `1.5rem` of padding to the top of an element, `pr-4` would add `1rem` of padding to the right of an element, `pb-8` would add `2rem` of padding to the bottom of an element, and `pl-2` would add `0.5rem` of padding to the left of an element.
+たとえば、`pt-6`は要素の上部に`1.5rem`のパディングを追加し、`pr-4`は要素の右側に`1rem`のパディングを追加し、`pb-8`は要素の下部に`2rem`のパディングを追加し、
+`pl-2`は要素の左側に`0.5rem`のパディングを追加します。
 
 ```html
 <template preview>
@@ -59,7 +60,7 @@ For example, `pt-6` would add `1.5rem` of padding to the top of an element, `pr-
 
 ## Add horizontal padding
 
-Control the horizontal padding of an element using the `px-{size}` utilities.
+`px-{size}`ユーティリティを使用して、要素の水平方向のパディングを制御します。
 
 ```html
 <template preview>
@@ -78,7 +79,7 @@ Control the horizontal padding of an element using the `px-{size}` utilities.
 
 ## Add vertical padding
 
-Control the vertical padding of an element using the `py-{size}` utilities.
+`py-{size}`ユーティリティを使用して、要素の垂直方向のパディングを制御します。
 
 ```html
 <template preview>
@@ -97,7 +98,7 @@ Control the vertical padding of an element using the `py-{size}` utilities.
 
 ## Add padding to all sides
 
-Control the padding on all sides of an element using the `p-{size}` utilities.
+`p-{size}`ユーティリティを使用して、要素のすべての側面のパディングを制御します。
 
 ```html
 <template preview>
@@ -116,11 +117,12 @@ Control the padding on all sides of an element using the `p-{size}` utilities.
 
 ---
 
-## Responsive
+## レスポンシブ
 
-To control the padding of an element at a specific breakpoint, add a `{screen}:` prefix to any existing padding utility. For example, adding the class `md:py-8` to an element would apply the `py-8` utility at medium screen sizes and above.
+特定のブレークポイントで要素のパディングを制御するには、既存のパディングユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、クラス`md:py-8`を要素に追加すると、中程度の画面サイズ以上で`py-8`ユーティリティが適用されます。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['pt-8', '(pt-8) pr-6', '(pt-8 pr-6) pb-4', '(pt-8 pr-6 pb-4) pl-2', 'p-0']}
@@ -139,13 +141,13 @@ For more information about Tailwind's responsive design features, check out the 
 
 ---
 
-## Customizing
+## カスタマイズ
 
 ### Padding scale
 
-By default Tailwind provides 19 fixed padding utilities for each side and axis.
+デフォルトでは、Tailwindは各側面と軸に19の固定パディングユーティリティを提供します。
 
-If you'd like to customize these values for padding, margin, width, and height all at once, use the `theme.spacing` section of your `tailwind.config.js` file.
+パディング、マージン、幅、高さのこれらの値を一度にカスタマイズする場合は、`tailwind.config.js`ファイルの`theme.spacing`セクションを使用します。
 
 ```diff
   // tailwind.config.js
@@ -161,7 +163,7 @@ If you'd like to customize these values for padding, margin, width, and height a
   }
 ```
 
-To customize only the padding values, use the `theme.padding` section of your `tailwind.config.js` file.
+パディング値のみをカスタマイズするには、`tailwind.config.js`ファイルの`theme.padding`セクションを使用します。
 
 ```diff
   // tailwind.config.js
@@ -177,12 +179,12 @@ To customize only the padding values, use the `theme.padding` section of your `t
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+デフォルトテーマのカスタマイズについては[theme customization documentation](/docs/theme#customizing-the-default-theme)をご覧ください。
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="padding" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="padding" />
