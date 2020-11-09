@@ -1,6 +1,6 @@
 ---
-title: "Overscroll Behavior"
-description: "Utilities for controlling how the browser behaves when reaching the boundary of a scrolling area."
+title: "オーバースクロール動作"
+description: "スクロール領域の境界に達したときのブラウザの動作を制御するためのユーティリティ。"
 featureVersion: "v1.6.0+"
 ---
 
@@ -12,7 +12,7 @@ export const classes = { plugin }
 
 ## Auto
 
-Use `overscroll-auto` to make it possible for the user to continue scrolling a parent scroll area when they reach the boundary of the primary scroll area.
+`overscroll-auto`を使用して、ユーザーがプライマリスクロール領域の境界に達したときに親スクロール領域をスクロールし続けることができるようにします。
 
 ```html
 <template preview>
@@ -28,7 +28,7 @@ Use `overscroll-auto` to make it possible for the user to continue scrolling a p
 
 ## Contain
 
-Use `overscroll-contain` to prevent scrolling in the target area from triggering scrolling in the parent element, but preserve "bounce" effects when scrolling past the end of the container in operating systems that support it.
+`overscroll-contain`を使用して、ターゲット領域でのスクロールが親要素でのスクロールをトリガーしないようにしますが、それをサポートするオペレーティングシステムでコンテナの終わりを超えてスクロールするときの「バウンス」効果を保持します。
 
 ```html
 <template preview>
@@ -44,7 +44,7 @@ Use `overscroll-contain` to prevent scrolling in the target area from triggering
 
 ## None
 
-Use `overscroll-none` to prevent scrolling in the target area from triggering scrolling in the parent element, and also prevent "bounce" effects when scrolling past the end of the container.
+`overscroll-none`を使用して、ターゲット領域でのスクロールが親要素でのスクロールをトリガーしないようにし、コンテナの終わりを超えてスクロールするときの「バウンス」効果も防止します。
 
 ```html
 <template preview>
@@ -58,9 +58,10 @@ Use `overscroll-none` to prevent scrolling in the target area from triggering sc
 <div class="overscroll-none ...">Lorem ipsum dolor sit amet...</div>
 ```
 
-## Responsive
+## レスポンシブ
 
-To control the overscroll-behavior property at a specific breakpoint, add a `{screen}:` prefix to any existing overscroll-behavior utility. For example, use `md:overscroll-contain` to apply the `overscroll-contain` utility at only medium screen sizes and above.
+特定のブレークポイントでoverscroll-behaviorプロパティを制御するには、既存のoverscroll-behaviorユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:overscroll-contain`を使用して、中程度の画面サイズ以上でのみ`overscroll-contain`ユーティリティを適用します。
 
 ```html
 <div class="overscroll-auto md:overscroll-contain lg:overscroll-none ...">
@@ -68,14 +69,14 @@ To control the overscroll-behavior property at a specific breakpoint, add a `{sc
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[Responsive Design](/docs/responsive-design)のドキュメントをご覧ください。
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="overscrollBehavior" name="overscroll-behavior" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="overscrollBehavior" name="overscroll-behavior" />
