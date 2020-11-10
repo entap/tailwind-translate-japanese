@@ -1,6 +1,6 @@
 ---
-title: "Transition Delay"
-description: "Utilities for controlling the delay of CSS transitions."
+title: "遷移遅延"
+description: "CSS遷移の遅延を制御するためのユーティリティ。"
 featureVersion: "v1.3.0+"
 ---
 
@@ -10,9 +10,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Use the `delay-{amount}` utilities to control an element's transition-delay.
+`delay-{amount}`ユーティリティを使用して、要素の遷移遅延を制御します。
 
 ```html
 <template preview class="bg-white flex justify-around items-center p-4 py-12">
@@ -34,15 +34,16 @@ Use the `delay-{amount}` utilities to control an element's transition-delay.
 
 ## Responsive
 
-To control an element's transition-delay at a specific breakpoint, add a `{screen}:` prefix to any existing transition-delay utility. For example, use `md:delay-500` to apply the `delay-500` utility at only medium screen sizes and above.
+特定のブレークポイントで要素の遷移遅延を制御するには、既存の遷移遅延ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:delay-500`を使用して、中程度の画面サイズ以上でのみ`delay-500`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[レスポンシブデザイン](/docs/responsive-design)のドキュメントをご覧ください。
 
 ## Customizing
 
 ### Delay values
 
-By default Tailwind provides eight general purpose transition-delay utilities. You change, add, or remove these by customizing the `transitionDelay` section of your Tailwind theme config.
+デフォルトでは、Tailwindは8つの汎用遷移遅延ユーティリティを提供します。Tailwindテーマ設定の`transitionDelay`セクションをカスタマイズして、これらを変更、追加、または削除します。
 
 ```diff
   // tailwind.config.js
@@ -58,12 +59,13 @@ By default Tailwind provides eight general purpose transition-delay utilities. Y
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
 
-### Responsive and pseudo-class variants
+デフォルトテーマのカスタマイズについては[テーマのカスタマイズ](/docs/theme#customizing-the-default-theme)をご覧ください。
+
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="transitionDelay" name="transition-delay" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="transitionDelay" name="transition-delay" />
