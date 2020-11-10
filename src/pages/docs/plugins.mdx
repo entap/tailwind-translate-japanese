@@ -1,6 +1,6 @@
 ---
-title: Writing Plugins
-description: Extending Tailwind with reusable third-party plugins.
+title: プラグインの作成
+description: 再利用可能なサードパーティのプラグインを使用してTailwindを拡張する。
 ---
 
 import { Heading } from '@/components/Heading'
@@ -8,9 +8,9 @@ import { TipGood, TipBad } from '@/components/Tip'
 
 ## <Heading hidden>Overview</Heading>
 
-Plugins let you register new styles for Tailwind to inject into the user's stylesheet using JavaScript instead of CSS.
+プラグインを使用すると、CSSの代わりにJavaScriptを使用して、Tailwindの新しいスタイルを登録してユーザーのスタイルシートに挿入できます。
 
-To get started with your first plugin, import Tailwind's `plugin` function from `tailwindcss/plugin`, and call it with an anonymous function as the first argument in the `plugins` list in your config file:
+最初のプラグインを開始するには、Tailwindの`plugin`関数を`tailwindcss/plugin`からインポートし、設定ファイルの`plugins`リストの最初の引数として無名関数を使用して呼び出します。
 
 ```js
 // tailwind.config.js
@@ -25,28 +25,30 @@ module.exports = {
 }
 ```
 
-Plugin functions receive a single object argument that can be [destructured](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) into several helper functions:
+プラグイン関数は、いくつかのヘルパー関数に[分解](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)できる単一のオブジェクト引数を受け取ります。
 
-- `addUtilities()`, for registering new utility styles
-- `addComponents()`, for registering new component styles
-- `addBase()`, for registering new base styles
-- `addVariant()`, for registering custom variants
-- `e()`, for escaping strings meant to be used in class names
-- `prefix()`, for manually applying the user's configured prefix to parts of a selector
-- `theme()`, for looking up values in the user's theme configuration
-- `variants()`, for looking up values in the user's variants configuration
-- `config()`, for looking up values in the user's Tailwind configuration
-- `postcss`, for doing low-level manipulation with [PostCSS](https://api.postcss.org/postcss.html) directly
+- `addUtilities()` 新しいユーティリティスタイルを登録する
+- `addComponents()` 新しいコンポーネントスタイルを登録する
+- `addBase()` 新しい基本スタイルを登録する
+- `addVariant()` カスタムバリアントを登録する
+- `e()` クラス名で使用されることを意図した文字列をエスケープする
+- `prefix()` ユーザーが構成したプレフィックスをセレクターの一部に手動で適用する
+- `theme()` ユーザーのテーマ構成で値を検索する
+- `variants()` ユーザーのバリアント構成で値を検索する
+- `config()` ユーザーのTailwind構成で値を検索する
+- `postcss` [PostCSS](https://api.postcss.org/postcss.html)ディレクトリで直接低レベルの操作を行うため 
 
 ---
 
 ## Adding utilities
 
-The `addUtilities` function allows you to register new styles to be output (along with the built-in utilities) at the `@tailwind utilities` directive.
+`addUtilities`関数を使用すると、`@tailwind utilities`ディレクティブで（組み込みユーティリティとともに）出力される新しいスタイルを登録できます。
 
-Plugin utilities are output in the order they are registered, *after* built-in utilities, so if a plugin targets any of the same properties as a built-in utility, the plugin utility will take precedence.
+プラグインユーティリティは、組み込みユーティリティの*後*に、登録された順序で出力されます。
 
-To add new utilities from a plugin, call `addUtilities`, passing in your styles using [CSS-in-JS syntax](#css-in-js-syntax):
+そのため、プラグインが組み込みユーティリティと同じプロパティのいずれかを対象としている場合、プラグインユーティリティが優先されます。 
+
+プラグインから新しいユーティリティを追加するには、`addUtilities`を呼び出し、[CSS-in-JS構文](＃css-in-js-syntax)を使用してスタイルを渡します。
 
 ```js
 // tailwind.config.js
@@ -72,9 +74,9 @@ module.exports = {
 
 ### Prefix and important preferences
 
-By default, plugin utilities automatically respect the user's [`prefix`](/docs/configuration/#prefix) and [`important`](/docs/configuration/#important) preferences.
+デフォルトでは、プラグインユーティリティは、ユーザーの[`prefix`](/docs/configuration/#prefix)および[ʻimportant`](/docs/configuration/#important)設定を自動的に尊重します。
 
-That means that given this Tailwind configuration:
+つまり、このTailwind構成が与えられた場合:
 
 ```js
 // tailwind.config.js
@@ -85,7 +87,7 @@ module.exports = {
 }
 ```
 
-...the example plugin above would generate the following CSS:
+上記のプラグインの例では、次のCSSが生成されます。
 
 ```css
 .tw-skew-10deg {
@@ -96,6 +98,7 @@ module.exports = {
 }
 ```
 
+必要に応じて、オプションオブジェクトを2番目のパラメータとして`addUtilities`に渡すことで、この動作をオプトアウトできます。
 If necessary, you can opt out of this behavior by passing an options object as a second parameter to `addUtilities`:
 
 ```js
@@ -120,7 +123,7 @@ module.exports = {
 
 ### Responsive and pseudo-class variants
 
-To generate responsive, hover, focus, active, or other variants of your styles, specify the variants you'd like to generate using the `variants` option:
+レスポンシブ、ホバー、フォーカス、アクティブ、またはその他のスタイルのバリアントを生成するには、`バリアント`オプションを使用して生成するバリアントを指定します。
 
 ```js
 // tailwind.config.js
@@ -141,7 +144,7 @@ module.exports = {
 }
 ```
 
-If you only need to specify variants and don't need to opt-out of the default prefix or important options, you can also pass the array of variants as the second parameter directly:
+バリアントを指定するだけで、デフォルトのプレフィックスや重要なオプションをオプトアウトする必要がない場合は、バリアントの配列を2番目のパラメーターとして直接渡すこともできます。
 
 ```js
 // tailwind.config.js
@@ -160,7 +163,7 @@ module.exports = {
 }
 ```
 
-If you'd like the user to provide the variants themselves under the `variants` section in their `tailwind.config.js` file, you can use the `variants()` function to get the variants they have configured:
+ユーザーが`tailwind.config.js`ファイルの`variants`セクションでバリアント自体を提供するようにしたい場合は、`variants()`関数を使用して構成済みのバリアントを取得できます。
 
 ```js
 // tailwind.config.js
@@ -186,11 +189,11 @@ module.exports = {
 
 ## Adding components
 
-The `addComponents` function allows you to register new styles to be output at the `@tailwind components` directive.
+`addComponents`関数を使用すると、`@tailwind components`ディレクティブで出力される新しいスタイルを登録できます。
 
-Use it to add more opinionated, complex classes like buttons, form controls, alerts, etc; the sort of pre-built components you often see in other frameworks that you might need to override with utility classes.
+これを使用して、ボタン、フォームコントロール、アラートや、他のフレームワークでよく見られる、ユーティリティクラスでオーバーライドする必要のあるビルド済みコンポーネントなど、より独善的な複雑なクラスを追加します
 
-To add new component styles from a plugin, call `addComponents`, passing in your styles using [CSS-in-JS syntax](#css-in-js-syntax):
+プラグインから新しいコンポーネントスタイルを追加するには、`addComponents`を呼び出し、[CSS-in-JS構文](＃css-in-js-syntax)を使用してスタイルを渡します。
 
 ```js
 // tailwind.config.js
@@ -229,9 +232,10 @@ module.exports = {
 
 ### Prefix and important preferences
 
-By default, component classes automatically respect the user's `prefix` preference, but **they are not affected** by the user's `important` preference.
+デフォルトでは、コンポーネントクラスはユーザーの`prefix`設定を自動的に尊重します。
+ただし、ユーザーの「重要な」設定の影響を**受けません**。
 
-That means that given this Tailwind configuration:
+つまり、このTailwind構成が与えられた場合:
 
 ```js
 // tailwind.config.js
@@ -242,7 +246,7 @@ module.exports = {
 }
 ```
 
-...the example plugin above would generate the following CSS:
+上記のプラグインの例では、次のCSSが生成されます。
 
 ```css
 .tw-btn {
@@ -266,7 +270,7 @@ module.exports = {
 }
 ```
 
-Although there's rarely a good reason to make component declarations important, if you really need to do it you can always add `!important` manually:
+コンポーネント宣言を重要にする正当な理由はめったにありませんが、本当にそれを行う必要がある場合は、いつでも手動で`!important`を追加できます。
 
 ```js
 // tailwind.config.js
@@ -290,7 +294,7 @@ module.exports = {
 }
 ```
 
-All classes in a selector will be prefixed by default, so if you add a more complex style like:
+セレクター内のすべてのクラスにはデフォルトでプレフィックスが付けられるため、次のようなより複雑なスタイルを追加すると:
 
 ```js
 // tailwind.config.js
@@ -313,7 +317,7 @@ module.exports = {
 }
 ```
 
-...the following CSS would be generated:
+次のCSSが生成されます。
 
 ```css
 .tw-navbar-inverse a.tw-nav-link {
@@ -321,7 +325,7 @@ module.exports = {
 }
 ```
 
-To opt out of prefixing, pass an options object as a second parameter to `addComponents`:
+プレフィックスをオプトアウトするには、オプションオブジェクトを2番目のパラメータとして`addComponents`に渡します。
 
 ```js
 // tailwind.config.js
@@ -345,7 +349,7 @@ module.exports = {
 
 ### Responsive and pseudo-class variants
 
-To generate responsive, hover, focus, active, or other variants of your components, specify the variants you'd like to generate using the `variants` option:
+コンポーネントのレスポンシブ、ホバー、フォーカス、アクティブ、またはその他のバリアントを生成するには、`variant`オプションを使用して生成するバリアントを指定します。
 
 ```js
 // tailwind.config.js
@@ -366,7 +370,7 @@ module.exports = {
 }
 ```
 
-If you only need to specify variants and don't need to opt-out of the default prefix or important options, you can also pass the array of variants as the second parameter directly:
+バリアントを指定するだけで、デフォルトのプレフィックスや重要なオプションをオプトアウトする必要がない場合は、バリアントの配列を2番目のパラメーターとして直接渡すこともできます。
 
 ```js
 // tailwind.config.js
@@ -385,7 +389,7 @@ module.exports = {
 }
 ```
 
-If you'd like the user to provide the variants themselves under the `variants` section in their `tailwind.config.js` file, you can use the `variants()` function to get the variants they have configured:
+ユーザーが`tailwind.config.js`ファイルの`variants`セクションでバリアント自体を提供するようにしたい場合は、`variants()`関数を使用して構成済みのバリアントを取得できます。
 
 ```js
 // tailwind.config.js
@@ -411,11 +415,11 @@ module.exports = {
 
 ## Adding base styles
 
-The `addBase` function allows you to register new styles to be output at the `@tailwind base` directive.
+`addBase`関数を使用すると、`@tailwind base`ディレクティブで出力される新しいスタイルを登録できます。
 
-Use it to add things like base typography styles, opinionated global resets, or `@font-face` rules.
+これを使用して、基本的なタイポグラフィスタイル、独善的なグローバルリセット、または`@font-face`ルールなどを追加します。
 
-To add new base styles from a plugin, call `addBase`, passing in your styles using [CSS-in-JS syntax](#css-in-js-syntax):
+プラグインから新しい基本スタイルを追加するには、`addBase`を呼び出し、[CSS-in-JS構文](＃css-in-js-syntax)を使用してスタイルを渡します。
 
 ```js
 // tailwind.config.js
@@ -434,16 +438,16 @@ module.exports = {
 }
 ```
 
-Since base styles are meant to target bare selectors like `div`, `h1`, etc., they do not respect the user's `prefix` or `important` configuration.
+基本スタイルは、`div`、`h1`などのベアセレクターをターゲットにすることを目的としているため、ユーザーの`prefix`または`important`構成を尊重しません。
 
 ---
 
 ## Escaping class names
 
-If your plugin generates classes that contain user-provided strings, you can use the `e` function to escape those class names to make sure non-standard characters are handled properly automatically.
+プラグインがユーザー提供の文字列を含むクラスを生成する場合は、`e`関数を使用してそれらのクラス名をエスケープし、非標準文字が自動的に適切に処理されるようにすることができます。
 
-For example, this plugin generates a set of `.rotate-{angle}` utilities where `{angle}` is a user provided string. The `e` function is used to escape the concatenated class name to make sure classes like `.rotate-1/4` work as expected:
-
+たとえば、このプラグインは一連の`.rotate-{angle}`ユーティリティを生成します。ここで、`{angle}`はユーザーが指定した文字列です。
+`e`関数は、連結されたクラス名をエスケープして、`.rotate-1/4`のようなクラスが期待どおりに機能することを確認するために使用されます。
 
 ```js
 // tailwind.config.js
@@ -474,7 +478,7 @@ module.exports = {
 }
 ```
 
-This plugin would generate the following CSS:
+このプラグインは次のCSSを生成します。
 
 ```css
 .rotate-1\/4 {
@@ -488,9 +492,11 @@ This plugin would generate the following CSS:
 }
 ```
 
-Be careful to only escape content you actually want to escape; don't pass the leading `.` in a class name or the `:` at the beginning pseudo-classes like `:hover` or `:focus` or those characters will be escaped.
+実際にエスケープしたいコンテンツのみをエスケープするように注意してください。
+クラス名の先頭の`.`や、`:hover`や`:focus`などの疑似クラスの先頭にある`:`を渡さないでください。そうしないと、これらの文字はエスケープされます。
 
-Additionally, because CSS has rules about the characters a class name can *start* with (a class can't start with a number, but it can contain one), it's a good idea to escape your complete class name (not just the user-provided portion) or you may end up with unnecessary escape sequences:
+さらに、CSSには、クラス名で*開始*できる文字に関するルールがあるため（クラスは数字で始めることはできませんが、数字を含めることができます）、
+完全なクラス名（ユーザー提供部分だけではなく）をエスケープすることをお勧めします。そうでなければ、不要なエスケープシーケンスが発生する可能性があります。
 
 ```js
 // Will unnecessarily escape `1`
@@ -506,9 +512,9 @@ Additionally, because CSS has rules about the characters a class name can *start
 
 ## Manually prefixing selectors
 
-If you're writing something complex where you only want to prefix certain classes, you can use the `prefix` function to have fine-grained control of when the user's configured prefix is applied.
+特定のクラスにのみプレフィックスを付ける複雑なものを作成している場合は、`prefix`関数を使用して、ユーザーが構成したプレフィックスをいつ適用するかをきめ細かく制御できます。
 
-For example, if you're creating a plugin to be reused across a set of internal projects that includes existing classes in its selectors, you might only want to prefix the new classes:
+たとえば、セレクターに既存のクラスを含む内部プロジェクトのセット全体で再利用するプラグインを作成している場合は、新しいクラスのプレフィックスのみを付けることができます。
 
 ```js
 // tailwind.config.js
@@ -528,7 +534,7 @@ module.exports = {
 }
 ```
 
-This would generate the following CSS:
+これにより、次のCSSが生成されます。
 
 ```css
 .existing-class > .tw-new-class {
@@ -536,7 +542,7 @@ This would generate the following CSS:
 }
 ```
 
-The `prefix` function will prefix all classes in a selector and ignore non-classes, so it's totally safe to pass complex selectors like this one:
+`prefix`関数はセレクター内のすべてのクラスにプレフィックスを付け、非クラスを無視するため、次のような複雑なセレクターを渡すのは完全に安全です。
 
 ```js
 prefix('.btn-blue .w-1\/4 > h1.text-xl + a .bar')
@@ -547,9 +553,9 @@ prefix('.btn-blue .w-1\/4 > h1.text-xl + a .bar')
 
 ## Referencing the user's config
 
-The `config`, `theme`, and `variants` functions allow you to ask for a value from the user's Tailwind configuration using dot notation, providing a default value if that path doesn't exist.
+`config`, `theme`、および `variants`関数を使用すると、ドット表記を使用してユーザーのTailwind構成から値を要求でき、そのパスが存在しない場合はデフォルト値を提供します。
 
-For example, this simplified version of the built-in [container](/docs/container) plugin uses the `theme` function to get the user's configured breakpoints:
+たとえば、組み込みの[container](/docs/container)プラグインのこの簡略化されたバージョンは、`theme`関数を使用してユーザーの構成済みブレークポイントを取得します。
 
 ```js
 // tailwind.config.js
@@ -580,7 +586,7 @@ module.exports = {
 }
 ```
 
-Note that the `theme` function is really just a shortcut for using the `config` function to access the theme section of the user's config:
+`theme`関数は、実際には`config`関数を使用してユーザーの構成のテーマセクションにアクセスするための単なるショートカットであることに注意してください。
 
 ```js
 // These are equivalent
@@ -588,21 +594,21 @@ config('theme.screens')
 theme('screens')
 ```
 
-If you'd like to reference the user's `variants` configuration, it's recommended that you use the `variants()` function instead of the config function.
+ユーザーの`variants`構成を参照する場合は、config関数の代わりに`variants()`関数を使用することをお勧めします。
 
-<TipBad>Don't use the config function to look up variants</TipBad>
+<TipBad>バリアントを検索するためにconfig関数を使用しないでください</TipBad>
 
 ```js
 addUtilities(newUtilities, config('variants.customPlugin'))
 ```
 
-<TipGood>Use the variants function instead</TipGood>
+<TipGood>代わりにバリアント関数を使用してください</TipGood>
 
 ```js
 addUtilities(newUtilities, variants('customPlugin'))
 ```
 
-Since `variants` could simply be a global list of variants to configure for every plugin in the whole project, using the `variants()` function lets you easily respect the user's configuration without reimplementing that logic yourself.
+`variants`は、プロジェクト全体のすべてのプラグインに対して構成するバリアントのグローバルリストである可能性があるため、`Variants()`関数を使用すると、ロジックを自分で再実装しなくても、ユーザーの構成を簡単に尊重できます。
 
 ```js
 // tailwind.config.js
@@ -626,11 +632,11 @@ module.exports = {
 
 ## Exposing options
 
-It often makes sense for a plugin to expose its own options that the user can configure to customize the plugin's behavior.
+プラグインがプラグインの動作をカスタマイズするためにユーザーが構成できる独自のオプションを公開することは、多くの場合意味があります。
 
-The best way to accomplish this is to claim your own key in the user's `theme` and `variants` configuration and ask them to provide any options there so you can access them with the `theme` and `variants` functions.
+これを実現する最善の方法は、ユーザーの`theme`および`variants`構成で独自のキーを要求し、`theme`および`variants`関数でアクセスできるように、そこにオプションを提供するように依頼することです。
 
-For example, here's a plugin *(extracted to its own module)* for creating simple gradient utilities that accepts the gradients and variants to generate as options:
+たとえば、オプションとして生成するグラデーションとバリアントを受け入れる単純なグラデーションユーティリティを作成するためのプラグイン*（独自のモジュールに抽出）*を次に示します。
 
 ```js
 // ./plugins/gradients.js
@@ -651,7 +657,7 @@ module.exports = plugin(function({ addUtilities, e, theme, variants }) {
 })
 ```
 
-To use it, you'd `require` it in your plugins list, specifying your configuration under the `gradients` key in both `theme` and `variants`:
+これを使用するには、プラグインリストで必須にし、`theme`と`variants`の両方の`gradients`キーで構成を指定します。
 
 ```js
 // tailwind.config.js
@@ -674,7 +680,7 @@ module.exports = {
 
 ### Providing default options
 
-To provide default `theme` and `variants` options for your plugin, pass a second argument to Tailwind's `plugin` function that includes your defaults:
+プラグインにデフォルトの`theme`および`variants`オプションを提供するには、デフォルトを含むTailwindの`plugin`関数に2番目の引数を渡します。
 
 ```js
 // ./plugins/gradients.js
@@ -697,15 +703,16 @@ module.exports = plugin(function({ addUtilities, e, theme, variants }) {
 })
 ```
 
-This object is just another [Tailwind configuration object](/docs/configuration) and has all of the same properties and features as the config object you're used to working with in `tailwind.config.js`.
+このオブジェクトは単なる別の[Tailwind構成オブジェクト](/docs/configuration)であり、`tailwind.config.js`での操作に慣れている構成オブジェクトと同じプロパティと機能をすべて備えています。
 
-By providing your defaults this way, end users will be able to [override](/docs/theme#overriding-the-default-theme) and [extend](/docs/theme#extending-the-default-theme) your defaults the same way they can with Tailwind's built-in styles.
+この方法でデフォルトを提供することにより、エンドユーザーはデフォルトを[上書き](/docs/theme#overriding-the-default-theme) および[拡張](/docs/theme#extending-the-default-theme)できるようになります。Tailwindの組み込みスタイルでできるのと同じ方法です。
 
 ---
 
 ## CSS-in-JS syntax
 
-Each of `addUtilities`, `addComponents`, and `addBase` expect CSS rules written as JavaScript objects. Tailwind uses the same sort of syntax you might recognize from CSS-in-JS libraries like [Emotion](https://emotion.sh/docs/object-styles), and is powered by [postcss-js](https://github.com/postcss/postcss-js) under the hood.
+`addUtilities`,`addComponents`および`addBase`はそれぞれ、JavaScriptオブジェクトとして記述されたCSSルールを想定しています。
+Tailwindは、[Emotion](https://emotion.sh/docs/object-styles)などのCSS-in-JSライブラリから認識できるのと同じ種類の構文を使用し、内部で[postcss-js](https://github.com/postcss/postcss-js)を利用しています。
 
 Consider this simple CSS rule:
 
@@ -717,7 +724,7 @@ Consider this simple CSS rule:
 }
 ```
 
-Translating this to a CSS-in-JS object would look like this:
+これをCSS-in-JSオブジェクトに変換すると、次のようになります。
 
 ```js
 addComponents({
@@ -729,7 +736,7 @@ addComponents({
 })
 ```
 
-For convenience, property names can also be written in camelCase and will be automatically translated to dash-case:
+便宜上、プロパティ名はキャメルケースで記述することもでき、自動的にダッシュケースに変換されます。
 
 ```js
 addComponents({
@@ -741,7 +748,7 @@ addComponents({
 })
 ```
 
-Nesting is also supported (powered by [postcss-nested](https://github.com/postcss/postcss-nested)), using the same syntax you might be familiar with from Sass or Less:
+SassやLessでおなじみの構文を使用して、ネストもサポートされています（[postcss-nested]（https://github.com/postcss/postcss-nested）を利用）。
 
 ```js
 addComponents({
@@ -759,7 +766,7 @@ addComponents({
 })
 ```
 
-Multiple rules can be defined in the same object:
+同じオブジェクトで複数のルールを定義できます。
 
 ```js
 addComponents({
@@ -785,7 +792,7 @@ addComponents({
 })
 ```
 
-...or as an array of objects in case you need to repeat the same key:
+...または同じキーを繰り返す必要がある場合のオブジェクトの配列として：
 
 ```js
 addComponents([
@@ -811,9 +818,9 @@ addComponents([
 
 ## Adding variants
 
-The `addVariant` function allows you to register your own custom [variants](/docs/pseudo-class-variants) that can be used just like the built-in hover, focus, active, etc. variants.
+`addVariant`関数を使用すると、組み込みのホバー、フォーカス、アクティブなどのバリアントと同じように使用できる独自のカスタム[variants](/docs/pseudo-class-variants)を登録できます。
 
-To add a new variant, call the `addVariant` function, passing in the name of your custom variant, and a callback that modifies the affected CSS rules as needed.
+新しいバリアントを追加するには、`addVariant`関数を呼び出して、カスタムバリアントの名前と、影響を受けるCSSルールを必要に応じて変更するコールバックを渡します。
 
 ```js
 const plugin = require('tailwindcss/plugin')
@@ -831,24 +838,24 @@ module.exports = {
 }
 ```
 
-The callback receives an object that can be destructured into the following parts:
+コールバックは、次の部分に分解できるオブジェクトを受け取ります。
 
-- `modifySelectors`, a helper function to simplify adding basic variants
-- `separator`, the user's configured [separator string](/docs/configuration#separator)
-- `container`, a [PostCSS Container](http://api.postcss.org/Container.html) containing all of the rules the variant is being applied to, for creating complex variants
+- `modifySelectors` 基本的なバリアントの追加を簡素化するヘルパー関数
+- `separator` ユーザーが構成した[区切り文字列](/docs/configuration#separator)
+- `container` 複雑なバリアントを作成するために、バリアントが適用されているすべてのルールを含む[PostCSSコンテナ](http://api.postcss.org/Container.html)
 
 ### Basic variants
 
-If you want to add a simple variant that only needs to change the selector, use the `modifySelectors` helper.
+セレクターを変更するだけでよい単純なバリアントを追加する場合は、`modifySelectors`ヘルパーを使用します。
 
-The `modifySelectors` helper accepts a function that receives an object that can be destructured into the following parts:
+`modifySelectors`ヘルパーは、次の部分に分解できるオブジェクトを受け取る関数を受け入れます。
 
-- `selector`, the complete unmodified selector for the current rule
-- `className`, the class name of the current rule *with the leading dot removed*
+- `selector` 現在のルールの完全な変更されていないセレクター
+- `className` 現在のルールのクラス名*先頭のドットを削除*
 
-The function you pass to `modifySelectors` should simply return the modified selector.
+`modifySelectors`に渡す関数は、変更されたセレクターを返すだけです。
 
-For example, a `first-child` variant plugin could be written like this:
+たとえば、`first-child`バリアントプラグインは次のように記述できます。
 
 ```js
 // tailwind.config.js
@@ -869,11 +876,11 @@ module.exports = {
 
 ### Complex variants
 
-If you need to do anything beyond simply modifying selectors (like changing the actual rule declarations, or wrapping the rules in another at-rule), you'll need to use the `container` instance.
+セレクターを変更するだけでなく（実際のルール宣言を変更したり、ルールを別のat-ruleでラップしたりするなど）何かを行う必要がある場合は、`container`インスタンスを使用する必要があります。
 
-Using the `container` instance, you can traverse all of the rules within a given module or `@variants` block and manipulate them however you like using the standard PostCSS API.
+`container`インスタンスを使用すると、特定のモジュールまたは`@variants`ブロック内のすべてのルールを横断して、標準のPostCSS APIを使用して好きなように操作できます。
 
-For example, this plugin creates an `important` version of each affected utility by prepending the class with an exclamation mark and modifying each declaration to be `important`:
+たとえば、このプラグインは、クラスの前に感嘆符を付け、各宣言を`important`に変更することにより、影響を受ける各ユーティリティの`important`バージョンを作成します。
 
 ```js
 // tailwind.config.js
@@ -895,7 +902,7 @@ module.exports = {
 }
 ```
 
-This plugin takes all of the rules inside the container, wraps them in a `@supports (display: grid)` at-rule, and prefixes each rule with `supports-grid`:
+このプラグインは、コンテナ内のすべてのルールを取得し、それらを`@supports(display:grid)` at-ruleでラップし、各ルールの前に`supports-grid`を付けます。
 
 ```js
 // tailwind.config.js
@@ -917,13 +924,13 @@ module.exports = {
 }
 ```
 
-To learn more about working with PostCSS directly, check out the [PostCSS API documentation](http://api.postcss.org/Container.html).
+PostCSSを直接操作する方法の詳細については、[PostCSS APIドキュメント](http://api.postcss.org/Container.html)を確認してください。
 
 ### Using custom variants
 
-Using custom variants is no different than using Tailwind's built-in variants.
+カスタムバリアントの使用は、Tailwindの組み込みバリアントの使用と同じです。
 
-To use custom variants with Tailwind's core plugins, add them to the `variants` section of your config file:
+Tailwindのコアプラグインでカスタムバリアントを使用するには、それらを構成ファイルの`variants`セクションに追加します。
 
 ```js
 // tailwind.config.js
@@ -934,7 +941,7 @@ modules.exports = {
 }
 ```
 
-To use custom variants with custom utilities in your own CSS, use the [variants at-rule](/docs/functions-and-directives#variants):
+独自のCSSでカスタムユーティリティを使用してカスタムバリアントを使用するには、[variants at-rule](/docs/functions-and-directives#variants)を使用します。
 
 ```css
 @variants hover, first-child {

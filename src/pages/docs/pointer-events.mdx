@@ -1,6 +1,6 @@
 ---
-title: "Pointer Events"
-description: "Utilities for controlling whether an element responds to pointer events."
+title: "ポインタイベント"
+description: "要素がポインタイベントに応答するかどうかを制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: false
@@ -14,11 +14,12 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Use `.pointer-events-auto` to revert to the default browser behavior for pointer events (like `:hover` and `click`).
+`.pointer-events-auto`を使用して、ポインタイベント（`:hover`や`click`など）のデフォルトのブラウザ動作に戻します。
 
-Use `.pointer-events-none` to make an element ignore pointer events. The pointer events will still trigger on child elements and pass-through to elements that are "beneath" the target.
+`.pointer-events-none`を使用して、要素にポインタイベントを無視させます。
+ポインタイベントは引き続き子要素でトリガーされ、ターゲットの「下」にある要素にパススルーされます。
 
 ```html
 <template preview>
@@ -74,12 +75,12 @@ Use `.pointer-events-none` to make an element ignore pointer events. The pointer
 </div>
 ```
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="pointerEvents" name="pointer event" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="pointerEvents" name="pointer event" />
