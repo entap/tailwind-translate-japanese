@@ -1,6 +1,6 @@
 ---
-title: "Text Color"
-description: "Utilities for controlling the text color of an element."
+title: "テキストの色"
+description: "要素のテキストの色を制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: true
@@ -29,9 +29,9 @@ export const classes = {
   ),
 }
 
-## Usage
+## 使用方法
 
-Control the text color of an element using the `.text-{color}` utilities.
+`.text-{color}`ユーティリティを使用して、要素のテキストの色を制御します。
 
 ```html
 <template preview class="text-center p-4">
@@ -43,9 +43,9 @@ Control the text color of an element using the `.text-{color}` utilities.
 <input class="text-purple-600 ...">
 ```
 
-### <Heading badge="v1.4.0+">Changing opacity</Heading>
+### <Heading badge="v1.4.0+">不透明度の変更</Heading>
 
-Control the opacity of an element's text color using the `.text-opacity-{amount}` utilities.
+`.text-opacity-{amount}`ユーティリティを使用して、要素のテキストの色の不透明度を制御します。
 
 ```html
 <template preview>
@@ -65,13 +65,14 @@ Control the opacity of an element's text color using the `.text-opacity-{amount}
 <p class="text-purple-700 text-opacity-0">The quick brown fox ...</p>
 ```
 
-Learn more in the [text opacity documentation](/docs/text-opacity).
+詳細については[text opacity documentation](/docs/text-opacity)をご覧ください。
 
 ## Responsive
 
-To control the text color of an element at a specific breakpoint, add a `{screen}:` prefix to any existing text color utility. For example, use `md:text-green-600` to apply the `text-green-600` utility at only medium screen sizes and above.
+特定のブレークポイントで要素のテキストの色を制御するには、既存のテキストの色ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:text-green-600`を使用して、中程度の画面サイズ以上でのみ`text-green-600`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[レスポンシブデザイン](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['text-blue-600', 'text-green-600', 'text-indigo-600', 'text-red-600', 'text-gray-900']}
@@ -90,7 +91,8 @@ For more information about Tailwind's responsive design features, check out the 
 
 ## Hover
 
-To control the text color of an element on hover, add the `hover:` prefix to any existing text color utility. For example, use `hover:text-blue-600` to apply the `text-blue-600` utility on hover.
+ホバー時に要素のテキストの色を制御するには、既存のテキストの色ユーティリティに`hover:`プレフィックスを追加します。
+たとえば、`hover:text-blue-600`を使用して、ホバーに`text-blue-600`ユーティリティを適用します。
 
 ```html
 <template preview class="text-center p-4">
@@ -104,7 +106,7 @@ To control the text color of an element on hover, add the `hover:` prefix to any
 </button>
 ```
 
-Hover utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `hover:` prefix.
+ホバーユーティリティは、レスポンシブ`{screen}:`プレフィックスを`hover:`プレフィックスの*前*に追加することで、レスポンシブユーティリティと組み合わせることもできます。
 
 ```html
 <button class="... md:text-blue-500 md:hover:text-blue-600 ...">Button</button>
@@ -112,7 +114,8 @@ Hover utilities can also be combined with responsive utilities by adding the res
 
 ## Focus
 
-To control the text color of an element on focus, add the `focus:` prefix to any existing text color utility. For example, use `focus:text-blue-600` to apply the `text-blue-600` utility on focus.
+フォーカスされている要素のテキストの色を制御するには、既存のテキストの色ユーティリティに`focus:`プレフィックスを追加します。
+たとえば、`focus:text-blue-600`を使用して、`text-blue-600`ユーティリティをフォーカスに適用します。
 
 ```html
 <template preview>
@@ -124,7 +127,7 @@ To control the text color of an element on focus, add the `focus:` prefix to any
 <input class="text-gray-900 focus:text-red-600 ...">
 ```
 
-Focus utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `focus:` prefix.
+フォーカスユーティリティは、レスポンシブ`{screen}:`プレフィックスを`focus:`プレフィックスの*前*に追加することで、レスポンシブユーティリティと組み合わせることもできます。
 
 ```html
 <input class="... md:text-gray-900 md:focus:text-red-600 ...">
@@ -134,9 +137,9 @@ Focus utilities can also be combined with responsive utilities by adding the res
 
 ### Text Colors
 
-By default Tailwind makes the entire [default color palette](/docs/customizing-colors#default-color-palette) available as text colors.
+デフォルトでは、Tailwindは[デフォルトのカラーパレット](/docs/customizing-colors#default-color-palette)全体をテキストカラーとして使用できるようにします。
 
-You can [customize your color palette](/docs/colors#customizing) by editing `theme.colors` in your `tailwind.config.js` file, or customize just your text colors in the `theme.textColor` section.
+`tailwind.config.js`ファイルの`theme.colors`を編集して[カラーパレットをカスタマイズ](/docs/colors#customizing)するか、`theme.textColor`セクションでテキストの色だけをカスタマイズできます。
 
 ```diff
   // tailwind.config.js
@@ -152,10 +155,10 @@ You can [customize your color palette](/docs/colors#customizing) by editing `the
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="textColor" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="textColor" />

@@ -1,6 +1,6 @@
 ---
-title: "Text Decoration"
-description: "Utilities for controlling the decoration of text."
+title: "テキストの装飾"
+description: "テキストの装飾を制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: false
@@ -17,7 +17,7 @@ export const classes = { plugin }
 
 ## Underline
 
-Use the `.underline` utility to underline text.
+`.underline`ユーティリティを使用して、テキストに下線を付けます。
 
 ```html
 <template preview>
@@ -29,7 +29,7 @@ Use the `.underline` utility to underline text.
 
 ## Line Through
 
-Use the `.line-through` utility to strike out text.
+`.line-through`ユーティリティを使用して、テキストを削除します。
 
 ```html
 <template preview>
@@ -41,7 +41,7 @@ Use the `.line-through` utility to strike out text.
 
 ## No Underline
 
-Use the `.no-underline` utility to remove underline or line-through styling.
+`.no-underline`ユーティリティを使用して、下線またはラインスルースタイルを削除します。
 
 ```html
 <template preview>
@@ -55,9 +55,10 @@ Use the `.no-underline` utility to remove underline or line-through styling.
 
 ## Responsive
 
-To control the text decoration of an element at a specific breakpoint, add a `{screen}:` prefix to any existing text decoration utility. For example, use `md:underline` to apply the `underline` utility at only medium screen sizes and above.
+特定のブレークポイントで要素のテキスト装飾を制御するには、既存のテキスト装飾ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:underline`を使用して、中程度の画面サイズ以上でのみ`underline`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+For more information about Tailwind's responsive design Tailwindのレスポンシブデザイン機能の詳細については、[レスポンシブデザイン](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['underline', 'no-underline', 'line-through', 'underline', 'no-underline']}
@@ -73,7 +74,8 @@ For more information about Tailwind's responsive design features, check out the 
 
 ## Hover
 
-To control the text decoration of an element on hover, add the `hover:` prefix to any existing text decoration utility. For example, use `hover:underline` to apply the `underline` utility on hover.
+ホバー時の要素のテキスト装飾を制御するには、既存のテキスト装飾ユーティリティに`hover:`プレフィックスを追加します。
+たとえば、`hover:underline`を使用して、ホバーに`underline`ユーティリティを適用します。
 
 ```html
 <template preview class="text-center p-4">
@@ -81,7 +83,7 @@ To control the text decoration of an element on hover, add the `hover:` prefix t
 </template>
 ```
 
-Hover utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `hover:` prefix.
+ホバーユーティリティは、レスポンシブ`{screen}:`プレフィックスを`hover:`プレフィックスの*前*に追加することで、レスポンシブユーティリティと組み合わせることもできます。
 
 ```html
 <a href="#" class="... md:no-underline md:hover:underline ...">Link</a>
@@ -89,7 +91,7 @@ Hover utilities can also be combined with responsive utilities by adding the res
 
 ## Focus
 
-To control the text decoration of an element on focus, add the `focus:` prefix to any existing text decoration utility. For example, use `focus:underline` to apply the `underline` utility on focus.
+フォーカスされている要素のテキスト装飾を制御するには、既存のテキスト装飾ユーティリティに`focus:`プレフィックスを追加します。たとえば、`focus:underline`を使用して、`underline`ユーティリティをフォーカスに適用します。
 
 ```html
 <template preview>
@@ -101,7 +103,7 @@ To control the text decoration of an element on focus, add the `focus:` prefix t
 <input class="focus:underline ..." value="Focus me">
 ```
 
-Focus utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `focus:` prefix.
+フォーカスユーティリティは、レスポンシブ`{screen}:`プレフィックスを`focus:`プレフィックスの*前*に追加することで、レスポンシブユーティリティと組み合わせることもできます。
 
 ```html
 <input class="md:focus:underline ..." value="Focus me">
@@ -109,10 +111,10 @@ Focus utilities can also be combined with responsive utilities by adding the res
 
 ## Customizing
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="textDecoration" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="textDecoration" />

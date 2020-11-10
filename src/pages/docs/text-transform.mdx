@@ -1,6 +1,6 @@
 ---
-title: "Text Transform"
-description: "Utilities for controlling the transformation of text."
+title: "テキスト変換"
+description: "テキストの変換を制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: false
@@ -17,7 +17,7 @@ export const classes = { plugin }
 
 ## Normal Case
 
-Use the `.normal-case` utility to preserve the original casing. This is typically used to reset capitalization at different breakpoints.
+`.normal-case`ユーティリティを使用して、元のケーシングを保持します。これは通常、さまざまなブレークポイントで大文字をリセットするために使用されます。
 
 ```html
 <template preview>
@@ -29,7 +29,7 @@ Use the `.normal-case` utility to preserve the original casing. This is typicall
 
 ## Uppercase
 
-Use the `.uppercase` utility to uppercase text.
+テキストを大文字にするには、`.uppercase`ユーティリティを使用します。
 
 ```html
 <template preview>
@@ -41,7 +41,7 @@ Use the `.uppercase` utility to uppercase text.
 
 ## Lowercase
 
-Use the `.lowercase` utility to lowercase text.
+`.lowercase`ユーティリティを使用してテキストを小文字にします。
 
 ```html
 <template preview>
@@ -53,7 +53,7 @@ Use the `.lowercase` utility to lowercase text.
 
 ## Capitalize
 
-Use the `.capitalize` utility to capitalize text.
+`.capitalize`ユーティリティを使用してテキストを大文字にします。
 
 ```html
 <template preview>
@@ -65,9 +65,10 @@ Use the `.capitalize` utility to capitalize text.
 
 ## Responsive
 
-To control the text transformation of an element at a specific breakpoint, add a `{screen}:` prefix to any existing text transformation utility. For example, use `md:uppercase` to apply the `uppercase` utility at only medium screen sizes and above.
+特定のブレークポイントで要素のテキスト変換を制御するには、既存のテキスト変換ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:uppercase`を使用して、中程度の画面サイズ以上でのみ`uppercase`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[レスポンシブデザイン](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['uppercase', 'lowercase', 'capitalize', 'normal-case', 'uppercase']}
@@ -83,10 +84,10 @@ For more information about Tailwind's responsive design features, check out the 
 
 ## Customizing
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="textTransform" name="text transformation" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="textTransform" name="text transformation" />

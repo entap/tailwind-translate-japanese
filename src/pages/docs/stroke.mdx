@@ -1,6 +1,6 @@
 ---
-title: "Stroke"
-description: "Utilities for styling the stroke of SVG elements."
+title: "ストローク"
+description: "SVG要素のストロークをデザインするためのユーティリティ。"
 ---
 
 import plugin from 'tailwindcss/lib/plugins/stroke'
@@ -9,11 +9,12 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Use `.stroke-current` to set the stroke color of an SVG to the current text color. This makes it easy to set an element's stroke color by combining this class with an existing [text color utility](/docs/text-color).
+`.stroke-current`を使用して、SVGのストロークの色を現在のテキストの色に設定します。 
+これにより、このクラスを既存の[テキストカラーユーティリティ](/docs/text-color)と組み合わせて、要素のストロークカラーを簡単に設定できます。
 
-Useful for styling icon sets like [Feather](https://feathericons.com/) that are drawn entirely with strokes.
+完全にストロークで描画される[Feather](https://feathericons.com/)のようなアイコンセットのスタイリングに役立ちます。
 
 ```html
 <template preview class="text-center p-4">
@@ -27,7 +28,7 @@ Useful for styling icon sets like [Feather](https://feathericons.com/) that are 
 
 ## Customizing
 
-Control which stroke utilities Tailwind generates by customizing the `theme.stroke` section in your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`theme.stroke`セクションをカスタマイズして、Tailwindが生成するストロークユーティリティを制御します。
 
 ```diff
   // tailwind.config.js
@@ -45,10 +46,10 @@ Control which stroke utilities Tailwind generates by customizing the `theme.stro
   }
 ```
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="stroke" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="stroke" />

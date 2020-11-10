@@ -1,6 +1,6 @@
 ---
-title: "Text Opacity"
-description: "Utilities for controlling the opacity of an element's text color."
+title: "テキストの不透明度"
+description: "要素のテキストの色の不透明度を制御するためのユーティリティ。"
 featureVersion: "v1.4.0+"
 ---
 
@@ -11,9 +11,9 @@ import { TipGood, TipBad } from '@/components/Tip'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Control the opacity of an element's text color using the `.text-opacity-{amount}` utilities.
+`.text-opacity-{amount}`ユーティリティを使用して、要素のテキストの色の不透明度を制御します。
 
 ```html
 <template preview>
@@ -33,9 +33,9 @@ Control the opacity of an element's text color using the `.text-opacity-{amount}
 <p class="text-purple-700 text-opacity-0">The quick brown fox ...</p>
 ```
 
-Note that because these utilities are implemented using CSS custom properties, a `.text-{color}` utility must be present on the same element for them to work.
+これらのユーティリティはCSSカスタムプロパティを使用して実装されているため、これらが機能するには、`.text-{color}`ユーティリティが同じ要素に存在する必要があることに注意してください。
 
-<TipBad>Don't try to use text opacity utilities on an inherited text color</TipBad>
+<TipBad>継承されたテキストの色でテキスト不透明度ユーティリティを使用しようとしないでください</TipBad>
 
 ```html
 <div class="text-black">
@@ -43,7 +43,7 @@ Note that because these utilities are implemented using CSS custom properties, a
 </div>
 ```
 
-<TipGood>Do make sure to add a text color utility to the same element explicitly</TipGood>
+<TipGood>同じ要素にテキストカラーユーティリティを明示的に追加してください</TipGood>
 
 ```html
 <div class="text-black">
@@ -53,7 +53,8 @@ Note that because these utilities are implemented using CSS custom properties, a
 
 ## Responsive
 
-To control an element's text color opacity at a specific breakpoint, add a `{screen}:` prefix to any existing text color opacity utility. For example, use `md:text-opacity-50` to apply the `text-opacity-50` utility at only medium screen sizes and above.
+特定のブレークポイントで要素のテキストの色の不透明度を制御するには、既存のテキストの色の不透明度ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:text-opacity-50`を使用して、中程度の画面サイズ以上でのみ`text-opacity-50`ユーティリティを適用します。
 
 ```html
 <div class="text-blue-500 text-opacity-75 md:text-opacity-50">
@@ -61,11 +62,11 @@ To control an element's text color opacity at a specific breakpoint, add a `{scr
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[レスポンシブデザイン](/docs/responsive-design)のドキュメントをご覧ください。
 
 ## Customizing
 
-To customize the opacity values for all opacity-related utilities at once, use the `opacity` section of your `tailwind.config.js` theme configuration:
+すべての不透明度関連ユーティリティの不透明度値を一度にカスタマイズするには、`tailwind.config.js`テーマ設定の`opacity`セクションを使用します。
 
 ```diff
   // tailwind.config.js
@@ -82,7 +83,7 @@ To customize the opacity values for all opacity-related utilities at once, use t
   }
 ```
 
-If you want to customize only the text opacity utilities, use the `textOpacity` section:
+テキスト不透明度ユーティリティのみをカスタマイズする場合は、`textOpacity`セクションを使用します。
 
 ```diff
   // tailwind.config.js
@@ -99,12 +100,12 @@ If you want to customize only the text opacity utilities, use the `textOpacity` 
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+デフォルトテーマのカスタマイズについては[テーマのカスタマイズ](/docs/theme#customizing-the-default-theme)をご覧ください。
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="textOpacity" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="textOpacity" />

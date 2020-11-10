@@ -1,6 +1,6 @@
 ---
-title: "Stroke Width"
-description: "Utilities for styling the stroke width of SVG elements."
+title: "ストローク幅"
+description: "SVG要素のストローク幅をスタイリングするためのユーティリティ。"
 featureVersion: "v1.2.0+"
 ---
 
@@ -11,11 +11,11 @@ import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Use the `.stroke-{width}` utilities to set the stroke width of an SVG.
+`.stroke-{width}`ユーティリティを使用して、SVGのストローク幅を設定します。
 
-Useful for styling icon sets like [Feather](https://feathericons.com/) that are drawn entirely with strokes.
+完全にストロークで描画される[Feather](https://feathericons.com/) のようなアイコンセットのスタイリングに役立ちます。
 
 ```html
 <template preview class="text-center p-4">
@@ -45,9 +45,10 @@ Useful for styling icon sets like [Feather](https://feathericons.com/) that are 
 
 ## Responsive
 
-To control the stroke width of an SVG element at a specific breakpoint, add a `{screen}:` prefix to any existing width utility. For example, adding the class `md:stroke-2` to an element would apply the `stroke-2` utility at medium screen sizes and above.
+特定のブレークポイントでSVG要素のストローク幅を制御するには、既存の幅ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:stroke-2`クラスを要素に追加すると、中程度の画面サイズ以上で`stroke-2`ユーティリティが適用されます。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[レスポンシブデザイン](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['stroke-1', 'stroke-2', 'stroke-1', 'stroke-0', 'stroke-1']}
@@ -72,7 +73,7 @@ For more information about Tailwind's responsive design features, check out the 
 
 ## Customizing
 
-Control which stroke-width utilities Tailwind generates by customizing the `theme.strokeWidth` section in your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`theme.strokeWidth`セクションをカスタマイズして、Tailwindが生成するストローク幅ユーティリティを制御します。
 
 ```diff
   // tailwind.config.js
@@ -88,12 +89,12 @@ Control which stroke-width utilities Tailwind generates by customizing the `them
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+デフォルトテーマのカスタマイズについては[テーマのカスタマイズ](/docs/theme#customizing-the-default-theme)をご覧ください。
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="strokeWidth" name="stroke-width" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="strokeWidth" name="stroke-width" />

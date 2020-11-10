@@ -1,7 +1,7 @@
 ---
-title: "Text Alignment"
+title: "テキストの配置"
 shortTitle: Text Align
-description: "Utilities for controlling the alignment of text."
+description: "テキストの配置を制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: true
@@ -16,9 +16,9 @@ import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Control the text alignment of an element using the `.text-left`, `.text-center`, `.text-right`, and `.text-justify` utilities.
+`.text-left`,`.text-center`,`.text-right`および`.text-justify`ユーティリティを使用して要素のテキスト配置を制御します。
 
 ```html
 <template preview>
@@ -48,9 +48,10 @@ Control the text alignment of an element using the `.text-left`, `.text-center`,
 
 ## Responsive
 
-To control the text alignment of an element at a specific breakpoint, add a `{screen}:` prefix to any existing text alignment utility. For example, use `md:text-center` to apply the `text-center` utility at only medium screen sizes and above.
+特定のブレークポイントで要素のテキスト配置を制御するには、既存のテキスト配置ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:text-center`を使用して、中程度の画面サイズ以上でのみ`text-center`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[レスポンシブデザイン](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['text-left', 'text-center', 'text-right', 'text-justify', 'text-center']}
@@ -64,10 +65,10 @@ For more information about Tailwind's responsive design features, check out the 
 
 ## Customizing
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="textAlign" name="text alignment" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="textAlign" name="text alignment" />

@@ -1,6 +1,6 @@
 ---
-title: "Transform Origin"
-description: "Utilities for specifying the origin for an element's transformations."
+title: "原点変換"
+description: "要素の変換の原点を指定するためのユーティリティ。"
 featureVersion: "v1.2.0+"
 ---
 
@@ -13,7 +13,7 @@ export const classes = { plugin }
 
 ## Usage
 
-Specify an element's transform origin using the `origin-{keyword}` utilities.
+`origin-{keyword}`ユーティリティを使用して、要素の変換原点を指定します。
 
 ```html
 <template preview class="bg-white lg:flex justify-around items-center text-sm p-4 py-12">
@@ -39,9 +39,10 @@ Specify an element's transform origin using the `origin-{keyword}` utilities.
 
 ## Responsive
 
-To control the transform-origin of an element at a specific breakpoint, add a `{screen}:` prefix to any existing transform-origin utility. For example, use `md:origin-top` to apply the `origin-top` utility at only medium screen sizes and above.
+特定のブレークポイントで要素の変換原点を制御するには、既存の変換原点ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、`md:origin-top`を使用して、中程度の画面サイズ以上でのみ`origin-top`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[レスポンシブデザイン](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['origin-center', 'origin-top-left', 'origin-top-right', 'origin-bottom-right', 'origin-bottom-left']}
@@ -60,7 +61,8 @@ For more information about Tailwind's responsive design features, check out the 
 
 ### Origin values
 
-By default Tailwind provides transform-origin utilities for all of the built-in browser keyword options. You change, add, or remove these by customizing the `transformOrigin` section of your Tailwind theme config.
+デフォルトでは、Tailwindは、すべての組み込みブラウザーキーワードオプションに変換オリジンユーティリティを提供します。
+Tailwindテーマ設定の`transformOrigin`セクションをカスタマイズして、これらを変更、追加、または削除します。
 
 ```diff
   // tailwind.config.js
@@ -76,12 +78,12 @@ By default Tailwind provides transform-origin utilities for all of the built-in 
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+デフォルトテーマのカスタマイズについては[テーマのカスタマイズ](/docs/theme#customizing-the-default-theme)をご覧ください。
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="transformOrigin" name="transform-origin" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="transformOrigin" name="transform-origin" />
