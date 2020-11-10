@@ -1,6 +1,6 @@
 ---
-title: Pseudo-Class Variants
-description: Using utilities to style elements on hover, focus, and more.
+title: 疑似クラスバリアント
+description: ユーティリティを使用して、ホバー、フォーカスなどの要素のスタイルを設定します。
 ---
 
 import { Heading } from '@/components/Heading'
@@ -10,7 +10,7 @@ import { DefaultVariantsConfig } from '@/components/DefaultVariantsConfig'
 
 ## <Heading hidden>Overview</Heading>
 
-Similar to how Tailwind handles [responsive design](/docs/responsive-design), styling elements on hover, focus, and more can be accomplished by prefixing utilities with the appropriate pseudo-class.
+Tailwindが[レスポンシブデザイン](/docs/responsive-design)を処理する方法と同様に、ホバー、フォーカスなどのスタイル要素は、ユーティリティに適切な疑似クラスをプレフィックスとして付けることで実現できます。
 
 ```html
 <template preview>
@@ -30,17 +30,17 @@ Similar to how Tailwind handles [responsive design](/docs/responsive-design), st
 </form>
 ```
 
-**Not all pseudo-class variants are enabled for all utilities by default due to file-size considerations**, but we've tried our best to enable the most commonly used combinations out of the box.
+**ファイルサイズを考慮して、すべてのユーティリティですべての疑似クラスバリアントがデフォルトで有効になっているわけではありません**が、最も一般的に使用される組み合わせをそのまま有効にするように最善を尽くしました。
 
-For a complete list of which variants are enabled by default, see the [reference table](#default-variants-reference) at the end of this page.
+デフォルトで有効になっているバリアントの完全なリストについては、このページの最後にある[reference table](#default-variants-reference)を参照してください。
 
-If you need to target a pseudo-class that Tailwind doesn't support, you can extend the supported variants by [writing a variant plugin](#creating-custom-variants).
+Tailwindがサポートしていない疑似クラスをターゲットにする必要がある場合は、[バリアントプラグインを作成する](#creating-custom-variants)ことでサポートされているバリアントを拡張できます。
 
 ---
 
 ## Hover
 
-Add the `hover:` prefix to only apply a utility on hover.
+ホバーにのみユーティリティを適用するには、`hover:`プレフィックスを追加します。
 
 ```html
 <template preview class="text-center p-4">
@@ -54,7 +54,7 @@ Add the `hover:` prefix to only apply a utility on hover.
 </button>
 ```
 
-You can control whether `hover` variants are enabled for a utility in the `variants` section of your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`variants`セクションでユーティリティに対して`hover`バリアントを有効にするかどうかを制御できます。
 
 ```js
 // tailwind.config.js
@@ -68,7 +68,7 @@ module.exports = {
 
 ## Focus
 
-Add the `focus:` prefix to only apply a utility on focus.
+フォーカスにユーティリティのみを適用するには、`focus:`プレフィックスを追加します。
 
 ```html
 <template preview>
@@ -80,7 +80,7 @@ Add the `focus:` prefix to only apply a utility on focus.
 <input class="bg-gray-200 focus:bg-white border-transparent focus:border-blue-400 ..." placeholder="Focus me">
 ```
 
-You can control whether `focus` variants are enabled for a utility in the `variants` section of your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`variants`セクションでユーティリティに対して`focus`バリアントを有効にするかどうかを制御できます。
 
 ```js
 // tailwind.config.js
@@ -94,7 +94,7 @@ module.exports = {
 
 ## Active
 
-Add the `active:` prefix to only apply a utility when an element is active.
+要素がアクティブな場合にのみユーティリティを適用するには、`active:`プレフィックスを追加します。
 
 ```html
 <template preview class="text-center p-4">
@@ -108,7 +108,7 @@ Add the `active:` prefix to only apply a utility when an element is active.
 </button>
 ```
 
-You can control whether `active` variants are enabled for a utility in the `variants` section of your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`variants`セクションでユーティリティに対して`active`バリアントを有効にするかどうかを制御できます。
 
 ```js
 // tailwind.config.js
@@ -122,7 +122,7 @@ module.exports = {
 
 ## Group-hover
 
-If you need to style a child element when hovering over a specific parent element, add the `.group` class to the parent element and add the `group-hover:` prefix to the utility on the child element.
+特定の親要素にカーソルを合わせるときに子要素のスタイルを設定する必要がある場合は、親要素に`.group`クラスを追加し、子要素のユーティリティに`group-hover:`プレフィックスを追加します。
 
 ```html
 <template preview class="bg-gray-200 p-8">
@@ -138,7 +138,7 @@ If you need to style a child element when hovering over a specific parent elemen
 </div>
 ```
 
-You can control whether `group-hover` variants are enabled for a utility in the `variants` section of your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`variants`セクションでユーティリティに対して`group-hover`バリアントを有効にするかどうかを制御できます。
 
 ```js
 // tailwind.config.js
@@ -152,7 +152,7 @@ module.exports = {
 
 ## <Heading badge="v1.3.0+">Group-focus</Heading>
 
-The `group-focus` variant works just like [`group-hover`](#group-hover) except for focus:
+`group-focus`バリアントは、フォーカスを除いて[`group-hover`](#group-hover)と同じように機能します。
 
 ```html
 <template preview class="text-center p-8">
@@ -170,7 +170,7 @@ The `group-focus` variant works just like [`group-hover`](#group-hover) except f
 </button>
 ```
 
-You can control whether `group-focus` variants are enabled for a utility in the `variants` section of your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`variants`セクションでユーティリティに対して`group-focus`バリアントを有効にするかどうかを制御できます。
 
 ```js
 // tailwind.config.js
@@ -186,9 +186,9 @@ module.exports = {
 
 ## Focus-within
 
-<TipCompat>Note that focus-within is not supported in IE or Edge &lt; 79.</TipCompat>
+<TipCompat>focus-withinはIEまたはEdge&lt; 79ではサポートされていないことに注意してください </TipCompat>
 
-Add the `focus-within:` prefix to only apply a utility when a child element has focus.
+子要素にフォーカスがある場合にのみユーティリティを適用するには、`focus-within:`プレフィックスを追加します。
 
 ```html
 <template preview class="p-8">
@@ -210,7 +210,7 @@ Add the `focus-within:` prefix to only apply a utility when a child element has 
 </form>
 ```
 
-You can control whether `focus-within` variants are enabled for a utility in the `variants` section of your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`variants`セクションでユーティリティに対して`focus-within`バリアントを有効にするかどうかを制御できます。
 
 ```js
 // tailwind.config.js
@@ -224,9 +224,9 @@ module.exports = {
 
 ## <Heading badge="v1.5.0+">Focus-visible</Heading>
 
-<TipCompat>Note that focus-visible currently requires a polyfill for sufficient browser support.</TipCompat>
+<TipCompat>現在、focus-visibleには、十分なブラウザサポートのためにポリフィルが必要であることに注意してください。</TipCompat>
 
-Add the `focus-visible:` prefix to only apply a utility when an element has focus but only if the user is using the keyboard.
+`focus-visible:`プレフィックスを追加して、要素にフォーカスがある場合にのみユーティリティを適用しますが、ユーザーがキーボードを使用している場合に限ります。
 
 ```html
 <template preview class="p-8">
@@ -254,7 +254,10 @@ Add the `focus-visible:` prefix to only apply a utility when an element has focu
 </ul>
 ```
 
-Note that currently only [Firefox and Chrome](https://caniuse.com/?search=focus-visible) support `focus-visible` natively, so for sufficient browser support you should install and configure both the [focus-visible JS polyfill](https://github.com/WICG/focus-visible) and the [focus-visible PostCSS polyfill](https://github.com/csstools/postcss-focus-visible). Make sure to include the PostCSS plugin _after_ Tailwind in your list of PostCSS plugins:
+現在、[FirefoxとChrome](https://caniuse.com/?search=focus-visible)のみがネイティブで `focus-visible`をサポートしていることに注意してください。
+十分なブラウザサポートのために[focus-visible JS polyfill](https://github.com/WICG/focus-visible)と
+[focus-visible PostCSS polyfill](https://github.com/csstools/postcss-focus-visible)の両方をインストールして構成する必要があります。
+PostCSSプラグインのリストにPostCSSプラグインの _後に_ Tailwindを必ず含めてください。
 
 ```js
 // postcss.config.js
@@ -267,7 +270,7 @@ module.exports = {
 }
 ```
 
-You can control whether `focus-visible` variants are enabled for a utility in the `variants` section of your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`variants`セクションでユーティリティに対して`focus-visible`バリアントを有効にするかどうかを制御できます。
 
 ```js
 // tailwind.config.js
@@ -281,9 +284,9 @@ module.exports = {
 
 ## <Heading badge="v1.6.0+">Motion-safe</Heading>
 
-Add the `motion-safe:` prefix to only apply a utility when the `prefers-reduced-motion` media feature matches `no-preference`.
+`motion-safe:`プレフィックスを追加して、`prefers-reduced-motion`メディア機能が`no-preference`と一致する場合にのみユーティリティを適用します。
 
-For example, this button will only animate on hover if the user hasn't enabled "Reduce motion" on their system.
+たとえば、このボタンは、ユーザーがシステムで「モーションを減らす」を有効にしていない場合にのみ、ホバー時にアニメーション化します。
 
 ```html
 <template preview class="p-6 text-center">
@@ -297,7 +300,7 @@ For example, this button will only animate on hover if the user hasn't enabled "
 </button>
 ```
 
-Note that unlike most other variants, `motion-safe` can be combined with both responsive variants _and_ other variants like `hover`, by stacking them in this order:
+他のほとんどのバリアントとは異なり、`motion-safe`は、次の順序でスタックすることにより、応答性のあるバリアントと`hover`などの他のバリアントの両方と組み合わせることができます。
 
 ```html
 <div class="sm:motion-safe:hover:animate-spin">
@@ -305,7 +308,7 @@ Note that unlike most other variants, `motion-safe` can be combined with both re
 </div>
 ```
 
-You can control whether `motion-safe` variants are enabled for a utility in the `variants` section of your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`variants`セクションでユーティリティに対して`motion-safe`バリアントを有効にするかどうかを制御できます。
 
 ```js
 // tailwind.config.js
@@ -319,9 +322,9 @@ module.exports = {
 
 ## <Heading badge="v1.6.0+">Motion-reduce</Heading>
 
-Add the `motion-reduce:` prefix to only apply a utility when the `prefers-reduced-motion` media feature matches `reduce`.
+`motion-reduce:`プレフィックスを追加して、`prefers-reduced-motion`メディア機能が`reduce`と一致する場合にのみユーティリティを適用します。
 
-For example, this button will animate on hover by default, but the animations will be disabled if the user has enabled "Reduce motion" on their system.
+たとえば、このボタンはデフォルトでホバー時にアニメーション化しますが、ユーザーがシステムで「モーションを減らす」を有効にしている場合、アニメーションは無効になります。
 
 ```html
 <template preview class="p-6 text-center">
@@ -335,7 +338,7 @@ For example, this button will animate on hover by default, but the animations wi
 </button>
 ```
 
-Note that unlike most other variants, `motion-reduce` can be combined with both responsive variants _and_ other variants like `hover`, by stacking them in this order:
+他のほとんどのバリアントとは異なり、`motion-reduce`は、次の順序でスタックすることにより、応答性のあるバリアントと`hover`などの他のバリアントの両方と組み合わせることができます。
 
 ```html
 <div class="sm:motion-reduce:hover:animate-none">
@@ -343,7 +346,7 @@ Note that unlike most other variants, `motion-reduce` can be combined with both 
 </div>
 ```
 
-You can control whether `motion-reduce` variants are enabled for a utility in the `variants` section of your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`variants`セクションでユーティリティに対して`motion-reduce`バリアントを有効にするかどうかを制御できます。
 
 ```js
 // tailwind.config.js
@@ -357,7 +360,7 @@ module.exports = {
 
 ## <Heading badge="v1.1.0+">Disabled</Heading>
 
-Add the `disabled:` prefix to only apply a utility when an element is disabled.
+要素が無効になっている場合にのみユーティリティを適用するには、`disabled:`プレフィックスを追加します。
 
 ```html
 <template preview class="text-center p-4">
@@ -378,7 +381,7 @@ Add the `disabled:` prefix to only apply a utility when an element is disabled.
 </button>
 ```
 
-You can control whether `disabled` variants are enabled for a utility in the `variants` section of your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`variants`セクションでユーティリティに対して`disabled`バリアントを有効にするかどうかを制御できます。
 
 ```js
 // tailwind.config.js
@@ -392,7 +395,7 @@ module.exports = {
 
 ## <Heading badge="v1.1.0+">Visited</Heading>
 
-Add the `visited:` prefix to only apply a utility when a link has been visited.
+リンクにアクセスした場合にのみユーティリティを適用するには、`visited:`プレフィックスを追加します。
 
 ```html
 <template preview class="text-center p-4">
@@ -403,7 +406,7 @@ Add the `visited:` prefix to only apply a utility when a link has been visited.
 <a href="#" class="text-blue-600 visited:text-purple-600 ...">Link</a>
 ```
 
-You can control whether `visited` variants are enabled for a utility in the `variants` section of your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`variants`セクションでユーティリティに対して`visited`バリアントを有効にするかどうかを制御できます。
 
 ```js
 // tailwind.config.js
@@ -417,7 +420,7 @@ module.exports = {
 
 ## <Heading badge="v1.5.0+">Checked</Heading>
 
-Add the `checked:` prefix to only apply a utility when a radio or checkbox is currently checked.
+`checked:`プレフィックスを追加して、ラジオまたはチェックボックスが現在チェックされている場合にのみユーティリティを適用します。
 
 ```html
 <template preview class="flex items-center justify-center p-8">
@@ -440,7 +443,7 @@ Add the `checked:` prefix to only apply a utility when a radio or checkbox is cu
 <input type="radio" class="appearance-none checked:bg-gray-900 checked:border-transparent ...">
 ```
 
-You can control whether `checked` variants are enabled for a utility in the `variants` section of your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`variants`セクションでユーティリティに対して`checked`バリアントを有効にするかどうかを制御できます。
 
 ```js
 // tailwind.config.js
@@ -454,7 +457,8 @@ module.exports = {
 
 ## <Heading badge="v1.1.0+">First-child</Heading>
 
-Add the `first:` prefix to only apply a utility when it is the first-child of its parent. This is mostly useful when elements are being generated in some kind of loop.
+`first:`プレフィックスを追加して、ユーティリティが親の最初の子である場合にのみユーティリティを適用します。
+これは、要素が何らかのループで生成されている場合に最も役立ちます。
 
 ```html
 <template preview class="text-center p-4">
@@ -472,9 +476,9 @@ Add the `first:` prefix to only apply a utility when it is the first-child of it
 </div>
 ```
 
-It's important to note that you should add any `first:` utilities to the child element, not the parent element.
+親要素ではなく、子要素に`first:`ユーティリティを追加する必要があることに注意することが重要です。
 
-You can control whether `first` variants are enabled for a utility in the `variants` section of your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`variants`セクションでユーティリティに対して`first`バリアントを有効にするかどうかを制御できます。
 
 ```js
 // tailwind.config.js
@@ -488,7 +492,7 @@ module.exports = {
 
 ## <Heading badge="v1.1.0+">Last-child</Heading>
 
-Add the `last:` prefix to only apply a utility when it is the last-child of its parent. This is mostly useful when elements are being generated in some kind of loop.
+`last:`プレフィックスを追加して、ユーティリティが親の最後の子である場合にのみユーティリティを適用します。これは、要素が何らかのループで生成されている場合に最も役立ちます。
 
 ```html
 <template preview class="text-center p-4">
@@ -506,9 +510,9 @@ Add the `last:` prefix to only apply a utility when it is the last-child of its 
 </div>
 ```
 
-It's important to note that you should add any `last:` utilities to the child element, not the parent element.
+親要素ではなく、子要素に`last:`ユーティリティを追加する必要があることに注意することが重要です。
 
-You can control whether `last` variants are enabled for a utility in the `variants` section of your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`variants`セクションでユーティリティに対して`last`バリアントを有効にするかどうかを制御できます。
 
 ```js
 // tailwind.config.js
@@ -522,7 +526,8 @@ module.exports = {
 
 ## <Heading badge="v1.1.0+">Odd-child</Heading>
 
-Add the `odd:` prefix to only apply a utility when it is an odd-child of its parent. This is mostly useful when elements are being generated in some kind of loop.
+親の奇数の子である場合にのみユーティリティを適用するには、`odd:`プレフィックスを追加します。これは、要素が何らかのループで生成されている場合に最も役立ちます。
+
 
 ```html
 <template preview class="text-center p-4">
@@ -540,9 +545,9 @@ Add the `odd:` prefix to only apply a utility when it is an odd-child of its par
 </div>
 ```
 
-It's important to note that you should add any `odd:` utilities to the child element, not the parent element.
+親要素ではなく、子要素に`odd:`ユーティリティを追加する必要があることに注意することが重要です。
 
-You can control whether `odd` variants are enabled for a utility in the `variants` section of your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`variants`セクションでユーティリティに対して`odd`バリアントを有効にするかどうかを制御できます。
 
 ```js
 // tailwind.config.js
@@ -556,7 +561,7 @@ module.exports = {
 
 ## <Heading badge="v1.1.0+">Even-child</Heading>
 
-Add the `even:` prefix to only apply a utility when it is an even-child of its parent. This is mostly useful when elements are being generated in some kind of loop.
+親の偶数の子である場合にのみユーティリティを適用するには、`even:`プレフィックスを追加します。これは、要素が何らかのループで生成されている場合に最も役立ちます。
 
 ```html
 <template preview class="text-center p-4">
@@ -574,9 +579,9 @@ Add the `even:` prefix to only apply a utility when it is an even-child of its p
 </div>
 ```
 
-It's important to note that you should add any `even:` utilities to the child element, not the parent element.
+親要素ではなく、子要素に`even:`ユーティリティを追加する必要があることに注意することが重要です。
 
-You can control whether `even` variants are enabled for a utility in the `variants` section of your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`variants`セクションでユーティリティに対して`even`バリアントを有効にするかどうかを制御できます。
 
 ```js
 // tailwind.config.js
@@ -592,9 +597,9 @@ module.exports = {
 
 ## Combining with responsive prefixes
 
-Pseudo-class variants are also responsive, meaning you can do things like change an element's hover style at different breakpoints for example.
+疑似クラスのバリアントも応答性があります。つまり、たとえばさまざまなブレークポイントで要素のホバースタイルを変更するなどのことができます。
 
-To apply a pseudo-class variant at a specific breakpoint, add the responsive prefix first, before the pseudo-class prefix:
+特定のブレークポイントに疑似クラスバリアントを適用するには、疑似クラスプレフィックスの前にレスポンシブプレフィックスを最初に追加します。
 
 <ResponsiveCodeSample
   classNames={['bg-orange-500 hover:bg-orange-600', 'bg-green-500 hover:bg-green-600', 'bg-red-500 hover:bg-red-600', 'bg-indigo-500 hover:bg-indigo-600', 'bg-pink-500 hover:bg-pink-600']}
@@ -609,7 +614,7 @@ To apply a pseudo-class variant at a specific breakpoint, add the responsive pre
 
 ## Generative variants for custom utilities
 
-You can generate pseudo-class variants for your own custom utilities by wrapping them with the `@variants` directive in your CSS:
+CSSの`@variants`ディレクティブでラップすることにより、独自のカスタムユーティリティの疑似クラスバリアントを生成できます。
 
 ```css
 /* Input: */
@@ -635,15 +640,15 @@ You can generate pseudo-class variants for your own custom utilities by wrapping
 
 ```
 
-For more information, see the [@variants directive documentation](/docs/functions-and-directives#variants).
+詳細については、[@Variantsディレクティブのドキュメント](/docs/functions-and-directives#variants)を参照してください。
 
 ---
 
 ## Creating custom variants
 
-You can create your own variants for any pseudo-classes Tailwind doesn't include by default by writing a custom variant plugin.
+カスタムバリアントプラグインを作成することにより、Tailwindにデフォルトで含まれていない疑似クラスの独自のバリアントを作成できます。
 
-For example, this simple plugin adds support for the `disabled` pseudo-class variant:
+たとえば、この単純なプラグインは、`disabled`疑似クラスバリアントのサポートを追加します。
 
 ```js
 // tailwind.config.js
@@ -662,14 +667,14 @@ module.exports = {
 }
 ```
 
-Learn more about writing variant plugins in the [variant plugin documentation](/docs/plugins#adding-variants).
+バリアントプラグインの作成について詳しくは、[バリアントプラグインのドキュメント](/docs/plugins#adding-variants)をご覧ください。
 
 ---
 
 ## Default variants reference
 
-Due to file-size considerations, Tailwind does not include all variants for all utilities by default.
+ファイルサイズを考慮しているため、Tailwindには、デフォルトですべてのユーティリティのすべてのバリアントが含まれているわけではありません。
 
-To configure which variants are enabled for your project, see the [configuring variants documentation](/docs/configuring-variants).
+プロジェクトで有効にするバリアントを構成するには、[バリアントの構成に関するドキュメント](/docs/configuring-variants)を参照してください。
 
 <DefaultVariantsConfig />

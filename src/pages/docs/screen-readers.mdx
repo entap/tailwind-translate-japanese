@@ -1,6 +1,6 @@
 ---
-title: "Screen Readers"
-description: "Utilities for improving accessibility with screen readers."
+title: "スクリーンリーダー"
+description: "スクリーンリーダーのアクセシビリティを向上させるためのユーティリティ。"
 featureVersion: "v1.1.0+"
 ---
 
@@ -10,9 +10,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Use `sr-only` to hide an element visually without hiding it from screen readers:
+スクリーンリーダーから要素を非表示にせずに要素を視覚的に非表示にするには、`sr-only`を使用します。
 
 ```html
 <a href="#">
@@ -21,7 +21,7 @@ Use `sr-only` to hide an element visually without hiding it from screen readers:
 </a>
 ```
 
-Use `not-sr-only` to undo `sr-only`, making an element visible to sighted users as well as screen readers. This can be useful when you want to visually hide something on small screens but show it on larger screens for example:
+`not-sr-only`を使用して`sr-only`を元に戻し、目の見えるユーザーとスクリーンリーダーに要素を表示します。これは、小さな画面では何かを視覚的に非表示にしたいが、大きな画面では表示したい場合に便利です。
 
 ```html
 <a href="#">
@@ -30,7 +30,8 @@ Use `not-sr-only` to undo `sr-only`, making an element visible to sighted users 
 </a>
 ```
 
-By default, `responsive` and `focus` variants are generated for these utilities. You can use `focus:not-sr-only` to make an element visually hidden by default but visible when the user tabs to it — useful for "skip to content" links:
+デフォルトでは、これらのユーティリティに対して`responsive`および`focus`バリアントが生成されます。
+`focus:not-sr-only`を使用すると、要素をデフォルトで視覚的に非表示にしますが、ユーザーがタブで移動すると表示されます。「コンテンツにスキップ」リンクに役立ちます。
 
 ```html
 <a href="#" class="sr-only focus:not-sr-only">
@@ -38,12 +39,12 @@ By default, `responsive` and `focus` variants are generated for these utilities.
 </a>
 ```
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="accessibility" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="accessibility" />

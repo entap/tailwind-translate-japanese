@@ -1,6 +1,6 @@
 ---
-title: Responsive Design
-description: Using responsive utility variants to build adaptive user interfaces.
+title: レスポンシブデザイン
+description: レスポンシブユーティリティバリアントを使用して、適応型ユーザーインターフェイスを構築します。
 ---
 
 import { Heading } from '@/components/Heading'
@@ -9,9 +9,9 @@ import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
 ## <Heading hidden>Overview</Heading>
 
-Every utility class in Tailwind can be applied conditionally at different breakpoints, which makes it a piece of cake to build complex responsive interfaces without ever leaving your HTML.
+Tailwindのすべてのユーティリティクラスは、さまざまなブレークポイントに条件付きで適用できます。これにより、HTMLを離れることなく、複雑なレスポンシブインターフェイスを構築することが簡単になります。
 
-There are four breakpoints by default, inspired by common device resolutions:
+一般的なデバイスの解像度に触発された、デフォルトで4つのブレークポイントがあります。
 
 ```css
 /* Small (sm) */
@@ -27,16 +27,16 @@ There are four breakpoints by default, inspired by common device resolutions:
 @media (min-width: 1280px) { /* ... */ }
 ```
 
-To add a utility but only have it take effect at a certain breakpoint, all you need to do is prefix the utility with the breakpoint name, followed by the `:` character:
+ユーティリティを追加し、特定のブレークポイントでのみ有効にするには、ユーティリティの前にブレークポイント名を付け、その後に`:`文字を付けるだけです。
 
 ```html
 <!-- Width of 16 by default, 32 on medium screens, and 48 on large screens -->
 <img class="w-16 md:w-32 lg:w-48" src="...">
 ```
 
-This works for **every utility class in the framework**, which means you can change literally anything at a given breakpoint — even things like letter spacing or cursor styles.
+これは**フレームワーク内のすべてのユーティリティクラス**で機能します。つまり、文字間隔やカーソルスタイルなど、特定のブレークポイントで文字通り何でも変更できます。
 
-Here's a simple example of a marketing page component that uses a stacked layout on small screens, and a side-by-side layout on larger screens *(resize your browser to see it in action)*:
+これは、小さな画面ではスタックレイアウトを使用し、大きな画面ではサイドバイサイドレイアウトを使用するマーケティングページコンポーネントの簡単な例です*（ブラウザのサイズを変更して実際の動作を確認してください）*：
 
 ```html
 <template preview class="p-8">
@@ -53,24 +53,25 @@ Here's a simple example of a marketing page component that uses a stacked layout
 </template>
 ```
 
-Here's how the example above works:
+上記の例の仕組みは次のとおりです。
 
-- By default, the outer `div` is `display: block`, but by adding the `md:flex` utility, it becomes `display: flex` on medium screens and larger.
-- When the parent is a flex container, we want to make sure the image never shrinks, so we've added `md:flex-shrink-0` to prevent shrinking on medium screens and larger. Technically we could have just used `flex-shrink-0` since it would do nothing on smaller screens, but since it only matters on `md` screens, it's a good idea to make that clear in the class name.
-- On small screens the image is automatically full width by default. On medium screens and up, we've constrained that width to a fixed size using `md:w-56`.
-- On small screens, the content section uses `mt-4` to add some margin between the content and the image. This margin isn't necessary in the horizontal layout, so we've used `md:mt-0` to undo that margin, and used `md:ml-6` to add some left margin instead.
+- デフォルトでは、外側の`div`は`display:block`ですが、`md:flex`ユーティリティを追加すると、中規模以上の画面では`display:flex`になります。
+- 親がフレックスコンテナの場合、画像が縮小しないようにする必要があるため、中規模以上の画面で縮小しないように`md:flex-shrink-0`を追加しました。
+技術的には、小さい画面では何もしないので`flex-shrink-0`を使用することもできますが、それは`md`画面でのみ重要なので、クラス名でそれを明確にすることをお勧めします。
+- 小さな画面では、画像はデフォルトで自動的に全幅になります。中程度の画面以上では、`md:w-56`を使用してその幅を固定サイズに制限しました。
+- 小さな画面では、コンテンツセクションは`mt-4`を使用して、コンテンツと画像の間にマージンを追加します。このマージンは水平レイアウトでは必要ないため、`md:mt-0`を使用してそのマージンを元に戻し、代わりに`md:ml-6`を使用して左マージンを追加しました。
 
-We've only used one breakpoint in this example, but you could easily customize this component at other sizes using the `sm`, `lg`, or `xl` responsive prefixes as well.
+この例ではブレークポイントを1つだけ使用しましたが、`sm`,`lg`または`xl`レスポンシブプレフィックスを使用して、このコンポーネントを他のサイズに簡単にカスタマイズできます。
 
 ---
 
 ## Mobile First
 
-By default, Tailwind uses a mobile first breakpoint system, similar to what you might be used to in Bootstrap or Foundation.
+デフォルトでは、Tailwindは、BootstrapまたはFoundationで慣れているものと同様に、モバイルファーストブレークポイントシステムを使用します。
 
-What this means is that unprefixed utilities (like `uppercase`) take effect on all screen sizes, while prefixed utilities (like `md:uppercase`) only take effect at the specified breakpoint *and above*.
+つまり、接頭辞なしのユーティリティ（大文字など）はすべての画面サイズで有効になりますが、接頭辞付きのユーティリティ（`md:uppercase`など）は指定されたブレークポイント*以上*でのみ有効になります。
 
-Here's a simple example that cycles through several background colors at different breakpoints *(resize your browser to see the background color change)*:
+これは、異なるブレークポイントでいくつかの背景色を循環する簡単な例です*（背景色の変化を確認するためにブラウザのサイズを変更します）*：
 
 ```html
 <template preview>
@@ -87,48 +88,49 @@ Throughout the documentation, you'll often see this interactive widget which we 
   preview={(className) => <div className={`h-20 w-20 mx-auto rounded-lg ${className}`} />}
 />
 
-Examples like this intentionally **do not react to changing your browser size**. This is by design — it allows even people reading the documentation on smaller screens to preview how some code would look on a desktop display.
+このような例は、意図的に**ブラウザのサイズの変更に反応しません**。これは仕様によるものです。小さな画面でドキュメントを読んでいる人でも、デスクトップディスプレイでコードがどのように表示されるかをプレビューできます。
 
 ### Targeting mobile screens
 
-Where this approach surprises people most often is that to style something for mobile, you need to use the unprefixed version of a utility, not the `sm:` prefixed version. Don't think of `sm:` as meaning "on small screens", think of it as "at the small *breakpoint*".
+このアプローチが人々を最も驚かせるのは、モバイル向けに何かをスタイル設定するには、`sm:`プレフィックス付きバージョンではなく、プレフィックスなしバージョンのユーティリティを使用する必要があるということです。
+`sm:`を「小さな画面上」を意味するものとは考えないでください。「小さな*ブレークポイント*」として考えてください。
 
-<TipBad>Don't use <code className="text-sm font-bold text-gray-800">sm:</code> to target mobile devices</TipBad>
+<TipBad>モバイルデバイスをターゲットにするために<code className="text-sm font-bold text-gray-800">sm:</code>を使用しないでください</TipBad>
 
 ```html
 <!-- This will only center text on screens 640px and wider, not on small screens -->
 <div class="sm:text-center"></div>
 ```
 
-<TipGood>Use unprefixed utilities to target mobile, and override them at larger breakpoints</TipGood>
+<TipGood>接頭辞のないユーティリティを使用してモバイルをターゲットにし、より大きなブレークポイントでそれらを上書きします</TipGood>
 
 ```html
 <!-- This will center text on mobile, and left align it on screens 640px and wider -->
 <div class="text-center sm:text-left"></div>
 ```
 
-For this reason, it's often a good idea to implement the mobile layout for a design first, then layer on any changes that make sense for `sm` screens, followed by `md` screens, etc.
+このため、最初にデザインのモバイルレイアウトを実装してから、`sm`画面に意味のある変更を重ねてから、`md`画面などを重ねることをお勧めします。
 
 ### Targeting a single breakpoint
 
-Tailwind's breakpoints only include a `min-width` and don't include a `max-width`, which means any utilities you add at a smaller breakpoint will also be applied at larger breakpoints.
+Tailwindのブレークポイントには`min-width`のみが含まれ、`max-width`は含まれません。つまり、小さいブレークポイントで追加したユーティリティは、大きいブレークポイントにも適用されます。
 
-If you'd like to apply a utility at one breakpoint only, the solution is to *undo* that utility at larger sizes by adding another utility that counteracts it.
+1つのブレークポイントにのみユーティリティを適用する場合、解決策は、ユーティリティを打ち消す別のユーティリティを追加して、そのユーティリティをより大きなサイズで*元に戻す*ことです。
 
-Here is an example where the background color is red at the `md` breakpoint, but teal at every other breakpoint:
+これは、`md`ブレークポイントでは背景色が赤で、他のすべてのブレークポイントでは青緑色である例です。
 
 <ResponsiveCodeSample
   classNames={['bg-teal-500', undefined, 'bg-red-500', 'bg-teal-500', undefined]}
   preview={(className) => <div className={`h-20 w-20 mx-auto rounded-lg ${className}`} />}
 />
 
-Notice that **we did not** have to specify a background color for the `sm` breakpoint or the `xl` breakpoint — you only need to specify when a utility should *start* taking effect, not when it should stop.
+`sm`ブレークポイントまたは`xl`ブレークポイントの背景色を指定する必要がないことに注意してください。ユーティリティを有効にするタイミングを指定するだけで、停止するタイミングは指定できません。
 
 ---
 
 ## Customizing breakpoints
 
-You can completely customize your breakpoints in your `tailwind.config.js` file:
+`tailwind.config.js`ファイルでブレークポイントを完全にカスタマイズできます。
 
 ```js
 // tailwind.config.js
@@ -148,4 +150,4 @@ module.exports = {
 }
 ```
 
-Learn more in the [customizing breakpoints documentation](/docs/breakpoints).
+詳細は[customizing breakpoints documentation](/docs/breakpoints)をご覧ください。

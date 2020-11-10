@@ -1,6 +1,6 @@
 ---
-title: Preflight
-description: An opinionated set of base styles for Tailwind projects.
+title: プリフライト
+description: Tailwindプロジェクトの基本スタイルの独善的セット。
 ---
 
 import { Heading } from '@/components/Heading'
@@ -8,9 +8,10 @@ import { ConfigSample } from '@/components/ConfigSample'
 
 ## <Heading hidden>Overview</Heading>
 
-Built on top of [normalize.css](https://github.com/necolas/normalize.css/), Preflight is a set of base styles for Tailwind projects that are designed to smooth over cross-browser inconsistencies and make it easier for you to work within the constraints of your design system.
+Preflightは、[normalize.css](https://github.com/necolas/normalize.css/)の上に構築された、
+Tailwindプロジェクトの基本スタイルのセットであり、ブラウザー間の不整合を滑らかにし、設計システムの制約内での作業を容易にするように設計されています。
 
-Tailwind automatically injects these styles when you include `@tailwind base` in your CSS:
+CSSに`@tailwind base`を含めると、Tailwindはこれらのスタイルを自動的に挿入します。
 
 ```css
 @tailwind base; /* Preflight will be injected here */
@@ -20,15 +21,15 @@ Tailwind automatically injects these styles when you include `@tailwind base` in
 @tailwind utilities;
 ```
 
-While most of the styles in Preflight are meant to go unnoticed — they simply make things behave more like you'd expect them to — some are more opinionated and can be surprising when you first encounter them.
+プリフライトのほとんどのスタイルは見過ごされがちですが、単にあなたの期待以上の動作するようになっています。一部のスタイルはより独善的で、最初に遭遇したときに驚くことがあります。
 
-For a complete reference of all the styles applied by Preflight, [see the stylesheet](https://unpkg.com/tailwindcss/dist/base.css).
+Preflightによって適用されるすべてのスタイルの完全なリファレンスについては、[スタイルシートを参照](https://unpkg.com/tailwindcss/dist/base.css)。
 
 ---
 
 ## Default margins are removed
 
-Preflight removes all of the default margins from elements like headings, blockquotes, paragraphs, etc.
+プリフライトは、見出し、ブロック引用符、段落などの要素からデフォルトの余白をすべて削除します。
 
 ```css
 blockquote,
@@ -47,13 +48,13 @@ pre {
 }
 ```
 
-This makes it harder to accidentally rely on margin values applied by the user-agent stylesheet that are not part of your spacing scale.
+これにより、スペーシングスケールの一部ではないユーザーエージェントスタイルシートによって適用されたマージン値に誤って依存することが難しくなります。
 
 ---
 
 ## Headings are unstyled
 
-All heading elements are completely unstyled by default, and have the same font-size and font-weight as normal text.
+すべての見出し要素はデフォルトで完全にスタイルが設定されておらず、通常のテキストと同じフォントサイズとフォントウェイトを持っています。
 
 ```css
 h1,
@@ -67,20 +68,21 @@ h6 {
 }
 ```
 
-The reason for this is two-fold:
+この理由は2つあります。
 
-- **It helps you avoid accidentally deviating from your type scale**. By default, the browsers assigns sizes to headings that don't exist in Tailwind's default type scale, and aren't guaranteed to exist in your own type scale.
-- **In UI development, headings should often be visually de-emphasized**. Making headings unstyled by default means any styling you apply to headings happens consciously and deliberately.
+- **タイプスケールから誤って逸脱するのを防ぐのに役立ちます**。 デフォルトでは、ブラウザはTailwindのデフォルトのタイプスケールに存在しない見出しにサイズを割り当て、独自のタイプスケールに存在することが保証されていません。
 
-You can always add default header styles to your project by [adding your own base styles](/docs/adding-base-styles).
+- ** UI開発では、見出しを視覚的に強調しないようにする必要があります**。 デフォルトで見出しのスタイルを解除するということは、見出しに適用するスタイルが意識的かつ意図的に行われることを意味します。
 
-If you'd like to selectively introduce sensible default heading styles into article-style parts of a page, we recommend the [@tailwindcss/typography plugin](/docs/typography-plugin/).
+[独自の基本スタイルを追加](/docs/adding-base-styles)を使用すると、いつでもデフォルトのヘッダースタイルをプロジェクトに追加できます。
+
+実用的なデフォルトの見出しスタイルをページの記事スタイルの部分に選択的に導入したい場合は、[@tailwindcss / typography plugin](/docs/typography-plugin/)をお勧めします。
 
 ---
 
 ## Lists are unstyled
 
-Ordered and unordered lists are unstyled by default, with no bullets/numbers and no margin or padding.
+順序付きリストと順序なしリストは、デフォルトではスタイルが設定されておらず、箇条書きや数字、余白やパディングはありません。
 
 ```css
 ol,
@@ -91,7 +93,7 @@ ul {
 }
 ```
 
-If you'd like to style a list, you can do so using the [list-style-type](/docs/list-style-type) and [list-style-position](/docs/list-style-position) utilities:
+リストのスタイルを設定する場合は、[list-style-type](/docs/list-style-type)および[list-style-position](/docs/list-style-position)ユーティリティを使用してスタイルを設定できます。
 
 ```html
 <ul class="list-disc list-inside">
@@ -101,15 +103,15 @@ If you'd like to style a list, you can do so using the [list-style-type](/docs/l
 </ul>
 ```
 
-You can always add default list styles to your project by [adding your own base styles](/docs/adding-base-styles).
+[独自の基本スタイルを追加する](/docs/adding-base-styles)を使用すると、いつでもデフォルトのリストスタイルをプロジェクトに追加できます。
 
-If you'd like to selectively introduce default list styles into article-style parts of a page, we recommend the [@tailwindcss/typography plugin](/docs/typography-plugin/).
+デフォルトのリストスタイルをページの記事スタイルの部分に選択的に導入したい場合は、[@tailwindcss/typographyプラグイン](/docs/typography-plugin/)をお勧めします。
 
 ---
 
 ## Images are block-level
 
-Images and other replaced elements (like `svg`, `video`, `canvas`, and others) are `display: block` by default.
+画像やその他の置き換えられた要素（`svg`, `video`, `canvas`など) は、デフォルトでは`display:block`です。
 
 ```css
 img,
@@ -125,9 +127,9 @@ object {
 }
 ```
 
-This helps to avoid unexpected alignment issues that you often run into using the browser default of `display: inline`.
+これにより、ブラウザのデフォルトである`display:inline`を使用して頻繁に発生する予期しない配置の問題を回避できます。
 
-If you ever need to make one of these elements `inline` instead of `block`, simply use the `inline` utility:
+これらの要素の1つを`block`ではなく`inline`にする必要がある場合は、単に`inline`ユーティリティを使用してください。
 
 ```html
 <img class="inline" src="..." alt="...">
@@ -137,7 +139,7 @@ If you ever need to make one of these elements `inline` instead of `block`, simp
 
 ## Border styles are reset globally
 
-In order to make it easy to add a border by simply adding the `border` class, Tailwind overrides the default border styles for all elements with the following rules:
+`border`クラスを追加するだけで境界線を簡単に追加できるようにするために、Tailwindは、次のルールですべての要素のデフォルトの境界線スタイルをオーバーライドします。
 
 ```css
 *,
@@ -149,11 +151,11 @@ In order to make it easy to add a border by simply adding the `border` class, Ta
 }
 ```
 
-Since the `border` class only sets the `border-width` property, this reset ensures that adding that class always adds a solid 1px border using your configured default border color.
+`border`クラスは`border-width`プロパティのみを設定するため、このリセットにより、そのクラスを追加すると、構成済みのデフォルトの境界線の色を使用して、常に1pxの境界線が追加されます。
 
-This can cause some unexpected results when integrating certain third-party libraries, like [Google maps](https://github.com/tailwindlabs/tailwindcss/issues/484) for example.
+これにより、[Googleマップ](https://github.com/tailwindlabs/tailwindcss/issues/484)などの特定のサードパーティライブラリを統合するときに、予期しない結果が生じる可能性があります。
 
-When you run into situations like this, you can work around them by overriding the Preflight styles with your own custom CSS:
+このような状況が発生した場合は、プリフライトスタイルを独自のカスタムCSSでオーバーライドすることで回避できます。
 
 ```css
 .google-map * {
@@ -165,7 +167,7 @@ When you run into situations like this, you can work around them by overriding t
 
 ## Extending Preflight
 
-If you'd like to add your own base styles on top of Preflight, simply add them to your CSS after `@tailwind base`:
+プリフライトの上に独自のベーススタイルを追加したい場合は、CSSの`@tailwind base`の後に追加するだけです。
 
 ```css
 @tailwind base;
@@ -188,13 +190,14 @@ a {
 @tailwind utilities;
 ```
 
-Learn more in the [adding base styles documentation](/docs/adding-base-styles).
+詳しくは[adding base styles documentation](/docs/adding-base-styles)をご覧ください。
 
 ---
 
 ## Disabling Preflight
 
-If you'd like to completely disable Preflight — perhaps because you're integrating Tailwind into an existing project or because you'd like to provide your own base styles — all you need to do is set `preflight` to `false` in the `corePlugins` section of your `tailwind.config.js` file:
+プリフライトを完全に無効にしたい場合、おそらくTailwindを既存のプロジェクトに統合しているため、または独自の基本スタイルを提供したい場合など。
+あなたがする必要があるのは`tailwind.config.js`ファイルの`corePlugins`セクションで`preflight`を`false`に設定することです。
 
 <ConfigSample
   path="corePlugins"

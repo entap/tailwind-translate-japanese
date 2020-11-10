@@ -1,6 +1,6 @@
 ---
-title: "Position"
-description: "Utilities for controlling how an element is positioned in the DOM."
+title: "ポジション"
+description: "要素がDOMにどのように配置されるかを制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: false
@@ -18,9 +18,9 @@ export const classes = { plugin }
 
 ## Static
 
-Use `.static` to position an element according to the normal flow of the document.
+`.static`を使用して、ドキュメントの通常のフローに従って要素を配置します。
 
-Any offsets will be ignored and the element will not act as a position reference for absolutely positioned children.
+オフセットは無視され、要素は絶対位置の子の位置参照として機能しません。
 
 ```html
 <template preview>
@@ -44,9 +44,9 @@ Any offsets will be ignored and the element will not act as a position reference
 
 ## Relative
 
-Use `.relative` to position an element according to the normal flow of the document.
+`.relative`を使用して、ドキュメントの通常のフローに従って要素を配置します。
 
-Offsets are calculated relative to the element's normal position and the element *will* act as a position reference for absolutely positioned children.
+オフセットは要素の通常の位置を基準にして計算され、要素は絶対位置にある子の位置参照として機能します。
 
 ```html
 <template preview>
@@ -70,9 +70,9 @@ Offsets are calculated relative to the element's normal position and the element
 
 ## Absolute
 
-Use `.absolute` to position an element *outside* of the normal flow of the document, causing neighboring elements to act as if the element doesn't exist.
+`.absolute`を使用して、ドキュメントの通常のフローの*外側*に要素を配置し、隣接する要素がその要素が存在しないかのように動作するようにします。
 
-Offsets are calculated relative to the nearest parent that has a position other than `static`, and the element *will* act as a position reference for other absolutely positioned children.
+オフセットは、「静的」以外の位置を持つ最も近い親を基準にして計算され、要素は、他の絶対位置にある子の位置参照として機能します。
 
 ```html
 <template preview>
@@ -121,9 +121,9 @@ Offsets are calculated relative to the nearest parent that has a position other 
 
 ## Fixed
 
-Use `.fixed` to position an element relative to the browser window.
+`.fixed`を使用して、ブラウザウィンドウを基準にして要素を配置します。
 
-Offsets are calculated relative to the viewport and the element *will* act as a position reference for absolutely positioned children.
+オフセットはビューポートを基準にして計算され、要素は絶対位置にある子の位置参照として機能します。
 
 ```html
 <template preview>
@@ -179,9 +179,9 @@ Offsets are calculated relative to the viewport and the element *will* act as a 
 
 <TipCompat>Note that sticky positioning is not supported in IE11.</TipCompat>
 
-Use `.sticky` to position an element as `relative` until it crosses a specified threshold, then treat it as fixed until its parent is off screen.
+`.sticky`を使用して、指定されたしきい値を超えるまで要素を「相対」として配置し、親が画面から外れるまで要素を固定として扱います。
 
-Offsets are calculated relative to the element's normal position and the element *will* act as a position reference for absolutely positioned children.
+オフセットは要素の通常の位置を基準にして計算され、要素は絶対位置にある子の位置参照として機能します。
 
 ```html
 <template preview>
@@ -228,11 +228,12 @@ Offsets are calculated relative to the element's normal position and the element
 <!-- etc. -->
 ```
 
-## Responsive
+## レスポンシブ
 
-To change how an element is positioned only at a specific breakpoint, add a `{screen}:` prefix to any existing position utility. For example, adding the class `md:absolute` to an element would apply the `absolute` utility at medium screen sizes and above.
+要素が特定のブレークポイントにのみ配置される方法を変更するには、既存の位置ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、クラス`md:absolute`を要素に追加すると、中程度の画面サイズ以上で`absolute`ユーティリティが適用されます。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[レスポンシブデザイン](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['relative', 'absolute', 'fixed', 'absolute', 'relative']}
@@ -248,12 +249,12 @@ For more information about Tailwind's responsive design features, check out the 
   )}
 />
 
-## Customizing
+## カスタマイズ
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="position" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="position" />

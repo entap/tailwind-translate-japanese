@@ -1,6 +1,6 @@
 ---
-title: "Rotate"
-description: "Utilities for rotating elements with transform."
+title: "回転"
+description: "変換を使用して要素を回転するためのユーティリティ。"
 featureVersion: "v1.2.0+"
 ---
 
@@ -11,9 +11,9 @@ import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Rotate an element by first enabling transforms with the `transform` utility, then specifying the rotation angle using the `rotate-{angle}` utilities.
+最初に`transform`ユーティリティで変換を有効にし、次に`rotate-{angle} `ユーティリティを使用して回転角度を指定して要素を回転させます。
 
 ```html
 <template preview class="bg-white lg:flex justify-around items-center text-sm p-4 py-12">
@@ -29,13 +29,14 @@ Rotate an element by first enabling transforms with the `transform` utility, the
 <img class="transform rotate-180 ...">
 ```
 
-Note that because Tailwind implements transforms using [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), **the transform utilities are not supported in older browsers like IE11**. If you need transforms for your project and need to support older browsers, [add your own utilities](/docs/adding-new-utilities) or other custom CSS.
+Tailwindは[CSSカスタムプロパティ](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)を使用して変換を実装するため、**変換ユーティリティはIE11のような古いブラウザではサポートされていないことに**注意してください。
+プロジェクトの変換が必要で、古いブラウザをサポートする必要がある場合、[独自のユーティリティを追加](/docs/adding-new-utilities)またはその他のカスタムCSSを追加してください。
 
 ## Responsive
 
-To control the rotation of an element at a specific breakpoint, add a `{screen}:` prefix to any existing rotate utility. For example, use `md:rotate-90` to apply the `rotate-90` utility at only medium screen sizes and above.
+特定のブレークポイントで要素の回転を制御するには、既存の回転ユーティリティに`{screen}:`プレフィックスを追加します。 たとえば、`md:rotate-90`を使用して、中程度の画面サイズ以上でのみ`rotate-90`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[レスポンシブデザイン](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['rotate-0', 'rotate-45', 'rotate-90', 'rotate-180', '-rotate-90']}
@@ -52,7 +53,7 @@ For more information about Tailwind's responsive design features, check out the 
 
 ### Rotate scale
 
-By default Tailwind provides seven general purpose rotate utilities. You change, add, or remove these by editing the `theme.rotate` section of your Tailwind config.
+デフォルトでは、Tailwindは7つの汎用回転ユーティリティを提供します。Tailwind構成の`theme.rotate`セクションを編集して、これらを変更、追加、または削除します。
 
 ```diff
   // tailwind.config.js
@@ -73,12 +74,12 @@ By default Tailwind provides seven general purpose rotate utilities. You change,
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+デフォルトテーマのカスタマイズについては[テーマのカスタマイズ](/docs/theme#customizing-the-default-theme)をご覧ください。
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="rotate" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="rotate" />
