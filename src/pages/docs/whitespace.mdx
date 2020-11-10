@@ -1,6 +1,6 @@
 ---
-title: "Whitespace"
-description: "Utilities for controlling an element's white-space property."
+title: "空白"
+description: "要素の空白プロパティを制御するためのユーティリティ。"
 ---
 
 import plugin from 'tailwindcss/lib/plugins/whitespace'
@@ -12,7 +12,7 @@ export const classes = { plugin }
 
 ## Normal
 
-Use `.whitespace-normal` to cause text to wrap normally within an element. Newlines and spaces will be collapsed.
+`.whitespace-normal`を使用して、テキストを要素内で正常に折り返します。改行とスペースは折りたたまれます。
 
 ```html
 <template preview>
@@ -26,7 +26,7 @@ Use `.whitespace-normal` to cause text to wrap normally within an element. Newli
 
 ## No Wrap
 
-Use `.whitespace-no-wrap` to prevent text from wrapping within an element. Newlines and spaces will be collapsed.
+`.whitespace-no-wrap`を使用して、テキストが要素内で折り返されないようにします。改行とスペースは折りたたまれます。
 
 ```html
 <template preview>
@@ -40,7 +40,7 @@ Use `.whitespace-no-wrap` to prevent text from wrapping within an element. Newli
 
 ## Pre
 
-Use `.whitespace-pre` to preserve newlines and spaces within an element. Text will not be wrapped.
+要素内の改行とスペースを保持するには、`.whitespace-pre`を使用します。テキストは折り返されません。
 
 ```html
 <template preview>
@@ -54,7 +54,7 @@ Use `.whitespace-pre` to preserve newlines and spaces within an element. Text wi
 
 ## Pre Line
 
-Use `.whitespace-pre-line` to preserve newlines but not spaces within an element. Text will be wrapped normally.
+`.whitespace-pre-line`を使用して改行を保持しますが、要素内のスペースは保持しません。テキストは通常どおり折り返されます。
 
 ```html
 <template preview>
@@ -68,7 +68,7 @@ Use `.whitespace-pre-line` to preserve newlines but not spaces within an element
 
 ## Pre Wrap
 
-Use `.whitespace-pre-wrap` to preserve newlines and spaces within an element. Text will be wrapped normally.
+`.whitespace-pre-wrap`を使用して、要素内の改行とスペースを保持します。テキストは通常どおり折り返されます。
 
 ```html
 <template preview>
@@ -82,9 +82,10 @@ Use `.whitespace-pre-wrap` to preserve newlines and spaces within an element. Te
 
 ## Responsive
 
-To control the whitespace property of an element only at a specific breakpoint, add a `{screen}:` prefix to any existing whitespace utility. For example, adding the class `md:whitespace-pre` to an element would apply the `whitespace-pre` utility at medium screen sizes and above.
+特定のブレークポイントでのみ要素の空白プロパティを制御するには、既存の空白ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、クラス`md:whitespace-pre`を要素に追加すると、中程度の画面サイズ以上で`whitespace-pre`ユーティリティが適用されます。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[レスポンシブデザイン](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['whitespace-normal', 'whitespace-no-wrap', 'whitespace-pre', 'whitespace-pre-line', 'whitespace-pre-wrap']}
@@ -101,10 +102,10 @@ reprehenderit saepe quam aliquid odio accusamus.`}</div>
 
 ## Customizing
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="whitespace" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="whitespace" />

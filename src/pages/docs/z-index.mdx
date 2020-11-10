@@ -1,6 +1,6 @@
 ---
 title: "Z-Index"
-description: "Utilities for controlling the stack order of an element."
+description: "要素のスタック順序を制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: true
@@ -15,9 +15,9 @@ import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 
 export const classes = { plugin }
 
-## Usage
+## 使用方法
 
-Control the stack order (or three-dimensional positioning) of an element in Tailwind, regardless of order it has been displayed, using the `.z-{index}` utilities.
+`.z-{index}`ユーティリティを使用して、表示されている順序に関係なく、Tailwindの要素のスタック順序（または3次元配置）を制御します。
 
 ```html
 <template preview>
@@ -39,9 +39,9 @@ Control the stack order (or three-dimensional positioning) of an element in Tail
 
 ## Responsive
 
-To control the z-index of an element at a specific breakpoint, add a `{screen}:` prefix to any existing z-index utility. For example, use `md:z-50` to apply the `z-50` utility at only medium screen sizes and above.
+特定のブレークポイントで要素のz-indexを制御するには、既存のz-indexユーティリティに`{screen}:`プレフィックスを追加します。たとえば、`md:z-50`を使用して、中程度の画面サイズ以上でのみ`z-50`ユーティリティを適用します。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[レスポンシブデザイン](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['z-0', 'z-10', 'z-20', 'z-30', 'z-40']}
@@ -69,7 +69,8 @@ For more information about Tailwind's responsive design features, check out the 
 
 ### Z-Index scale
 
-By default Tailwind provides six numeric `z-index` utilities and an `auto` utility. You change, add, or remove these by editing the `theme.zIndex` section of your Tailwind config.
+デフォルトでは、Tailwindは6つの数値の`z-index`ユーティリティと`auto`ユーティリティを提供します。
+Tailwind構成の`theme.zIndex`セクションを編集して、これらを変更、追加、または削除します。
 
 ```diff
   // tailwind.config.js
@@ -94,7 +95,7 @@ By default Tailwind provides six numeric `z-index` utilities and an `auto` utili
 
 ### Negative values
 
-If you'd like to add any negative z-index classes that take the same form as Tailwind's [negative margin](/docs/margin#negative-margins) classes, prefix the keys in your config file with a dash:
+Tailwindの[負のマージン](/docs/margin#negative-margins)クラスと同じ形式の負のz-indexクラスを追加する場合は、構成ファイルのキーの前にダッシュを付けます。
 
 ```diff
   // tailwind.config.js
@@ -109,12 +110,12 @@ If you'd like to add any negative z-index classes that take the same form as Tai
   }
 ```
 
-Tailwind is smart enough to generate classes like `-z-10` when it sees the leading dash, not `z--10` like you might expect.
+Tailwindは、予想されるような `z--10`ではなく、先頭のダッシュが表示されたときに`-z-10`のようなクラスを生成するのに十分スマートです。
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="zIndex" name="z-index" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="zIndex" name="z-index" />

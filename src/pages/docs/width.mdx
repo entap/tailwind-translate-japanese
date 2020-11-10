@@ -1,6 +1,6 @@
 ---
-title: "Width"
-description: "Utilities for setting the width of an element"
+title: "幅"
+description: "要素の幅を設定するためのユーティリティ"
 features:
   responsive: true
   customizable: true
@@ -17,7 +17,7 @@ export const classes = { plugin }
 
 ## Auto
 
-Use `.w-auto` to let the browser calculate and select the width for the element.
+`.w-auto`を使用して、ブラウザに要素の幅を計算させて選択させます。
 
 ```html
 <template preview>
@@ -31,7 +31,7 @@ Use `.w-auto` to let the browser calculate and select the width for the element.
 
 ## Screen Width
 
-Use `.w-screen` to make an element span the entire width of the viewport.
+`.w-screen`を使用して、要素をビューポートの幅全体に広げます。
 
 ```html
 <template preview class="overflow-x-scroll p-4">
@@ -41,7 +41,7 @@ Use `.w-screen` to make an element span the entire width of the viewport.
 
 ## Fixed Width
 
-Use `.w-{number}` or `.w-px` to set an element to a fixed width.
+要素を固定幅に設定するには、`.w-{number}`または`.w-px`を使用します。
 
 ```html
 <template preview>
@@ -146,7 +146,7 @@ Use `.w-{number}` or `.w-px` to set an element to a fixed width.
 
 ## Fluid Width
 
-Use `.w-{fraction}` or `.w-full` to set an element to a percentage based width.
+`.w-{fraction}`または`.w-full`を使用して、要素をパーセンテージベースの幅に設定します。
 
 ```html
 <template preview>
@@ -182,9 +182,10 @@ Use `.w-{fraction}` or `.w-full` to set an element to a percentage based width.
 
 ## Responsive
 
-To control the width of an element at a specific breakpoint, add a `{screen}:` prefix to any existing width utility. For example, adding the class `md:w-full` to an element would apply the `w-full` utility at medium screen sizes and above.
+特定のブレークポイントで要素の幅を制御するには、既存の幅ユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、クラス`md:w-full`を要素に追加すると、中程度の画面サイズ以上で`w-full`ユーティリティが適用されます。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[レスポンシブデザイン](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['w-1/2', 'w-auto', 'w-full', 'w-32', 'w-3/4']}
@@ -206,9 +207,9 @@ For more information about Tailwind's responsive design features, check out the 
 
 ### Width scale
 
-By default, Tailwind's width scale is a combination of the [default spacing scale](/docs/customizing-spacing#default-spacing-scale) as well as some additional values specific to widths.
+デフォルトでは、Tailwindの幅スケールは、[デフォルトの間隔スケール](/docs/customizing-spacing#default-spacing-scale)と、幅に固有のいくつかの追加値の組み合わせです。
 
-You can customize the spacing scale for padding, margin, width, and height all at once in the `theme.spacing` or `theme.extend.spacing` sections of your `tailwind.config.js` file:
+`tailwind.config.js`ファイルの`theme.spacing`または`theme.extend.spacing`セクションで、パディング、マージン、幅、高さの間隔スケールを一度にカスタマイズできます。
 
 ```diff
   // tailwind.config.js
@@ -225,7 +226,7 @@ You can customize the spacing scale for padding, margin, width, and height all a
   }
 ```
 
-To customize width separately, use the `theme.width` section of your `tailwind.config.js` file.
+幅を個別にカスタマイズするには、`tailwind.config.js`ファイルの`theme.width`セクションを使用します。
 
 ```diff
   // tailwind.config.js
@@ -245,12 +246,12 @@ To customize width separately, use the `theme.width` section of your `tailwind.c
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+デフォルトテーマのカスタマイズについては[テーマのカスタマイズ](/docs/theme#customizing-the-default-theme)をご覧ください。
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="width" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="width" />

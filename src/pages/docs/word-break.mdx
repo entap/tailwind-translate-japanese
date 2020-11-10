@@ -1,6 +1,6 @@
 ---
-title: "Word Break"
-description: "Utilities for controlling word breaks in an element."
+title: "単語区切り"
+description: "要素の単語区切りを制御するためのユーティリティ。"
 ---
 
 import plugin from 'tailwindcss/lib/plugins/wordBreak'
@@ -12,7 +12,7 @@ export const classes = { plugin }
 
 ## Normal
 
-Use `.break-normal` to only add line breaks at normal word break points.
+`.break-normal`を使用して、通常の単語ブレークポイントにのみ改行を追加します。
 
 ```html
 <template preview>
@@ -26,7 +26,7 @@ Use `.break-normal` to only add line breaks at normal word break points.
 
 ## Break Words
 
-Use `.break-words` to add line breaks mid-word if needed.
+必要に応じて、`.break-words`を使用して、単語の途中で改行を追加します。
 
 ```html
 <template preview>
@@ -40,7 +40,7 @@ Use `.break-words` to add line breaks mid-word if needed.
 
 ## Break All
 
-Use `.break-all` to add line breaks whenever necessary, without trying to preserve whole words.
+`.break-all`を使用して、単語全体を保持しようとせずに、必要に応じて改行を追加します。
 
 ```html
 <template preview>
@@ -54,7 +54,7 @@ Use `.break-all` to add line breaks whenever necessary, without trying to preser
 
 ## Truncate
 
-Use `.truncate` to truncate overflowing text with an ellipsis (<code>…</code>) if needed.
+必要に応じて、`.truncate`を使用して、オーバーフローしたテキストを省略記号(<code>…</code>)で切り捨てます。
 
 ```html
 <template preview>
@@ -68,9 +68,10 @@ Use `.truncate` to truncate overflowing text with an ellipsis (<code>…</code>)
 
 ## Responsive
 
-To control the word breaks in an element only at a specific breakpoint, add a `{screen}:` prefix to any existing word break utility. For example, adding the class `md:break-all` to an element would apply the `break-all` utility at medium screen sizes and above.
+特定のブレークポイントでのみ要素のワードブレイクを制御するには、既存のワードブレイクユーティリティに`{screen}:`プレフィックスを追加します。
+たとえば、クラス`md:break-all`を要素に追加すると、中程度の画面サイズ以上で`break-all`ユーティリティが適用されます。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[レスポンシブデザイン](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['break-normal', 'break-words', 'break-all', 'truncate', 'break-normal']}
@@ -88,10 +89,10 @@ For more information about Tailwind's responsive design features, check out the 
 
 ## Customizing
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="wordBreak" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="wordBreak" />

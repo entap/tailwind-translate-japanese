@@ -1,6 +1,6 @@
 ---
-title: "Visibility"
-description: "Utilities for controlling the visibility of an element."
+title: "可視性"
+description: "要素の可視性を制御するためのユーティリティ。"
 features:
   responsive: true
   customizable: false
@@ -17,7 +17,7 @@ export const classes = { plugin }
 
 ## Visible
 
-Use `.visible` to make an element visible. This is mostly useful for undoing the `.invisible` utility at different screen sizes.
+`.visible`を使用して、要素を表示します。これは主に、さまざまな画面サイズで`.invisible`ユーティリティを元に戻す場合に役立ちます。
 
 ```html
 <template preview class="flex justify-center p-4">
@@ -35,7 +35,7 @@ Use `.visible` to make an element visible. This is mostly useful for undoing the
 
 ## Invisible
 
-Use `.invisible` to hide an element, but still maintain its place in the DOM, affecting the layout of other elements (compare with `.hidden` from the [display](/docs/display#hidden) documentation).
+`.invisible`を使用して要素を非表示にしますが、それでもDOM内での位置を維持し、他の要素のレイアウトに影響を与えます。（[display](/docs/display#hidden)ドキュメントの`.hidden`と比較してください）
 
 ```html
 <template preview class="flex justify-center p-4">
@@ -53,9 +53,10 @@ Use `.invisible` to hide an element, but still maintain its place in the DOM, af
 
 ## Responsive
 
-To apply a visibility utility only at a specific breakpoint, add a `{screen}:` prefix to the existing class name. For example, adding the class `md:invisible` to an element would apply the `invisible` utility at medium screen sizes and above.
+特定のブレークポイントでのみ可視性ユーティリティを適用するには、既存のクラス名に`{screen}:`プレフィックスを追加します。
+たとえば、クラス`md:invisible`を要素に追加すると、中程度の画面サイズ以上で`invisible`ユーティリティが適用されます。
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Tailwindのレスポンシブデザイン機能の詳細については、[レスポンシブデザイン](/docs/responsive-design)のドキュメントをご覧ください。
 
 <ResponsiveCodeSample
   classNames={['visible', 'invisible', 'visible', 'invisible', 'visible']}
@@ -77,10 +78,10 @@ For more information about Tailwind's responsive design features, check out the 
 
 ## Customizing
 
-### Responsive and pseudo-class variants
+### レスポンシブと疑似バリアントクラス
 
 <Variants plugin="visibility" />
 
-### Disabling
+### 無効にする
 
 <Disabling plugin="visibility" />
