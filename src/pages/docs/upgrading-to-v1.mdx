@@ -1,18 +1,20 @@
 ---
-title: Upgrading from v0.x to v1.0
+title: v0.xからv1.0へのアップグレード
 shortTitle: Upgrade Guide
-description: A guide for upgrading your existing Tailwind CSS projects to v1.0.
+description: 既存のTailwindCSSプロジェクトをv1.0にアップグレードするためのガイド。
 ---
 
 import { Heading } from '@/components/Heading'
 
 Tailwind v1.0 is mostly focused on changing things from 0.x that I would have done differently had I known in advance where the feature set would be at today.
 
-So while there's not a ton of exciting new features, you can at least be excited about the fact that we now have a really stable base to build on, and that you can feel comfortable using Tailwind in production if the 0.x label gave you pause.
+したがって、エキサイティングな新機能はそれほど多くありませんが、少なくとも、基盤を構築するための非常に安定した基盤があるという事実に興奮することができます。
+0.xラベルで一時停止した場合は、本番環境でTailwindを快適に使用できます。
 
-## Upgrade steps for all users
+## すべてのユーザーのアップグレード手順
 
-These changes affect all users, whether you are using Tailwind with PostCSS and your own custom config file, or just using the default config file or CDN.
+これらの変更は、PostCSSでTailwindを使用しているか、独自のカスタム構成ファイルを使用しているか、
+または、デフォルトの構成ファイルまたはCDNを使用するだけかに関係なく、すべてのユーザーに影響します。
 
 1. [Update Tailwind](#1-update-tailwind)
 2. [Update your config file](#2-update-your-config-file)
@@ -34,13 +36,13 @@ These changes affect all users, whether you are using Tailwind with PostCSS and 
 
 <Heading level={3}>1. Update Tailwind</Heading>
 
-Install the latest version of Tailwind:
+Tailwindの最新バージョンをインストールします。
 
 ```bash
 npm install tailwindcss@^1.0 --save-dev
 ```
 
-Or using Yarn:
+またはYarnを使用する。
 
 ```bash
 yarn add -D tailwindcss@^1.0
@@ -50,9 +52,9 @@ yarn add -D tailwindcss@^1.0
 
 <p className="italic font-normal text-gray-600 mt-4">Impact: All users, Effort: Moderate</p>
 
-This is really the big change in v1.0 — you can read all about the new config file format and motivation behind it in [the initial pull request](https://github.com/tailwindlabs/tailwindcss/pull/637).
+これは本当にv1.0での大きな変更です。最初の[プルリクエスト内](https://github.com/tailwindlabs/tailwindcss/pull/637)で新しい設定ファイル形式とその背後にある動機についてすべて読むことができます
 
-The new general config structure looks like this:
+新しい一般的な構成構造は次のようになります。
 
 ```js
 module.exports = {
@@ -75,15 +77,16 @@ module.exports = {
 }
 ```
 
-See the new [default config file](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js) for a complete example.
+完全な例については、新しい[デフォルトの設定ファイル](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js)を参照してください。
 
-There are a lot of changes here but they are all fairly cosmetic and entirely localized to this one file, so while it may look intimidating it's actually only 10-15 minutes of work.
+ここには多くの変更がありますが、それらはすべてかなり見栄えがよく、この1つのファイルに完全にローカライズされています。恐ろしいように見えるかもしれませんが、実際には10〜15分の作業です。
+
 
 #### 2.1. Move all design-related top-level keys into a new section called `theme`
 
-Every key except `options`, `modules`, and `plugins` should be nested under a new `theme` key.
+`options`,`modules`,`plugins`を除くすべてのキーは、新しい`theme`キーの下にネストする必要があります。
 
-Your config file should look generally like this at this point:
+この時点で、構成ファイルは一般的に次のようになります。
 
 ```diff
   let defaultConfig = require('tailwindcss/defaultConfig')()
@@ -131,11 +134,11 @@ Your config file should look generally like this at this point:
 
 #### 2.2. Rename `modules` to `variants`
 
-"Modules" was a word we just kinda grabbed because we needed *something*, and we wanted to use that section of the config to both specify variants and disable modules if necessary.
+"Modules"は、適当な例としての言葉でした。構成のそのセクションを使用して、バリアントを指定し、必要に応じてmodulesを無効にしました。
 
-Now that all of Tailwind's internal "modules" are actually just core plugins, I've decided to deprecate this terminology entirely, and make this section of the config purely about configuring variants for core plugins.
+Tailwindの内部"modules"はすべて実際には単なるコアプラグインであるため、この用語を完全に非推奨にし、構成のこのセクションを純粋にコアプラグインのバリアントの構成に関するものにすることにしました。
 
-After making this change, your config file should look like this:
+この変更を行うと、構成ファイルは次のようになります。
 
 ```diff
   let defaultConfig = require('tailwindcss/defaultConfig')()
@@ -171,9 +174,9 @@ After making this change, your config file should look like this:
 
 #### 2.3. Move your `options` settings to the top-level
 
-The advanced options have been moved to the top-level of the config file instead of being nested under the redundant `options` key.
+詳細オプションは、冗長な`options`キーの下にネストされるのではなく、構成ファイルの最上位に移動されました。
 
-After making this change, your config file should look like this:
+この変更を行うと、構成ファイルは次のようになります。
 
 ```diff
   let defaultConfig = require('tailwindcss/defaultConfig')()
@@ -211,9 +214,9 @@ After making this change, your config file should look like this:
 
 #### 2.4. Move your `negativeMargin` config to `margin`
 
-Negative margins are now handled by the same core plugin that handles positive margins.
+負のマージンは、正のマージンを処理するのと同じコアプラグインによって処理されるようになりました。
 
-Take any values you had configured under `negativeMargin` and move them to `margin`, being sure to add a leading dash to the keys and making the actual value negative.
+`negativeMargin`で設定した値を取得し、それらを`margin`に移動します。必ずキーに先頭のダッシュを追加し、実際の値を負にします。
 
 ```diff
   margin: {
@@ -267,14 +270,14 @@ Take any values you had configured under `negativeMargin` and move them to `marg
 - },
 ```
 
-Note that the class names themselves have not changed — while you might expect that a key like `-6` would generate classes like `mx--6`, the `margin` plugin is intelligent enough to detect those keys and create the class names you're used to like `-mx-6`.
+クラス名自体は変更されていないことに注意してください。`-6`のようなキーは`mx--6`のようなクラスを生成すると予想されるかもしれませんが、`margin`プラグインはそれらのキーを検出して、あなたはがかつて好きだったクラス名`-mx-6`を作成するのに十分賢いです。
 
 #### 2.5. Update the sections under `theme` to their new names
 
-As part of an effort to make the naming in the config file more consistent, many of the sections under `theme` have been renamed.
-These names need to change in the `variants` section as well, so feel free to do a find and replace across the whole file.
+設定ファイルの名前の一貫性を高めるための取り組みの一環として、`theme`下のセクションの多くの名前が変更されました。
+これらの名前は`variants`セクションでも変更する必要があるため、ファイル全体で自由に検索して置換してください。
 
-These are the sections that need to be updated:
+更新が必要なセクションは次のとおりです。
 
 | Old | New |
 |---|---|
@@ -293,9 +296,9 @@ These are the sections that need to be updated:
 
 #### 2.6. Update the sections under `variants` to their new names
 
-As alluded to in the previous step, many of the sections under `variants` have been renamed as well.
+前のステップでほのめかしたように、`variants`下のセクションの多くも名前が変更されています。
 
-These are the sections that need to be renamed *(it is the same as the list above)*:
+これらは名前を変更する必要があるセクションです。*（上記のリストと同じです）*
 
 | Old | New |
 |---|---|
@@ -312,7 +315,7 @@ These are the sections that need to be renamed *(it is the same as the list abov
 | `svgFill` | `fill` |
 | `svgStroke` | `stroke` |
 
-Several sections under `variants` have also been **split** into multiple sections, for example `lists` has been split into `listStylePosition` and `listStyleType`:
+`variants`の下のいくつかのセクションも複数のセクションに**分割**されています。たとえば、`lists`は`listStylePosition`と listStyleType`に分割されています。
 
 ```diff
   // ...
@@ -328,7 +331,7 @@ Several sections under `variants` have also been **split** into multiple section
   }
 ```
 
-Here is a complete list of the sections that been split into multiple sections:
+複数のセクションに分割されたセクションの完全なリストは次のとおりです。
 
 | Old | New |
 | --- | --- |
@@ -338,19 +341,20 @@ Here is a complete list of the sections that been split into multiple sections:
 | `textStyle` | `fontStyle`<br/>`fontSmoothing`<br/>`textDecoration`<br/>`textTransform` |
 | `whitespace` | `whitespace`<br/>`wordBreak` |
 
-Note that in some cases (`position`, `whitespace`) the original section still exists, while in others (`flexbox`, `textStyle`), the original section has been completely removed.
+元のセクションがまだ存在する場合（`position`,`whitespace`）もあれば、元のセクションが完全に削除されている場合（`flexbox`,`textStyle`）もあることに注意してください。
 
-You should reference the new [default config file](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js) if you are ever unsure if you are making the right changes.
+正しい変更を行っているかどうかわからない場合、新しい[デフォルトの設定ファイル](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js)を参照する必要があります
 
-The simplest way to make these changes is to just copy the value you were using for the old section (something like `['responsive']`) to all of the new sections that replace that section, but if you choose you can also use this as an opportunity to cull generated utilities you don't actually need.
+これらの変更を行う最も簡単な方法は、古いセクションに使用していた値（`['responsive']`など）を、そのセクションを置き換えるすべての新しいセクションにコピーすることです。
+ただし、あなたが選択した場合は、これを実際には必要のない生成されたユーティリティを選び取る機会として使用することもできます。
 
-For example, if you never use the responsive variants of `antialiased` or `subpixel-antialiased`, you could set `fontSmoothing` to `[]` while still using `['responsive']` for `fontStyle`, `textDecoration`, and `textTransform`.
+たとえば、`antialiased`または`subpixel-antialiased`のレスポンシブバリアントを使用したことがない場合は、`['responsive']`を`textDecoration`,`fontStyle`および`textTransform`に使用しながら`fontSmoothing`を[]に設定できます。
 
 #### 2.7. Add any disabled ~~modules~~ core plugins to `corePlugins`
 
-In v0.x, you could disable a ~~module~~ core plugin by setting it to `false` in what is now the `variants` section.
+v0.xでは、現在の`variants`セクションで`false`に設定することで、~~ module ~~コアプラグインを無効にできます。
 
-In v1.0, to disable a plugin you need to set it to `false` in the `corePlugins` section instead:
+v1.0では、プラグインを無効にするには、代わりに`corePlugins`セクションでプラグインを`false`に設定する必要があります。
 
 ```diff
   let defaultConfig = require('tailwindcss/defaultConfig')()
@@ -382,11 +386,11 @@ In v1.0, to disable a plugin you need to set it to `false` in the `corePlugins` 
   }
 ```
 
-This change was made to make it possible to disable other core plugins where `variants` are irrelevant, like `preflight` or `container` (more on this later).
+この変更は、`preflight`や` container`のように、`variants`が無関係な他のコアプラグインを無効にできるようにするために行われました。（これについては後で詳しく説明します）
 
 #### 2.8. Remove the `container` plugin from `plugins` and move any configuration to `theme`
 
-In v1.0, the `container` plugin is a core plugin just like `padding`, `margin`, etc. and should not be listed in your `plugins` section:
+v1.0では、`container`プラグインは`padding`、`margin`などと同じコアプラグインであり、`plugins`セクションにリストされるべきではありません。
 
 ```diff
   let defaultConfig = require('tailwindcss/defaultConfig')()
@@ -414,7 +418,7 @@ In v1.0, the `container` plugin is a core plugin just like `padding`, `margin`, 
   }
 ```
 
-If you had already removed the container plugin because you don't want those classes in your project, you should explicitly disable it using the `corePlugins` option:
+プロジェクトにこれらのクラスを含めたくないためにコンテナプラグインをすでに削除している場合は、`corePlugins`オプションを使用して明示的に無効にしてください。
 
 ```diff
   let defaultConfig = require('tailwindcss/defaultConfig')()
@@ -439,7 +443,7 @@ If you had already removed the container plugin because you don't want those cla
   }
 ```
 
-If you are taking advantage of the `center` or `padding` options exposed by the `container` plugin, you should specify those options under `theme.container` instead of as direct arguments to the plugin.
+`container`プラグインによって公開される`center`または`padding`オプションを利用している場合は、プラグインへの直接の引数としてではなく、`theme.container`下でそれらのオプションを指定する必要があります。
 
 ```diff
   let defaultConfig = require('tailwindcss/defaultConfig')()
@@ -473,9 +477,9 @@ If you are taking advantage of the `center` or `padding` options exposed by the 
 
 #### 2.9. Inline your `colors` variable into `theme.colors`
 
-In v1.0, it's possible to specify that parts of your theme _depend_ on other parts of your theme, and because of that it's no longer necessary to hold your `colors` in a separate variable.
+v1.0では、テーマの一部をテーマの他の部分に_依存_するように指定できます。そのため、`colors`を別の変数に保持する必要がなくなりました。
 
-Start by inlining your `colors` variable directly into `theme.colors`:
+`colors`変数を`theme.colors`に直接インライン化することから始めます。
 
 ```diff
   let defaultConfig = require('tailwindcss/defaultConfig')()
@@ -508,7 +512,7 @@ Start by inlining your `colors` variable directly into `theme.colors`:
   }
 ```
 
-Next, update any sections that were referencing the `colors` variable using the new closure syntax:
+次に、新しいクロージャ構文を使用して、`colors`変数を参照していたセクションを更新します。
 
 ```diff
   let defaultConfig = require('tailwindcss/defaultConfig')()
@@ -547,9 +551,9 @@ Next, update any sections that were referencing the `colors` variable using the 
 
 #### 2.10. Don't invoke the default config as a function
 
-In v0.x, `require('tailwindcss/defaultConfig')` returned a function that returned the default config when invoked.
+v0.xでは、`require('tailwindcss/defaultConfig')`は、呼び出されたときにデフォルトの構成を返す関数を返しました。
 
-In v1.0, it simply returns the object:
+v1.0では、単にオブジェクトを返します。
 
 ```diff
 - let defaultConfig = require('tailwindcss/defaultConfig')()
@@ -571,11 +575,12 @@ In v1.0, it simply returns the object:
 
 #### 2.11. Remove any configuration you haven't customized
 
-One of the philosophical changes in v1.0 is that we are encouraging people to use their configuration files solely for specifying _changes_ from the default config, rather than including the entire default config _plus_ their changes.
+v1.0での哲学的な変更の1つは、デフォルトの構成全体に変更を含めるのではなく、デフォルトの構成から_変更点_を指定するためだけに構成ファイルを使用することを推奨していることです。
 
-Every single key in the config file is optional (in fact the file itself is optional too), so if there are things you've never customized, you're encouraged to remove them entirely.
+構成ファイル内のすべてのキーはオプションです。（実際にはファイル自体もオプションです）
+したがって、カスタマイズしたことがないものがある場合は、それらを完全に削除することをお勧めします。
 
-For example, if you aren't specifying a custom separator or prefix or enabling the `important` option, you can remove them entirely:
+たとえば、カスタムセパレータまたはプレフィックスを指定していない場合、または`important`オプションを有効にしていない場合は、それらを完全に削除できます。
 
 ```diff
   let defaultConfig = require('tailwindcss/defaultConfig')
@@ -594,7 +599,7 @@ For example, if you aren't specifying a custom separator or prefix or enabling t
   }
 ```
 
-Similarly, if you aren't referencing the `defaultConfig` variable anywhere, remove that too:
+同様に、どこにも`defaultConfig`変数を参照していない場合は、それも削除します。
 
 ```diff
 - let defaultConfig = require('tailwindcss/defaultConfig')
@@ -610,7 +615,7 @@ Similarly, if you aren't referencing the `defaultConfig` variable anywhere, remo
   }
 ```
 
-If you haven't customized the `opacity` values, remove them:
+`不透明度`の値をカスタマイズしていない場合は、次の値を削除します。
 
 ```diff
   module.exports = {
@@ -632,34 +637,34 @@ If you haven't customized the `opacity` values, remove them:
   }
 ```
 
-We will not change any of this configuration outside of a major version bump, so you are totally safe to depend on inheriting the default values.
+メジャーバージョンバンプ以外ではこの構成を変更しないため、デフォルト値の継承に依存しても完全に安全です。
 
-The way your configuration is merged with the defaults is designed to be very intuitive and mostly just work, but for the curious:
+構成をデフォルトとマージする方法は、非常に直感的でほとんど機能するように設計されていますが、好奇心旺盛な人はこちらを参照ください。
 
-- `prefix` is replaced
-- `separator` is replaced
-- `important` is replaced
-- `theme` is merged one level deep, so if you provide an object for `theme.opacity` it replaces the default `theme.opacity` object
-- `variants` is merged one level deep, so if you provide an array for `variants.opacity` it replaces the default `variants.opacity` object
-- `plugins` is merged, but the default is an empty array so it's really the same as replacing
+- `prefix`は置き換えられます。
+- `separator`は置き換えられます。
+- `important`は置き換えられます。
+- `theme`は1レベル深くマージされるため、`theme.opacity`にオブジェクトを指定すると、デフォルトの`theme.opacity`オブジェクトが置き換えられます。
+- `variants`は1レベル深くマージされるため、`Variants.opacity`の配列を指定すると、デフォルトの`variants.opacity`オブジェクトが置き換えられます。
+- `plugins`はマージされますが、デフォルトは空の配列であるため、実際には置換と同じです。
 
-It's worth noting that you are not _required_ to remove any redundant configuration, so if you'd prefer to own the entire system and be able to see it all in one place, you're absolutely welcome to keep everything in your config file.
+冗長な構成を削除する必要はないことに注意してください。したがって、システム全体を所有し、すべてを1か所で確認できるようにしたい場合は、すべてを構成ファイルに保存しておくことをお勧めします。
 
-**It's very important to realize that many of the theme values have changed from v0.7.4 to v1.0**, so just because you never customized a value that shipped by default in v0.x, that doesn't guarantee that you are safe to remove it from your config file.
+**テーマの値の多くがv0.7.4からv1.0に変更されたことを認識することが非常に重要です**。したがって、v0.xでデフォルトで出荷された値をカスタマイズしたことがないという理由だけで、構成ファイルからその値を安全に削除できるとは限りません。
 
-A perfect example of this is colors. The default color palette is completely new in v1.0 with a new naming scheme, so even if you were using the default color palette in v0.x, you're actually using a custom color palette in v1.0.
+これの完璧な例は色です。デフォルトのカラーパレットはv1.0で完全に新しく、新しい命名スキームが採用されているため、v0.xでデフォルトのカラーパレットを使用していた場合でも、実際にはv1.0でカスタムカラーパレットを使用しています。
 
-**Always double check that anything you want to remove is identical to the _new_ default config file values before you remove it.**
+**削除する前に、削除するものが_新しい_デフォルトの構成ファイルの値と同じであることを常に再確認してください。**
 
 <Heading level={3}>3. Rename <code>tailwind.js</code> to <code>tailwind.config.js</code></Heading>
 
 <p className="italic font-normal text-gray-600 mt-4">Impact: N/A, Effort: Trivial</p>
 
-This is entirely optional but recommended — if you are using the old default config file name (`tailwind.js`), rename it to `tailwind.config.js`.
+これは完全にオプションですが、古いデフォルトの設定ファイル名（`tailwind.js`）を使用している場合は、名前を`tailwind.config.js`に変更することをオススメします。
 
-If you use that file name and keep the file in the root of your project, Tailwind will pick up your config file by default without having to specify the path in your build scripts/configuration.
+そのファイル名を使用し、ファイルをプロジェクトのルートに保持する場合、Tailwindは、ビルドスクリプト/コンフィギュレーションでパスを指定しなくても、デフォルトで構成ファイルを取得します。
 
-Here's an example of what I mean using Laravel Mix:
+LaravelMixを使用する例を次に示します。
 
 ```diff
   mix.postCss('resources/css/app.css', 'public/css/app.css', [
@@ -668,7 +673,7 @@ Here's an example of what I mean using Laravel Mix:
   ])
 ```
 
-If you keep your config file in a different folder, you'll still need to provide the path:
+コンフィグファイルを別のフォルダーに保存する場合でも、パスを指定する必要があります。
 
 ```diff
   mix.postCss('resources/css/app.css', 'public/css/app.css', [
@@ -681,9 +686,10 @@ If you keep your config file in a different folder, you'll still need to provide
 
 <p className="italic font-normal text-gray-600 mt-4">Impact: All users, Effort: Trivial</p>
 
-One of the new features in v1.0 is the ability for plugins to register base styles. As a result, our `preflight` styles are actually just another core plugin now, and the general "bucket" for base styles has been renamed from `preflight` to `base`.
+v1.0の新機能の1つは、プラグインが基本スタイルを登録する機能です。
+その結果、私たちの`preflight`スタイルは実際には単なる別のコアプラグインになり、ベーススタイルの一般的な`bucket`は`preflight`から`base`に名前が変更されました。
 
-Replace any instance of `@tailwind preflight` in your CSS files with `@tailwind base`:
+CSSファイル内の`@tailwind preflight`のインスタンスを`@tailwind base`に置き換えます。
 
 ```diff
 - @tailwind preflight;
@@ -694,7 +700,7 @@ Replace any instance of `@tailwind preflight` in your CSS files with `@tailwind 
   @tailwind utilities;
 ```
 
-If you are using `postcss-import` and relying on our imports instead of the `@tailwind` directive, replace `@import "tailwindcss/preflight"` with `@import "tailwindcss/base"`:
+`postcss-import`を使用していて、`@tailwind`ディレクティブの代わりにインポートに依存している場合は、`@import"tailwindcss/preflight"`を`@import"tailwindcss/base"`に置き換えます。
 
 ```diff
 - @import "tailwindcss/preflight";
@@ -709,7 +715,7 @@ If you are using `postcss-import` and relying on our imports instead of the `@ta
 
 <p className="italic font-normal text-gray-600 mt-4">Impact: Moderate, Effort: Low</p>
 
-The `config()` helper function that Tailwind makes available to your CSS files has been replaced with a new `theme()` function that is automatically scoped to the `theme` section of your config file and should work as a drop-in replacement:
+TailwindがCSSファイルで利用できるようにする`config()`ヘルパー関数は、構成ファイルの`theme`セクションに自動的にスコープされ、ドロップインリプレースメントとして機能する新しい`theme()`関数に置き換えられました。
 
 ```diff
   .btn {
@@ -719,13 +725,13 @@ The `config()` helper function that Tailwind makes available to your CSS files h
   }
 ```
 
-A simple find and replace across your CSS files that switches `config(` to `theme(` should do it.
+`config(`を`theme(`に切り替えるCSSファイル全体の簡単な検索と置換がそれを行うはずです。
 
 <Heading level={3}>6. Explicitly style any headings</Heading>
 
 <p className="italic font-normal text-gray-600 mt-4">Impact: Moderate, Effort: Moderate</p>
 
-If you are using our `preflight` styles, all `h1-h6` elements are unstyled by default in v1.0.
+`preflight`スタイルを使用している場合、v1.0ではすべての`h1-h6`要素のスタイルがデフォルトで解除されます。
 
 That means that out of the box, they all have a font-size of `1em` (whatever the parent font size is) and a font-weight of `inherit`, so they look exactly like a `p` tag.
 
