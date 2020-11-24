@@ -6,7 +6,7 @@ description: 既存のTailwindCSSプロジェクトをv1.0にアップグレー�
 
 import { Heading } from '@/components/Heading'
 
-Tailwind v1.0 is mostly focused on changing things from 0.x that I would have done differently had I known in advance where the feature set would be at today.
+Tailwind v1.0は主に、今日の機能セットのあり方を事前に知っていれば、私が別の方法で行っていたであろう0.xからの変更に焦点を合わせています。
 
 したがって、エキサイティングな新機能はそれほど多くありませんが、少なくとも、基盤を構築するための非常に安定した基盤があるという事実に興奮することができます。
 0.xラベルで一時停止した場合は、本番環境でTailwindを快適に使用できます。
@@ -733,32 +733,41 @@ TailwindがCSSファイルで利用できるようにする`config()`ヘルパ�
 
 `preflight`スタイルを使用している場合、v1.0ではすべての`h1-h6`要素のスタイルがデフォルトで解除されます。
 
-That means that out of the box, they all have a font-size of `1em` (whatever the parent font size is) and a font-weight of `inherit`, so they look exactly like a `p` tag.
+つまり、初期状態で、それらはすべて`1em`のフォントサイズ（親フォントサイズが何であれ）と`inherit`のフォントウェイトを持っていることを意味します。したがって、それらは`p`タグとまったく同じように見えます。
 
-We do this because in web application development it's very common for some piece of text to be a heading semantically, but actually be styled in a much less "in your face" way because it's meant to look more like a subtle label on a section of UI. Because of this, well-designed applications often need to "undo" the user agent styles for headings anyways, and we think it's better for styling to feel additive in Tailwind instead of subtractive.
+We do this because in web application development it's very common for some piece of text to be a heading semantically, 
+but actually be styled in a much less "in your face" way 
+because it's meant to look more like a subtle label on a section of UI. 
 
-By using the user agent styles for headings, we also made it far too easy to accidentally deviate from your own design system. If the browser says that an `h1` should be `2em`, it could compute to a size that isn't part of your `fontSize` scale.
+これを行うのは、Webアプリケーション開発では、テキストの一部が意味的に見出しになることが非常に一般的だからです。
+しかし実際には、はるかに少ない「面と向かった」方法でスタイリングされます。なぜならUIのセクションの微妙なラベルのように見えることを意図しているためです。
 
-By unstyling headings by default, we make it a lot easier to avoid this pitfall by ensuring that any size or weight you set is explicit and intentional.
+このため、適切に設計されたアプリケーションでは、とにかく見出しのユーザーエージェントスタイルを「元に戻す」必要があります。
+Tailwindでは、減算ではなく加算を感じる方がスタイリングに適していると考えています。
 
-This change might not affect you at all if you are already specifying a font-weight and font-size on all your headings, but if you aren't, you just need to assign an explicit size and weight wherever it's missing:
+見出しにユーザーエージェントスタイルを使用することで、独自のデザインシステムから誤って逸脱することも簡単になりました。 
+ブラウザが`h1`を`2em`にする必要があると言った場合、`fontSize`スケールの一部ではないサイズに計算される可能性があります。
+
+デフォルトで見出しのスタイルを解除することで、設定するサイズや重みが明示的かつ意図的になるようにすることで、この落とし穴をはるかに簡単に回避できます。
+
+すべての見出しにフォントの太さとフォントサイズをすでに指定している場合、この変更はまったく影響しない可能性がありますが、指定していない場合は、欠落している場所に明示的なサイズと太さを割り当てる必要があります。
 
 ```diff
 - <h1>Manage Account<h1>
 + <h1 class="text-xl font-semibold">Manage Account<h1>
 ```
 
-The exact changes you need to make will be highly specific to what you want to accomplish with your design, so you'll have to assess each situation independently.
+行う必要のある正確な変更は、設計で達成したいことに非常に固有であるため、それぞれの状況を個別に評価する必要があります。
 
-This is a bit of an annoying change, but if it breaks your site, you could argue that it's actually revealing bugs in your markup.
+これは少し厄介な変更ですが、サイトが破損した場合は、マークアップのバグが実際に明らかになっていると主張することができます。
 
 <Heading level={3}>7. Explicitly style any lists that should have bullets/numbers</Heading>
 
 <p className="italic font-normal text-gray-600 mt-4">Impact: Moderate, Effort: Moderate</p>
 
-If you are using our `preflight` styles, all `ul` and `ol` elements are unstyled by default in v1.0.
+`preflight`スタイルを使用している場合、v1.0ではすべての`ul`要素と`ol`要素のスタイルがデフォルトで解除されます。
 
-That means if you have any lists that depend on the default browser styling (bullets/numbers and a bit of left padding), you need to explicitly style those lists using the new `.list-disc/decimal` utilities and the existing padding utilities:
+つまり、デフォルトのブラウザスタイル（箇条書き/数字と少し左のパディング）に依存するリストがある場合は、新しい`.list-disc/decimal`ユーティリティと既存のパディングユーティリティを使用してそれらのリストを明示的にスタイル設定する必要があります。
 
 ```diff
 - <ul>
@@ -767,7 +776,7 @@ That means if you have any lists that depend on the default browser styling (bul
   </ul>
 ```
 
-If you really don't want to do this manually and would prefer that lists be styled by default, you can override our base styles with your own custom CSS by adding a couple of rules like this:
+これを手動で行う必要がなく、リストのスタイルをデフォルトで設定したい場合は、次のようなルールをいくつか追加して、基本スタイルを独自のカスタムCSSでオーバーライドできます。
 
 ```css
 @tailwind base;
@@ -791,33 +800,33 @@ ol {
 
 <p className="italic font-normal text-gray-600 mt-4">Impact: Moderate, Effort: Low</p>
 
-Since lists are now unstyled by default, `.list-reset` has been removed. You technically don't need to change anything, but you're encouraged to remove any usage of it as it's now just dead code:
+リストはデフォルトでスタイルが解除されているため、`.list-reset`は削除されました。技術的には何も変更する必要はありませんが、デッドコードになっているため、削除することをお勧めします。
 
 ```diff
 - <ul class="list-reset"><!-- ... --></ul>
 + <ul><!-- ... --></ul>
 ```
 
-If you chose override our base styles and give lists a default style, you can use the new `.list-none` utility as well as `.p-0` as a replacement for `.list-reset` to remove that base styling as needed:
+基本スタイルを上書きしてリストにデフォルトスタイルを与えることを選択した場合は、新しい`.list-none`ユーティリティと`.p-0`を`.list-reset`の代わりに使用して、必要に応じてその基本スタイルを削除できます。
 
 ```diff
 - <ul class="list-reset"><!-- ... --></ul>
 + <ul class="list-none p-0"><!-- ... --></ul>
 ```
 
-Again, **if you are using our `preflight` styles unmodified (you probably are), you can simply remove `list-reset` from your markup and nothing will change**.
+繰り返しになりますが、**変更されていない`preflight`スタイルを使用している場合（おそらくそうです）、マークアップから`list-reset`を削除するだけで、何も変更されません**。
 
-This change only really affects you if you are _not_ using our `preflight` styles, or overriding our global list reset.
+この変更は、`preflight`スタイルを使用していない場合、またはグローバルリストのリセットをオーバーライドしている場合にのみ実際に影響します。
 
 <Heading level={3}>9. Replace <code>{'.pin-{side}'}</code> with <code>{'.{top|left|bottom|right|inset}-{value}'}</code></Heading>
 
 <p className="italic font-normal text-gray-600 mt-4">Impact: High, Effort: Moderate</p>
 
-Utilities like `.pin`, `.pin-x`, and `.pin-t` have been removed in favor of less cleverly named classes like `.top-0`, `.right-0`, etc.
+`.pin`,`.pin-x`,`.pin-t`などのユーティリティは削除され、`.top-0`,`.right-0`などのより利口な名前のクラスが採用されました。
 
-See the [pull request](https://github.com/tailwindlabs/tailwindcss/pull/764) for more details on the motivation behind this change.
+この変更の背後にある動機の詳細については、[プルリクエスト](https://github.com/tailwindlabs/tailwindcss/pull/764)を参照してください。
 
-Here is a complete list of the changes:
+変更点の完全なリストは次のとおりです。
 
 | Old | New |
 | --- | --- |
@@ -830,7 +839,7 @@ Here is a complete list of the changes:
 | `.pin-b`  | `.bottom-0`  |
 | `.pin-l`  | `.left-0`  |
 
-Six new classes have been added as well:
+6つの新しいクラスも追加されました。
 
 | Class |
 | --- |
@@ -841,15 +850,15 @@ Six new classes have been added as well:
 | `.bottom-auto`  |
 | `.left-auto`  |
 
-These are all now customizable in `theme.inset` too, whereas the `pin-{side}` utilities were not.
+これらはすべて`theme.inset`でもカスタマイズできるようになりましたが、`pin-{side}`ユーティリティはカスタマイズできませんでした。
 
-This is an annoying change, sorry.
+これは迷惑な変更です、ごめんなさい。
 
 <Heading level={3}>10. Replace <code>.roman</code> with <code>.not-italic</code></Heading>
 
 <p className="italic font-normal text-gray-600 mt-4">Impact: Low, Effort: Low</p>
 
-Previously we used the name `.roman` for `font-style: normal` because of a bug in `postcss-selector-not` that prevented us from using `.not-italic`. That bug has been fixed, so this name has been changed.
+以前は、`postcss-selector-not`にバグがあり、`.not-italic`を使用できなかったため、`font-style:normal`に`.roman`という名前を使用していました。そのバグは修正されたので、この名前は変更されました。
 
 ```diff
 - <div class="roman">
@@ -858,13 +867,13 @@ Previously we used the name `.roman` for `font-style: normal` because of a bug i
   </div>
 ```
 
-I would be surprised if more than 5 people are even affected by this, I've never used this class once myself.
+5人以上がこの影響を受けているとしたら驚きます。私は一度もこのクラスを使ったことがありません。
 
 <Heading level={3}>11. Replace <code>.flex-no-grow/shrink</code> with <code>.flex-grow/shrink-0</code></Heading>
 
 <p className="italic font-normal text-gray-600 mt-4">Impact: High, Effort: Low</p>
 
-In order to make these utilities more easily customizable, their names have changed to match our existing conventions.
+これらのユーティリティをより簡単にカスタマイズできるようにするために、既存の規則に一致するように名前が変更されました。
 
 ```diff
 - <div class="flex-no-grow">
@@ -878,15 +887,15 @@ In order to make these utilities more easily customizable, their names have chan
   </div>
 ```
 
-These utilities are also now customizable in the `theme.flexGrow` and `theme.flexShrink` sections of your config file.
+これらのユーティリティは、設定ファイルの`theme.flexGrow`セクションと`theme.flexShrink`セクションでもカスタマイズできるようになりました。
 
 <Heading level={3}>12. Explicitly add color and underline styles to links</Heading>
 
 <p className="italic font-normal text-gray-600 mt-4">Impact: High, Effort: Moderate</p>
 
-In v1.0, `a` tags automatically inherit the parent `color` and `text-decoration` styles which means that by default links are no longer blue and do not have an underline.
+v1.0では、`a`タグは親の`color`スタイルと`text-decoration`スタイルを自動的に継承します。つまり、デフォルトでは、リンクは青色ではなく、下線もありません。
 
-You are likely already adding a text color class like `text-green-dark` or similar to your links because you probably didn't want the default browser-blue color, but if not you'll need to add a color explicitly:
+デフォルトのブラウザの青色が必要なかったため、`text-green-dark`などのテキストカラークラスをリンクに追加している可能性がありますが、そうでない場合は、明示的に色を追加する必要があります。
 
 ```diff
 - <a href="#">
@@ -895,7 +904,7 @@ You are likely already adding a text color class like `text-green-dark` or simil
   </a
 ```
 
-Similarly, if you have any links that need underlines, you'll have to add them manually:
+同様に、アンダースコアが必要なリンクがある場合は、手動で追加する必要があります。
 
 ```diff
 - <a href="#">
@@ -904,7 +913,7 @@ Similarly, if you have any links that need underlines, you'll have to add them m
   </a
 ```
 
-On the flip side, if you are using `no-underline` in a million places across your project just to unstyle links, you can now safely remove that class:
+反対に、リンクのスタイルを解除するためだけにプロジェクト全体の100万の場所で`no-underline`クラスを使用している場合は、そのクラスを安全に削除できるようになりました。
 
 ```diff
 - <a href="#" class="no-underline">
@@ -913,7 +922,7 @@ On the flip side, if you are using `no-underline` in a million places across you
   </a
 ```
 
-If you really don't like these new defaults, you can add your own base link styles after `@tailwind base`:
+これらの新しいデフォルトが本当に気に入らない場合は、`@tailwind base`の後に独自のベースリンクスタイルを追加できます。
 
 ```css
 @tailwind base;
@@ -931,9 +940,10 @@ a {
 
 <p className="italic font-normal text-gray-600 mt-4">Impact: Moderate, Effort: Moderate</p>
 
-In v1.0, all replaced elements (like `img`, `svg`, `video`, `canvas`, `iframe`, etc.) are set to `display: block` by default. This is counter to the browser default which is `inline`.
+v1.0では、置き換えられたすべての要素(img`, `svg`, `video`, `canvas`, `iframe`, etc.)は、デフォルトで`display:block`に設定されています。
+これは、ブラウザのデフォルトである`inline`とは逆です。
 
-If you have any instances in your project where you actually want these elements to be `inline`, you'll need to add that class:
+これらの要素を実際に`inline`にしたいインスタンスがプロジェクトにある場合は、そのクラスを追加する必要があります。
 
 ```diff
   <span>
@@ -943,21 +953,21 @@ If you have any instances in your project where you actually want these elements
   </span>
 ```
 
-I don't think this will actually affect many people or projects, as you almost always want these elements to be `block` or you have them nested inside a flex container where it doesn't matter.
+ほとんどの場合、これらの要素を`block`にするか、問題のないフレックスコンテナ内にネストするため、これが実際に多くの人やプロジェクトに影響を与えるとは思いません。
 
 <Heading level={3}>14. Adjust the line-height and padding on your form elements</Heading>
 
 <p className="italic font-normal text-gray-600 mt-4">Impact: High, Effort: Moderate</p>
 
-**If you are already setting an explicit line-height on form elements, this change will not affect you.**
+**フォーム要素に明示的な行の高さをすでに設定している場合、この変更は影響しません。**
 
-In v0.x, we used a line-height of 1.15 for form elements by default, sort of incidentally by depending on normalize.css.
+v0.xでは、デフォルトでフォーム要素に1.15の行の高さを使用しましたが、これは、normalize.cssに応じて偶然に発生します。
 
-This made it very easy to forget to add an explicit line-height like `leading-tight` or `leading-normal` to form elements, introducing a new line-height (1.15) into your project that doesn't match any of the `leading-{size}` utilities.
+これにより、要素を形成するために`leading-tight`や`leading-normal`などの明示的な行の高さを追加するのを忘れがちになり、プロジェクトに新しい行の高さ（1.15）が導入されました。これは`leading-{size}`ユーティリティとはマッチしません。
 
-In v1.0, all form elements use a value of `inherit` for their line-height, so the line-height will match the parent element by default.
+v1.0では、すべてのフォーム要素が行の高さに `inherit`の値を使用するため、行の高さはデフォルトで親要素と一致します。
 
-That means if you had some markup like this:
+つまり、次のようなマークアップがあった場合：
 
 ```html
 <div class="leading-normal ...">
@@ -966,9 +976,9 @@ That means if you had some markup like this:
 </div>
 ```
 
-...your `input` element will be slightly taller in v1.0 because the line-height has increased from 1.15 to 1.5.
+...行の高さが1.15から1.5に増加したため、v1.0では`input`要素の高さがわずかに高くなります。
 
-You can fix this by adjusting any vertical padding to account for the new line-height, and optionally adding an explicit `leading-{size}` class if you don't want to match the line-height of the parent:
+これを修正するには、新しい行の高さを考慮して垂直方向のパディングを調整し、親の行の高さと一致させたくない場合は、オプションで明示的な `leading- {size}`クラスを追加します。
 
 ```diff
   <div class="leading-normal ...">
@@ -978,9 +988,10 @@ You can fix this by adjusting any vertical padding to account for the new line-h
   </div>
 ```
 
-You might not get the exact same height you had before, but that's likely because the old height was some weird fractional number like 42.4px (line-height of 1.15 * font-size of 16px + 24px of padding). With the new system you are much more likely to land on reasonable whole numbers, like 40px of 44px, depending on your chosen line-height and padding values.
+以前とまったく同じ高さにはならないかもしれませんが、それはおそらく、古い高さが42.4px（行の高さ1.15 *フォントサイズ16px +パディング24px）のような奇妙な小数であったためです。
+新しいシステムでは、選択した行の高さとパディングの値に応じて、44pxの40pxなどの妥当な整数に到達する可能性がはるかに高くなります。
 
-If you really want to use 1.15 as your default line-height for form elements (I would recommend against it), you can add a rule like this to your own base styles:
+フォーム要素のデフォルトの行の高さとして1.15を本当に使用したい場合は（これはお勧めしません）、次のようなルールを独自の基本スタイルに追加できます。
 
 ```css
 @tailwind base;
@@ -1001,11 +1012,11 @@ textarea {
 
 <p className="italic font-normal text-gray-600 mt-4">Impact: Low, Effort: Moderate</p>
 
-**If you are already setting an explicit text color on form elements, this change will not affect you.**
+**フォーム要素に明示的なテキストの色をすでに設定している場合、この変更は影響しません。**
 
-In v0.x, form elements used black text by default, even though true black was not part of the default color palette.
+v0.xでは、黒がデフォルトのカラーパレットの一部ではなかったとしても、フォーム要素はデフォルトで黒のテキストを使用していました。
 
-In v1.0, form elements inherit their text color from the parent, which means if you have any markup like this:
+v1.0では、フォーム要素は親からテキストの色を継承します。つまり、次のようなマークアップがある場合です。
 
 ```html
 <div class="text-red">
@@ -1013,9 +1024,9 @@ In v1.0, form elements inherit their text color from the parent, which means if 
 </div>
 ```
 
-...your `input` would have red text instead of black text.
+...`input`には、黒いテキストではなく赤いテキストが含まれます。
 
-You can fix this by setting a text color on form elements explicitly:
+フォーム要素にテキストの色を明示的に設定することで、これを修正できます。
 
 ```diff
   <div class="text-red">
@@ -1028,13 +1039,13 @@ You can fix this by setting a text color on form elements explicitly:
 
 <p className="italic font-normal text-gray-600 mt-4">Impact: Low, Effort: Trivial</p>
 
-**If you are already setting a default font family on your project (either with a class on `html`/`body` or using custom CSS), this change will not affect you.**
+**プロジェクトにデフォルトのフォントファミリーを既に設定している場合（ `html`/`body`のクラスを使用するか、カスタムCSSを使用する）、この変更による影響はありません。**
 
-In v1.0, the default font family has changed from `sans-serif` to our system font stack.
+v1.0では、デフォルトのフォントファミリが `sans-serif`からシステムフォントスタックに変更されました。
 
-It's very unlikely that you weren't already overriding this with your own font, but if not you'll notice your site looks a bit different, and honestly probably better.
+自分のフォントでこれをオーバーライドしていない可能性はほとんどありませんが、そうでない場合は、サイトの外観が少し異なり、正直なところおそらくより良いことに気付くでしょう。
 
-You don't really have to change anything unless for some unexplainable reason you want to use `sans-serif` as your default font family, in which case you can add a rule to your base styles:
+何らかの理由でデフォルトのフォントファミリとして `sans-serif`を使用したい場合を除いて、実際には何も変更する必要はありません。その場合、基本スタイルにルールを追加できます。
 
 ```css
 @tailwind base;
@@ -1051,13 +1062,13 @@ html {
 
 <p className="italic font-normal text-gray-600 mt-4">Impact: Moderate, Effort: Moderate</p>
 
-**If you are already setting a default line-height on your project (either with a class on `html`/`body` or using custom CSS), this change will not affect you.**
+**プロジェクトにデフォルトの行の高さをすでに設定している場合（`html`/`body`のクラスを使用するか、カスタムCSSを使用する）、この変更は影響しません。**
 
-In v0.x, the default line-height was 1.15 (inherited from normalize.css). Since that value isn't part of Tailwind's default theme, we've opted to change it to 1.5 for v1.0 so the default line-height matches a value in the line-height scale.
+v0.xでは、デフォルトの行の高さは1.15（normalize.cssから継承）でした。 その値はTailwindのデフォルトのテーマの一部ではないため、v1.0では1.5に変更して、デフォルトの行の高さが行の高さのスケールの値と一致するようにしました。
 
-This means that if you are not setting a line-height either using a `leading-{size}` class on the `html` or `body` tags or by adding some base styles to your CSS, most things on your site are going to appear a little bit taller.
+これは、`html`または`body`タグで`leading-{size}`クラスを使用するか、CSSにいくつかの基本スタイルを追加することによって行の高さを設定しない場合、サイトのほとんどのものが少し背が高く見えます。
 
-The easiest solution is to reset the line-height to 1.15 by default:
+最も簡単な解決策は、行の高さをデフォルトで1.15にリセットすることです。
 
 ```css
 @tailwind base;
@@ -1070,35 +1081,36 @@ html {
 @tailwind utilities;
 ```
 
-However, a better long-term solution would be to pick a default line-height that matches a value in your line-height scale, and audit your site to find situations where it makes the design look worse and tweak those one at a time.
+ただし、より良い長期的な解決策は、行の高さのスケールの値に一致するデフォルトの行の高さを選択し、サイトを監査して、デザインの見栄えが悪くなる状況を見つけ、一度に1つずつ微調整することです。
 
 ---
 
-## Additional steps for CDN users, or others without a config file
+## CDNユーザー、または構成ファイルのない他のユーザー向けの追加手順
 
-These steps only affect users that are depending on the 0.x configuration file values. This includes CDN users, or anyone that is omitting sections from their config file, referencing our config file, or not using a config file at all.
+これらの手順は、0.x構成ファイルの値に依存しているユーザーにのみ影響します。 これには、CDNユーザー、または構成ファイルからセクションを省略している、構成ファイルを参照している、または構成ファイルをまったく使用していないユーザーが含まれます。
 
-1. [Update any usage of `text/bg/border-{color}` classes](#1-update-any-usage-of-text-bg-border-color-classes)
-2. [Replace `tracking-tight/wide` with `tracking-tighter/wider`](#2-replace-tracking-tight-wide-with-tracking-tighter-wider)
-3. [Check your design against the updated default breakpoints](#3-check-your-design-against-the-updated-default-breakpoints)
-4. [Double check any usage of the default `shadow-{size}` utilities](#4-double-check-any-usage-of-the-default-shadow-size-utilities)
-5. [Update any usage of the default `max-w-{size}` utilities](#5-update-any-usage-of-the-default-max-w-size-utilities)
+1. [`text/bg/border-{color}`クラスの使用法を更新する](#1-update-any-usage-of-text-bg-border-color-classes)
+2. [`tracking-tight/wide`を`tracking-tighter/wider`に置き換える](#2-replace-tracking-tight-wide-with-tracking-tighter-wider)
+3. [更新されたデフォルトのブレークポイントに対してデザインを確認する](#3-check-your-design-against-the-updated-default-breakpoints)
+4. [デフォルトの`shadow-{size}`ユーティリティの使用法を再確認する](#4-double-check-any-usage-of-the-default-shadow-size-utilities)
+5. [デフォルトの`max-w-{size}`ユーティリティの使用法を更新する](#5-update-any-usage-of-the-default-max-w-size-utilities)
 
-<Heading level={3}>1. Update any usage of <code>{'text/bg/border-{color}'}</code> classes</Heading>
+<Heading level={3}>1. <code>{'text/bg/border-{color}'}</code>クラスの使用法を更新する</Heading>
 
 <p className="italic font-normal text-gray-600 mt-4">Impact: Low, Effort: High</p>
 
-**This change only affects you if you don't have a color palette defined in your config file or you are using Tailwind through a CDN.**
+**この変更は、構成ファイルにカラーパレットが定義されていない場合、またはCDNを介してTailwindを使用している場合にのみ影響します。**
 
-Tailwind v1.0 comes with an entirely new color palette that provides 9 shades for each color instead of 7 ([\#737](https://github.com/tailwindlabs/tailwindcss/pull/737)).
+Tailwind v1.0には、7色ではなく9色の色合いを提供するまったく新しいカラーパレットが付属しています。 ([\#737](https://github.com/tailwindlabs/tailwindcss/pull/737)).
 
-The naming scheme has changed from using words like `darkest` and `lighter` to a numeric scaled inspired by Material Design that starts at `100` for the lightest shade and ends at `900` for the darkest shade.
+命名スキームは、`darkest`や`lighter`などの単語の使用から、最も明るい色合いの`100`で始まり、最も暗い色合いの`900`で終わるマテリアルデザインに触発された数値スケールに変更されました。
 
-There is no way to map the old colors to the new colors 1:1 because the new palette includes more shades, so if you are using the v0.x default color palette and would like to upgrade to the new color palette, you are in for some fun (you're not).
+新しいパレットにはより多くの色合いが含まれているため、古い色を新しい色に1:1でマッピングする方法はありません。
+したがって、v0.xのデフォルトのカラーパレットを使用していて、新しいカラーパレットにアップグレードしたい場合は、あなたはそれを楽しむでしょう（実際にはあなたはそうではありませんが）。
 
-I would recommend starting with the following substitutions and then adjusting colors up or down a shade on a case-by-case basis as you feel is needed.
+次の置換から始めて、必要に応じてケースバイケースで色合いを上下に調整することをお勧めします。
 
-For grays (note that `grey` has changed to `gray`):
+灰色の場合（`grey`が`gray`に変更されていることに注意してください）
 
 | Old | New |
 | --- | --- |
@@ -1112,7 +1124,7 @@ For grays (note that `grey` has changed to `gray`):
 | grey-lightest | gray-100 |
 | white | white |
 
-For other colors:
+他の色の場合：
 
 | Old | New |
 | --- | --- |
@@ -1124,15 +1136,17 @@ For other colors:
 | {color}-lighter | {color}-200 |
 | {color}-lightest | {color}-100 |
 
-Again, this change only affects you if you do not have your own color palette specified in your config file, or you are using the default Tailwind build through a CDN. If you are using the v0.x color palette in your project, you can absolutely keep using it. You do not need to make these changes unless you have a hard dependency on our default color palette in some way.
+繰り返しますが、この変更は、構成ファイルで独自のカラーパレットが指定されていない場合、またはCDNを介してデフォルトのTailwindビルドを使用している場合にのみ影響します。
+プロジェクトでv0.xカラーパレットを使用している場合は、使用し続けることができます。
+何らかの方法でデフォルトのカラーパレットに強く依存していない限り、これらの変更を行う必要はありません。
 
-<Heading level={3}>2. Replace <code>tracking-tight/wide</code> with <code>tracking-tighter/wider</code></Heading>
+<Heading level={3}>2. <code>tracking-tight/wide</code>を<code>tracking-tighter/wider</code>で置き換える</Heading>
 
 <p className="italic font-normal text-gray-600 mt-4">Impact: Low, Effort: Low</p>
 
-**This change only affects you if you don't have a tracking/letter-spacing scale defined in your config file or you are using Tailwind through a CDN.**
+**この変更は、構成ファイルでトラッキング、文字間隔のスケールが定義されていない場合、またはCDNを介してTailwindを使用している場合にのみ影響します。**
 
-In v1.0, the default letter-spacing scale has changed:
+v1.0では、デフォルトの文字間隔スケールが変更されました。
 
 ```diff
  letterSpacing: {
@@ -1147,19 +1161,19 @@ In v1.0, the default letter-spacing scale has changed:
  }
 ```
 
-That means that if you want your project to look the same, you'll want to replace any existing occurrences of `tracking-tight` with `tracking-tighter`, and `tracking-wide` with `tracking-wider`.
+つまり、プロジェクトを同じように見せたい場合は、既存の`tracking-tight`を`tracking-tighter`に、`tracking-wide`を`tracking-wider`に置き換える必要があります。
 
-Again, this only applies if you do not have a letter-spacing scale defined in your config file or if you are using the default Tailwind build through a CDN.
+繰り返しになりますが、これは、構成ファイルで文字間隔スケールが定義されていない場合、またはCDNを介してデフォルトのTailwindビルドを使用している場合にのみ適用されます。
 
-If you started with a complete config file, your old scale will continue to work the same way in v1.0 and you don't need to make any changes.
+完全な構成ファイルから始めた場合、古いスケールはv1.0でも同じように機能し続けるため、変更を加える必要はありません。
 
-<Heading level={3}>3. Check your design against the updated default breakpoints</Heading>
+<Heading level={3}>3. 更新されたデフォルトのブレークポイントに対してデザインを確認する</Heading>
 
 <p className="italic font-normal text-gray-600 mt-4">Impact: Low, Effort: Low</p>
 
-**This change only affects you if you don't have `screens` defined in your config file or you are using Tailwind through a CDN.**
+**この変更は、構成ファイルに`画面`が定義されていない場合、またはCDNを介してTailwindを使用している場合にのみ影響します。**
 
-The default breakpoints have changed a bit in v1.0:
+v1.0では、デフォルトのブレークポイントが少し変更されています。
 
 | Screen | Old | New |
 | --- | --- | --- |
@@ -1168,51 +1182,54 @@ The default breakpoints have changed a bit in v1.0:
 | lg | 992px | 1024px |
 | xl | 1200px | 1280px |
 
-If your config file doesn't have any screens defined or you are using the default Tailwind build through a CDN, you'll want to audit your design and make sure that nothing breaks because of these changes. No breakpoints got smaller so you are very unlikely to run into any issues, but it's worth checking either way.
+構成ファイルに画面が定義されていない場合、またはCDNを介してデフォルトのTailwindビルドを使用している場合は、デザインを監査し、これらの変更によって何も壊れていないことを確認する必要があります。
+ブレークポイントが小さくなることはないため、問題が発生する可能性はほとんどありませんが、どちらの方法でも確認する価値があります。
 
-Again, this only applies if you do not have any screens defined in your config file or if you are using the default Tailwind build through a CDN.
+繰り返しますが、これは、構成ファイルに画面が定義されていない場合、またはCDNを介してデフォルトのTailwindビルドを使用している場合にのみ適用されます。
 
-If you started with a complete config file, your old screens values will continue to work the same way in v1.0 and you don't need to make any changes.
+完全な構成ファイルから始めた場合、古い画面の値はv1.0でも同じように機能し続けるため、変更を加える必要はありません。
 
-<Heading level={3}>4. Double check any usage of the default <code>{'shadow-{size}'}</code> utilities</Heading>
-
-<p className="italic font-normal text-gray-600 mt-4">Impact: Low, Effort: Low</p>
-
-**This change only affects you if you don't have a box-shadow scale defined in your config file or you are using Tailwind through a CDN.**
-
-Tailwind v1.0 introduces two new box-shadow sizes (`xl`, and `2xl`) and the rest of the shadows have been adjusted as well ([\#691](https://github.com/tailwindlabs/tailwindcss/pull/691)).
-
-If your config file doesn't have a box-shadow scale defined or you are using the default Tailwind build through a CDN, you should double check that you are still happy with how your shadows look. You may want to replace some instances of `lg` with `xl` or `2xl`, as the new `lg` shadow is a bit tighter than the old one.
-
-Again, this only applies if you do not have a box-shadow defined in your config file or if you are using the default Tailwind build through a CDN.
-
-If you started with a complete config file, your old box-shadow values will continue to work the same way in v1.0 and you don't need to make any changes.
-
-<Heading level={3}>5. Update any usage of the default <code>{'max-w-{size}'}</code> utilities</Heading>
+<Heading level={3}>4. <code>{'shadow-{size}'}</code> ユーティリティの使用法を再確認する</Heading>
 
 <p className="italic font-normal text-gray-600 mt-4">Impact: Low, Effort: Low</p>
 
-**This change only affects you if you don't have a max-width scale defined in your config file or you are using Tailwind through a CDN.**
+**この変更は、構成ファイルにボックスシャドウスケールが定義されていない場合、またはCDNを介してTailwindを使用している場合にのみ影響します。**
 
-Tailwind v1.0 introduces an all-new max-width scale that is much more usable than the previous default max-width scale ([\#701](https://github.com/tailwindlabs/tailwindcss/pull/701)).
+Tailwind v1.0では、2つの新しいボックスシャドウサイズ（`xl`と`2xl`）が導入され、残りのシャドウも調整されています。([\#691](https://github.com/tailwindlabs/tailwindcss/pull/691)).
 
-If your config file doesn't have a max-width scale defined or you are using the default Tailwind build through a CDN, you should audit your project for any usage of the existing `max-w-{size}` utilities and change the sizes as needed. In general, the new values are smaller than the old ones, so `max-w-md` for example may need to be `max-w-xl` or `max-w-2xl` in the new scale
+構成ファイルにボックスシャドウスケールが定義されていない場合、またはCDNを介してデフォルトのTailwindビルドを使用している場合は、シャドウの外観に満足していることを再確認する必要があります。
+新しい`lg`シャドウは古いシャドウよりも少しタイトなので、`lg`の一部のインスタンスを`xl`または`2xl`に置き換えることをお勧めします。
 
-Again, this only applies if you do not have a max-width defined in your config file or if you are using the default Tailwind build through a CDN.
+繰り返しますが、これは、構成ファイルにボックスシャドウが定義されていない場合、またはCDNを介してデフォルトのTailwindビルドを使用している場合にのみ適用されます。
 
-If you started with a complete config file, your old max-width values will continue to work the same way in v1.0 and you don't need to make any changes.
+完全な構成ファイルから始めた場合、古いボックスシャドウ値はv1.0でも同じように機能し続けるため、変更を加える必要はありません。
+
+<Heading level={3}>5. デフォルトの<code>{'max-w-{size}'}</code>ユーティリティの使用法を更新する</Heading>
+
+<p className="italic font-normal text-gray-600 mt-4">Impact: Low, Effort: Low</p>
+
+**この変更は、構成ファイルで最大幅スケールが定義されていない場合、またはCDNを介してTailwindを使用している場合にのみ影響します。**
+
+Tailwind v1.0では、以前のデフォルトの最大幅スケールよりもはるかに使いやすい、まったく新しい最大幅スケールが導入されています。 ([\#701](https://github.com/tailwindlabs/tailwindcss/pull/701)).
+
+構成ファイルに最大幅スケールが定義されていない場合、またはCDNを介してデフォルトのTailwindビルドを使用している場合は、既存の`max-w-{size}`ユーティリティの使用状況についてプロジェクトを監査し、必要に応じてサイズを変更してください。
+一般に、新しい値は古い値よりも小さいため、たとえば`max-w-md`は新しいスケールでは`max-w-xl`または`max-w-2xl`である必要があります。
+
+繰り返しますが、これは、構成ファイルに最大幅が定義されていない場合、またはCDNを介してデフォルトのTailwindビルドを使用している場合にのみ適用されます。
+
+完全な構成ファイルから始めた場合、古いmax-width値はv1.0でも同じように機能し続けるため、変更を加える必要はありません。
 
 ---
 
-## Additional steps for plugin authors
+## プラグイン作成者向けの追加手順
 
-This step only affects users who have authored their own plugins.
+この手順は、独自のプラグインを作成したユーザーにのみ影響します。
 
-<Heading level={3} className="mt-6">Escape the class portion of any custom variants you have created</Heading>
+<Heading level={3} className="mt-6">作成したカスタムバリアントのクラス部分をエスケープします</Heading>
 
 <p className="italic font-normal text-gray-600 mt-4">Impact: Low, Effort: Low</p>
 
-In v1.0, you are required to manually escape the class name portion of any selectors you create when adding a new variant using a plugin.
+v1.0では、プラグインを使用して新しいバリアントを追加するときに、作成するセレクターのクラス名部分を手動でエスケープする必要があります。
 
 For example:
 
@@ -1228,6 +1245,6 @@ For example:
   },
 ```
 
-This is just like what you need to do when adding utilities or components that may include user-provided strings.
+これは、ユーザー提供の文字列を含む可能性のあるユーティリティまたはコンポーネントを追加するときに行う必要があることとまったく同じです。
 
-Unfortunately there is no super simple way to support both v0.x and v1.0 at the same time without checking which version of Tailwind the user has installed and conditionally applying the escape function.
+残念ながら、ユーザーがインストールしたTailwindのバージョンを確認し、条件付きでエスケープ機能を適用せずに、v0.xとv1.0の両方を同時にサポートする非常に簡単な方法はありません。
