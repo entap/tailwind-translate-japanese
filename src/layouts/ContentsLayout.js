@@ -212,9 +212,14 @@ export function ContentsLayout({ children, meta, classes, tableOfContents }) {
                   </Link>
                 )}
               </div>
+
+              <div>
+                <p className="font-thin text-xs mt-16">Translated by T.Arai @ Entap,Inc. / <a className="underline" href="https://www.entap.co.jp/">スマホアプリ開発会社</a></p>
+              </div>
             </>
           )}
         </div>
+
         <div className="hidden xl:text-sm xl:block xl:w-1/4 xl:px-6">
           <div
             className={clsx(
