@@ -34,9 +34,9 @@ export function Header({ navIsOpen, onNavToggle }) {
                   </span>
                 </h1>
                 <p className="mt-6 leading-relaxed sm:text-lg md:text-xl xl:text-lg text-gray-600">
-                  Tailwind CSS is a highly customizable, low-level CSS framework that gives you all
-                  of the building blocks you need to build bespoke designs without any annoying
-                  opinionated styles you have to fight to override.
+                  Tailwind CSSは高度にカスタマイズ可能な低レベルのCSSフレームワークであり、
+                  オーバーライドするために戦わなければならない煩わしい独善的なスタイルなしに、
+                  オーダーメイドのデザインを構築するために必要なすべてのビルディングブロックを提供します。
                 </p>
                 <div className="flex mt-6 justify-start md:justify-center xl:justify-start">
                   <Link href="/docs/installation">
